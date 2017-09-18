@@ -1,0 +1,33 @@
+[Desktop Entry]
+Name[de]=Latte
+Name[el]=Latte
+Name[es]=Latte
+Name[it]=Latte
+Name[zh_TW]=Latte
+Name=Latte
+Comment[de]=Dock für die Massen
+Comment[el]=Πίνακας για όλον τον κόσμο
+Comment[es]=Dock para las masas
+Comment[it]=Dock per le masse
+Comment[zh_TW]=給大眾使用的 dock
+Comment=Dock for the masses
+GenericName[de]=Dock
+GenericName[el]=Πίνακας
+GenericName[es]=Dock
+GenericName[it]=Dock
+GenericName[zh_TW]=Dock
+GenericName=Dock
+
+Version=0.6.87
+Categories=Utility;X-SuSE-DesktopUtility;
+Exec=latte-dock %u
+Icon=latte-dock
+InitialPreference=1
+Terminal=false
+Type=Application
+X-KDE-PluginInfo-Author=Michail Vourlakos, Smith Ar
+X-KDE-PluginInfo-Email=mvourlakos@gmail.com, audoban@openmailbox.org
+X-KDE-PluginInfo-Website=https://github.com/psifidotos/Latte-Dock
+X-KDE-StartupNotify=false
+X-DBUS-StartupType=Unique
+X-DBUS-ServiceName=org.kde.lattedock
