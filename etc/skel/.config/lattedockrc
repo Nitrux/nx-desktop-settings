@@ -1,0 +1,10 @@
+[ScreenConnectors]
+10=VGA-1
+
+[UniversalSettings]
+currentLayout=nomad
+lastNonAssignedLayout=nomad
+launchers=
+layoutsWindowSize=700,450
+showInfoWindow=true
+version=2
