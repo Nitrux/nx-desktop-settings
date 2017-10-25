@@ -1,0 +1,33 @@
+[General]
+Config Revision=10
+Days Meta Infos=30
+Last Session=
+Modified Notification=false
+Recent File List Entry Count=10
+Restore Window Configuration=true
+Save Meta Infos=true
+Show Full Path in Title=false
+Show Menu Bar=true
+Show Status Bar=true
+Show Tab Bar=true
+Startup Session=new
+
+[Konsole]
+AutoSyncronize=false
+SetEditor=false
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAABhAAAASZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+
+[filetree]
+editShade=99,233,252
+listMode=false
+shadingEnabled=true
+showFullPathOnRoots=false
+sortRole=0
+viewShade=191,206,207
+
+[project]
+autorepository=git
