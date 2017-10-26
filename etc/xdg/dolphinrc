@@ -1,8 +1,3 @@
-[CompactMode]
-FontWeight=50
-
-[DetailsMode]
-FontWeight=50
 
 [General]
 ConfirmClosingMultipleTabs=false
@@ -13,11 +8,15 @@ FontWeight=50
 IconSize=64
 
 [DetailsMode]
-IconSize=64
+FontWeight=50
+IconSize=16
+
+[CompactMode]
+FontWeight=50
+IconSize=16
 
 [MainWindow]
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAwAAAAAAAADXAAAEUfwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAIA////+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAwAAAEUQAAAGIA////AAAAAQAAAPMAAAR$
 ToolBarsMovable=Disabled
 
 [PreviewSettings]
