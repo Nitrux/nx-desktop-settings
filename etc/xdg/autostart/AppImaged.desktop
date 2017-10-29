@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Exec=appimaged
+X-KDE-StartupNotify=false
+X-GNOME-Autostart-enabled=true
+NoDisplay=true
+
+Name=AppImage Daemon
