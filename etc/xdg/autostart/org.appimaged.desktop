@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Exec=appimaged
+Exec=systemctl --user start appimaged
 X-KDE-StartupNotify=false
 X-GNOME-Autostart-enabled=true
 NoDisplay=true
