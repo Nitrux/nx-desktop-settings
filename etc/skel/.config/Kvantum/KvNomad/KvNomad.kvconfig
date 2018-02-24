@@ -38,7 +38,7 @@ toolbutton_style=1
 double_click=false
 
 translucent_windows=false
-blurring=false
+blurring=true
 popup_blurring=true
 
 opaque=kaffeine,kmplayer,subtitlecomposer,kdenlive,smplayer,smplayer2,avidemux,avidemux2_qt4,avidemux3_qt4,kamoso,QtCreator,VirtualBox,trojita,dragon,qupzilla,digikam
@@ -74,10 +74,6 @@ submenu_overlap=4
 tooltip_delay=-1
 tree_branch_line=true
 respect_DE=true
-no_window_pattern=false
-scrollable_menu=false
-submenu_delay=250
-transient_scrollbar=false
 
 [GeneralColors]
 #Set to 0% opacity so that the SVG elemnt is visible, by default the color overlaps the SVG element
