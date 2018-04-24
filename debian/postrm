@@ -1,0 +1,2 @@
+#!/bin/bash
+sed -i 's/QT_STYLE_OVERRIDE=kvantum//g' /etc/environment
