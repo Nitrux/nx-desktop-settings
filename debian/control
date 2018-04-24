@@ -1,0 +1,18 @@
+Source: nomad-desktop-settings
+Section: unknown
+Priority: optional
+Maintainer: Alexis L?pez Zubieta <azubieta90@gmail.com>
+Build-Depends: debhelper (>=9)
+Standards-Version: 3.9.6
+Homepage: http://www.nomad-desktop.org
+
+
+Package: nomad-desktop-settings
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Defaults settings for Nomad Desktop
+ Default settings for:
+  - KDE Plasma
+  - Latte
+  - Kvantum
+
