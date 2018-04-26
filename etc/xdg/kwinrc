@@ -10,10 +10,28 @@ OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
 XRenderSmoothScale=false
 
+[Effect-Cube]
+BorderActivate=9
+BorderActivateCylinder=9
+BorderActivateSphere=9
+
+[Effect-DesktopGrid]
+BorderActivate=9
+
 [Effect-PresentWindows]
-BorderActive=9
-BorderActiveteAll=5
-BorderActiveClass=9
+BorderActivate=9
+BorderActivateAll=9
+BorderActivateClass=9
+
+[ElectricBorders]
+Bottom=None
+BottomLeft=None
+BottomRight=None
+Left=None
+Right=None
+Top=None
+TopLeft=None
+TopRight=None
 
 [org.kde.kdecoration2]
 BorderSize=Normal

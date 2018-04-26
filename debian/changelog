@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.3.2-1)  nxos; urgency=medium
+
+  * New version.
+
+ -- Uri Herrera <uri_herrera@nitrux.in>  Tue, 26 Apr 2018 03:21:00 -0500
+
 nomad-desktop-settings (1.4.3.1-1)  nxos; urgency=medium
 
   * Fix typo.
