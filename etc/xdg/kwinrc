@@ -10,6 +10,11 @@ OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
 XRenderSmoothScale=false
 
+[Effect-PresentWindows]
+BorderActive=9
+BorderActiveteAll=5
+BorderActiveCalss=9
+
 [org.kde.kdecoration2]
 BorderSize=Normal
 ButtonsOnLeft=
