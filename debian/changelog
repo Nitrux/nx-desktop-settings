@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.3.6)  nxos; urgency=medium
+
+  * Disable kwallet.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 28 Aug 2018 16:04:00 -0500
+
 nomad-desktop-settings (1.4.3.5-1)  nxos; urgency=medium
 
   * New version.
