@@ -1,4 +1,4 @@
-# Nomad Desktop Settings [![Build Status](https://travis-ci.org/nomad-desktop/nomad-desktop-settings.svg?branch=master)](https://travis-ci.org/nomad-desktop/nomad-desktop-settings)
+# Nomad Desktop Settings [![Build Status](https://travis-ci.org/Nitrux/nomad-desktop-settings.svg?branch=master)](https://travis-ci.org/Nitrux/nomad-desktop-settings)
 
 Custom settings for Plasma 5 to enable Nomad Desktop.
 
