@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.4)  nxos; urgency=medium
+
+  * Use latte-dock to provide top panel and bottom dock.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 04 Sep 2018 15:49:00 -0500
+
 nomad-desktop-settings (1.4.3.6)  nxos; urgency=medium
 
   * Disable kwallet.
