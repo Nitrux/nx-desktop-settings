@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.6)  nxos; urgency=medium
+
+  * Add more launchers, use nomad-separator.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 14 Sep 2018 04:46:00 -0500
+
 nomad-desktop-settings (1.4.5)  nxos; urgency=medium
 
   * Adjust size of top-panel.

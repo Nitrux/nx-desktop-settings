@@ -91,7 +91,7 @@ plugin=org.kde.latte.plasmoid
 
 [Containments][13][Applets][47][Configuration][General]
 isInLatteDock=true
-launchers59=applications:org.kde.dolphin.desktop,applications:org.kde.kate.desktop,applications:systemsettings.desktop
+launchers59=applications:org.kde.dolphin.desktop,applications:org.kde.kate.desktop,applications:systemsettings.desktop,applications:chromium-browser.desktop,applications:org.kde.konsole.desktop
 
 [Containments][13][ConfigDialog]
 DialogHeight=597
@@ -134,13 +134,6 @@ plugin=org.nomad.systemtray
 PreloadWeight=33
 SystrayContainmentId=12
 
-[Containments][14][Applets][49]
-immutability=1
-plugin=audoban.applet.separator
-
-[Containments][14][Applets][49][Configuration]
-PreloadWeight=18
-
 [Containments][14][Applets][50]
 immutability=1
 plugin=org.kde.latte.spacer
@@ -168,7 +161,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][14][Applets][52][Configuration][General]
-lengthPercentage=10
+lengthPercentage=2
 
 [Containments][14][Applets][53]
 immutability=1
@@ -194,9 +187,13 @@ PreloadWeight=68
 [Containments][14][Applets][54][Configuration][General]
 favoriteApps=preferred://browser,systemsettings.desktop,org.kde.dolphin.desktop,org.kde.kate.desktop
 
+[Containments][14][Applets][55]
+immutability=1
+plugin=org.nomad-shell.panel.separator
+
 [Containments][14][ConfigDialog]
-DialogHeight=597
-DialogWidth=515
+DialogHeight=663
+DialogWidth=571
 
 [Containments][14][Configuration]
 PreloadWeight=18
@@ -204,7 +201,7 @@ PreloadWeight=18
 [Containments][14][General]
 activeIndicator=None
 advanced=true
-appletOrder=54;52;49;50;51;48;53
+appletOrder=54;52;55;50;51;48;53
 autoDecreaseIconSize=false
 iconSize=32
 panelPosition=10
@@ -224,7 +221,7 @@ activities=
 background=
 color=red
 disableBordersForMaximizedWindows=false
-lastUsedActivity=a19e6a6b-a393-4644-a3d9-ccc8dad1bea3
+lastUsedActivity=4e48a33d-3ac3-4bf3-8229-a91ef9904121
 launchers=
 showInMenu=true
 textColor=
