@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.5)  nxos; urgency=medium
+
+  * Adjust size of top-panel.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 14 Sep 2018 04:26:00 -0500
+
 nomad-desktop-settings (1.4.4)  nxos; urgency=medium
 
   * Use latte-dock to provide top panel and bottom dock.
