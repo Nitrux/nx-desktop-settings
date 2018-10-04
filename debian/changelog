@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.8)  nxos; urgency=medium
+
+  * Make use of folders in the menu and change favorites to Maui Apps.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 04 Oct 2018 05:21:00 -0500
+
 nomad-desktop-settings (1.4.7.1)  nxos; urgency=medium
 
   * Use Nomad Mix lnf.
