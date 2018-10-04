@@ -163,7 +163,7 @@ Theme=Luv
 
 [KDE]
 ColorScheme=Nomad
-LookAndFeelPackage=org.kde.nomad.dark.desktop
+LookAndFeelPackage=org.kde.nomad.mix.desktop
 ShowIconsInMenuItems=true
 ShowIconsOnPushButtons=true
 contrast=0
