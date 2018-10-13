@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.9)  nxos; urgency=medium
+
+  * Autostart welcome wizard.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 13 Oct 2018 16:40:00 -0500
+
 nomad-desktop-settings (1.4.8)  nxos; urgency=medium
 
   * Make use of folders in the menu and change favorites to Maui Apps.
