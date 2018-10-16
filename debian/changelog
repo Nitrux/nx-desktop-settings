@@ -1,4 +1,4 @@
-nomad-desktop-settings (1.4.9)  nxos; urgency=medium
+nomad-desktop-settings (1.4.10)  nxos; urgency=medium
 
   * Add folder to Nomad menu with AppImages.
 
