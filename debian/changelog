@@ -1,8 +1,8 @@
-nomad-desktop-settings (1.4.11)  nxos; urgency=medium
+nomad-desktop-settings (1.4.12)  nxos; urgency=medium
 
   * Update nomad app folders.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Tue, 16 Oct 2018 16:17:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 16 Oct 2018 01:07:00 -0500
 
 nomad-desktop-settings (1.4.11)  nxos; urgency=medium
 
