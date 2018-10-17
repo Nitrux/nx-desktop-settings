@@ -1,5 +1,11 @@
 nomad-desktop-settings (1.4.11)  nxos; urgency=medium
 
+  * Update nomad app folders.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 16 Oct 2018 16:17:00 -0500
+
+nomad-desktop-settings (1.4.11)  nxos; urgency=medium
+
   * Update katerc config file.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 16 Oct 2018 16:17:00 -0500
