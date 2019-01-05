@@ -1,39 +1,33 @@
 sudo: required
-
 services:
-  - docker
-
+- docker
 addons:
   apt:
     packages:
-      - realpath
-
+    - realpath
 install:
-  - docker pull ubuntu:bionic
-  - wget https://raw.githubusercontent.com/nomad-desktop/nxos-repository-util/master/nxos-repository-util.sh -O nxos-repository-util.sh
-  - chmod +x nxos-repository-util.sh
-
+- docker pull ubuntu:bionic
+- wget https://raw.githubusercontent.com/nomad-desktop/nxos-repository-util/master/nxos-repository-util.sh
+  -O nxos-repository-util.sh
+- chmod +x nxos-repository-util.sh
 script:
- - docker run --rm -v $(pwd)/:/build/ -w /build/ ubuntu:bionic /bin/bash travis-build.sh
-
+- docker run --rm -v $(pwd)/:/build/ -w /build/ ubuntu:bionic /bin/bash travis-build.sh
 branches:
   only:
-    - master
-    - development
-
+  - master
+  - development
 deploy:
-  - provider: script
-    script: ./source/nxos-repository-util.sh upload testing *.deb
-    skip_cleanup: true
-    on:
-      branch: master
-      
-  - provider: script
-    script: ./source/nxos-repository-util.sh upload development *.deb
-    skip_cleanup: true
-    on:
-      branch: development
-
+- provider: script
+  script: "./source/nxos-repository-util.sh upload testing *.deb"
+  skip_cleanup: true
+  on:
+    branch: master
+- provider: script
+  script: "./source/nxos-repository-util.sh upload development *.deb"
+  skip_cleanup: true
+  on:
+    branch: development
 notifications:
   email: false
-  slack: nitrux:LgpKKPnWky7IWShmzXsyVDWu
+  slack:
+    secure: ErawOSywPugYOjiobqA4YpGXGkI1CEbzkgTocfGp1tsKm/Zp2T73pev1+o+hfUK5PoJ9NVVTpnd0mMyeWOV4rdaD5DmbQZAij5BsQGkT+pvyIKVhizEZp1zWjunw6HR60uAw+TtxduSycHtzeWob8R30b/+nl7Q/iVatRXHtzmD1DF7CbFy5KvjlaTrwF9BZ0PFFDlo0j9Alh1pWTILxIHx3oIEdgUnP3Hf1XmbSEStx+b9qT4dJzYsUekoGsRpYhLBfq4Ntm86ednJxlunkSQi8czlDjCQ540nkHQArBJaN4dQCbSyrkwJhQHF2H7gcHlHGFZm3uAoTOLYrC9l6R7CSdTjca8CPWb0ENkrrGHwoTc13E7x9h/fFSn6QBex+Xgwv2YQTrnHSYHFkRoJ/89/H50zE+6ju7QKcEw2HWJhQPMQYelRC+F1K+Iwic/FOrpf/T/lmGit7ukHAKecgwOG99D83LObyQ0do02uDb6Wfj/KdHAdaGf3PXfly3GHak5cPBtXY9qFkoYsir2EFhJhxPm0BDvaIT225RcASc2TYUWryFS8tFK0DH2+nqH1JLS42Kjj1nIQz34lEWbyrZX74eVNvNGizydKZVBRqeleHjrZqZxaA430AMCVBvK2xAK1+1sNeSqmCGIbcBciozHHiuUqqFsXANjuE+2rq/38=
