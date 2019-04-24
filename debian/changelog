@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.25)  nxos; urgency=medium
+
+  * Update nomad-simplemenu app folder.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 24 Apr 2019 02:18:00 -0500
+
 nomad-desktop-settings (1.4.24)  nxos; urgency=medium
 
   * Update nomad-simplemenu app folder.
