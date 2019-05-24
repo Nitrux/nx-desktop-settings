@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.27)  nxos; urgency=medium
+
+  * Update latte layout.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 24 May 2019 04:35:00 -0500
+
 nomad-desktop-settings (1.4.26)  nxos; urgency=medium
 
   * Update nomad-simplemenu app folder.
