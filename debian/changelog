@@ -1,3 +1,9 @@
+nomad-desktop-settings (1.4.28)  nxos; urgency=medium
+
+  * Update latte layout.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 May 2019 19:12:00 -0500
+ 
 nomad-desktop-settings (1.4.27)  nxos; urgency=medium
 
   * Update latte layout.
