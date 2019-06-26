@@ -39,4 +39,4 @@ ButtonsOnLeft=
 ButtonsOnRight=IAX
 CloseOnDoubleClickOnMenu=false
 library=org.kde.kwin.aurorae
-theme=__aurorae__svg__org.kwin.aurorae.nomad
+theme=__aurorae__svg__org.kwin.aurorae.nitrux.dark

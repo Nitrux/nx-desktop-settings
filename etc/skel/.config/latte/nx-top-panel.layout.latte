@@ -9,29 +9,29 @@ immutability=1
 lastScreen=-1
 layoutId=
 location=3
-plugin=org.nomad.private.systemtray
+plugin=org.nx.private.systemtray
 wallpaperplugin=org.kde.image
 
 [Containments][12][Applets][41]
 immutability=1
-plugin=org.nomad.networkmanagement
+plugin=org.nx.networkmanagement
 
 [Containments][12][Applets][41][Configuration]
-PreloadWeight=0
+PreloadWeight=10
 
 [Containments][12][Applets][42]
 immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][12][Applets][42][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][12][Applets][43]
 immutability=1
 plugin=org.kde.plasma.vault
 
 [Containments][12][Applets][43][Configuration]
-PreloadWeight=0
+PreloadWeight=10
 
 [Containments][12][Applets][44]
 immutability=1
@@ -42,7 +42,7 @@ PreloadWeight=0
 
 [Containments][12][Applets][45]
 immutability=1
-plugin=org.nomad.notifications
+plugin=org.nx.notifications
 
 [Containments][12][Applets][45][Configuration]
 PreloadWeight=0
@@ -52,22 +52,22 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][12][Applets][46][Configuration]
-PreloadWeight=11
+PreloadWeight=3
 
 [Containments][12][Applets][58]
 immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][12][Applets][58][Configuration]
-PreloadWeight=42
+PreloadWeight=34
 
 [Containments][12][ConfigDialog]
 DialogHeight=986
 DialogWidth=1136
 
 [Containments][12][General]
-extraItems=org.nomad.networkmanagement,org.nomad.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,org.kde.plasma.volume
-knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.nomad.audio,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.discovernotifier,org.kde.kdeconnect,org.kde.plasma.bluetooth,org.kde.plasma.keyboardindicator,org.kde.plasma.battery,org.kde.plasma.notifications,org.nomad.notifications,org.nomad.networkmanagement,org.kde.plasma.printmanager
+extraItems=org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,org.kde.plasma.volume
+knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.nx.audio,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.discovernotifier,org.kde.kdeconnect,org.kde.plasma.bluetooth,org.kde.plasma.keyboardindicator,org.kde.plasma.battery,org.kde.plasma.notifications,org.nx.notifications,org.nx.networkmanagement,org.kde.plasma.printmanager
 
 [Containments][13]
 activityId=
@@ -92,18 +92,18 @@ immutability=1
 plugin=org.kde.latte.plasmoid
 
 [Containments][13][Applets][47][Configuration]
-PreloadWeight=18
+PreloadWeight=10
 
 [Containments][13][Applets][47][Configuration][General]
 isInLatteDock=true
 launchers59=applications:org.kde.dolphin.desktop,applications:org.kde.kate.desktop,applications:systemsettings.desktop,applications:org.kde.konsole.desktop
 
 [Containments][13][ConfigDialog]
-DialogHeight=597
-DialogWidth=515
+DialogHeight=663
+DialogWidth=571
 
 [Containments][13][Configuration]
-PreloadWeight=18
+PreloadWeight=10
 
 [Containments][13][General]
 advanced=true
@@ -136,10 +136,10 @@ wallpaperplugin=org.kde.image
 
 [Containments][14][Applets][48]
 immutability=1
-plugin=org.nomad.systemtray
+plugin=org.nx.systemtray
 
 [Containments][14][Applets][48][Configuration]
-PreloadWeight=1
+PreloadWeight=5
 SystrayContainmentId=12
 
 [Containments][14][Applets][50]
@@ -147,7 +147,7 @@ immutability=1
 plugin=org.kde.latte.spacer
 
 [Containments][14][Applets][50][Configuration]
-PreloadWeight=18
+PreloadWeight=10
 
 [Containments][14][Applets][50][Configuration][ConfigDialog]
 DialogHeight=540
@@ -172,7 +172,7 @@ immutability=1
 plugin=org.kde.latte.spacer
 
 [Containments][14][Applets][52][Configuration]
-PreloadWeight=18
+PreloadWeight=10
 
 [Containments][14][Applets][52][Configuration][ConfigDialog]
 DialogHeight=540
@@ -183,10 +183,10 @@ lengthPercentage=2
 
 [Containments][14][Applets][53]
 immutability=1
-plugin=org.nomad.clock
+plugin=org.nx.clock
 
 [Containments][14][Applets][53][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][14][Applets][53][Configuration][Appearance]
 fontFamily=Homenaje
@@ -197,27 +197,30 @@ DialogWidth=640
 
 [Containments][14][Applets][54]
 immutability=1
-plugin=org.kde.plasma.nomadmenu
+plugin=org.kde.plasma.nxmenu
 
 [Containments][14][Applets][54][Configuration]
-PreloadWeight=41
+PreloadWeight=33
 
 [Containments][14][Applets][54][Configuration][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
 
 [Containments][14][Applets][54][Configuration][General]
-favoriteApps=znx-gui.desktop,org.kde.dolphin.desktop,systemsettings.desktop,org.kde.konsole.desktop
+favoriteApps=org.kde.dolphin.desktop,systemsettings.desktop,org.kde.konsole.desktop
 
 [Containments][14][Applets][54][Configuration][Groups]
-groupsJson=[\n    {\n        "apps": [\n        ],\n        "id": "ied5ss8n",\n        "name": "Maui Apps"\n    },\n    {\n        "apps": [\n            "systemsettings.desktop",\n            "org.kde.latte-dock.desktop",\n            "org.kde.konsole.desktop",\n            "org.kde.kate.desktop",\n            "org.kde.ark.desktop",\n            "org.kde.dolphin.desktop",\n            "org.kde.kinfocenter.desktop",\n            "org.kde.kcalc.desktop",\n            "org.kde.ksysguard.desktop",\n            "org.kde.spectacle.desktop"\n        ],\n        "id": "p7x5ss8n",\n        "name": "KDE Apps"\n    },\n    {\n        "apps": [\n            "kvantummanager.desktop",\n            "qpdfview.desktop"\n        ],\n        "id": "8ut6ss8n",\n        "name": "Qt Apps"\n    },\n    {\n        "apps": [\n            "znx-gui.desktop"\n        ],\n        "id": "zqf7ss8n",\n        "name": "Utilities"\n    },\n    {\n        "apps": [\n            "appimagekit_21b7e0504fc6aa280754780eec41049c-LibreOffice.desktop",\n            "appimagekit_54374d3bac1196569e2c4ad0a0def9f4-Waterfox.desktop",\n            "appimagekit_8da550a30b7dc05f1e011d554c583c8e-VLC_media_player.desktop",\n            "appimagekit_7e43b5f63bd203f2e73b7f577797481b-AppImageUpdate.desktop"\n        ],\n        "id": "l2aghc8n",\n        "name": "AppImages"\n    },\n    {\n        "apps": [\n            "install.itch.io.desktop"\n        ],\n        "id": "7hltipjm",\n        "name": "Bundled Apps"\n    }\n]\n
+groupsJson=[\n    {\n        "apps": [\n        ],\n        "id": "ied5ss8n",\n        "name": "Maui Apps"\n    },\n    {\n        "apps": [\n            "systemsettings.desktop",\n            "org.kde.latte-dock.desktop",\n            "org.kde.konsole.desktop",\n            "org.kde.kate.desktop",\n            "org.kde.ark.desktop",\n            "org.kde.dolphin.desktop",\n            "org.kde.kinfocenter.desktop",\n            "org.kde.kcalc.desktop",\n            "org.kde.ksysguard.desktop",\n            "org.kde.spectacle.desktop"\n        ],\n        "id": "p7x5ss8n",\n        "name": "KDE Apps"\n    },\n    {\n        "apps": [\n            "kvantummanager.desktop",\n            "qpdfview.desktop"\n        ],\n        "id": "8ut6ss8n",\n        "name": "Qt Apps"\n    },\n    {\n        "apps": [\n        ],\n        "id": "zqf7ss8n",\n        "name": "Utilities"\n    },\n    {\n        "apps": [\n            "appimagekit_b1effe9b4a61bf76db7e6ba30a42c708-ZNX_GUI.desktop",\n            "appimagekit_21b7e0504fc6aa280754780eec41049c-LibreOffice.desktop",\n            "appimagekit_54374d3bac1196569e2c4ad0a0def9f4-Waterfox.desktop",\n            "appimagekit_8da550a30b7dc05f1e011d554c583c8e-VLC_media_player.desktop",\n            "appimagekit_7e43b5f63bd203f2e73b7f577797481b-AppImageUpdate.desktop",\n            "appimagekit_5f77a27bc2ec851c9b2e5ca962a8c9b3-Wine.desktop"\n        ],\n        "id": "l2aghc8n",\n        "name": "AppImages"\n    },\n    {\n        "apps": [\n            "install.itch.io.desktop"\n        ],\n        "id": "7hltipjm",\n        "name": "Bundled Apps"\n    }\n]\n
+
+[Containments][14][Applets][54][Shortcuts]
+global=Meta+Alt+L
 
 [Containments][14][Applets][57]
 immutability=1
 plugin=org.kde.windowtitle
 
 [Containments][14][Applets][57][Configuration]
-PreloadWeight=42
+PreloadWeight=34
 
 [Containments][14][Applets][57][Configuration][ConfigDialog]
 DialogHeight=540
@@ -260,7 +263,7 @@ activities=
 background=
 color=red
 disableBordersForMaximizedWindows=false
-lastUsedActivity=79af6e55-d11b-435c-a7bd-848292943d69
+lastUsedActivity=ff74d329-3b25-477f-ae0f-6709f7f39fab
 launchers=
 showInMenu=true
 textColor=

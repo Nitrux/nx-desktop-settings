@@ -1,3 +1,16 @@
+nx-desktop-settings (1.4.29)  nxos; urgency=medium
+
+  * Update.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 25 Jun 2019 20:22:00 -0500
+
+nx-desktop-settings (1.4.28)  nxos; urgency=medium
+
+  * Update latte layout. 
+  * Change name of the package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 25 Jun 2019 16:48:00 -0500
+
 nomad-desktop-settings (1.4.28)  nxos; urgency=medium
 
   * Update latte layout.

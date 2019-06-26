@@ -148,8 +148,11 @@ DisabledValue=1
 Size=32
 
 [General]
-ColorScheme=Nomad
-Name=Nomad
+ColorScheme=NitruxDark
+Name=Nitrux Dark
+XftAntialias=true
+XftHintStyle=hintmedium
+XftSubPixel=rgb
 fixed=Calling Code,10,-1,5,50,0,0,0,0,0,Regular
 font=Chivo [    ],10,-1,5,50,0,0,0,0,0,Regular
 menuFont=Chivo [    ],10,-1,5,50,0,0,0,0,0,Regular
@@ -162,10 +165,8 @@ widgetStyle=kvantum
 Theme=Luv
 
 [KDE]
-ColorScheme=Nomad
-LookAndFeelPackage=org.kde.nomad.mix.desktop
-ShowIconsInMenuItems=true
-ShowIconsOnPushButtons=true
+LookAndFeelPackage=org.kde.nitrux.dark.desktop
+ShowDeleteCommand=false
 contrast=0
 widgetStyle=kvantum
 

@@ -2,8 +2,8 @@
 10=VGA-1
 
 [UniversalSettings]
-currentLayout=nomad-top-panel
-lastNonAssignedLayout=nomad-top-panel
+currentLayout=nx-top-panel
+lastNonAssignedLayout=nx-top-panel
 launchers=
 layoutsWindowSize=700,450
 showInfoWindow=true

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Welcome Wizard
-Exec=nomad-welcome-wizard
+Exec=nx-welcome-wizard
 Icon=
-Comment=<optinal comments>
+Comment=

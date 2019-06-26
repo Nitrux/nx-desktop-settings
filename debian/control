@@ -1,16 +1,16 @@
-Source: nomad-desktop-settings
+Source: nx-desktop-settings
 Section: unknown
 Priority: optional
-Maintainer: Alexis L?pez Zubieta <azubieta90@gmail.com>
+Maintainer: Uri Herrera <uri_herrera@nxos.org>
 Build-Depends: debhelper (>=9)
 Standards-Version: 3.9.6
-Homepage: http://www.nomad-desktop.org
+Homepage: http://nx-desktop.org
 
 
-Package: nomad-desktop-settings
+Package: nx-desktop-settings
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Defaults settings for Nomad Desktop
+Description: Defaults settings for NX Desktop
  Default settings for:
   - KDE Plasma
   - Latte
