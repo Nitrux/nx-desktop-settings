@@ -3,12 +3,17 @@ AnimationSpeed=3
 Backend=OpenGL
 Enabled=true
 GLCore=true
-GLPreferBufferSwap=a
+GLPreferBufferSwap=p
+OpenGLIsUnsafe=false
 GLTextureFilter=2
 HiddenPreviews=5
 OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
 XRenderSmoothScale=false
+
+[Effect-Blur]
+BlurStrength=6
+NoiseStrength=8
 
 [Effect-Cube]
 BorderActivate=9
@@ -32,6 +37,15 @@ Right=None
 Top=None
 TopLeft=None
 TopRight=None
+
+[Plugins]
+blurEnabled=true
+contrastEnabled=true
+
+[TabBox]
+DesktopLayout=org.kde.nitrux.dark.desktop
+DesktopListLayout=org.kde.nitrux.dark.desktop
+LayoutName=big_icons
 
 [org.kde.kdecoration2]
 BorderSize=Normal
