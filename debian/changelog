@@ -1,6 +1,6 @@
-nx-desktop-settings (1.4.34)  nxos; urgency=medium
+nx-desktop-settings (1.4.35)  nxos; urgency=medium
 
-  * Update default settings.
+  * Update settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Jun 2019 23:34:00 -0500
 
