@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.39)  nxos; urgency=medium
+
+  * Update settings.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 15 Jul 2019 22:00:00 -0500
+ 
 nx-desktop-settings (1.4.38)  nxos; urgency=medium
 
   * Update settings.
