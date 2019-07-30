@@ -66,15 +66,17 @@ DialogHeight=986
 DialogWidth=1136
 
 [Containments][12][General]
-extraItems=org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,org.kde.plasma.volume,
-knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.nx.audio,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.discovernotifier,org.kde.kdeconnect,org.kde.plasma.bluetooth,org.kde.plasma.keyboardindicator,org.kde.plasma.battery,org.kde.plasma.notifications,org.nx.notifications,org.nx.networkmanagement,org.kde.plasma.printmanager
+extraItems=org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,org.kde.plasma.volume,,org.kde.kupapplet
+knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.nx.audio,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.discovernotifier,org.kde.kdeconnect,org.kde.plasma.bluetooth,org.kde.plasma.keyboardindicator,org.kde.plasma.battery,org.kde.plasma.notifications,org.nx.notifications,org.nx.networkmanagement,org.kde.plasma.printmanager,org.kde.kupapplet
 
 [Containments][13]
 activityId=
+byPassWM=false
 dockWindowBehavior=true
 enableKWinEdges=false
 formfactor=2
 immutability=1
+isPreferredForShortcuts=false
 lastScreen=-1
 layoutId=
 location=4
@@ -82,8 +84,10 @@ onPrimary=true
 plugin=org.kde.latte.containment
 raiseOnActivityChange=false
 raiseOnDesktopChange=false
+settingsComplexity=4
 timerHide=700
 timerShow=200
+viewType=0
 visibility=4
 wallpaperplugin=org.kde.image
 
@@ -99,8 +103,8 @@ isInLatteDock=true
 launchers59=applications:org.kde.dolphin.desktop,applications:org.kde.kate.desktop,applications:systemsettings.desktop,applications:org.kde.konsole.desktop
 
 [Containments][13][ConfigDialog]
-DialogHeight=663
-DialogWidth=571
+DialogHeight=924
+DialogWidth=509
 
 [Containments][13][Configuration]
 PreloadWeight=0
@@ -108,20 +112,40 @@ PreloadWeight=0
 [Containments][13][General]
 advanced=true
 appletOrder=47
-durationTime=None
+durationTime=x3
 iconSize=48
 indicateAudioStreams=false
+infoBadgeProminentColorEnabled=true
 panelShadows=false
 panelSize=25
+panelTransparency=65
 shadows=None
+showOnlyCurrentActivity=false
+showOnlyCurrentDesktop=true
+showWindowActions=true
+shrinkThickMargins=true
 threeColorsWindows=true
+zoomLevel=0
+
+[Containments][13][Indicator]
+customType=
+enabled=true
+enabledForApplets=true
+padding=0.07999999821186066
+type=org.kde.latte.default
+
+[Containments][13][Indicator][org.kde.latte.default][General]
+extraDotOnActive=true
+minimizedTaskColoredDifferently=true
 
 [Containments][14]
 activityId=
+byPassWM=false
 dockWindowBehavior=true
 enableKWinEdges=true
 formfactor=2
 immutability=1
+isPreferredForShortcuts=false
 lastScreen=-1
 layoutId=
 location=3
@@ -129,8 +153,10 @@ onPrimary=true
 plugin=org.kde.latte.containment
 raiseOnActivityChange=false
 raiseOnDesktopChange=false
+settingsComplexity=4
 timerHide=700
 timerShow=200
+viewType=1
 visibility=0
 wallpaperplugin=org.kde.image
 
@@ -213,7 +239,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][14][Applets][57][Configuration][General]
-containmentType=Plasma
+containmentType=Latte
 filterActivityInfo=true
 filterByScreen=true
 iconFillThickness=false
@@ -234,8 +260,8 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][14][ConfigDialog]
-DialogHeight=663
-DialogWidth=571
+DialogHeight=906
+DialogWidth=509
 
 [Containments][14][Configuration]
 PreloadWeight=0
@@ -243,28 +269,43 @@ PreloadWeight=0
 [Containments][14][General]
 activeIndicator=None
 advanced=true
-appletOrder=54;50;52;57;51;48;60
+animationsEnabled=false
+appletOrder=54;57;51;48;60
 autoDecreaseIconSize=false
+durationTime=x3
 iconSize=32
 panelPosition=10
 panelShadows=false
 panelSize=100
+panelTransparency=65
 shadowOpacity=60
 shadowSize=45
 shadows=None
 showGlow=false
-splitterPosition=5
-splitterPosition2=6
+shrinkThickMargins=true
+splitterPosition=3
+splitterPosition2=4
 titleTooltips=false
 zoomLevel=0
+
+[Containments][14][Indicator]
+customType=
+enabled=true
+enabledForApplets=true
+padding=0.07999999821186066
+type=org.kde.latte.default
+
+[Containments][14][Indicator][org.kde.latte.default][General]
+reversed=true
 
 [LayoutSettings]
 activities=
 background=
 color=red
 disableBordersForMaximizedWindows=false
-lastUsedActivity=a0d8fa53-dc2b-4ab9-a1fb-c2b4298c1791
+lastUsedActivity=a2d13079-f9c8-45a8-acf2-1006a5b21419
 launchers=
+preferredForShortcutsTouched=false
 showInMenu=true
 textColor=
 version=2

@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.39)  nxos; urgency=medium
+
+  * Update latte config for new version.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 30 Jul 2019 04:53:00 -0500
+
 nx-desktop-settings (1.4.38)  nxos; urgency=medium
 
   * Update settings.
