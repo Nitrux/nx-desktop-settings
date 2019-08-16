@@ -12,12 +12,8 @@ location=3
 plugin=org.nx.private.systemtray
 wallpaperplugin=org.kde.image
 
-[Containments][12][Applets][42]
-immutability=1
-plugin=org.kde.plasma.volume
-
 [Containments][12][Applets][42][Configuration]
-PreloadWeight=0
+PreloadWeight=42
 
 [Containments][12][Applets][43]
 immutability=1
@@ -59,14 +55,35 @@ immutability=1
 plugin=org.nx.networkmanagement
 
 [Containments][12][Applets][61][Configuration]
-PreloadWeight=20
+PreloadWeight=25
+
+[Containments][12][Applets][62]
+immutability=1
+plugin=org.kde.redshiftControl
+
+[Containments][12][Applets][63]
+immutability=1
+plugin=org.kde.plasma.bluetooth
+
+[Containments][12][Applets][63][Configuration]
+PreloadWeight=55
+
+[Containments][12][Applets][64]
+immutability=1
+plugin=org.nx.audio
+
+[Containments][12][Applets][64][Configuration]
+PreloadWeight=55
+
+[Containments][12][Applets][65][Configuration]
+PreloadWeight=42
 
 [Containments][12][ConfigDialog]
-DialogHeight=986
+DialogHeight=703
 DialogWidth=1136
 
 [Containments][12][General]
-extraItems=org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,org.kde.plasma.volume,,org.kde.kupapplet
+extraItems=org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,,org.kde.kupapplet,org.kde.redshiftControl,org.kde.plasma.bluetooth,org.nx.audio
 knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.nx.audio,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.discovernotifier,org.kde.kdeconnect,org.kde.plasma.bluetooth,org.kde.plasma.keyboardindicator,org.kde.plasma.battery,org.kde.plasma.notifications,org.nx.notifications,org.nx.networkmanagement,org.kde.plasma.printmanager,org.kde.kupapplet
 
 [Containments][13]
@@ -165,7 +182,7 @@ immutability=1
 plugin=org.nx.systemtray
 
 [Containments][14][Applets][48][Configuration]
-PreloadWeight=0
+PreloadWeight=20
 SystrayContainmentId=12
 
 [Containments][14][Applets][50]
@@ -222,7 +239,7 @@ DialogWidth=720
 favoriteApps=org.kde.dolphin.desktop,systemsettings.desktop,org.kde.konsole.desktop
 
 [Containments][14][Applets][54][Configuration][Groups]
-groupsJson=[\n    {\n        "apps": [\n        ],\n        "id": "ied5ss8n",\n        "name": "Maui Apps"\n    },\n    {\n        "apps": [\n            "org.kde.spectacle.desktop",\n            "org.kde.ksysguard.desktop",\n            "org.kde.kcalc.desktop",\n            "org.kde.kinfocenter.desktop",\n            "org.kde.dolphin.desktop",\n            "org.kde.ark.desktop",\n            "org.kde.kate.desktop",\n            "org.kde.konsole.desktop",\n            "org.kde.latte-dock.desktop",\n            "systemsettings.desktop"\n        ],\n        "id": "p7x5ss8n",\n        "name": "KDE Apps"\n    },\n    {\n        "apps": [\n            "qpdfview.desktop",\n            "kvantummanager.desktop"\n        ],\n        "id": "8ut6ss8n",\n        "name": "Qt Apps"\n    },\n    {\n        "apps": [\n            "znx-gui.desktop"\n        ],\n        "id": "zqf7ss8n",\n        "name": "Utilities"\n    },\n    {\n        "apps": [\n            "appimagekit_0fe097ff926aaaef5e4d714392c1e73f-LibreOffice.desktop",\n            "appimagekit_a26ef5a35b81590e3e30a8dd372ea246-Pix.desktop",\n            "appimagekit_5f77a27bc2ec851c9b2e5ca962a8c9b3-Wine.desktop",\n            "appimagekit_7e43b5f63bd203f2e73b7f577797481b-AppImageUpdate.desktop",\n            "appimagekit_8da550a30b7dc05f1e011d554c583c8e-VLC_media_player.desktop",\n            "appimagekit_54374d3bac1196569e2c4ad0a0def9f4-Waterfox.desktop",\n            "appimagekit_e00131cdaf6606b58dc63e02f6f9667a-appimage-user-tool.desktop"\n        ],\n        "id": "l2aghc8n",\n        "name": "AppImages"\n    },\n    {\n        "apps": [\n            "install.itch.io.desktop"\n        ],\n        "id": "7hltipjm",\n        "name": "Bundled Apps"\n    }\n]\n
+groupsJson=[\n    {\n        "apps": [\n        ],\n        "id": "ied5ss8n",\n        "name": "Maui Apps"\n    },\n    {\n        "apps": [\n            "systemsettings.desktop",\n            "org.kde.latte-dock.desktop",\n            "org.kde.konsole.desktop",\n            "org.kde.kate.desktop",\n            "org.kde.ark.desktop",\n            "org.kde.dolphin.desktop",\n            "org.kde.kinfocenter.desktop",\n            "org.kde.kcalc.desktop",\n            "org.kde.ksysguard.desktop",\n            "org.kde.spectacle.desktop"\n        ],\n        "id": "p7x5ss8n",\n        "name": "KDE Apps"\n    },\n    {\n        "apps": [\n            "kvantummanager.desktop",\n            "qpdfview.desktop"\n        ],\n        "id": "8ut6ss8n",\n        "name": "Qt Apps"\n    },\n    {\n        "apps": [\n            "znx-gui.desktop"\n        ],\n        "id": "zqf7ss8n",\n        "name": "Utilities"\n    },\n    {\n        "apps": [\n            "appimagekit_2b2442f621c795a89dc669b7b4b36fbc-AppImageUpdate.desktop",\n            "appimagekit_679c0441494dc5de5b1773acfcaca2e8-VLC_media_player.desktop",\n            "appimagekit_e00131cdaf6606b58dc63e02f6f9667a-appimage-user-tool.desktop",\n            "appimagekit_54374d3bac1196569e2c4ad0a0def9f4-Waterfox.desktop",\n            "appimagekit_5f77a27bc2ec851c9b2e5ca962a8c9b3-Wine.desktop",\n            "appimagekit_a26ef5a35b81590e3e30a8dd372ea246-Pix.desktop",\n            "appimagekit_7c20b5dacb81ab61d532562cb366abf0-LibreOffice.desktop"\n        ],\n        "id": "l2aghc8n",\n        "name": "AppImages"\n    },\n    {\n        "apps": [\n            "install.itch.io.desktop"\n        ],\n        "id": "7hltipjm",\n        "name": "Bundled Apps"\n    }\n]\n
 
 [Containments][14][Applets][54][Shortcuts]
 global=Meta+Alt+L
@@ -303,7 +320,7 @@ activities=
 background=
 color=red
 disableBordersForMaximizedWindows=false
-lastUsedActivity=a2d13079-f9c8-45a8-acf2-1006a5b21419
+lastUsedActivity=ef62aee4-e921-44f3-a019-ddbb44dd0f08
 launchers=
 preferredForShortcutsTouched=false
 showInMenu=true
