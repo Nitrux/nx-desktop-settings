@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.42)  nxos; urgency=medium
+
+  * New panel layout.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 15 Aug 2019 22:15:00 -0500
+ 
 nx-desktop-settings (1.4.41)  nxos; urgency=medium
 
   * New panel layout.
