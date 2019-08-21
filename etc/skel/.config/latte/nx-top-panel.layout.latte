@@ -55,11 +55,14 @@ immutability=1
 plugin=org.nx.networkmanagement
 
 [Containments][12][Applets][61][Configuration]
-PreloadWeight=25
+PreloadWeight=17
 
 [Containments][12][Applets][62]
 immutability=1
 plugin=org.kde.redshiftControl
+
+[Containments][12][Applets][62][Configuration]
+PreloadWeight=42
 
 [Containments][12][Applets][63]
 immutability=1
@@ -73,7 +76,7 @@ immutability=1
 plugin=org.nx.audio
 
 [Containments][12][Applets][64][Configuration]
-PreloadWeight=55
+PreloadWeight=47
 
 [Containments][12][Applets][65][Configuration]
 PreloadWeight=42
@@ -116,7 +119,6 @@ plugin=org.kde.latte.plasmoid
 PreloadWeight=0
 
 [Containments][13][Applets][47][Configuration][General]
-isInLatteDock=true
 launchers59=applications:org.kde.dolphin.desktop,applications:org.kde.kate.desktop,applications:systemsettings.desktop,applications:org.kde.konsole.desktop
 
 [Containments][13][ConfigDialog]
@@ -182,7 +184,7 @@ immutability=1
 plugin=org.nx.systemtray
 
 [Containments][14][Applets][48][Configuration]
-PreloadWeight=20
+PreloadWeight=12
 SystrayContainmentId=12
 
 [Containments][14][Applets][50]
@@ -239,7 +241,7 @@ DialogWidth=720
 favoriteApps=org.kde.dolphin.desktop,systemsettings.desktop,org.kde.konsole.desktop
 
 [Containments][14][Applets][54][Configuration][Groups]
-groupsJson=[\n    {\n        "apps": [\n        ],\n        "id": "ied5ss8n",\n        "name": "Maui Apps"\n    },\n    {\n        "apps": [\n            "systemsettings.desktop",\n            "org.kde.latte-dock.desktop",\n            "org.kde.konsole.desktop",\n            "org.kde.kate.desktop",\n            "org.kde.ark.desktop",\n            "org.kde.dolphin.desktop",\n            "org.kde.kinfocenter.desktop",\n            "org.kde.kcalc.desktop",\n            "org.kde.ksysguard.desktop",\n            "org.kde.spectacle.desktop"\n        ],\n        "id": "p7x5ss8n",\n        "name": "KDE Apps"\n    },\n    {\n        "apps": [\n            "kvantummanager.desktop",\n            "qpdfview.desktop"\n        ],\n        "id": "8ut6ss8n",\n        "name": "Qt Apps"\n    },\n    {\n        "apps": [\n            "znx-gui.desktop"\n        ],\n        "id": "zqf7ss8n",\n        "name": "Utilities"\n    },\n    {\n        "apps": [\n            "appimagekit_2b2442f621c795a89dc669b7b4b36fbc-AppImageUpdate.desktop",\n            "appimagekit_679c0441494dc5de5b1773acfcaca2e8-VLC_media_player.desktop",\n            "appimagekit_e00131cdaf6606b58dc63e02f6f9667a-appimage-user-tool.desktop",\n            "appimagekit_54374d3bac1196569e2c4ad0a0def9f4-Waterfox.desktop",\n            "appimagekit_5f77a27bc2ec851c9b2e5ca962a8c9b3-Wine.desktop",\n            "appimagekit_a26ef5a35b81590e3e30a8dd372ea246-Pix.desktop",\n            "appimagekit_7c20b5dacb81ab61d532562cb366abf0-LibreOffice.desktop"\n        ],\n        "id": "l2aghc8n",\n        "name": "AppImages"\n    },\n    {\n        "apps": [\n            "install.itch.io.desktop"\n        ],\n        "id": "7hltipjm",\n        "name": "Bundled Apps"\n    }\n]\n
+groupsJson=[\n    {\n        "apps": [\n        ],\n        "id": "ied5ss8n",\n        "name": "Maui Apps"\n    },\n    {\n        "apps": [\n            "org.kde.spectacle.desktop",\n            "org.kde.ksysguard.desktop",\n            "org.kde.kcalc.desktop",\n            "org.kde.kinfocenter.desktop",\n            "org.kde.dolphin.desktop",\n            "org.kde.ark.desktop",\n            "org.kde.kate.desktop",\n            "org.kde.konsole.desktop",\n            "org.kde.latte-dock.desktop",\n            "systemsettings.desktop"\n        ],\n        "id": "p7x5ss8n",\n        "name": "KDE Apps"\n    },\n    {\n        "apps": [\n            "qpdfview.desktop",\n            "kvantummanager.desktop"\n        ],\n        "id": "8ut6ss8n",\n        "name": "Qt Apps"\n    },\n    {\n        "apps": [\n            "vmetal.desktop",\n            "znx-gui.desktop"\n        ],\n        "id": "zqf7ss8n",\n        "name": "Utilities"\n    },\n    {\n        "apps": [\n            "appimagekit_95690ab71bc6b48bdfd9d8974ef32405-Buho.desktop",\n            "appimagekit_7c20b5dacb81ab61d532562cb366abf0-LibreOffice.desktop",\n            "appimagekit_a26ef5a35b81590e3e30a8dd372ea246-Pix.desktop",\n            "appimagekit_5f77a27bc2ec851c9b2e5ca962a8c9b3-Wine.desktop",\n            "appimagekit_54374d3bac1196569e2c4ad0a0def9f4-Waterfox.desktop",\n            "appimagekit_e00131cdaf6606b58dc63e02f6f9667a-appimage-user-tool.desktop",\n            "appimagekit_679c0441494dc5de5b1773acfcaca2e8-VLC_media_player.desktop",\n            "appimagekit_2b2442f621c795a89dc669b7b4b36fbc-AppImageUpdate.desktop"\n        ],\n        "id": "l2aghc8n",\n        "name": "AppImages"\n    },\n    {\n        "apps": [\n            "install.itch.io.desktop"\n        ],\n        "id": "7hltipjm",\n        "name": "Bundled Apps"\n    }\n]\n
 
 [Containments][14][Applets][54][Shortcuts]
 global=Meta+Alt+L
@@ -267,7 +269,7 @@ immutability=1
 plugin=org.nx.clock
 
 [Containments][14][Applets][60][Configuration]
-PreloadWeight=31
+PreloadWeight=23
 
 [Containments][14][Applets][60][Configuration][Appearance]
 fontFamily=Homenaje
@@ -320,7 +322,7 @@ activities=
 background=
 color=red
 disableBordersForMaximizedWindows=false
-lastUsedActivity=ef62aee4-e921-44f3-a019-ddbb44dd0f08
+lastUsedActivity=a1b5fb4c-bffb-4356-a488-55d74a22cf1c
 launchers=
 preferredForShortcutsTouched=false
 showInMenu=true

@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.43)  nxos; urgency=medium
+
+  * Add vmetal and buho launcher to menu.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 20 Aug 2019 22:34:00 -0500
+
 nx-desktop-settings (1.4.42)  nxos; urgency=medium
 
   * New panel layout.
