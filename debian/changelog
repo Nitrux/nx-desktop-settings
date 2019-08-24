@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.44)  nxos; urgency=medium
+
+  * Move nx -welcome-wizard autostart launcher to .config
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 24 Aug 2019 02:50:00 -0500
+
 nx-desktop-settings (1.4.43)  nxos; urgency=medium
 
   * Add vmetal and buho launcher to menu.
