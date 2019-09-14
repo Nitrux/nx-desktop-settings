@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.45)  nxos; urgency=medium
+
+  * Update app menu entries.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 14 Sep 2019 15:57:00 -0500
+ 
 nx-desktop-settings (1.4.44)  nxos; urgency=medium
 
   * Move nx -welcome-wizard autostart launcher to .config
