@@ -99,6 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Add $PATH for Homebrew
-export PATH="/home/linuxbrew/.linuxbrew/bin:PATH"
-export MANPATH="/home/linuxbrew/.linuxbrew/share/man:MANPATH"
-export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:INFOPATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"

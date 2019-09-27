@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.51)  nxos; urgency=medium
+
+  * Fix Homebrew paths.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Sep 2019 15:16:00 -0500
+
 nx-desktop-settings (1.4.50)  nxos; urgency=medium
 
   * Add Homebrew paths.
