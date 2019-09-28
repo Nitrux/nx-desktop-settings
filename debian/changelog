@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.52)  nxos; urgency=medium
+
+  * Update app menu entries.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 28 Sep 2019 14:52:00 -0500
+
 nx-desktop-settings (1.4.51)  nxos; urgency=medium
 
   * Fix Homebrew paths.
