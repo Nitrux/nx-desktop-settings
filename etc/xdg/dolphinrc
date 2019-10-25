@@ -19,4 +19,4 @@ MenuBar=Disabled
 ToolBarsMovable=Disabled
 
 [PreviewSettings]
-Plugins=directorythumbnail,imagethumbnail,jpegthumbnail,svgthumbnail
+Plugins=appimagethumbnail,directorythumbnail,imagethumbnail,jpegthumbnail,svgthumbnail

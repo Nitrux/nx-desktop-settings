@@ -1,8 +1,10 @@
-# File created by KDE Gtk Config
-# Configs for GTK2 programs 
-
-gtk-alternative-button-order = 1
-
+# created by KDE Plasma, Fri Oct 25 21:31:02 2019
+#
+# If you do not want Plasma to override your GTK settings, select
+# Colors in the System Settings and disable the checkbox
+# "Apply colors to non-Qt applications"
+#
+#
 style "default"
 {
   bg[NORMAL] = { 0.314, 0.337, 0.349 }
@@ -52,19 +54,3 @@ style "MenuItem"
 
 class "*MenuItem" style "MenuItem"
 
-include "/usr/share/themes/nitrux-dark/gtk-2.0/gtkrc"
-style "user-font" 
-{
-	font_name="Chivo [    ] Regular"
-}
-
-widget_class "*" style "user-font"
-gtk-font-name="Chivo [    ] Regular 10"
-gtk-theme-name="nitrux-dark"
-gtk-icon-theme-name="Luv"
-gtk-fallback-icon-theme="breeze"
-gtk-cursor-theme-name="nitrux_cursors"
-gtk-toolbar-style=GTK_TOOLBAR_ICONS
-gtk-menu-images=1
-gtk-button-images=1
-gtk-primary-button-warps-slider=0
