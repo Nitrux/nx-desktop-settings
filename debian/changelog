@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.60)  nxos; urgency=medium
+
+  * Move notifications to the middle.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 26 Oct 2019 17:10:00 -0500
+
 nx-desktop-settings (1.4.59)  nxos; urgency=medium
 
   * Update appmenu, use regular grid for present windows effect.
