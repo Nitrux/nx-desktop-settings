@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.59)  nxos; urgency=medium
+
+  * Update appmenu, use regular grid for present windows effect.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 26 Oct 2019 00:27:00 -0500
+
 nx-desktop-settings (1.4.58)  nxos; urgency=medium
 
   * Remove conflicting file, again.

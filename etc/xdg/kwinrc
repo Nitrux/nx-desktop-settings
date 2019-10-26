@@ -32,6 +32,7 @@ TabBox=false
 TabBoxAlternative=false
 
 [Effect-PresentWindows]
+LayoutMode=1
 BorderActivateAll=3
 TouchBorderActivate=7
 TouchBorderActivateAll=9
