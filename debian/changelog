@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.57)  nxos; urgency=medium
+
+  * Remove conflicting file.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Oct 2019 19:55:00 -0500
+
 nx-desktop-settings (1.4.56)  nxos; urgency=medium
 
   * Update default config.
