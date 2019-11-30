@@ -1,3 +1,9 @@
+nx-desktop-settings (1.4.64)  nxos; urgency=medium
+
+  * Update app menu entries, again.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 30 Nov 2019 17:34:00 -0500
+
 nx-desktop-settings (1.4.63)  nxos; urgency=medium
 
   * Update app menu entries, again.
