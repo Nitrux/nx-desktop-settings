@@ -1,4 +1,4 @@
-Source: nx-desktop-settings
+Source: nx-desktop-settings-legacy
 Section: misc
 Priority: optional
 Maintainer: Uri Herrera <uri_herrera@nxos.org>
@@ -7,7 +7,7 @@ Standards-Version: 3.9.6
 Homepage: http://nx-desktop.org
 
 
-Package: nx-desktop-settings
+Package: nx-desktop-settings-legacy
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Defaults settings for NX Desktop
