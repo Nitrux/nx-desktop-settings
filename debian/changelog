@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.68)  nxos; urgency=medium
+
+  * Add files.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 22 Dec 2019 18:07:00 -0500
+
 nx-desktop-settings-legacy (1.4.67)  nxos; urgency=medium
 
   * Remove unnecessary files.
