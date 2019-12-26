@@ -2,8 +2,8 @@
 10=VGA-1
 
 [UniversalSettings]
-currentLayout=nx-top-panel
-lastNonAssignedLayout=nx-top-panel
+currentLayout=nx-bottom-panel
+lastNonAssignedLayout=nx-bottom-panel
 launchers=
 layoutsWindowSize=700,450
 showInfoWindow=true
