@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.74)  nxos; urgency=medium
+
+  * Update app menu.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 Jan 2020 17:30:00 -0500
+
 nx-desktop-settings-legacy (1.4.73)  nxos; urgency=medium
 
   * Update app menu.
