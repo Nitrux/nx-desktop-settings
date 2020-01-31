@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.76)  nxos; urgency=medium
+
+  * Add new layout.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 31 Jan 2020 01:53:00 -0500
+
 nx-desktop-settings-legacy (1.4.75)  nxos; urgency=medium
 
   * Update app menu.
