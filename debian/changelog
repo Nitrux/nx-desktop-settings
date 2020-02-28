@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.80)  nxos; urgency=medium
+
+  * Add default settings for LibreOffice.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Feb 2020 06:23:00 -0500
+
 nx-desktop-settings-legacy (1.4.79)  nxos; urgency=medium
 
   * Don't use new layout by default.
