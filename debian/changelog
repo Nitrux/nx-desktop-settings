@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.81)  nxos; urgency=medium
+
+  * Remove floating panel layout, update app menu groups.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Feb 2020 18:30:00 -0500
+
 nx-desktop-settings-legacy (1.4.80)  nxos; urgency=medium
 
   * Add default settings for LibreOffice.
