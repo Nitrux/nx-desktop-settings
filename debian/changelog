@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.82)  nxos; urgency=medium
+
+  * Remove floating panel layout, update app menu groups.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Mar 2020 19:00:00 -0500
+
 nx-desktop-settings-legacy (1.4.81)  nxos; urgency=medium
 
   * Remove floating panel layout, update app menu groups.
