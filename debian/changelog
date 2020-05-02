@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.87)  nxos; urgency=medium
+
+  * Add files.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 02 May 2020 00:07:00 -0500
+ 
 nx-desktop-settings-legacy (1.4.86)  nxos; urgency=medium
 
   * Move files to correct location.

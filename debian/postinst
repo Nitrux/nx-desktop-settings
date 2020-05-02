@@ -1,3 +1,31 @@
 #!/bin/bash
 
 echo QT_STYLE_OVERRIDE=kvantum >> /etc/environment 
+
+rm -R /usr/share/icons/breeze_cursors /usr/share/icons/Breeze_Snow
+rm /usr/share/applications/calamares.desktop
+rm /usr/share/applications/org.kde.kdeconnect.sms.desktop /usr/share/applications/org.kde.kdeconnect_open.desktop /usr/share/applications/org.kde.kdeconnect.app.desktop
+rm /usr/share/applications/htop.desktop /usr/share/applications/mc.desktop /usr/share/applications/mcedit.desktop /usr/share/applications/nsnake.desktop
+ln -sv /usr/games/nsnake /bin/nsnake
+rm /usr/share/applications/ibus-setup* /usr/share/applications/org.freedesktop.IBus* /usr/share/applications/org.kde.plasma.emojier.desktop /usr/share/applications/info.desktop
+
+git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
+
+rm /bin/sh.distrib
+/usr/bin/dpkg --remove --no-triggers --force-remove-essential --force-bad-path dash &> /dev/null
+ln -sv /bin/mksh /bin/sh
+/usr/bin/dpkg --remove --no-triggers --force-remove-essential --force-bad-path dash &> /dev/null
+
+sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
+sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
+
+sed -i 's/#DefaultTimeoutStartSec=90s/DefaultTimeoutStartSec=5s/g' /etc/systemd/system.conf
+sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=5s/g' /etc/systemd/system.conf
+
+mkdir -p /etc/systemd/system/networking.service.d/
+bash -c 'echo -e "[Service]\nTimeoutStartSec=20sec" > /etc/systemd/system/networking.service.d/timeout.conf'
+
+systemctl mask avahi-daemon.service
+systemctl disable cupsd.service cupsd-browsed.service NetworkManager-wait-online.service keyboard-setup.service
+
+sed -i 's/ACTION!="add", GOTO="libmtp_rules_end"/ACTION!="bind", ACTION!="add", GOTO="libmtp_rules_end"/g' /lib/udev/rules.d/69-libmtp.rules
