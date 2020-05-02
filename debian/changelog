@@ -1,5 +1,11 @@
 nx-desktop-settings-legacy (1.4.83)  nxos; urgency=medium
 
+  * Add files for liquidshell.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 01 May 2020 20:05:00 -0500
+
+nx-desktop-settings-legacy (1.4.83)  nxos; urgency=medium
+
   * Update app menu groups.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 28 Apr 2020 17:58:00 -0500
