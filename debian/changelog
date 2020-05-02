@@ -1,5 +1,11 @@
 nx-desktop-settings-legacy (1.4.88)  nxos; urgency=medium
 
+  * Remove conflicting file.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 02 May 2020 02:39:00 -0500
+
+nx-desktop-settings-legacy (1.4.88)  nxos; urgency=medium
+
   * Remove Trolltech.conf, it never worked.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 02 May 2020 01:21:00 -0500
