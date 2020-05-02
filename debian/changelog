@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.86)  nxos; urgency=medium
+
+  * Move files to correct location.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 01 May 2020 21:48:00 -0500
+ 
 nx-desktop-settings-legacy (1.4.85)  nxos; urgency=medium
 
   * Add files for liquidshell.
