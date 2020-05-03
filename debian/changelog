@@ -1,4 +1,4 @@
-nx-desktop-settings-legacy (1.4.90)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.91)  nxos; urgency=medium
 
   * Remove conflicting files.
 
