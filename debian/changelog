@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.40)  nxos; urgency=medium
+
+  * Remove conflicting file.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 03 May 2020 15:47:00 -0500
+
 nx-desktop-settings-legacy (1.4.89)  nxos; urgency=medium
 
   * Remove conflicting file.
