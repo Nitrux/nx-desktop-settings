@@ -29,3 +29,30 @@ systemctl mask avahi-daemon.service
 systemctl disable cupsd.service cupsd-browsed.service NetworkManager-wait-online.service keyboard-setup.service
 
 sed -i 's/ACTION!="add", GOTO="libmtp_rules_end"/ACTION!="bind", ACTION!="add", GOTO="libmtp_rules_end"/g' /lib/udev/rules.d/69-libmtp.rules
+
+mkdir -p /Applications
+mkdir -p /etc/skel/Applications
+mkdir -p /etc/skel/.local/bin
+
+echo -e "PATH=$PATH:/Applications\n" > /etc/environment
+sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
+sed -i "/env_reset/d" /etc/sudoers
+
+APPS_SYS='
+https://github.com/AppImage/appimaged/releases/download/continuous/appimaged-x86_64.AppImage
+'
+
+APPS_USR='
+'
+
+for x in $APPS_SYS; do
+    wget -q -P /Applications $x
+done
+
+for x in $APPS_USR; do
+    wget -q -P /Applications $x
+done
+
+chmod +x /Applications/*
+
+mv /Applications/appimaged-x86_64.AppImage /etc/skel/.local/bin/appimaged

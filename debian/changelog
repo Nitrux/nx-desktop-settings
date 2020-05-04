@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.4.92)  nxos; urgency=medium
+
+  * Add AppImage integration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 03 May 2020 20:54:00 -0500
+
 nx-desktop-settings-legacy (1.4.91)  nxos; urgency=medium
 
   * Remove conflicting files.
