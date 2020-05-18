@@ -1,400 +1,406 @@
-nx-desktop-settings-legacy (1.4.93)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.94)  nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 06 May 2020 01:29:00 -0500
+
+nx-desktop-settings-legacy (1.4.93)  nitrux; urgency=medium
 
   * Update app menu groups.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Wed, 06 May 2020 01:29:00 -0500
  
-nx-desktop-settings-legacy (1.4.92)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.92)  nitrux; urgency=medium
 
   * Add AppImage integration.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sun, 03 May 2020 20:54:00 -0500
 
-nx-desktop-settings-legacy (1.4.91)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.91)  nitrux; urgency=medium
 
   * Remove conflicting files.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sun, 03 May 2020 16:55:00 -0500
 
-nx-desktop-settings-legacy (1.4.90)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.90)  nitrux; urgency=medium
 
   * Remove conflicting file.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sun, 03 May 2020 15:47:00 -0500
 
-nx-desktop-settings-legacy (1.4.89)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.89)  nitrux; urgency=medium
 
   * Remove conflicting file.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 02 May 2020 02:39:00 -0500
 
-nx-desktop-settings-legacy (1.4.88)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.88)  nitrux; urgency=medium
 
   * Remove Trolltech.conf, it never worked.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 02 May 2020 01:21:00 -0500
 
-nx-desktop-settings-legacy (1.4.87)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.87)  nitrux; urgency=medium
 
   * Add files.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 02 May 2020 00:07:00 -0500
  
-nx-desktop-settings-legacy (1.4.86)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.86)  nitrux; urgency=medium
 
   * Move files to correct location.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 01 May 2020 21:48:00 -0500
  
-nx-desktop-settings-legacy (1.4.85)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.85)  nitrux; urgency=medium
 
   * Add files for liquidshell.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 01 May 2020 21:10:00 -0500
  
-nx-desktop-settings-legacy (1.4.84)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.84)  nitrux; urgency=medium
 
   * Add files for liquidshell.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 01 May 2020 20:05:00 -0500
 
-nx-desktop-settings-legacy (1.4.83)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.83)  nitrux; urgency=medium
 
   * Update app menu groups.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 28 Apr 2020 17:58:00 -0500
 
-nx-desktop-settings-legacy (1.4.82)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.82)  nitrux; urgency=medium
 
   * Remove floating panel layout, update app menu groups.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Mar 2020 19:00:00 -0500
 
-nx-desktop-settings-legacy (1.4.81)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.81)  nitrux; urgency=medium
 
   * Remove floating panel layout, update app menu groups.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Feb 2020 18:30:00 -0500
 
-nx-desktop-settings-legacy (1.4.80)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.80)  nitrux; urgency=medium
 
   * Add default settings for LibreOffice.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Feb 2020 06:23:00 -0500
 
-nx-desktop-settings-legacy (1.4.79)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.79)  nitrux; urgency=medium
 
   * Don't use new layout by default.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 31 Jan 2020 03:32:00 -0500
 
-nx-desktop-settings-legacy (1.4.78)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.78)  nitrux; urgency=medium
 
   * Update app menu.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 31 Jan 2020 02:17:00 -0500
 
-nx-desktop-settings-legacy (1.4.77)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.77)  nitrux; urgency=medium
 
   * Fix typo in layout name.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 31 Jan 2020 02:04:00 -0500
 
-nx-desktop-settings-legacy (1.4.76)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.76)  nitrux; urgency=medium
 
   * Add new layout.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 31 Jan 2020 01:53:00 -0500
 
-nx-desktop-settings-legacy (1.4.75)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.75)  nitrux; urgency=medium
 
   * Update app menu.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 Jan 2020 17:56:00 -0500
 
-nx-desktop-settings-legacy (1.4.74)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.74)  nitrux; urgency=medium
 
   * Update app menu.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 Jan 2020 17:30:00 -0500
 
-nx-desktop-settings-legacy (1.4.73)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.73)  nitrux; urgency=medium
 
   * Update app menu.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 Jan 2020 16:37:00 -0500
 
-nx-desktop-settings-legacy (1.4.72)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.72)  nitrux; urgency=medium
 
   * Update files.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 Jan 2020 03:47:00 -0500
 
-nx-desktop-settings-legacy (1.4.71)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.71)  nitrux; urgency=medium
 
   * Update files.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sun, 19 Jan 2020 19:23:00 -0500
 
-nx-desktop-settings-legacy (1.4.70)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.70)  nitrux; urgency=medium
 
   * Update files.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Mon, 13 Jan 2020 02:31:00 -0500
 
-nx-desktop-settings-legacy (1.4.69)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.69)  nitrux; urgency=medium
 
   * Update files.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Wed, 25 Dec 2019 17:38:00 -0500
 
-nx-desktop-settings-legacy (1.4.68)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.68)  nitrux; urgency=medium
 
   * Add files.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sun, 22 Dec 2019 18:07:00 -0500
 
-nx-desktop-settings-legacy (1.4.67)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.67)  nitrux; urgency=medium
 
   * Remove unnecessary files.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 03 Dec 2019 22:07:00 -0500
 
-nx-desktop-settings-legacy (1.4.66)  nxos; urgency=medium
+nx-desktop-settings-legacy (1.4.66)  nitrux; urgency=medium
 
   * Legacy branch.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 03 Dec 2019 22:07:00 -0500
 
-nx-desktop-settings (1.4.66)  nxos; urgency=medium
+nx-desktop-settings (1.4.66)  nitrux; urgency=medium
 
   * Update app menu entries, again.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Mon, 02 Dec 2019 20:45:00 -0500
  
-nx-desktop-settings (1.4.65)  nxos; urgency=medium
+nx-desktop-settings (1.4.65)  nitrux; urgency=medium
 
   * Update app menu entries, again.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Mon, 02 Dec 2019 19:52:00 -0500
 
-nx-desktop-settings (1.4.64)  nxos; urgency=medium
+nx-desktop-settings (1.4.64)  nitrux; urgency=medium
 
   * Update app menu entries, again.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 30 Nov 2019 17:34:00 -0500
 
-nx-desktop-settings (1.4.63)  nxos; urgency=medium
+nx-desktop-settings (1.4.63)  nitrux; urgency=medium
 
   * Update app menu entries, again.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Wed, 27 Nov 2019 03:19:00 -0500
 
-nx-desktop-settings (1.4.62)  nxos; urgency=medium
+nx-desktop-settings (1.4.62)  nitrux; urgency=medium
 
   * Update app menu entries, again.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Mon, 4 Nov 2019 23:01:00 -0500
 
-nx-desktop-settings (1.4.61)  nxos; urgency=medium
+nx-desktop-settings (1.4.61)  nitrux; urgency=medium
 
   * Update app menu entries.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Mon, 4 Nov 2019 03:14:00 -0500
 
-nx-desktop-settings (1.4.60)  nxos; urgency=medium
+nx-desktop-settings (1.4.60)  nitrux; urgency=medium
 
   * Move notifications to the middle.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 26 Oct 2019 17:10:00 -0500
 
-nx-desktop-settings (1.4.59)  nxos; urgency=medium
+nx-desktop-settings (1.4.59)  nitrux; urgency=medium
 
   * Update appmenu, use regular grid for present windows effect.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 26 Oct 2019 00:27:00 -0500
 
-nx-desktop-settings (1.4.58)  nxos; urgency=medium
+nx-desktop-settings (1.4.58)  nitrux; urgency=medium
 
   * Remove conflicting file, again.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Oct 2019 21:38:00 -0500
 
-nx-desktop-settings (1.4.57)  nxos; urgency=medium
+nx-desktop-settings (1.4.57)  nitrux; urgency=medium
 
   * Remove conflicting file.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Oct 2019 19:55:00 -0500
 
-nx-desktop-settings (1.4.56)  nxos; urgency=medium
+nx-desktop-settings (1.4.56)  nitrux; urgency=medium
 
   * Update default config.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Oct 2019 17:44:00 -0500
 
-nx-desktop-settings (1.4.55)  nxos; urgency=medium
+nx-desktop-settings (1.4.55)  nitrux; urgency=medium
 
   * Fix inverse layouts.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 18 Oct 2019 04:35:00 -0500
 
-nx-desktop-settings (1.4.54)  nxos; urgency=medium
+nx-desktop-settings (1.4.54)  nitrux; urgency=medium
 
   * Update app menu entries.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 17 Oct 2019 22:38:00 -0500
 
-nx-desktop-settings (1.4.53)  nxos; urgency=medium
+nx-desktop-settings (1.4.53)  nitrux; urgency=medium
 
   * Update app menu entries.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 28 Sep 2019 19:29:00 -0500
 
-nx-desktop-settings (1.4.52)  nxos; urgency=medium
+nx-desktop-settings (1.4.52)  nitrux; urgency=medium
 
   * Update app menu entries.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 28 Sep 2019 14:52:00 -0500
 
-nx-desktop-settings (1.4.51)  nxos; urgency=medium
+nx-desktop-settings (1.4.51)  nitrux; urgency=medium
 
   * Fix Homebrew paths.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Sep 2019 15:16:00 -0500
 
-nx-desktop-settings (1.4.50)  nxos; urgency=medium
+nx-desktop-settings (1.4.50)  nitrux; urgency=medium
 
   * Add Homebrew paths.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Sep 2019 14:04:00 -0500
 
-nx-desktop-settings (1.4.49)  nxos; urgency=medium
+nx-desktop-settings (1.4.49)  nitrux; urgency=medium
 
   * Update app menu entries.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Wed, 25 Sep 2019 14:25:00 -0500
 
-nx-desktop-settings (1.4.48)  nxos; urgency=medium
+nx-desktop-settings (1.4.48)  nitrux; urgency=medium
 
   * Update app menu entries.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Mon, 23 Sep 2019 14:17:00 -0500
 
-nx-desktop-settings (1.4.47)  nxos; urgency=medium
+nx-desktop-settings (1.4.47)  nitrux; urgency=medium
 
   * Update app menu entries.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 19 Sep 2019 11:59:00 -0500
 
-nx-desktop-settings (1.4.46)  nxos; urgency=medium
+nx-desktop-settings (1.4.46)  nitrux; urgency=medium
 
   * Add zsh configuration.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 19 Sep 2019 11:10:00 -0500
  
-nx-desktop-settings (1.4.45)  nxos; urgency=medium
+nx-desktop-settings (1.4.45)  nitrux; urgency=medium
 
   * Update app menu entries.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 14 Sep 2019 15:57:00 -0500
  
-nx-desktop-settings (1.4.44)  nxos; urgency=medium
+nx-desktop-settings (1.4.44)  nitrux; urgency=medium
 
   * Move nx -welcome-wizard autostart launcher to .config
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 24 Aug 2019 02:50:00 -0500
 
-nx-desktop-settings (1.4.43)  nxos; urgency=medium
+nx-desktop-settings (1.4.43)  nitrux; urgency=medium
 
   * Add vmetal and buho launcher to menu.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 20 Aug 2019 22:34:00 -0500
 
-nx-desktop-settings (1.4.42)  nxos; urgency=medium
+nx-desktop-settings (1.4.42)  nitrux; urgency=medium
 
   * New panel layout.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 15 Aug 2019 22:15:00 -0500
  
-nx-desktop-settings (1.4.41)  nxos; urgency=medium
+nx-desktop-settings (1.4.41)  nitrux; urgency=medium
 
   * New panel layout.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 15 Aug 2019 20:43:00 -0500
  
-nx-desktop-settings (1.4.40)  nxos; urgency=medium
+nx-desktop-settings (1.4.40)  nitrux; urgency=medium
 
   * Bump version.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 30 Jul 2019 16:37:00 -0500
 
-nx-desktop-settings (1.4.39)  nxos; urgency=medium
+nx-desktop-settings (1.4.39)  nitrux; urgency=medium
 
   * Update latte config for new version.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 30 Jul 2019 04:53:00 -0500
 
-nx-desktop-settings (1.4.38)  nxos; urgency=medium
+nx-desktop-settings (1.4.38)  nitrux; urgency=medium
 
   * Update settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 29 Jun 2019 19:36:00 -0500
 
-nx-desktop-settings (1.4.37)  nxos; urgency=medium
+nx-desktop-settings (1.4.37)  nitrux; urgency=medium
 
   * Update settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 29 Jun 2019 15:37:00 -0500
 
-nx-desktop-settings (1.4.36)  nxos; urgency=medium
+nx-desktop-settings (1.4.36)  nitrux; urgency=medium
 
   * Update settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 29 Jun 2019 03:48:00 -0500
 
-nx-desktop-settings (1.4.35)  nxos; urgency=medium
+nx-desktop-settings (1.4.35)  nitrux; urgency=medium
 
   * Update settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Jun 2019 23:34:00 -0500
 
-nx-desktop-settings (1.4.34)  nxos; urgency=medium
+nx-desktop-settings (1.4.34)  nitrux; urgency=medium
 
   * Update default settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Jun 2019 16:33:00 -0500
 
-nx-desktop-settings (1.4.33)  nxos; urgency=medium
+nx-desktop-settings (1.4.33)  nitrux; urgency=medium
 
   * Update default settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 27 Jun 2019 16:43:00 -0500
 
-nx-desktop-settings (1.4.32)  nxos; urgency=medium
+nx-desktop-settings (1.4.32)  nitrux; urgency=medium
 
   * Update default settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 27 Jun 2019 01:52:00 -0500
 
-nx-desktop-settings (1.4.31)  nxos; urgency=medium
+nx-desktop-settings (1.4.31)  nitrux; urgency=medium
 
   * Update default settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 27 Jun 2019 01:16:00 -0500
 
-nx-desktop-settings (1.4.30)  nxos; urgency=medium
+nx-desktop-settings (1.4.30)  nitrux; urgency=medium
 
   * Update default settings.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Wed, 26 Jun 2019 16:14:00 -0500
 
-nx-desktop-settings (1.4.29)  nxos; urgency=medium
+nx-desktop-settings (1.4.29)  nitrux; urgency=medium
 
   * Update.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 25 Jun 2019 20:22:00 -0500
 
-nx-desktop-settings (1.4.28)  nxos; urgency=medium
+nx-desktop-settings (1.4.28)  nitrux; urgency=medium
 
   * Update latte layout. 
   * Change name of the package.

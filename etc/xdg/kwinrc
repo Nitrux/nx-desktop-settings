@@ -19,24 +19,32 @@ NoiseStrength=8
 TabBox=false
 TabBoxAlternative=false
 
+[Desktops]
+Id_1=8db602fd-5a95-49ab-ba02-df440fae5588
+Id_2=8acad981-e8d3-4da4-ab11-5021fb49c790
+Id_3=e6cccd87-c058-4d59-acfc-5a38fa9e0f83
+Id_4=9ebe6510-0ff6-43b0-a849-229caba0774f
+Number=4
+Rows=1
+
 [Effect-Cube]
-TouchBorderActivate=9
-TouchBorderActivateCylinder=9
-TouchBorderActivateSphere=9
+BorderActivate=9
+BorderActivateCylinder=9
+BorderActivateSphere=9
 
 [Effect-DesktopGrid]
-TouchBorderActivate=9
+BorderActivate=9
 
 [Effect-FlipSwitch]
 TabBox=false
 TabBoxAlternative=false
 
 [Effect-PresentWindows]
-LayoutMode=1
-BorderActivateAll=3
-TouchBorderActivate=7
-TouchBorderActivateAll=9
-TouchBorderActivateClass=9
+BorderActivate=9
+BorderActivateAll=9
+BorderActivateClass=9
+TouchBorderActivate=9
+TouchBorderActivateAll=7
 
 [MouseBindings]
 CommandActiveTitlebar1=Raise
@@ -97,7 +105,7 @@ MultiScreenMode=0
 ShowDesktopMode=0
 ShowTabBox=true
 SwitchingMode=0
-TouchBorderActivate=6
+TouchBorderActivate=9
 TouchBorderAlternativeActivate=9
 
 [TabBoxAlternative]
@@ -113,10 +121,10 @@ ShowTabBox=true
 SwitchingMode=0
 
 [TouchEdges]
-Bottom=ApplicationLauncher
+Bottom=None
 Left=None
-Right=ShowDesktop
-Top=KRunner
+Right=None
+Top=None
 
 [Windows]
 ActiveMouseScreen=false
@@ -140,7 +148,7 @@ MaximizeButtonLeftClickCommand=Maximize
 MaximizeButtonMiddleClickCommand=Maximize (vertical only)
 MaximizeButtonRightClickCommand=Maximize (horizontal only)
 NextFocusPrefersMouse=false
-Placement=Random
+Placement=Centered
 SeparateScreenFocus=false
 ShadeHover=false
 ShadeHoverInterval=250

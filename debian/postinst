@@ -53,3 +53,5 @@ done
 chmod +x /Applications/*
 
 mv /Applications/appimaged-x86_64.AppImage /etc/skel/.local/bin/appimaged
+
+ln -sv /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
