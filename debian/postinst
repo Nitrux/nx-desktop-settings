@@ -6,7 +6,7 @@ echo QT_STYLE_OVERRIDE=kvantum >> /etc/environment
 
 rm -R /usr/share/icons/breeze_cursors /usr/share/icons/Breeze_Snow
 rm /usr/share/applications/calamares.desktop /usr/share/applications/org.kde.kdeconnect.sms.desktop /usr/share/applications/org.kde.kdeconnect_open.desktop /usr/share/applications/org.kde.kdeconnect.app.desktop /usr/share/applications/htop.desktop /usr/share/applications/mc.desktop /usr/share/applications/mcedit.desktop /usr/share/applications/nsnake.desktop /usr/share/applications/org.kde.kinfocenter.desktop
-ln -sv /usr/games/nsnake /bin/nsnake
+ln -svf /usr/games/nsnake /bin/nsnake
 
 git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
 
@@ -59,4 +59,4 @@ mv /Applications/appimage-*-x86_64.AppImage /Applications/app
 
 mv /Applications/appimaged-x86_64.AppImage /etc/skel/.local/bin/appimaged
 
-ln -sv /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
+ln -svf /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
