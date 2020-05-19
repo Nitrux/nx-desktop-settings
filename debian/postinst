@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 echo QT_STYLE_OVERRIDE=kvantum >> /etc/environment 
 
 rm -R /usr/share/icons/breeze_cursors /usr/share/icons/Breeze_Snow
@@ -46,11 +44,11 @@ APPS_USR='
 '
 
 for x in $APPS_SYS; do
-    wget -q -P /Applications $x
+    axel -a -q -o /Applications $x
 done
 
 for x in $APPS_USR; do
-    wget -q -P /Applications $x
+    axel -a -q -o /Applications $x
 done
 
 chmod +x /Applications/*
