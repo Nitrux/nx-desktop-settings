@@ -39,7 +39,7 @@ sed -i "/env_reset/d" /etc/sudoers
 
 APPS_SYS='
 https://github.com/AppImage/appimaged/releases/download/continuous/appimaged-x86_64.AppImage
-https://raw.githubusercontent.com/Nitrux/storage/master/AppImages/appimage-installer-x86_64.AppImage
+https://raw.githubusercontent.com/Nitrux/storage/master/AppImages/appimage-cli-tool-x86_64.AppImage
 '
 
 APPS_USR='
@@ -55,7 +55,7 @@ done
 
 chmod +x /Applications/*
 
-mv /Applications/appimage-*-x86_64.AppImage /Applications/app
+mv /Applications/appimage-installer-x86_64.AppImage /Applications/app
 
 mv /Applications/appimaged-x86_64.AppImage /etc/skel/.local/bin/appimaged
 
