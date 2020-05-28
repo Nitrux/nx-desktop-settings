@@ -1,4 +1,4 @@
-nx-desktop-settings-legacy (1.5.0)  nitrux; urgency=medium
+nx-desktop-settings-legacy (1.5.1)  nitrux; urgency=medium
 
   * Correct appimage-cli-tool name.
 
