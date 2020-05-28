@@ -1,4 +1,4 @@
-nx-desktop-settings-legacy (1.5.2)  nitrux; urgency=medium
+nx-desktop-settings-legacy (1.5.3)  nitrux; urgency=medium
 
   * Restore some values to kdeglobals.
 
