@@ -1,5 +1,11 @@
 nx-desktop-settings-legacy (1.5.2)  nitrux; urgency=medium
 
+  * Restore some values to kdeglobals.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 28 May 2020 14:43:00 -0500
+
+nx-desktop-settings-legacy (1.5.2)  nitrux; urgency=medium
+
   * Correct colors used.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 28 May 2020 14:41:00 -0500
