@@ -53,7 +53,7 @@ done
 
 chmod +x /Applications/*
 
-mv /Applications/appimage-installer-x86_64.AppImage /Applications/app
+mv /Applications/appimage-cli-tool-x86_64.AppImage /Applications/app
 
 mv /Applications/appimaged-x86_64.AppImage /etc/skel/.local/bin/appimaged
 

@@ -1,5 +1,11 @@
 nx-desktop-settings-legacy (1.5.0)  nitrux; urgency=medium
 
+  * Correct appimage-cli-tool name.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 28 May 2020 14:21:00 -0500
+
+nx-desktop-settings-legacy (1.5.0)  nitrux; urgency=medium
+
   * Update package.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 28 May 2020 14:10:00 -0500
