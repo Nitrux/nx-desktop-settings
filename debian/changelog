@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.5.5)  nitrux; urgency=medium
+
+  * Move gtk config to correct path.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 31 May 2020 13:32:00 -0500
+
 nx-desktop-settings-legacy (1.5.4)  nitrux; urgency=medium
 
   * Use powerline fonts for Linux console.
