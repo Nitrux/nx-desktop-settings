@@ -1,6 +1,9 @@
 #!/bin/bash
 
-echo QT_STYLE_OVERRIDE=kvantum >> /etc/environment 
+echo QT_STYLE_OVERRIDE=kvantum >> /etc/environment
+
+rm -R /usr/share/icons/breeze_cursors /usr/share/icons/Breeze_Snow
+
 REMOVE_LAUNCHERS='
 /usr/share/applications/calamares.desktop
 /usr/share/applications/htop.desktop
