@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.5.6)  nitrux; urgency=medium
+
+  * Remove code that broke package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 10 Jun 2020 19:45:00 -0500
+
 nx-desktop-settings-legacy (1.5.5)  nitrux; urgency=medium
 
   * Move gtk config to correct path.

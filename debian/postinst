@@ -1,16 +1,30 @@
 #!/bin/bash
 
 echo QT_STYLE_OVERRIDE=kvantum >> /etc/environment 
+REMOVE_LAUNCHERS='
+/usr/share/applications/calamares.desktop
+/usr/share/applications/htop.desktop
+/usr/share/applications/mc.desktop
+/usr/share/applications/mcedit.desktop
+/usr/share/applications/org.kde.kinfocenter.desktop
+/usr/share/applications/ibus-setup*
+/usr/share/applications/org.freedesktop.IBus*
+/usr/share/applications/org.kde.plasma.emojier.desktop
+/usr/share/applications/info.desktop
+/usr/share/applications/org.kde.kdeconnect.sms.desktop
+/usr/share/applications/org.kde.kdeconnect_open.desktop
+/usr/share/applications/org.kde.kdeconnect.app.desktop
+/usr/share/applications/htop.desktop
+'
 
-rm -R /usr/share/icons/breeze_cursors /usr/share/icons/Breeze_Snow
-rm /usr/share/applications/calamares.desktop /usr/share/applications/org.kde.kdeconnect.sms.desktop /usr/share/applications/org.kde.kdeconnect_open.desktop /usr/share/applications/org.kde.kdeconnect.app.desktop /usr/share/applications/htop.desktop /usr/share/applications/mc.desktop /usr/share/applications/mcedit.desktop /usr/share/applications/nsnake.desktop /usr/share/applications/org.kde.kinfocenter.desktop
+rm $REMOVE_LAUNCHERS
+
 ln -svf /usr/games/nsnake /bin/nsnake
-
 git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
 
 rm /bin/sh.distrib
 # /usr/bin/dpkg --remove --no-triggers --force-remove-essential --force-bad-path dash &> /dev/null
-ln -sv /bin/mksh /bin/sh
+ln -svf /bin/mksh /bin/sh
 # /usr/bin/dpkg --remove --no-triggers --force-remove-essential --force-bad-path dash &> /dev/null
 
 sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
@@ -56,41 +70,14 @@ chmod +x /Applications/*
 mv /Applications/appimage-cli-tool-x86_64.AppImage /Applications/app
 
 mv /Applications/appimaged-x86_64.AppImage /etc/skel/.local/bin/appimaged
-
 ln -svf /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
 
 git clone https://github.com/powerline/fonts /tmp/powerline-fonts
 cp -r /tmp/powerline-fonts/Terminus/PSF/*.psf.gz /usr/share/consolefonts
 rm -r /tmp/powerline-fonts
 
-rm /etc/default/console-setup && touch /etc/default/console-setup
-
->> /etc/default/console-setup printf "%s\n" \
-	"+# CONFIGURATION FILE FOR SETUPCON" \
-	" " \
-	"# Consult the console-setup(5) manual page." \
-	" " \
-	'ACTIVE_CONSOLES="/dev/tty[1-6]"' \
-	'CHARMAP="UTF-8"' \
-	" " \
-	"VIDEOMODE=" \
-	'FONT="ter-powerline-v16n.psf.gz"' \
-
-rm /etc/skel/.config/Trolltech.conf && touch /etc/skel/.config/Trolltech.conf
-
->> /etc/skel/.config/Trolltech.conf  printf "%s\n" \
-	"[qt]" \
-	"KDE\contrast=0" \
-	"KWinPalette\activeBackground=#2b2c31" \
-	"KWinPalette\activeBlend=#f9f9f9" \
-	"KWinPalette\activeForeground=#f9f9f9" \
-	"KWinPalette\activeTitleBtnBg=#2b2c31" \
-	"KWinPalette\frame=#2b2c31" \
-	"KWinPalette\inactiveBackground=#37383f" \
-	"KWinPalette\inactiveBlend=#4b4743" \
-	"KWinPalette\inactiveForeground=#9bacbb" \
-	"KWinPalette\inactiveFrame=#2c2d32" \
-	"KWinPalette\inactiveTitleBtnBg=#2c2d32" \
-	"Palette\active=#ffffff, #505659, #37383f, #313238, #1e1e22, #27282c, #ffffff, #ffffff, #ffffff, #3a3f41, #2b2c31, #151618, #26c6da, #eff0f1, #2980b9, #7f8c8d, #eff0f1, #000000, #31363b, #eff0f1, #ffffff" \
-	"Palette\disabled=#ffffff, #505659, #37383f, #313238, #1e1e22, #27282c, #ffffff, #ffffff, #ffffff, #3a3f41, #2b2c31, #151618, #2b2c31, #ffffff, #2980b9, #7f8c8d, #eff0f1, #000000, #31363b, #eff0f1, #ffffff" \
-	"Palette\inactive=#fafafa, #515659, #383a40, #333439, #1f1f23, #28292d, #fafafa, #ffffff, #fbfbfb, #3b4042, #2c2d32, #161719, #28c4d8, #def0f3, #377faf, #7f8b8c, #ecedee, #000000, #31363b, #eff0f1, #ffffff" \
+sed -i "s/CHARMAP=ISO-8859-15/CHARMAP="UTF-8"/g" /etc/default/console-setup
+sed -i "s/CODESET="Lat15"/#CODESET="Lat15"/g" /etc/default/console-setup
+sed -i "s/FONTFACE="TerminusBold"/#FONTFACE="TerminusBold"/g" /etc/default/console-setup
+sed -i "s/FONTSIZE="14x28"/#FONTSIZE="14x28"/g" /etc/default/console-setup
+sed -i "s/# FONT='lat9w-08.psf.gz brl-8x8.psf'/FONT='ter-powerline-v16n.psf.gz'/g" /etc/default/console-setup
