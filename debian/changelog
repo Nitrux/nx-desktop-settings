@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.5.9)  nitrux; urgency=medium
+
+  * Hide the goddamned info center standalone app from the application menu.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 19 Jun 2020 20:58:00 -0500
+
 nx-desktop-settings-legacy (1.5.8)  nitrux; urgency=medium
 
   * Hide the goddamned Plasma emoji picker from the application menu.
