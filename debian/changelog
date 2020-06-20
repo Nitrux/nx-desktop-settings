@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.6.2)  nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 20 Jun 2020 01:19:00 -0500
+
 nx-desktop-settings-legacy (1.6.1)  nitrux; urgency=medium
 
   * Why tf they had to change this. Move files to .config.
