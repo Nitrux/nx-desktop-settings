@@ -54,7 +54,7 @@ sed -i "/env_reset/d" /etc/sudoers
 
 APPS_SYS='
 https://github.com/AppImage/appimaged/releases/download/continuous/appimaged-x86_64.AppImage
-https://raw.githubusercontent.com/Nitrux/storage/master/AppImages/appimage-cli-tool-x86_64.AppImage
+https://github.com/AppImageCrafters/appimage-manager/releases/download/v0.1.0/app
 '
 
 APPS_USR='
@@ -69,8 +69,6 @@ for x in $APPS_USR; do
 done
 
 chmod +x /Applications/*
-
-mv /Applications/appimage-cli-tool-x86_64.AppImage /Applications/app
 
 mv /Applications/appimaged-x86_64.AppImage /etc/skel/.local/bin/appimaged
 ln -svf /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
