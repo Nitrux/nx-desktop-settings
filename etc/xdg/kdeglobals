@@ -108,12 +108,11 @@ Name=Nitrux Dark
 XftAntialias=true
 XftHintStyle=hintmedium
 XftSubPixel=rgb
-fixed=Calling Code,10,-1,5,50,0,0,0,0,0,Regular
-font=Chivo [    ],10,-1,5,50,0,0,0,0,0,Regular
-menuFont=Chivo [    ],10,-1,5,50,0,0,0,0,0,Regular
+font=Fira Sans,10,-1,5,50,0,0,0,0,0
+menuFont=Fira Sans,10,-1,5,50,0,0,0,0,0
+smallestReadableFont=Fira Sans,8,-1,5,50,0,0,0,0,0
+toolBarFont=Fira Sans,10,-1,5,50,0,0,0,0,0
 shadeSortColumn=true
-smallestReadableFont=Chivo [    ],10,-1,5,50,0,0,0,0,0,Regular
-toolBarFont=Chivo [    ],10,-1,5,50,0,0,0,0,0,Regular
 widgetStyle=kvantum
 
 [Icons]
@@ -238,4 +237,4 @@ activeForeground=249,249,249
 inactiveBackground=55,56,63
 inactiveBlend=75,71,67
 inactiveForeground=155,172,187
-
+activeFont=Fira Sans,10,-1,5,50,0,0,0,0,0
