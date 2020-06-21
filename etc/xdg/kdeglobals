@@ -111,6 +111,7 @@ XftSubPixel=rgb
 font=Fira Sans,10,-1,5,50,0,0,0,0,0
 menuFont=Fira Sans,10,-1,5,50,0,0,0,0,0
 smallestReadableFont=Fira Sans,8,-1,5,50,0,0,0,0,0
+fixed=Calling Code,10,-1,5,50,0,0,0,0,0,Regular
 toolBarFont=Fira Sans,10,-1,5,50,0,0,0,0,0
 shadeSortColumn=true
 widgetStyle=kvantum

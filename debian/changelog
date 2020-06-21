@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.6.5)  nitrux; urgency=medium
+
+  * Update font settings.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 21 Jun 2020 16:38:00 -0500
+
 nx-desktop-settings-legacy (1.6.4)  nitrux; urgency=medium
 
   * Use Fira Sans as system font.
