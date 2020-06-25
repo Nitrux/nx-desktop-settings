@@ -2,13 +2,13 @@ nx-desktop-settings-legacy (1.6.8)  nitrux; urgency=medium
 
   * Update app menu.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Tuer, 23 Jun 2020 03:15:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 23 Jun 2020 03:15:00 -0500
 
 nx-desktop-settings-legacy (1.6.7)  nitrux; urgency=medium
 
   * Add Wine/Proton AppImage.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Tuer, 23 Jun 2020 02:54:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 23 Jun 2020 02:54:00 -0500
 
 nx-desktop-settings-legacy (1.6.6)  nitrux; urgency=medium
 
