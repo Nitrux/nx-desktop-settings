@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.7.4)  nitrux; urgency=medium
+
+  * Remove -yy from command.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 07 Jul 2020 16:20:00 -0500
+
 nx-desktop-settings-legacy (1.7.3)  nitrux; urgency=medium
 
   * Update package.
