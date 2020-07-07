@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.7.0)  nitrux; urgency=medium
+
+  * Fix Nvidia GPU not used for HDMI output in Optimus laptops.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 07 JuL 2020 14:39:00 -0500
+
 nx-desktop-settings-legacy (1.6.9)  nitrux; urgency=medium
 
   * Update app menu.
