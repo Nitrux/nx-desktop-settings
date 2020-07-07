@@ -88,4 +88,4 @@ sed -i "s/FONTSIZE="14x28"/#FONTSIZE="14x28"/g" /etc/default/console-setup
 sed -i "s/# FONT='lat9w-08.psf.gz brl-8x8.psf'/FONT='ter-powerline-v16n.psf.gz'/g" /etc/default/console-setup
 
 sed -i 's/Option "AllowEmptyInitialConfiguration"/Option "AllowEmptyInitialConfiguration" "true"\n    Option "PrimaryGPU" "Yes"/' /usr/share/X11/xorg.conf.d/10-nvidia.conf
-sed -i "s/ Option "PrimaryGPU" "Yes" "true"//g" /usr/share/X11/xorg.conf.d/10-nvidia.conf
+sed -i 's/ Option "PrimaryGPU" "Yes" "true"//g' /usr/share/X11/xorg.conf.d/10-nvidia.conf
