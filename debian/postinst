@@ -102,6 +102,7 @@ rm -r /tmp/powerline-fonts
 	"VIDEOMODE=" \
 	'FONT="ter-powerline-v16n.psf.gz"' \
 
+
 #	workaround for NVidia GPUs using PRIME configuration.
 #	this will make output available on external ports.
 
