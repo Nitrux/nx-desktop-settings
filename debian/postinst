@@ -2,36 +2,34 @@
 
 echo QT_STYLE_OVERRIDE=kvantum >> /etc/environment
 
-rm -R /usr/share/icons/breeze_cursors /usr/share/icons/Breeze_Snow
+#	remove stupid things from Plasma, generic KDE launchers, breeze cursors, etc.
 
-REMOVE_LAUNCHERS='
-/usr/share/applications/calamares.desktop
-/usr/share/applications/htop.desktop
-/usr/share/applications/mc.desktop
-/usr/share/applications/mcedit.desktop
-/usr/share/applications/org.kde.kinfocenter.desktop
-/usr/share/applications/ibus-setup*
-/usr/share/applications/org.freedesktop.IBus*
-/usr/share/applications/org.kde.plasma.emojier.desktop
-/usr/share/applications/info.desktop
-/usr/share/applications/org.kde.kdeconnect.sms.desktop
-/usr/share/applications/org.kde.kdeconnect_open.desktop
-/usr/share/applications/org.kde.kdeconnect.app.desktop
-/usr/share/applications/htop.desktop
-'
+rm -rf \
+	/usr/share/icons/breeze_cursors /usr/share/icons/Breeze_Snow \
+	/usr/share/applications/htop.desktop \
+	/usr/share/applications/ibus-setup* \
+	/usr/share/applications/info.desktop \
+	/usr/share/applications/mc.desktop \
+	/usr/share/applications/mcedit.desktop \
+	/usr/share/applications/nsnake.desktop \
+	/usr/share/applications/org.freedesktop.IBus* \
+	/usr/share/applications/org.kde.kdeconnect.app.desktop \
+	/usr/share/applications/org.kde.kdeconnect.sms.desktop \
+	/usr/share/applications/org.kde.kdeconnect_open.desktop \
+	/usr/share/applications/org.kde.kinfocenter.desktop \
+	/usr/share/applications/org.kde.plasma.emojier.desktop
 
-rm $REMOVE_LAUNCHERS
+#	let nsnake be reachable through $PATH.
 
-ln -svf /usr/games/nsnake /bin/nsnake
+ln -sv /usr/games/nsnake /usr/bin/nsnake
+
+
+#	add oh-my-zsh.
+
 git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
 
-rm /bin/sh.distrib
-# /usr/bin/dpkg --remove --no-triggers --force-remove-essential --force-bad-path dash &> /dev/null
-ln -svf /bin/mksh /bin/sh
-# /usr/bin/dpkg --remove --no-triggers --force-remove-essential --force-bad-path dash &> /dev/null
 
-sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
-sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
+# fix systemd.
 
 sed -i 's/#DefaultTimeoutStartSec=90s/DefaultTimeoutStartSec=5s/g' /etc/systemd/system.conf
 sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=5s/g' /etc/systemd/system.conf
@@ -44,48 +42,78 @@ systemctl disable cupsd.service cupsd-browsed.service NetworkManager-wait-online
 
 sed -i 's/ACTION!="add", GOTO="libmtp_rules_end"/ACTION!="bind", ACTION!="add", GOTO="libmtp_rules_end"/g' /lib/udev/rules.d/69-libmtp.rules
 
+
+#	add support for AppImages and add AppImages.
+
 mkdir -p /Applications
 mkdir -p /etc/skel/Applications
 mkdir -p /etc/skel/.local/bin
 
-echo -e "PATH=$PATH:/Applications\n" > /etc/environment
+echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
 
-APPS_SYS='
-https://github.com/AppImage/appimaged/releases/download/continuous/appimaged-x86_64.AppImage
-https://github.com/AppImageCrafters/appimage-manager/releases/download/v0.1.0/app
-https://github.com/ferion11/Proton_Appimage/releases/download/continuous/proton-linux-x86-v4.2-PlayOnLinux-x86_64.AppImage
-'
 
-APPS_USR='
-'
-
-for x in $APPS_SYS; do
-    axel -a -q -o /Applications $x
-done
-
-for x in $APPS_USR; do
-    axel -a -q -o /Applications $x
-done
+	printf "%s %s\n" \
+		app				"https://github.com/AppImageCrafters/appimage-manager/releases/download/v0.1.0/app" \
+		appimaged		"https://github.com/AppImage/appimaged/releases/download/continuous/appimaged-x86_64.AppImage" \
+		appimagetool	"https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" \
+		wine			"https://github.com/ferion11/Proton_Appimage/releases/download/continuous/proton-linux-x86-v4.2-PlayOnLinux-x86_64.AppImage"
+} | {
+	while read name url; do
+		axel -a -q -o /Applications/$name "$url"
+	done
+}
 
 chmod +x /Applications/*
 
-mv /Applications/proton-*-x86_64.AppImage /Applications/wine
 
-mv /Applications/appimaged-x86_64.AppImage /etc/skel/.local/bin/appimaged
+#	let krohnkite be configured from system settings.
 
-ln -svf /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
+ln -sv /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
+
+
+#	use mksh and zsh in userland.
+
+ln -svf /bin/mksh /bin/sh
+
+sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
+sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
+
+
+#	add powerline fonts.
+#	TODO: move this to the fonts-nx-desktop package (https://github.com/Nitrux/nx-desktop-settings/issues/10).
 
 git clone https://github.com/powerline/fonts /tmp/powerline-fonts
 cp -r /tmp/powerline-fonts/Terminus/PSF/*.psf.gz /usr/share/consolefonts
 rm -r /tmp/powerline-fonts
 
-sed -i "s/CHARMAP=ISO-8859-15/CHARMAP="UTF-8"/g" /etc/default/console-setup
-sed -i "s/CODESET="Lat15"/#CODESET="Lat15"/g" /etc/default/console-setup
-sed -i "s/FONTFACE="TerminusBold"/#FONTFACE="TerminusBold"/g" /etc/default/console-setup
-sed -i "s/FONTSIZE="14x28"/#FONTSIZE="14x28"/g" /etc/default/console-setup
-sed -i "s/# FONT='lat9w-08.psf.gz brl-8x8.psf'/FONT='ter-powerline-v16n.psf.gz'/g" /etc/default/console-setup
 
-sed -i 's/Option "AllowEmptyInitialConfiguration"/Option "AllowEmptyInitialConfiguration" "true"\n    Option "PrimaryGPU" "Yes"/' /usr/share/X11/xorg.conf.d/10-nvidia.conf
-sed -i 's/ Option "PrimaryGPU" "Yes" "true"//g' /usr/share/X11/xorg.conf.d/10-nvidia.conf
+#	enable powerline fonts in Linux's console.
+
+> /etc/default/console-setup printf "%s\n" \
+	"# CONFIGURATION FILE FOR SETUPCON" \
+	" " \
+	"# Consult the console-setup(5) manual page." \
+	" " \
+	'ACTIVE_CONSOLES="/dev/tty[1-6]"' \
+	'CHARMAP="UTF-8"' \
+	" " \
+	"VIDEOMODE=" \
+	'FONT="ter-powerline-v16n.psf.gz"' \
+
+#	workaround for NVidia GPUs using PRIME configuration.
+#	this will make output available on external ports.
+
+
+> /usr/share/X11/xorg.conf.d/10-nvidia.conf printf "%s\n" \
+	'Section "OutputClass"' \
+	'    Identifier "nvidia"' \
+	'    MatchDriver "nvidia-drm"' \
+	'    Driver "nvidia"' \
+	'    Option "AllowEmptyInitialConfiguration" "true"' \
+	'    Option "PrimaryGPU" "Yes"' \
+	'    Option "AllowExternalGpus" "true"' \
+	'    ModulePath "/usr/lib/x86_64-linux-gnu/nvidia/xorg"' \
+	'EndSection'
+	
