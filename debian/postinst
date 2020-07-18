@@ -53,7 +53,7 @@ echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
 
-
+{
 	printf "%s %s\n" \
 		app				"https://github.com/AppImageCrafters/appimage-manager/releases/download/v0.1.0/app" \
 		appimaged		"https://github.com/AppImage/appimaged/releases/download/continuous/appimaged-x86_64.AppImage" \
