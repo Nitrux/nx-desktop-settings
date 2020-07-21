@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.8.0)  nitrux; urgency=medium
+
+  * Move adding powerline fonmts for Linux console to fonts package, don't set QT_STYLE_OVERRIDE, check paths.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 21 Jul 2020 17:25:00 -0500
+
 nx-desktop-settings-legacy (1.7.9)  nitrux; urgency=medium
 
   * Move files to correct folders.
