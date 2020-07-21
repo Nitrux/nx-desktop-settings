@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo QT_STYLE_OVERRIDE=kvantum >> /etc/environment
 
 #	remove stupid things from Plasma, generic KDE launchers, breeze cursors, etc.
 
@@ -49,9 +48,12 @@ mkdir -p /Applications
 mkdir -p /etc/skel/Applications
 mkdir -p /etc/skel/.local/bin
 
-echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
+grep -q /Applications /etc/environment ||
+	 >> /etc/environment echo "PATH=$PATH:/Applications"
+
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
+
 
 {
 	printf "%s %s\n" \
@@ -117,4 +119,3 @@ rm -r /tmp/powerline-fonts
 	'    Option "AllowExternalGpus" "true"' \
 	'    ModulePath "/usr/lib/x86_64-linux-gnu/nvidia/xorg"' \
 	'EndSection'
-	
