@@ -18,6 +18,7 @@ rm -rf \
 	/usr/share/applications/org.kde.kinfocenter.desktop \
 	/usr/share/applications/org.kde.plasma.emojier.desktop
 
+
 #	let nsnake be reachable through $PATH.
 
 ln -sv /usr/games/nsnake /usr/bin/nsnake
