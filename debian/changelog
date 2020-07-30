@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.8.1)  nitrux; urgency=medium
+
+  * Update latte app menu, hide the annoying kdeconnect launchers.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 21 Jul 2020 17:40:00 -0500
+
 nx-desktop-settings-legacy (1.8.0)  nitrux; urgency=medium
 
   * Move adding powerline fonmts for Linux console to fonts package, don't set QT_STYLE_OVERRIDE, check paths.
