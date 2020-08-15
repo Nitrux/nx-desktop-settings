@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.8.2)  nitrux; urgency=medium
+
+  * Update nvidia configuration yet again.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 15 Aug 2020 16:39:00 -0500
+
 nx-desktop-settings-legacy (1.8.1)  nitrux; urgency=medium
 
   * Update latte app menu, hide the annoying kdeconnect launchers.
