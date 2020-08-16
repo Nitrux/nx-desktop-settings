@@ -87,14 +87,16 @@ sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
 #	workaround for NVidia GPUs using PRIME configuration.
 #	this will make output available on external ports.
 
-> /usr/share/X11/xorg.conf.d/10-nvidia.conf printf "%s\n" \
-	'Section "OutputClass"' \
-	'    Identifier "nvidia"' \
-	'    MatchDriver "nvidia-drm"' \
-	'    Driver "nvidia"' \
-	'    Option "AllowEmptyInitialConfiguration"' \
-	'    ModulePath "/usr/lib/x86_64-linux-gnu/nvidia/xorg"' \
-	'EndSection'
+# > /usr/share/X11/xorg.conf.d/10-nvidia.conf printf "%s\n" \
+# 	'Section "OutputClass"' \
+# 	'    Identifier "nvidia"' \
+# 	'    MatchDriver "nvidia-drm"' \
+# 	'    Driver "nvidia"' \
+# 	'    Option "AllowEmptyInitialConfiguration" "true"' \
+# 	'    Option "PrimaryGPU" "Yes"' \
+#	'    Option "AllowExternalGpus" "true"' \
+# 	'    ModulePath "/usr/lib/x86_64-linux-gnu/nvidia/xorg"' \
+# 	'EndSection'
 
 > /usr/share/X11/xorg.conf.d/10-amdgpu.conf printf "%s\n" \
 	'Section "OutputClass"' \
