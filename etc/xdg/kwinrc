@@ -13,7 +13,7 @@ XRenderSmoothScale=false
 
 [Effect-Blur]
 BlurStrength=6
-NoiseStrength=8
+NoiseStrength=1
 
 [Effect-CoverSwitch]
 TabBox=false
