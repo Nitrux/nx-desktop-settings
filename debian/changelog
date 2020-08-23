@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.8.6)  nitrux; urgency=medium
+
+  * Update sddm files, psoinst script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 23 Aug 2020 05:49:00 -0500
+ 
 nx-desktop-settings-legacy (1.8.5)  nitrux; urgency=medium
 
   * Adjust blur noise strength.
