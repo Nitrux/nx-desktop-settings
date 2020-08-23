@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 
 #	remove stupid things from Plasma, generic KDE launchers, breeze cursors, etc.
@@ -21,7 +21,7 @@ rm -rf \
 
 #	let nsnake be reachable through $PATH.
 
-ln -sv /usr/games/nsnake /usr/bin/nsnake
+ln -svf /usr/games/nsnake /usr/bin/nsnake
 
 
 #	add oh-my-zsh.
@@ -49,12 +49,9 @@ mkdir -p /Applications
 mkdir -p /etc/skel/Applications
 mkdir -p /etc/skel/.local/bin
 
-grep -q /Applications /etc/environment ||
-	 >> /etc/environment echo "PATH=$PATH:/Applications"
-
+echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
-
 
 {
 	printf "%s %s\n" \
@@ -70,6 +67,7 @@ sed -i "/env_reset/d" /etc/sudoers
 
 chmod +x /Applications/*
 
+mv /Applications/appimaged /etc/skel/.local/bin
 
 #	let krohnkite be configured from system settings.
 
@@ -104,3 +102,16 @@ sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
 	'    MatchDriver "amdgpu"' \
 	'    Driver "modsetting"' \
 	'EndSection'
+
+
+#	add xdg_dir environment variables
+
+echo -e "XDG_CONFIG_DIRS=/etc/xdg" >> /etc/environment
+echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
+
+
+#	force set nitrux_cursors as the default x-curosr-theme
+
+cp /usr/share/icons/nitrux_snow_cursors/index.theme /etc/X11/cursors/nitrux_cursors.theme
+ln -svf /etc/X11/cursors/nitrux_cursors.theme /etc/alternatives/x-cursor-theme
+sed -i '$ a Inherits=nitrux_snow_cursors' /etc/X11/cursors/nitrux_cursors.theme
