@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.8.7)  nitrux; urgency=medium
+
+  * Add conflicts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 25 Aug 2020 04:36:00 -0500
+
 nx-desktop-settings-legacy (1.8.6)  nitrux; urgency=medium
 
   * Update sddm files, psoinst script.

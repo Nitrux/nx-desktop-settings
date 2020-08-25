@@ -10,6 +10,7 @@ Homepage: http://nx-desktop.org
 Package: nx-desktop-settings-legacy
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: nx-desktop-settings
 Description: Defaults settings for NX Desktop
  Default settings for:
   - KDE Plasma
