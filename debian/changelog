@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.8.9)  nitrux; urgency=medium
+
+  * Fix wrong cursor theme in sddm screen, fix mouse size in wayland.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 25 Aug 2020 16:14:00 -0500
+ 
 nx-desktop-settings-legacy (1.8.8)  nitrux; urgency=medium
 
   * Fix wrong cursor theme in sddm screen, fix mouse size in wayland.
