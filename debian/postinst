@@ -90,10 +90,7 @@ sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
 # 	'    Identifier "nvidia"' \
 # 	'    MatchDriver "nvidia-drm"' \
 # 	'    Driver "nvidia"' \
-# 	'    Option "AllowEmptyInitialConfiguration" "true"' \
-# 	'    Option "PrimaryGPU" "Yes"' \
-#	'    Option "AllowExternalGpus" "true"' \
-# 	'    ModulePath "/usr/lib/x86_64-linux-gnu/nvidia/xorg"' \
+# 	'    Option "AllowEmptyInitialConfiguration"' \
 # 	'EndSection'
 
 > /usr/share/X11/xorg.conf.d/10-amdgpu.conf printf "%s\n" \
