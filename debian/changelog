@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.9.0)  nitrux; urgency=medium
+
+  * Remove links2 launcher.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Sep 2020 16:48:00 -0500
+
 nx-desktop-settings-legacy (1.8.9)  nitrux; urgency=medium
 
   * Fix wrong cursor theme in sddm screen, fix mouse size in wayland.

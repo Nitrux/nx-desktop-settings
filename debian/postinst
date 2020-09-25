@@ -8,6 +8,7 @@ rm -rf \
 	/usr/share/applications/htop.desktop \
 	/usr/share/applications/ibus-setup* \
 	/usr/share/applications/info.desktop \
+	/usr/share/applications/links2.desktop \	
 	/usr/share/applications/mc.desktop \
 	/usr/share/applications/mcedit.desktop \
 	/usr/share/applications/nsnake.desktop \
