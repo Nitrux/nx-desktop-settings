@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.9.2)  nitrux; urgency=medium
+
+  * Remove x11 files, use script instead.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Sep 2020 17:39:00 -0500
+
 nx-desktop-settings-legacy (1.9.1)  nitrux; urgency=medium
 
   * Remove links2 launcher.
