@@ -1,6 +1,6 @@
 nx-desktop-settings-legacy (1.9.3)  nitrux; urgency=medium
 
-  * Only add the x11 configguration if the nvidia driver is installed.
+  * Only add the x11 configuration if the nvidia driver is installed.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Sep 2020 18:17:00 -0500
 
