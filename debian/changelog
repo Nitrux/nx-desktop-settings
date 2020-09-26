@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.9.6)  nitrux; urgency=medium
+
+  * Removed unused launcher.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Sep 2020 21:23:00 -0500
+
 nx-desktop-settings-legacy (1.9.5)  nitrux; urgency=medium
 
   * Update appimaged autostart launcher.
