@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (1.9.4)  nitrux; urgency=medium
+
+  * Add appimaged autostart launcher.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Sep 2020 21:02:00 -0500
+
 nx-desktop-settings-legacy (1.9.3)  nitrux; urgency=medium
 
   * Only add the x11 configuration if the nvidia driver is installed.

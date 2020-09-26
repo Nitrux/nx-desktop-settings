@@ -110,7 +110,10 @@ test -f /usr/share/X11/xorg.conf.d/10-nvidia.conf && {
 			'    Identifier "Intel"' \
 			'    MatchDriver "i915"' \
 			'    Driver "modsetting"' \
-		'EndSection'
+			'EndSection'
+
+		> /etc/modprobe.d/blacklist-nouveau.conf printf "%s\n" \
+			'blacklist nouveau'
 } || {
 	echo 'Nvidia Proprietary Driver not installed!, skipping X11 configuration.'
 }

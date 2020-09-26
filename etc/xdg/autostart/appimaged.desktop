@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=AppImage Desktop Integration Daemon
+Exec=$HOME/.local/bin/appimaged
+Icon=start-here
+Comment=
