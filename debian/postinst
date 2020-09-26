@@ -119,6 +119,7 @@ test -f /usr/share/X11/xorg.conf.d/10-nvidia.conf && {
 	echo 'Nvidia Proprietary Driver not installed!, skipping X11 configuration.'
 }
 
+
 #	add xdg_dir environment variables
 
 echo -e "XDG_CONFIG_DIRS=/etc/xdg" >> /etc/environment
