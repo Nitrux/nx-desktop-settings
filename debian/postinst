@@ -85,6 +85,7 @@ sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
 
 #	workaround for NVidia GPUs using PRIME configuration.
 #	this will make output available on external ports.
+#	FIXME: move to separate package that also installs the driver.
 
 test -f /usr/share/X11/xorg.conf.d/10-nvidia.conf && {
 	echo 'Nvidia Proprietary Driver installed!, adding X11 configuration.'
