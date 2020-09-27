@@ -61,6 +61,20 @@ plugin=org.nx.audio
 [Containments][12][Applets][64][Configuration]
 PreloadWeight=0
 
+[Containments][12][Applets][67]
+immutability=1
+plugin=org.kde.plasma.vault
+
+[Containments][12][Applets][67][Configuration]
+PreloadWeight=26
+
+[Containments][12][Applets][68]
+immutability=1
+plugin=org.kde.plasma.bluetooth
+
+[Containments][12][Applets][68][Configuration]
+PreloadWeight=26
+
 [Containments][12][ConfigDialog]
 DialogHeight=703
 DialogWidth=1136
@@ -140,10 +154,10 @@ DialogWidth=720
 
 [Containments][14][Applets][54][Configuration][General]
 favoriteApps=systemsettings.desktop,firefox.desktop,org.kde.index.desktop
-hiddenApplications=appimagekit_6d77a4e22eaf7b76bc3e753edfa627e1-AppImageUpdate.desktop,org.appimage.user-tool.desktop,appimagekit_ed16611fe201e774c8c6d8e66bfc2bb5-appimagetool.desktop,org.kde.plasma.emojier.desktop,org.kde.kinfocenter.desktop,org.kde.kdeconnect_open.desktop,appimagekit_a8aabcc0a414fe9fefda98a60ff61144-appimagetool.desktop,org.kde.kdeconnect.app.desktop,org.kde.kdeconnect.sms.desktop
+hiddenApplications=appimagekit_6d77a4e22eaf7b76bc3e753edfa627e1-AppImageUpdate.desktop,org.appimage.user-tool.desktop,appimagekit_ed16611fe201e774c8c6d8e66bfc2bb5-appimagetool.desktop,org.kde.plasma.emojier.desktop,org.kde.kinfocenter.desktop,org.kde.kdeconnect_open.desktop,appimagekit_a8aabcc0a414fe9fefda98a60ff61144-appimagetool.desktop,org.kde.kdeconnect.app.desktop,org.kde.kdeconnect.sms.desktop,calamares.desktop
 
 [Containments][14][Applets][54][Configuration][Groups]
-groupsJson=[\n    {\n        "apps": [\n            "org.kde.station.desktop",\n            "org.kde.nota.desktop",\n            "org.kde.buho.desktop",\n            "org.kde.index.desktop",\n            "org.kde.pix.desktop",\n            "org.kde.vvave.desktop"\n        ],\n        "id": "ied5ss8n",\n        "name": "Maui Apps"\n    },\n    {\n        "apps": [\n            "org.kde.discover.desktop",\n            "org.kde.kdenlive.desktop",\n            "org.kde.partitionmanager.desktop",\n            "org.kde.spectacle.desktop",\n            "org.kde.kcalc.desktop",\n            "org.kde.ark.desktop",\n            "org.kde.latte-dock.desktop",\n            "systemsettings.desktop"\n        ],\n        "id": "p7x5ss8n",\n        "name": "KDE Apps"\n    },\n    {\n        "apps": \n            "nitroshare.desktop",[\n            "qps.desktop",\n            "qpdfview.desktop",\n            "kvantummanager.desktop"\n        ],\n        "id": "8ut6ss8n",\n        "name": "Qt Apps"\n    },\n    {\n        "apps": [\n            "lmms.desktop",\n            "libreoffice-draw.desktop",\n            "mpv.desktop",\n            "firefox.desktop",\n            "gimp.desktop",\n            "libreoffice-startcenter.desktop",\n            "libreoffice-calc.desktop",\n            "libreoffice-impress.desktop",\n            "libreoffice-writer.desktop",\n            "org.inkscape.Inkscape.desktop"\n        ],\n        "id": "zqf7ss8n",\n        "name": "Utilities"\n    },\n    {\n        "apps": [\n            "appimagekit_57631c3d43d98e6a16843d8301a1a60e-Wine.desktop"\n        ],\n        "id": "l2aghc8n",\n        "name": "AppImages"\n    },\n    {\n        "apps": [\n            "install.itch.io.desktop"\n        ],\n        "id": "7hltipjm",\n        "name": "Bundled Apps"\n    }\n]\n
+groupsJson=[\n    {\n        "apps": [\n            "appimagekit_eed40a595f66367d298ee86364d88bf0-Wine.desktop"\n        ],\n        "id": "700d7a7m",\n        "name": "AppImages"\n    },\n    {\n        "apps": [\n            "org.kde.spectacle.desktop",\n            "systemsettings.desktop",\n            "org.kde.kdenlive.desktop",\n            "org.kde.kcalc.desktop",\n            "org.kde.discover.desktop",\n            "org.kde.partitionmanager.desktop",\n            "org.kde.latte-dock.desktop",\n            "org.kde.ark.desktop"\n        ],\n        "id": "dxbf7a7m",\n        "name": "KDE Apps"\n    },\n    {\n        "apps": [\n            "org.kde.station.desktop",\n            "org.kde.nota.desktop",\n            "org.kde.buho.desktop",\n            "org.kde.index.desktop",\n            "org.kde.pix.desktop",\n            "org.kde.vvave.desktop"\n        ],\n        "id": "16bf7a7m",\n        "name": "Maui Apps"\n    },\n    {\n        "apps": [\n            "nitroshare.desktop",\n            "qpdfview.desktop",\n            "qps.desktop",\n            "kvantummanager.desktop"\n        ],\n        "id": "kt8f7a7m",\n        "name": "Qt Apps"\n    },\n    {\n        "apps": [\n            "libreoffice-impress.desktop",\n            "libreoffice-calc.desktop",\n            "lmms.desktop",\n            "gimp.desktop",\n            "firefox.desktop",\n            "org.inkscape.Inkscape.desktop",\n            "libreoffice-startcenter.desktop",\n            "libreoffice-draw.desktop",\n            "libreoffice-writer.desktop",\n            "mpv.desktop"\n        ],\n        "id": "77fg7a7m",\n        "name": "Utilities"\n    },\n    {\n        "apps": [\n            "install.itch.io.desktop"\n        ],\n        "id": "xctg7a7m",\n        "name": "Bundled Apps"\n    }\n]\n
 
 [Containments][14][Applets][54][Shortcuts]
 global=Meta+Alt+L
@@ -225,7 +239,7 @@ color=red
 customBackground=
 customTextColor=fcfcfc
 disableBordersForMaximizedWindows=false
-lastUsedActivity=232b0195-6dde-48a2-8d9c-a8e6f84d3f0a
+lastUsedActivity=ea9c197f-5f70-4aa7-856b-929f308aa14f
 launchers=
 preferredForShortcutsTouched=false
 showInMenu=true
