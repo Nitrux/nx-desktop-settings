@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=
+Name=Copy Kwin shortcuts
+Exec=~/.config/cp-kwin-shortcuts.sh
+Categories=Utility;
+NoDisplay=true
