@@ -1,0 +1,671 @@
+#!/usr/bin/python3
+
+import gi
+gi.require_version("Gtk", "3.0")
+
+import configparser
+import dbus
+import dbus.service
+import logging
+import os
+import re
+import setproctitle
+import subprocess
+import sys
+import time
+import threading
+from dbus.mainloop.glib import DBusGMainLoop
+from gi.repository import Gio, GLib, Gtk, Gdk, GObject
+from Xlib import display, protocol, X, Xatom, error
+
+
+### Constants
+# https://en.wikipedia.org/wiki/Whitespace_character
+NOBREAKSPACE = '\u00A0'
+EMSPACE = '\u2003'
+# PATHARROW = '>'
+# PATHARROW = '▶'
+PATHARROW = '\u00BB'
+# PATHSEPERATOR = NOBREAKSPACE + NOBREAKSPACE + PATHARROW + NOBREAKSPACE + NOBREAKSPACE
+PATHSEPERATOR = EMSPACE + PATHARROW + EMSPACE
+
+DEFAULT_SHORTCUT_FG_COLOR = '#888888'
+
+
+
+### Globals
+# plasmahudrc = None
+supports_icons = False # Requires rofi 1.5.3
+supports_shortcuts = False # Requires rofi 1.5.5?
+rofi_process = None
+show_icons = True
+show_shortcuts = True
+shortcut_fg_color = DEFAULT_SHORTCUT_FG_COLOR
+
+
+
+### Classes / Util Functions
+class EWMH:
+    """This class provides the ability to get and set properties defined
+    by the EWMH spec. It was blanty ripped out of pyewmh
+      * https://github.com/parkouss/pyewmh
+    """
+
+    def __init__(self, _display=None, root = None):
+        self.display = _display or display.Display()
+        self.root = root or self.display.screen().root
+
+    def getActiveWindow(self):
+        """Get the current active (toplevel) window or None (property _NET_ACTIVE_WINDOW)
+
+        :return: Window object or None"""
+        active_window = self._getProperty('_NET_ACTIVE_WINDOW')
+        if active_window == None:
+            return None
+
+        return self._createWindow(active_window[0])
+
+    def _getProperty(self, _type, win=None):
+        if not win:
+            win = self.root
+        atom = win.get_full_property(self.display.get_atom(_type), X.AnyPropertyType)
+        if atom:
+            return atom.value
+
+    def _setProperty(self, _type, data, win=None, mask=None):
+        """Send a ClientMessage event to the root window"""
+        if not win:
+            win = self.root
+        if type(data) is str:
+            dataSize = 8
+        else:
+            data = (data+[0]*(5-len(data)))[:5]
+            dataSize = 32
+
+        ev = protocol.event.ClientMessage(window=win, client_type=self.display.get_atom(_type), data=(dataSize, data))
+
+        if not mask:
+            mask = (X.SubstructureRedirectMask|X.SubstructureNotifyMask)
+        self.root.send_event(ev, event_mask=mask)
+
+    def _createWindow(self, wId):
+        if not wId:
+            return None
+        return self.display.create_resource_object('window', wId)
+
+def format_path(path):
+    #logging.debug('Path:%s', path)
+    result = path.replace(PATHSEPERATOR, '', 1)
+    result = result.replace('Root' + PATHSEPERATOR, '')
+    result = result.replace('Label Empty' + PATHSEPERATOR, '')
+    result = result.replace('_', '')
+    # return result.replace(PATHARROW, u'\u0020\u0020\u00BB\u0020\u0020')
+    return result
+
+def convert_alphanumeric_to_unicode(text):
+    out = ''
+    for c in text:
+        if c.isnumeric():
+            c = chr(ord(c) + 120764) #convert numbers
+        elif c.islower():
+            c = chr(ord(c) + 120205) #convert lowercase
+        elif c.isupper():
+            c = chr(ord(c) + 120211) #convert uppercase
+        else:
+            pass
+
+        out += c
+
+    # print('{} => {}'.format(text, out))
+    return out
+
+def format_shortcut(text):
+    # GTK
+    text = text.replace('<Primary>', 'Ctrl+')
+    text = text.replace('<Shift>', 'Shift+')
+    text = text.replace('<Alt>', 'Alt+')
+    text = text.replace('<Mod4>', 'Meta+')
+    text = text.replace('bracketleft', '[')
+    text = text.replace('bracketright', ']')
+    text = text.replace('backslash', '\\')
+    text = text.replace('slash', '/')
+    text = text.replace('Return', '⏎')
+
+    # Qt
+    text = text.replace('Control+', 'Ctrl+')
+
+    # Prevent shortcut from showing up in search
+    text = convert_alphanumeric_to_unicode(text)
+    text = text.replace('+', '＋') # Full-width Plus (U+FF0B)
+
+    # Add Color.
+    # Make sure font is not monospace, which clips the Sans Serif characters.
+    text = '<span fgcolor="' + shortcut_fg_color + '" face="Sans Serif">' + text + '</span>'
+    return text
+
+def format_menuitem_label(path, shortcut):
+    result = format_path(path)
+
+    if show_shortcuts and shortcut:
+        shortcut = format_shortcut(shortcut)
+        result += EMSPACE + shortcut
+
+    return result
+
+def format_menuitem(formattedlabel, icon_name):
+    result = formattedlabel
+
+    if show_icons and icon_name:
+        # Documented at:
+        # https://github.com/davatorium/rofi/issues/840#issuecomment-410683206
+        result += ' \x00icon\x1f' + icon_name
+
+    # print('\t', result)
+    return result
+
+def rgba_to_hex(color):
+   """
+   Return hexadecimal string for :class:`Gdk.RGBA` `color`.
+   """
+   return "#{0:02x}{1:02x}{2:02x}".format(
+                                    int(color.red   * 255),
+                                    int(color.green * 255),
+                                    int(color.blue  * 255))
+
+def get_color(style_context, preferred_color, fallback_color):
+    color = rgba_to_hex(style_context.lookup_color(preferred_color)[1])
+    if color == '#000000':
+        color = rgba_to_hex(style_context.lookup_color(fallback_color)[1])
+    return color
+
+def str2bool(v):
+    return v.lower() in ("yes", "true", "t", "1")
+
+
+# KDE rc files differences:
+#     Keys are cAsE sensitive
+#     No spaces around the =
+#     [Sections can have spaces and : colons]
+# Also (NOT FIXED):
+#     Can have [Sub][Sections]
+class KdeConfig(configparser.ConfigParser):
+    def __init__(self, filename):
+        super().__init__()
+
+        # Keep case sensitive keys
+        # http://stackoverflow.com/questions/19359556/configparser-reads-capital-keys-and-make-them-lower-case
+        self.optionxform = str
+
+        self.filename = filename
+        self.read(self.filename)
+
+    def set(self, section, option, value):
+        if not self.has_section(section):
+            self.add_section(section)
+        super().set(section, option, str(value))
+
+    def setProp(self, key, value):
+        section, option = key.split('.', 1)
+        return self.set(section, option, value)
+
+    def getProp(self, key):
+        section, option = key.split('.', 1)
+        return self.get(section, option)
+
+    def default(self, section, option, value):
+        if not self.has_option(section, option):
+            self.set(section, option, value)
+
+    def save(self):
+        with open(self.filename, 'w') as fp:
+            self.write(fp, space_around_delimiters=False)
+
+class PlasmaHudConfig(KdeConfig):
+    def __init__(self):
+        super().__init__(os.path.abspath(os.path.expanduser('~/.config/plasmahudrc')))
+
+class KdeGlobalsConfig(KdeConfig):
+    def __init__(self):
+        super().__init__(os.path.abspath(os.path.expanduser('~/.config/kdeglobals')))
+
+
+
+### Logging / Tests
+def log_menu(wm_class, menuKeys):
+    from datetime import datetime
+    now = datetime.now()
+    logdir = os.path.expanduser("~/.config/plasmahud/logs")
+    os.makedirs(logdir, exist_ok=True)
+    filename = "{}-{}.log".format(wm_class[0], now.strftime("%Y-%m-%d__%H-%M-%S"))
+    filepath = os.path.join(logdir, filename)
+    menu_string = '\n'.join(menuKeys)
+    with open(filepath, "w") as fout:
+        fout.write(menu_string)
+
+
+
+### Init
+def check_rofi_features():
+    global supports_icons, supports_shortcuts
+
+    # https://stackoverflow.com/questions/11887762/how-do-i-compare-version-numbers-in-python
+    try: 
+        from packaging import version
+        version_parse = version.parse
+    except:
+        # SetupTools isn't installed, use simplier version parsing.
+        logging.debug('setuptools isnt installed, using simplier version parsing.')
+        def version_parse(versionStr):
+            logging.debug("version_parse: %s", versionStr)
+            versionBytes = versionStr.encode('utf-8')
+            m = re.match(b'^(\d+).(\d+).(\d+)$', versionBytes)
+            if m:
+                major = int(m.group(1))
+                minor = int(m.group(2))
+                bugfix = int(m.group(3))
+                logging.debug("version: %s", (major, minor, bugfix))
+                return (major, minor, bugfix)
+            raise Exception("Error parsing version (%s)")
+
+    try:
+        p = subprocess.run(['rofi', '-version'], stdout=subprocess.PIPE)
+        versionStr = p.stdout.strip()
+        m = re.match(b'^Version: ((\d+).(\d+).(\d+))$', versionStr)
+        if m:
+            versionStr = m.group(1).decode('utf-8')
+            rofiVersion = version_parse(versionStr)
+            supports_icons = rofiVersion >= version_parse('1.5.3')
+            supports_shortcuts = rofiVersion > version_parse('1.5.4')
+            logging.debug('rofiVersion: %s', str(rofiVersion))
+            logging.debug('supports_icons: %s', str(supports_icons))
+            logging.debug('supports_shortcuts: %s', str(supports_shortcuts))
+    except Exception as e:
+        logging.warning("Error parsing version (%s) %s", versionStr, e)
+
+
+### Implementation
+def init_rofi():
+    """
+    Init rofi_procss so it starts capturing keystrokes while we slowly pipe in the dbus menu items.
+    """
+    global rofi_process, shortcut_fg_color, show_icons, show_shortcuts
+    logging.debug("init_rofi.rofi_process.start: %s", rofi_process)
+
+    # Get the currently active font.
+    font_name = 'Sans 10'
+
+    # Get some colors from the currently selected theme.
+    window = Gtk.Window()
+    style_context = window.get_style_context()
+
+    bg_color = get_color(style_context, 'dark_bg_color', 'theme_bg_color')
+    fg_color = get_color(style_context, 'dark_fg_color', 'theme_fg_color')
+    borders = get_color(style_context, 'borders', 'border_color')
+    selected_bg_color = rgba_to_hex(style_context.lookup_color('theme_selected_bg_color')[1])
+    selected_fg_color = rgba_to_hex(style_context.lookup_color('theme_selected_fg_color')[1])
+    error_bg_color = rgba_to_hex(style_context.lookup_color('error_bg_color')[1])
+    error_fg_color = rgba_to_hex(style_context.lookup_color('error_fg_color')[1])
+    info_bg_color = rgba_to_hex(style_context.lookup_color('info_bg_color')[1])
+    info_fg_color = rgba_to_hex(style_context.lookup_color('info_fg_color')[1])
+    # text_color = rgba_to_hex(style_context.lookup_color('theme_text_color')[1])
+
+    kdeglobals = KdeGlobalsConfig()
+    icon_theme = kdeglobals.get('Icons', 'Theme', fallback='breeze')
+
+    def logTheme():
+        logging.debug('bg_color: %s', str(bg_color))
+        logging.debug('fg_color: %s', str(fg_color))
+        logging.debug('borders: %s', str(borders))
+        logging.debug('selected_bg_color: %s', str(selected_bg_color))
+        logging.debug('selected_fg_color: %s', str(selected_fg_color))
+        logging.debug('error_bg_color: %s', str(error_bg_color))
+        logging.debug('error_fg_color: %s', str(error_fg_color))
+        logging.debug('info_bg_color: %s', str(info_bg_color))
+        logging.debug('info_fg_color: %s', str(info_fg_color))
+
+    logging.debug('=== Gtk.Window style_context ===')
+    logTheme()
+
+    plasmahudrc = PlasmaHudConfig()
+    matching = plasmahudrc.get('General', 'Matching', fallback='fuzzy')
+    sort_items = str2bool(plasmahudrc.get('General', 'Sort', fallback='false'))
+    num_lines = int(plasmahudrc.get('General', 'Lines', fallback='10'))
+    wait_for_sync = str2bool(plasmahudrc.get('General', 'WaitForAllMenuItems', fallback='false'))
+    show_icons = str2bool(plasmahudrc.get('Icons', 'Enabled', fallback=str(show_icons)))
+    icon_theme = plasmahudrc.get('Icons', 'Theme', fallback=icon_theme)
+    show_shortcuts = str2bool(plasmahudrc.get('Shortcuts', 'Enabled', fallback=str(show_shortcuts)))
+    hud_title = plasmahudrc.get('Style', 'Title', fallback='HUD')
+    font_name = plasmahudrc.get('Style', 'Font', fallback=font_name)
+    bg_color = plasmahudrc.get('Colors', 'Background', fallback=bg_color)
+    fg_color = plasmahudrc.get('Colors', 'Foreground', fallback=fg_color)
+    selected_bg_color = plasmahudrc.get('Colors', 'SelectedBackground', fallback=selected_bg_color)
+    selected_fg_color = plasmahudrc.get('Colors', 'SelectedForeground', fallback=selected_fg_color)
+    error_bg_color = plasmahudrc.get('Colors', 'ErrorBackground', fallback=error_bg_color)
+    error_fg_color = plasmahudrc.get('Colors', 'ErrorForeground', fallback=error_fg_color)
+    info_bg_color = plasmahudrc.get('Colors', 'InfoBackground', fallback=info_bg_color)
+    info_fg_color = plasmahudrc.get('Colors', 'InfoForeground', fallback=info_fg_color)
+    borders = plasmahudrc.get('Colors', 'Borders', fallback=borders)
+    shortcut_fg_color = plasmahudrc.get('Colors', 'ShortcutForeground', fallback=DEFAULT_SHORTCUT_FG_COLOR)
+
+    def logConfig():
+        logging.debug('matching: %s', str(matching))
+        logging.debug('sort_items: %s', str(sort_items))
+        logging.debug('num_lines: %s', str(num_lines))
+        logging.debug('wait_for_sync: %s', str(wait_for_sync))
+        logging.debug('show_icons: %s', str(show_icons))
+        logging.debug('icon_theme: %s', str(icon_theme))
+        logging.debug('show_shortcuts: %s', str(show_shortcuts))
+        logging.debug('font_name: %s', str(font_name))
+
+    logging.debug('=== After ~/.config/plasmahudrc ===')
+    logTheme()
+    logConfig()
+    logging.debug('=== --------------------------- ===')
+
+    # Check if rofi supports certain features
+    show_icons = supports_icons and show_icons
+    show_shortcuts = supports_shortcuts and show_shortcuts
+
+    # Calculate display DPI value
+    screen = window.get_screen()
+    scale = window.get_scale_factor()
+
+    def get_dpi(pixels, mm):
+       if mm >= 1:
+          return scale * pixels / (mm / 25.4)
+       else:
+          return 0
+
+    width_dpi = get_dpi(screen.width(), screen.width_mm())
+    height_dpi = get_dpi(screen.height(), screen.height_mm())
+    dpi = scale * (width_dpi + height_dpi) / 2
+
+    logging.debug("init_rofi.rofi_process.pre: %s", rofi_process)
+    rofi_process = subprocess.Popen(['rofi', '-dmenu',
+        '-i', # Case insensitive filtering
+        '-location', '1',
+        '-width', '100',
+        '-p', hud_title, # Text beside filter textfield
+        '-lines', str(num_lines),
+        '-async-pre-read', str(num_lines),
+        '-sync' if wait_for_sync else '', # withhold display until menu entries are ready
+        '-font', font_name,
+        '-dpi', str(dpi),
+        '-separator-style', 'none',
+        '-hide-scrollbar',
+        '-click-to-exit',
+        '-markup-rows',
+        # '-display-columns', '1,2',
+        # '-display-column-separator', '\t',
+        '-show-icons' if show_icons else '',
+        '-icon-theme', icon_theme,
+        # '-levenshtein-sort',
+        '-sorting', 'fsf',
+        '-sort' if sort_items else '-no-sort',
+        '-matching', matching,
+        '-line-padding', '2',
+        '-kb-cancel', 'Escape',
+        '-monitor', '-2', # show in the current application
+        '-color-enabled',
+        '-color-window', bg_color +", " + borders + ", " + borders,
+        '-color-normal', bg_color +", " + fg_color + ", " + bg_color + ", " + selected_bg_color + ", " + selected_fg_color,
+        '-color-active', bg_color +", " + fg_color + ", " + bg_color + ", " + info_bg_color + ", " + info_fg_color,
+        '-color-urgent', bg_color +", " + fg_color + ", " + bg_color + ", " + error_bg_color + ", " + error_fg_color,
+        ],
+        stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+    logging.debug("init_rofi.rofi_process.post: %s", rofi_process)
+
+
+def write_menuitem(menu_item):
+    global rofi_process
+
+    menu_string = menu_item + '\n'
+
+    # if not rofi_process and rofi_process.poll() is not None:
+    #     logging.debug("write_menuitem() rofi_process was terminated before all menu_items were piped")
+    #     return
+
+    # logging.debug('menu_string: %s', menu_string)
+    rofi_process.stdin.write(menu_string.encode('utf-8'))
+    rofi_process.stdin.flush()
+
+    # --- Test async
+    # time.sleep(0.05)
+
+def get_menu():
+    """
+    Generate menu of available menu items.
+    """
+    global rofi_process, shortcut_fg_color
+
+    if not rofi_process and rofi_process.poll() is not None:
+        logging.debug("get_menu() rofi_process was terminated before asking for menu_result")
+        return ''
+
+    menu_result = rofi_process.communicate()[0].decode('utf8').rstrip()
+    rofi_process.stdin.close()
+
+    return menu_result
+
+
+"""
+  try_dbusmenu_interface
+"""
+def try_dbusmenu_interface(wm_class, dbusmenu_bus, dbusmenu_object_path):
+    # --- Get Appmenu Registrar DBus interface
+    session_bus = dbus.SessionBus()
+
+    # --- Access dbusmenu items
+    try:
+        dbusmenu_object = session_bus.get_object(dbusmenu_bus, dbusmenu_object_path)
+        dbusmenu_object_iface = dbus.Interface(dbusmenu_object, 'com.canonical.dbusmenu')
+    except ValueError:
+        logging.info('Unable to access dbusmenu items.')
+        return False
+
+    # --- Valid menu, so init rofi process to capture keypresses.
+    logging.debug('init_rofi.before : %s', str(time.perf_counter()))
+    init_rofi()
+    logging.debug('init_rofi.after  : %s', str(time.perf_counter()))
+
+    # --- Read menu
+    def get_layout(parent_id = 0, recursion_depth = -1, property_names = ["label", "children-display"]):
+        """Returns a layout as a list of items. Each item is an array of [item_id, item_props, item_children]."""
+        revision, layout = dbusmenu_object_iface.GetLayout(parent_id, recursion_depth, property_names)
+        return layout
+
+    dbusmenu_root_item = get_layout()
+    dbusmenu_label_dict = dict()
+    dbusmenu_iconlabel_dict = dict()
+    logging.debug('get_layout.root  : %s', str(time.perf_counter()))
+
+    #For excluding items which have no action
+    blacklist = []
+
+    # --- Expand nested dbus menu
+    def explore_dbus_menu(item, path):
+        item_id = item[0]
+        item_props = item[1]
+        item_children = item[2]
+
+        if 'label' in item_props and item_props['label']:
+            new_path = path + PATHSEPERATOR + item_props['label']
+        else:
+            new_path = path
+
+        icon_name = None
+        shortcut = None
+
+        if 'icon-name' in item_props and item_props['icon-name']:
+            icon_name = str(item_props['icon-name'])
+            # logging.debug('icon_name %s', icon_name)
+
+        if 'shortcut' in item_props and item_props['shortcut']:
+            shortcut = '+'.join(item_props['shortcut'][0])
+            # logging.debug('shortcut %s', shortcut)
+
+        if 'children-display' in item_props:
+            if 'canonical' in dbusmenu_object_path: # expand firefox
+                dbusmenu_object_iface.Event(item_id, "opened", "not used", 0)
+
+            if not item_children:
+                dbusmenu_object_iface.AboutToShow(item_id)
+                item_children = get_layout(item_id)[2]
+
+            blacklist.append(new_path)
+
+            logging.debug('get_layout.child : %s', str(time.perf_counter()))
+
+            # if not rofi_process and rofi_process.poll() is not None:
+            #     logging.debug("explore_dbus_menu(child) rofi_process was terminated before child menuitems were piped")
+            #     return
+
+            for child in item_children:
+                for child_entry in explore_dbus_menu(child, new_path):
+                    yield child_entry
+        else:
+            if new_path not in blacklist:
+                item_label = format_menuitem_label(new_path, shortcut)
+                dbusmenu_label_dict[item_label] = item_id
+
+                # Icon name is stripped from the menu_result. So we need
+                # 2 dicts, one for passing into rofi, and another to parse
+                # the result.
+                item_entry = format_menuitem(item_label, icon_name) 
+                dbusmenu_iconlabel_dict[item_entry] = item_id
+                # logging.debug('item_entry: #%s: "%s"', str(len(dbusmenu_iconlabel_dict)), str(item_entry))
+
+                yield item_entry
+
+
+    if not rofi_process and rofi_process.poll() is not None:
+        logging.debug("explore_dbus_menu(root) rofi_process was terminated before nested menuitems were piped")
+        return False
+
+    for item_entry in explore_dbus_menu(dbusmenu_root_item, ""):
+        write_menuitem(item_entry)
+
+    logging.debug('get_layout.nested: %s', str(time.perf_counter()))
+
+    # --- Logging / Tests
+    # menuKeys = dbusmenu_iconlabel_dict.keys()
+    # log_menu(wm_class, menuKeys)
+
+    # --- Show menu
+    menu_result = get_menu()
+    logging.debug('menu_result: "%s"', str(menu_result))
+
+    # --- Use dmenu result
+    if menu_result in dbusmenu_label_dict:
+        action = dbusmenu_label_dict[menu_result]
+        logging.debug('AppMenu Action : %s', str(action))
+        dbusmenu_object_iface.Event(action, 'clicked', 0, 0)
+
+    # Firefox:
+    # Send closed events to level 1 items to make sure nothing weird happens
+    # Firefox will close the submenu items (luckily!)
+    # VimFx extension wont work without this
+    dbusmenu_level1_items = dbusmenu_object_iface.GetLayout(0, 1, ["label"])[1]
+    for item in dbusmenu_level1_items[2]:
+        item_id = item[0]
+        dbusmenu_object_iface.Event(item_id, "closed", "not used", dbus.UInt32(time.time()))
+
+    return True
+
+
+def hud():
+    logging.debug("\n")
+    logging.debug("hud()            : %s", str(time.perf_counter()))
+
+    # Get Window properties and GTK MenuModel Bus name
+    ewmh = EWMH()
+    win = ewmh.getActiveWindow()
+    if win is None:
+        logging.debug('ewmh.getActiveWindow returned None, giving up')
+        return
+    window_id = hex(ewmh._getProperty('_NET_ACTIVE_WINDOW')[0])
+
+    def get_prop_str(propKey):
+        value = ewmh._getProperty(propKey, win)
+        # print('get_prop_str', propKey, value)
+        if isinstance(value, bytes):
+            return value.decode('utf8')
+        else:
+            return value
+
+    wm_class = get_prop_str('WM_CLASS')
+    if wm_class:
+        wm_class = wm_class.split('\x00')
+        # split creates an empty 3rd token after the second null \x00.
+        if len(wm_class) == 3:
+            wm_class = wm_class[0:2]
+    if not wm_class or len(wm_class) != 2:
+        wm_class = ['', '']
+
+    gtk_bus_name = get_prop_str('_GTK_UNIQUE_BUS_NAME')
+    gtk_menubar_object_path = get_prop_str('_GTK_MENUBAR_OBJECT_PATH')
+    gtk_app_object_path = get_prop_str('_GTK_APPLICATION_OBJECT_PATH')
+    gtk_win_object_path = get_prop_str('_GTK_WINDOW_OBJECT_PATH')
+    gtk_unity_object_path = get_prop_str('_UNITY_OBJECT_PATH')
+    kde_appmenu_service_name = get_prop_str('_KDE_NET_WM_APPMENU_SERVICE_NAME')
+    kde_appmenu_object_path = get_prop_str('_KDE_NET_WM_APPMENU_OBJECT_PATH')
+
+    logging.debug('Window id is : %s', window_id)
+    logging.debug('WM_CLASS: %s', str(wm_class))
+    logging.debug('_GTK_UNIQUE_BUS_NAME: %s', gtk_bus_name)
+    logging.debug('_GTK_MENUBAR_OBJECT_PATH: %s', gtk_menubar_object_path)
+    logging.debug('_GTK_APPLICATION_OBJECT_PATH: %s', gtk_app_object_path)
+    logging.debug('_GTK_WINDOW_OBJECT_PATH: %s', gtk_win_object_path)
+    logging.debug('_UNITY_OBJECT_PATH: %s', gtk_unity_object_path)
+    logging.debug('_KDE_NET_WM_APPMENU_SERVICE_NAME: %s', kde_appmenu_service_name)
+    logging.debug('_KDE_NET_WM_APPMENU_OBJECT_PATH: %s', kde_appmenu_object_path)
+
+    appmenu_success = False
+
+    if not appmenu_success:
+        if kde_appmenu_service_name and kde_appmenu_object_path:
+            logging.debug('Trying KDE AppMenu interface')
+            appmenu_success = try_dbusmenu_interface(wm_class, kde_appmenu_service_name, kde_appmenu_object_path)
+    
+    if not appmenu_success:
+        logging.debug('Giving up')
+
+def openHUD():
+    threading.Thread(target=hud).start()
+
+class PlasmaHUD(dbus.service.Object):
+    def __init__(self, conn, object_path='/PlasmaHUD'):
+        dbus.service.Object.__init__(self, conn, object_path)
+
+    @dbus.service.method('com.github.zren.PlasmaHUD')
+    def toggleHUD(self):
+        global rofi_process
+        logging.debug("toggleHUD.rofi_process: %s", rofi_process)
+        if rofi_process and rofi_process.poll() is None:
+            logging.debug("toggleHUD.rofi_process.terminate")
+            rofi_process.terminate()
+        else:
+            logging.debug("toggleHUD.openHUD")
+            openHUD()
+
+
+# kwriteconfig5 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Alt "com.github.zren.PlasmaHUD,/PlasmaHUD,com.github.zren.PlasmaHUD,toggleHUD"
+# qdbus org.kde.KWin /KWin reconfigure
+
+if __name__ == "__main__":
+    setproctitle.setproctitle('plasma-hud')
+    logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
+
+    check_rofi_features()
+
+    Gtk.init()
+
+    DBusGMainLoop(set_as_default=True)
+    session_bus = dbus.SessionBus()
+    name = dbus.service.BusName('com.github.zren.PlasmaHUD', session_bus)
+    obj = PlasmaHUD(session_bus)
+
+    try:
+        GLib.MainLoop().run()
+    except KeyboardInterrupt:
+        GLib.MainLoop().quit()

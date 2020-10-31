@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.0.0)  nitrux; urgency=medium
+
+  * Add plasma-hud.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 30 Oct 2020 20:10:00 -0500
+
 nx-desktop-settings-legacy (1.9.9)  nitrux; urgency=medium
 
   * Update Kwin shortcuts.
