@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.0.2)  nitrux; urgency=medium
+
+  * Make sure to copy our custom kwin shortcuts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 31 Oct 2020 13:19:00 -0500
+
 nx-desktop-settings-legacy (2.0.1)  nitrux; urgency=medium
 
   * Make sure to copy our custom kwin shortcuts.

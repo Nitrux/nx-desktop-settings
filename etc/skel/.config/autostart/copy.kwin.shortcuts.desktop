@@ -1,8 +1,9 @@
 [Desktop Entry]
 Type=Application
-Terminal=false
+Name=copy-kwin-shortcuts
+Exec=$HOME/.config/cp-kwin-shortcuts.sh
+Comment=Copy our custom kwin shortcuts to home
 Icon=
-Name=Copy Kwin shortcuts
-Exec=~/.config/cp-kwin-shortcuts.sh
 Categories=Utility;
+Terminal=false
 NoDisplay=true
