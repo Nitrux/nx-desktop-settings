@@ -60,6 +60,14 @@ sed -i "/env_reset/d" /etc/sudoers
 		appimaged		"https://github.com/AppImage/appimaged/releases/download/continuous/appimaged-x86_64.AppImage" \
 		appimagetool	"https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" \
 		wine			"https://github.com/ferion11/Proton_Appimage/releases/download/continuous/proton-linux-x86-v4.2-PlayOnLinux-x86_64.AppImage"
+
+	printf "%s %s\n" \
+		kdenlive		"https://download.kde.org/stable/kdenlive/20.08/linux/kdenlive-20.08.2-x86_64.appimage" \
+		libreoffice		"https://libreoffice.soluzioniopen.com/stable/standard/LibreOffice-fresh.standard-x86_64.AppImage" \
+		gimp			"https://github.com/aferrero2707/gimp-appimage/releases/download/continuous/GIMP_AppImage-git-2.10.23-20201105-x86_64.AppImage" \
+		mpv				"https://raw.githubusercontent.com/Nitrux/storage/master/AppImages/mpv-0.32.0-x86_64.AppImage" \
+		inkscape		"https://inkscape.org/gallery/item/21590/Inkscape-3bc2e81-x86_64.AppImage" \
+		lmms			"https://github.com/LMMS/lmms/releases/download/v1.2.2/lmms-1.2.2-linux-x86_64.AppImage"
 } | {
 	while read name url; do
 		axel -a -q -o /Applications/$name "$url"
@@ -69,6 +77,13 @@ sed -i "/env_reset/d" /etc/sudoers
 chmod +x /Applications/*
 
 mv /Applications/appimaged /etc/skel/.local/bin
+
+axel -a -q -o /Applications https://raw.githubusercontent.com/UriHerrera/storage/master/AppImages/split/bin/latte-dock/xaa
+axel -a -q -o /Applications https://raw.githubusercontent.com/UriHerrera/storage/master/AppImages/split/bin/latte-dock/xab
+cat /Applications/xa* > /Applications/latte-dock
+rm /Applications/xa*
+chmod +x /Applications/latte-dock
+
 
 #	let krohnkite be configured from system settings.
 
