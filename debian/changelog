@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.0.4)  nitrux; urgency=medium
+
+  * Remove latte-dock AppImage.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 23 Nov 2020 23:39:00 -0500
+
 nx-desktop-settings-legacy (2.0.3)  nitrux; urgency=medium
 
   * Use AppImages for kdenlive, libreoffice, gimp, mpv, inkscape, lmms and latte-dock.
