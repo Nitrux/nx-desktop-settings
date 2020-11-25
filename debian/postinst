@@ -63,10 +63,10 @@ sed -i "/env_reset/d" /etc/sudoers
 		wine			"https://github.com/ferion11/Proton_Appimage/releases/download/continuous/proton-linux-x86-v4.2-PlayOnLinux-x86_64.AppImage"
 
 	printf "%s %s\n" \
-		kdenlive		"https://download.kde.org/stable/kdenlive/20.08/linux/kdenlive-20.08.2-x86_64.appimage" \
+		kdenlive		"https://download.kde.org/stable/kdenlive/20.08/linux/kdenlive-20.08.3-x86_64.appimage" \
 		libreoffice		"https://libreoffice.soluzioniopen.com/stable/standard/LibreOffice-fresh.standard-x86_64.AppImage" \
-		gimp			"https://github.com/aferrero2707/gimp-appimage/releases/download/continuous/GIMP_AppImage-git-2.10.23-20201105-x86_64.AppImage" \
-		mpv				"https://raw.githubusercontent.com/Nitrux/storage/master/AppImages/mpv-0.32.0-x86_64.AppImage" \
+		gimp			"https://github.com/aferrero2707/gimp-appimage/releases/download/continuous/GIMP_AppImage-git-2.10.23-20201120-x86_64.AppImage" \
+		mpv				"https://raw.githubusercontent.com/Nitrux/storage/master/AppImages/mpv-0.32.0-1ubuntu1-x86_64.AppImage" \
 		inkscape		"https://inkscape.org/gallery/item/21590/Inkscape-3bc2e81-x86_64.AppImage" \
 		lmms			"https://github.com/LMMS/lmms/releases/download/v1.2.2/lmms-1.2.2-linux-x86_64.AppImage"
 } | {
