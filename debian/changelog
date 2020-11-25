@@ -1,6 +1,12 @@
+nx-desktop-settings-legacy (2.0.7)  nitrux; urgency=medium
+
+  * Add desktop launcher Libreoffice.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 25 Nov 2020 12:43:00 -0500
+
 nx-desktop-settings-legacy (2.0.6)  nitrux; urgency=medium
 
-  * Add desktop launchers for INkscape and mpv AppImages.
+  * Add desktop launchers for Inkscape and mpv AppImages.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 24 Nov 2020 18:34:00 -0500
 
