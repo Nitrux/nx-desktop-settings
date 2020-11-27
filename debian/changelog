@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.1.0)  nitrux; urgency=medium
+
+  * Update app menu folders, again.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Nov 2020 05:44:00 -0500
+
 nx-desktop-settings-legacy (2.0.9)  nitrux; urgency=medium
 
   * Update Libreoffice config, and app menu folders.
