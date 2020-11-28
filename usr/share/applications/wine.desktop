@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Wine
+Comment=Wine AppImage with Proton
+Exec=wine
+Icon=application-x-ms-dos-executable
+Terminal=false
+Type=Application
+Categories=Wine;
+StartupNotify=true
