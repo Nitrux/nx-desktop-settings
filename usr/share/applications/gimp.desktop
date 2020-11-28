@@ -6,8 +6,8 @@ GenericName=Image Editor
 Comment=Create images and edit photographs
 # Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 Keywords=GIMP;graphic;design;illustration;painting;
-Exec=gimp-2.10 %U
-TryExec=gimp-2.10
+Exec=gimp %U
+TryExec=gimp
 Icon=gimp
 Terminal=false
 Categories=Graphics;2DGraphics;RasterGraphics;GTK;
