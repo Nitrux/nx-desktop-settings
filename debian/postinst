@@ -18,8 +18,7 @@ rm -rf \
 	/usr/share/applications/org.kde.kdeconnect.sms.desktop \
 	/usr/share/applications/org.kde.kdeconnect_open.desktop \
 	/usr/share/applications/org.kde.kinfocenter.desktop \
-	/usr/share/applications/org.kde.plasma.emojier.desktop \
-	/usr/share/applications/libreoffice-startcenter.desktop
+	/usr/share/applications/org.kde.plasma.emojier.desktop 
 
 
 #	let nsnake be reachable through $PATH.
