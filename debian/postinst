@@ -69,6 +69,12 @@ sed -i "/env_reset/d" /etc/sudoers
 		mpv				"https://raw.githubusercontent.com/Nitrux/storage/master/AppImages/mpv-0.32.0-1ubuntu1-x86_64.AppImage" \
 		inkscape		"https://inkscape.org/gallery/item/21590/Inkscape-3bc2e81-x86_64.AppImage" \
 		lmms			"https://github.com/LMMS/lmms/releases/download/v1.2.2/lmms-1.2.2-linux-x86_64.AppImage"
+		buho			"https://download.kde.org/stable/maui/1.2.0/appimages/buho-stable-v1.2-amd64.AppImage"
+		index			"https://download.kde.org/stable/maui/1.2.0/appimages/index-stable-v1.2-amd64.AppImage"
+		nota			"https://download.kde.org/stable/maui/1.2.0/appimages/nota-stable-v1.2-amd64.AppImage"
+		pix				"https://download.kde.org/stable/maui/1.2.0/appimages/pix-stable-v1.2-amd64.AppImage"
+		station			"https://download.kde.org/stable/maui/1.2.0/appimages/station-stable-v1.2-amd64.AppImage"
+		vvave			"https://download.kde.org/stable/maui/1.2.0/appimages/vvave-stable-v1.2-amd64.AppImage"
 } | {
 	while read name url; do
 		axel -a -q -o /Applications/$name "$url"
