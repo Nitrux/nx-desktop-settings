@@ -1,5 +1,11 @@
 nx-desktop-settings-legacy (2.1.6)  nitrux; urgency=medium
 
+  * Fix typos in launchers
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Nov 2020 14:32:00 -0500
+
+nx-desktop-settings-legacy (2.1.6)  nitrux; urgency=medium
+
   * Fix typos.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Nov 2020 11:49:00 -0500

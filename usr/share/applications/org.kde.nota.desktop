@@ -1,4 +1,4 @@
--[Desktop Entry]
+[Desktop Entry]
 Name=Nota
 Name[ca]=Nota
 Name[ca@valencia]=Nota
@@ -36,7 +36,7 @@ Comment[uk]=Простий текстовий редактор
 Comment[x-test]=xxSimple Text Editorxx
 Comment[zh_TW]=簡易文字編輯器
 TryExec=nota
-Exec=nota %U -style maui-style
+Exec=nota
 Terminal=false
 Type=Application
 Categories=Qt;KDE;Utility;TextEditor;

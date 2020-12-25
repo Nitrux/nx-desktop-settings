@@ -1,4 +1,4 @@
--[Desktop Entry]
+[Desktop Entry]
 Name=vvave
 Name[ca]=vvave
 Name[ca@valencia]=vvave
@@ -44,7 +44,7 @@ Comment[uk]=Відтворення вашої музичної збірки
 Comment[x-test]=xxPlay your music collectionxx
 Comment[zh_TW]=播放您的音樂集合
 TryExec=vvave
-Exec=vvave %U -style maui-style
+Exec=vvave
 Terminal=false
 Type=Application
 Categories=Qt;Audio;Music;Player;AudioVideo;

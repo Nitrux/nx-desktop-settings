@@ -1,4 +1,4 @@
--[Desktop Entry]
+[Desktop Entry]
 Name=Buho
 Name[ca]=Buho
 Name[ca@valencia]=Buho
@@ -34,7 +34,7 @@ Comment[uk]=Програма для роботи із нотатками
 Comment[x-test]=xxNote taking appxx
 Comment[zh_TW]=記事應用程式
 TryExec=buho
-Exec=buho %U -style maui-style
+Exec=buho
 Keywords=notes;todo;nextcloud;maui;
 Keywords[ca]=notes;todo;tasca pendent;nextcloud;maui;
 Keywords[ca@valencia]=notes;todo;tasca pendent;nextcloud;maui;

@@ -1,4 +1,4 @@
--[Desktop Entry]
+[Desktop Entry]
 Name=Station
 Name[ca]=Estació
 Name[ca@valencia]=Estació
@@ -31,7 +31,7 @@ Comment[uk]=Емулятор термінала
 Comment[x-test]=xxTerminal Emulatorxx
 Comment[zh_TW]=終端機模擬器
 TryExec=station
-Exec=station %U -style maui-style
+Exec=station
 Terminal=false
 Type=Application
 Categories=Qt;KDE;System;
