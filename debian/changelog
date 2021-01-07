@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.2.3)  nitrux; urgency=medium
+
+  * Hide launchers.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 07 Jan 2021 00:36:00 -0500
+
 nx-desktop-settings-legacy (2.2.2)  nitrux; urgency=medium
 
   * Hide launchers, add new menu, add latte layouts using new menu.
