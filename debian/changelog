@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.2.4)  nitrux; urgency=medium
+
+  * Update GIMP.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 07 Jan 2021 00:49:00 -0500
+
 nx-desktop-settings-legacy (2.2.3)  nitrux; urgency=medium
 
   * Hide launchers.
