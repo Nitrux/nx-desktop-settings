@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.2.6)  nitrux; urgency=medium
+
+  * Hide launchers.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 15 Jan 2021 16:08:00 -0500
+
 nx-desktop-settings-legacy (2.2.5)  nitrux; urgency=medium
 
   * Hide launchers.
