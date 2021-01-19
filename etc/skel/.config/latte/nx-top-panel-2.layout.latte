@@ -187,7 +187,7 @@ settingsComplexity=4
 timerHide=700
 timerShow=200
 viewType=1
-visibility=0
+visibility=5
 wallpaperplugin=org.kde.image
 
 [Containments][14][Applets][48]
@@ -276,7 +276,7 @@ immutability=1
 plugin=org.kde.plasma.dittomenu
 
 [Containments][14][Applets][67][Configuration]
-PreloadWeight=20
+PreloadWeight=28
 
 [Containments][14][Applets][67][Configuration][ConfigDialog]
 DialogHeight=540
@@ -285,7 +285,7 @@ DialogWidth=720
 [Containments][14][Applets][67][Configuration][General]
 favoriteSystemActions=logout,lock-screen
 favoritesPortedToKAstats=true
-hiddenApplications=appimagekit_d503442865b57e93efc80136248e9ac5-appimagetool.desktop,appimagekit_e8a52b8fb685ab56f8723e31e6b46dde-buho.desktop,appimagekit_279ef495fdbe622b09f8a910c78c16b4-GNU_Image_Manipulation_Program.desktop,appimagekit_6c5c4f5a56abfe74331dddba73b66f2f-station.desktop,appimagekit_64fd0c61dcc404041230fd55de5d2a34-vvave.desktop,appimagekit_57631c3d43d98e6a16843d8301a1a60e-Wine.desktop,org.kde.plasma.emojier.desktop,appimagekit_725d7e5e03232cfa1b1c16ec5fddacf1-LMMS.desktop,appimagekit_5612131013151765469c1649c3345f79-mpv_Media_Player.desktop,appimagekit_5dcdf8402b3a97e2f3d68c75d0854eef-LibreOffice.desktop,org.kde.kinfocenter.desktop,appimagekit_ca883caf4f3153910620accd02be42ef-index.desktop,appimagekit_4bd6a6c147ac3496962812f375515a4b-Inkscape.desktop,appimagekit_af2a61ed6a4382b836d736b7e16f1c86-nota.desktop,appimagekit_da4ce6d88095897b74691ff50c1472d0-pix.desktop,org.kde.latte-dock.desktop,appimagekit_5f4e89ba1da3462726a9c421b1c28b28-GNU_Image_Manipulation_Program.desktop,appimagekit_74a5f50165285b4abc7b061daa956a2f-Inkscape.desktop,appimagekit_eed40a595f66367d298ee86364d88bf0-Wine.desktop,appimagekit_26c091b9da17e93a96f860db2901c01e-LibreOffice.desktop,appimagekit_6fe83be66aeecafaaf8f26d4133f5c28-buho.desktop,appimagekit_6797cc6d0035f54ff8d2f25f5364c567-index.desktop,appimagekit_17fc9cdfe57d91dc34fab4b8a394595a-mpv_Media_Player.desktop,appimagekit_125c1373cb597c374e2017c231b35742-vvave.desktop,calamares.desktop,appimagekit_3043c38a7a619befd0b41de1b183a9ce-Kdenlive.desktop,appimagekit_a8aabcc0a414fe9fefda98a60ff61144-appimagetool.desktop,appimagekit_70c719965db13ef25bdcf754833f4973-pix.desktop,appimagekit_9069e18fcdc55dec9e4345a5153168f3-station.desktop,appimagekit_768c96241c27223acd4921b4c50f73b3-Kdenlive.desktop
+hiddenApplications=appimagekit_d503442865b57e93efc80136248e9ac5-appimagetool.desktop,appimagekit_e8a52b8fb685ab56f8723e31e6b46dde-buho.desktop,appimagekit_279ef495fdbe622b09f8a910c78c16b4-GNU_Image_Manipulation_Program.desktop,appimagekit_6c5c4f5a56abfe74331dddba73b66f2f-station.desktop,appimagekit_64fd0c61dcc404041230fd55de5d2a34-vvave.desktop,appimagekit_57631c3d43d98e6a16843d8301a1a60e-Wine.desktop,org.kde.plasma.emojier.desktop,appimagekit_725d7e5e03232cfa1b1c16ec5fddacf1-LMMS.desktop,appimagekit_5612131013151765469c1649c3345f79-mpv_Media_Player.desktop,appimagekit_5dcdf8402b3a97e2f3d68c75d0854eef-LibreOffice.desktop,org.kde.kinfocenter.desktop,appimagekit_ca883caf4f3153910620accd02be42ef-index.desktop,appimagekit_4bd6a6c147ac3496962812f375515a4b-Inkscape.desktop,appimagekit_af2a61ed6a4382b836d736b7e16f1c86-nota.desktop,appimagekit_da4ce6d88095897b74691ff50c1472d0-pix.desktop,org.kde.latte-dock.desktop
 numberColumns=8
 numberRows=6
 showAtCenter=false
@@ -293,8 +293,29 @@ showAtCenter=false
 [Containments][14][Applets][67][Shortcuts]
 global=Meta+Alt+L
 
+[Containments][14][Applets][72]
+immutability=1
+plugin=org.kde.windowbuttons
+
+[Containments][14][Applets][72][Configuration]
+PreloadWeight=34
+
+[Containments][14][Applets][72][Configuration][ConfigDialog]
+DialogHeight=730
+DialogWidth=924
+
+[Containments][14][Applets][72][Configuration][General]
+buttonSizePercentage=75
+containmentType=Latte
+inactiveStateEnabled=true
+lengthLastMargin=8
+lengthMarginsLock=false
+spacing=0
+useDecorationMetrics=false
+visibility=ActiveMaximizedWindow
+
 [Containments][14][ConfigDialog]
-DialogHeight=1216
+DialogHeight=1220
 DialogWidth=509
 
 [Containments][14][Configuration]
@@ -306,11 +327,11 @@ advanced=true
 alignment=10
 alignmentUpgraded=true
 animationsEnabled=false
-appletOrder=67;57;51;48;60
+appletOrder=67;72;57;51;48;60
 appletShadowsEnabled=false
 autoDecreaseIconSize=false
 durationTime=x3
-iconSize=32
+iconSize=28
 inConfigureAppletsMode=true
 panelPosition=10
 panelShadows=false
@@ -322,8 +343,9 @@ shadows=None
 shadowsUpgraded=true
 showGlow=false
 shrinkThickMargins=true
-splitterPosition=3
-splitterPosition2=4
+solidBackgroundForMaximized=true
+splitterPosition=4
+splitterPosition2=5
 tasksUpgraded=true
 titleTooltips=false
 zoomLevel=0
@@ -346,7 +368,7 @@ color=red
 customBackground=
 customTextColor=fcfcfc
 disableBordersForMaximizedWindows=false
-lastUsedActivity=7f37912f-ce2f-4452-97e7-6c3ceff148df
+lastUsedActivity=213f6e5e-e270-4760-bf34-4208630d1daa
 launchers=
 preferredForShortcutsTouched=false
 showInMenu=true
