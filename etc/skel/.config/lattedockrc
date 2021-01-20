@@ -21,9 +21,9 @@ PreloadWeight=42
 [UniversalSettings]
 badges3DStyle=true
 canDisableBorders=false
-currentLayout=nx-top-panel
+currentLayout=nx-top-panel-2
 downloadWindowSize=800,550
-lastNonAssignedLayout=nx-top-panel
+lastNonAssignedLayout=nx-top-panel-2
 launchers=
 layoutsColumnWidths=43,204,127,0
 layoutsWindowSize=700,587
