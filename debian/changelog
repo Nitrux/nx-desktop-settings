@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.3.4)  nitrux; urgency=medium
+
+  * Update Latte configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 25 Jan 2021 01:50:00 -0500
+
 nx-desktop-settings-legacy (2.3.3)  nitrux; urgency=medium
 
   * Move Nvidia X11 configuration and AppImages to separate packages.
