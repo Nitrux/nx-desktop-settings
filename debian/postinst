@@ -47,43 +47,9 @@ sed -i 's/ACTION!="add", GOTO="libmtp_rules_end"/ACTION!="bind", ACTION!="add", 
 
 #	add support for AppImages and add AppImages.
 
-mkdir -p /Applications
-mkdir -p /etc/skel/Applications
-mkdir -p /etc/skel/.local/bin
-
 echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
-
-{
-	printf "%s %s\n" \
-		app				"https://github.com/AppImageCrafters/appimage-manager/releases/download/v0.1.2/app" \
-		appimaged		"https://github.com/AppImage/appimaged/releases/download/continuous/appimaged-x86_64.AppImage" \
-		appimagetool	"https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" \
-		wine			"https://github.com/ferion11/Proton_Appimage/releases/download/continuous/proton-linux-x86-v4.2-PlayOnLinux-x86_64.AppImage"
-
-	printf "%s %s\n" \
-		kdenlive		"https://download.kde.org/stable/kdenlive/20.12/linux/kdenlive-20.12.0-x86_64.appimage" \
-		libreoffice		"https://libreoffice.soluzioniopen.com/stable/standard/LibreOffice-fresh.standard-x86_64.AppImage" \
-		gimp			"https://github.com/aferrero2707/gimp-appimage/releases/download/continuous/GIMP_AppImage-git-2.10.23-20210114-x86_64.AppImage" \
-		mpv				"https://raw.githubusercontent.com/Nitrux/storage/master/AppImages/mpv-0.32.0-1ubuntu1-x86_64.AppImage" \
-		inkscape		"https://inkscape.org/gallery/item/21590/Inkscape-3bc2e81-x86_64.AppImage" \
-		lmms			"https://github.com/LMMS/lmms/releases/download/v1.2.2/lmms-1.2.2-linux-x86_64.AppImage" \
-		buho			"https://download.kde.org/stable/maui/1.2.0/appimages/buho-stable-v1.2-amd64.AppImage" \
-		index			"https://download.kde.org/stable/maui/1.2.0/appimages/index-stable-v1.2-amd64.AppImage" \
-		nota			"https://download.kde.org/stable/maui/1.2.0/appimages/nota-stable-v1.2-amd64.AppImage" \
-		pix				"https://download.kde.org/stable/maui/1.2.0/appimages/pix-stable-v1.2-amd64.AppImage" \
-		station			"https://download.kde.org/stable/maui/1.2.0/appimages/station-stable-v1.2-amd64.AppImage" \
-		vvave			"https://download.kde.org/stable/maui/1.2.0/appimages/vvave-stable-v1.2-amd64.AppImage"
-} | {
-	while read name url; do
-		axel -a -q -o /Applications/$name "$url"
-	done
-}
-
-chmod +x /Applications/*
-
-mv /Applications/appimaged /etc/skel/.local/bin
 
 
 #	let krohnkite be configured from system settings.
@@ -97,43 +63,6 @@ ln -svf /bin/mksh /bin/sh
 
 sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
 sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
-
-
-#	workaround for NVidia GPUs using PRIME configuration.
-#	this will make output available on external ports.
-#	FIXME: move to separate package that also installs the driver.
-
-test -f /usr/share/X11/xorg.conf.d/10-nvidia.conf && {
-	echo 'Nvidia Proprietary Driver installed!, adding X11 configuration.'
-		> /usr/share/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf printf "%s\n" \
-			'Section "OutputClass"' \
-			'	Identifier "nvidia"' \
-			'	MatchDriver "nvidia-drm"' \
-			'	Driver "nvidia"' \
-			'	Option "PrimaryGPU" "Yes"' \
-			'	Option "AllowEmptyInitialConfiguration" "true"' \
-			'	Option "AllowExternalGpus" "true"' \
-			'EndSection'
-
-		> /usr/share/X11/xorg.conf.d/10-amdgpu.conf printf "%s\n" \
-			'Section "OutputClass"' \
-			'    Identifier "AMDgpu"' \
-			'    MatchDriver "amdgpu"' \
-			'    Driver "modsetting"' \
-			'EndSection'
-
-		> /usr/share/X11/xorg.conf.d/10-intel.conf printf "%s\n" \
-			'Section "OutputClass"' \
-			'    Identifier "Intel"' \
-			'    MatchDriver "i915"' \
-			'    Driver "modsetting"' \
-			'EndSection'
-
-		> /etc/modprobe.d/blacklist-nouveau.conf printf "%s\n" \
-			'blacklist nouveau'
-} || {
-	echo 'Nvidia Proprietary Driver not installed!, skipping X11 configuration.'
-}
 
 
 #	add xdg_dir environment variables
