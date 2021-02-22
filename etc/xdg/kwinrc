@@ -6,6 +6,7 @@ GLCore=true
 GLPreferBufferSwap=p
 OpenGLIsUnsafe=false
 GLTextureFilter=2
+LatencyPolicy=ExtremelyLow
 HiddenPreviews=5
 OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
@@ -158,8 +159,5 @@ WindowSnapZone=10
 
 [org.kde.kdecoration2]
 BorderSize=Normal
-ButtonsOnLeft=
-ButtonsOnRight=IAX
-CloseOnDoubleClickOnMenu=false
-library=org.kde.kwin.aurorae
-theme=__aurorae__svg__org.kwin.aurorae.nitrux.dark
+library=org.kde.mauideco
+theme=Nitrux

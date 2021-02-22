@@ -114,7 +114,6 @@ smallestReadableFont=Fira Sans,8,-1,5,50,0,0,0,0,0
 fixed=Calling Code,10,-1,5,50,0,0,0,0,0,Regular
 toolBarFont=Fira Sans,10,-1,5,50,0,0,0,0,0
 shadeSortColumn=true
-widgetStyle=kvantum
 
 [Icons]
 Theme=Luv
@@ -123,7 +122,7 @@ Theme=Luv
 LookAndFeelPackage=org.kde.nitrux.dark.desktop
 ShowDeleteCommand=false
 contrast=0
-widgetStyle=kvantum
+widgetStyle=kvantum-dark
 
 [KFileDialog Settings]
 Automatically select filename extension=true

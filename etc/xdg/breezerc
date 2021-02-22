@@ -1,0 +1,9 @@
+[Common]
+ShadowSize=ShadowSmall
+ShadowStrength=230
+
+[Windeco]
+ButtonHOffset=4
+ButtonPadding=2
+ButtonSize=ButtonSmall
+CornerRadius=4
