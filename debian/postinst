@@ -45,7 +45,7 @@ systemctl disable cupsd.service cupsd-browsed.service NetworkManager-wait-online
 sed -i 's/ACTION!="add", GOTO="libmtp_rules_end"/ACTION!="bind", ACTION!="add", GOTO="libmtp_rules_end"/g' /lib/udev/rules.d/69-libmtp.rules
 
 
-#	add support for AppImages and add AppImages.
+#	add support for AppImages.
 
 echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
