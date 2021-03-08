@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.3.8)  nitrux; urgency=medium
+
+  * Add clip and shelf launchers.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 08 Mar 2021 04:43:00 -0500
+
 nx-desktop-settings-legacy (2.3.7)  nitrux; urgency=medium
 
   * Update LO config.
