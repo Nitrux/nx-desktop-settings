@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.3.9)  nitrux; urgency=medium
+
+  * Remove files for copying kwin shortcuts (they're ignored).
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 08 Mar 2021 05:45:00 -0500
+
 nx-desktop-settings-legacy (2.3.8)  nitrux; urgency=medium
 
   * Add clip and shelf launchers.
