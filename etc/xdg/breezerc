@@ -3,7 +3,10 @@ ShadowSize=ShadowSmall
 ShadowStrength=230
 
 [Windeco]
+AnimationsDuration=250
+AnimationsEnabled=true
 ButtonHOffset=4
 ButtonPadding=2
-ButtonSize=ButtonSmall
+ButtonSize=ButtonDefault
 CornerRadius=4
+MatchColorForTitleBar=false

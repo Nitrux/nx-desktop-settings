@@ -1,8 +1,12 @@
 [Common]
 CornerRadius=4
+ShadowSize=ShadowSmall
 
 [Style]
 AnimationsDuration=300
 DolphinSidebarOpacity=90
 MenuOpacity=92
 TabDrawHighlight=true
+
+[Windeco]
+DrawBackgroundGradient=false
