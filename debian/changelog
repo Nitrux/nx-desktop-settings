@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.4.3)  nitrux; urgency=medium
+
+  * Update settings to use new kstyle.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 26 Mar 2021 15:33:00 -0500
+
 nx-desktop-settings-legacy (2.4.2)  nitrux; urgency=medium
 
   * Update latte config.

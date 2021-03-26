@@ -1,0 +1,8 @@
+[Common]
+CornerRadius=4
+
+[Style]
+AnimationsDuration=300
+DolphinSidebarOpacity=90
+MenuOpacity=92
+TabDrawHighlight=true

@@ -1,18 +1,23 @@
+[$Version]
+update_info=filepicker.upd:filepicker-remove-old-previews-entry,fonts_global.upd:Fonts_Global,fonts_global_toolbar.upd:Fonts_Global_Toolbar,icons_remove_effects.upd:IconsRemoveEffects,kwin.upd:animation-speed,style_widgetstyle_default_breeze.upd:StyleWidgetStyleDefaultBreeze
+
 [ColorEffects:Disabled]
+ChangeSelectionColor=
 Color=56,56,56
 ColorAmount=0
 ColorEffect=0
 ContrastAmount=0.65
 ContrastEffect=0
+Enable=
 IntensityAmount=0.1
 IntensityEffect=0
 
 [ColorEffects:Inactive]
 ChangeSelectionColor=false
 Color=112,111,110
-ColorAmount=0.025
-ColorEffect=2
-ContrastAmount=0.1
+ColorAmount=-0.9500000000000001
+ColorEffect=1
+ContrastAmount=0.4
 ContrastEffect=2
 Enable=true
 IntensityAmount=0
@@ -20,7 +25,7 @@ IntensityEffect=0
 
 [Colors:Button]
 BackgroundAlternate=189,195,199
-BackgroundNormal=80,86,89
+BackgroundNormal=58,63,65
 DecorationFocus=38,198,218
 DecorationHover=0,172,193
 ForegroundActive=38,198,218
@@ -75,7 +80,7 @@ ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [Colors:View]
-BackgroundAlternate=239,240,241
+BackgroundAlternate=43,44,49
 BackgroundNormal=58,63,65
 DecorationFocus=38,198,218
 DecorationHover=0,172,193
@@ -89,7 +94,7 @@ ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [Colors:Window]
-BackgroundAlternate=239,241,243
+BackgroundAlternate=43,44,49
 BackgroundNormal=43,44,49
 DecorationFocus=38,198,218
 DecorationHover=0,172,193
@@ -120,19 +125,24 @@ Theme=Luv
 
 [KDE]
 LookAndFeelPackage=org.kde.nitrux.dark.desktop
-ShowDeleteCommand=false
+AnimationDurationFactor=1.000000
+ColorScheme=NitruxDark
+ShowIconsInMenuItems=false
+ShowIconsOnPushButtons=false
 contrast=0
-widgetStyle=kvantum-dark
+widgetStyle=Nitrux
 
 [KFileDialog Settings]
+Allow Expansion=false
 Automatically select filename extension=true
 Breadcrumb Navigation=true
 Decoration position=0
 LocationCombo Completionmode=5
 PathCombo Completionmode=5
-Previews=false
+Previews[$d]
 Show Bookmarks=false
 Show Full Path=false
+Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
 Show hidden files=false
@@ -141,98 +151,82 @@ Sort directories first=true
 Sort reversed=false
 Speedbar Width=260
 View Style=Simple
-listViewIconSize=0
-
-[KShortcutsDialog Settings]
-Dialog Size=600,480
 
 [MainToolbarIcons]
-ActiveColor=169,156,255
-ActiveColor2=0,0,0
-ActiveEffect=none
-ActiveSemiTransparent=false
-ActiveValue=1
-Animated=false
-DefaultColor=144,128,248
-DefaultColor2=0,0,0
-DefaultEffect=none
-DefaultSemiTransparent=false
-DefaultValue=1
-DisabledColor=34,202,0
-DisabledColor2=0,0,0
-DisabledEffect=togray
-DisabledSemiTransparent=true
-DisabledValue=1
-Size=22
+ActiveColor[$d]
+ActiveColor2[$d]
+ActiveEffect[$d]
+ActiveSemiTransparent[$d]
+ActiveValue[$d]
+Animated[$d]
+DefaultColor[$d]
+DefaultColor2[$d]
+DefaultEffect[$d]
+DefaultSemiTransparent[$d]
+DefaultValue[$d]
+DisabledColor[$d]
+DisabledColor2[$d]
+DisabledEffect[$d]
+DisabledSemiTransparent[$d]
+DisabledValue[$d]
 
 [PanelIcons]
-ActiveColor=169,156,255
-ActiveColor2=0,0,0
-ActiveEffect=togamma
-ActiveSemiTransparent=false
-ActiveValue=0.699999988079071
-Animated=false
-DefaultColor=144,128,248
-DefaultColor2=0,0,0
-DefaultEffect=none
-DefaultSemiTransparent=false
-DefaultValue=1
-DisabledColor=34,202,0
-DisabledColor2=0,0,0
-DisabledEffect=togray
-DisabledSemiTransparent=true
-DisabledValue=1
-Size=32
-
-[PreviewSettings]
-MaximumRemoteSize=0
+ActiveColor[$d]
+ActiveColor2[$d]
+ActiveEffect[$d]
+ActiveSemiTransparent[$d]
+ActiveValue[$d]
+Animated[$d]
+DefaultColor[$d]
+DefaultColor2[$d]
+DefaultEffect[$d]
+DefaultSemiTransparent[$d]
+DefaultValue[$d]
+DisabledColor[$d]
+DisabledColor2[$d]
+DisabledEffect[$d]
+DisabledSemiTransparent[$d]
+DisabledValue[$d]
 
 [SmallIcons]
-ActiveColor=169,156,255
-ActiveColor2=0,0,0
-ActiveEffect=none
-ActiveSemiTransparent=false
-ActiveValue=1
-Animated=false
-DefaultColor=144,128,248
-DefaultColor2=0,0,0
-DefaultEffect=none
-DefaultSemiTransparent=false
-DefaultValue=1
-DisabledColor=34,202,0
-DisabledColor2=0,0,0
-DisabledEffect=togray
-DisabledSemiTransparent=true
-DisabledValue=1
-Size=16
-
-[Toolbar style]
-ToolButtonStyle=NoText
-ToolButtonStyleOtherToolbars=NoText
+ActiveColor[$d]
+ActiveColor2[$d]
+ActiveEffect[$d]
+ActiveSemiTransparent[$d]
+ActiveValue[$d]
+Animated[$d]
+DefaultColor[$d]
+DefaultColor2[$d]
+DefaultEffect[$d]
+DefaultSemiTransparent[$d]
+DefaultValue[$d]
+DisabledColor[$d]
+DisabledColor2[$d]
+DisabledEffect[$d]
+DisabledSemiTransparent[$d]
+DisabledValue[$d]
 
 [ToolbarIcons]
-ActiveColor=169,156,255
-ActiveColor2=0,0,0
-ActiveEffect=none
-ActiveSemiTransparent=false
-ActiveValue=1
-Animated=false
-DefaultColor=144,128,248
-DefaultColor2=0,0,0
-DefaultEffect=none
-DefaultSemiTransparent=false
-DefaultValue=1
-DisabledColor=34,202,0
-DisabledColor2=0,0,0
-DisabledEffect=togray
-DisabledSemiTransparent=true
-DisabledValue=1
-Size=22
+ActiveColor[$d]
+ActiveColor2[$d]
+ActiveEffect[$d]
+ActiveSemiTransparent[$d]
+ActiveValue[$d]
+Animated[$d]
+DefaultColor[$d]
+DefaultColor2[$d]
+DefaultEffect[$d]
+DefaultSemiTransparent[$d]
+DefaultValue[$d]
+DisabledColor[$d]
+DisabledColor2[$d]
+DisabledEffect[$d]
+DisabledSemiTransparent[$d]
+DisabledValue[$d]
 
 [WM]
-FakeEntryToKeepThisGroup=true
 activeBackground=43,44,49
-activeBlend=249,249,249
+activeBlend=43,44,49
 activeForeground=249,249,249
 inactiveBackground=55,56,63
 inactiveBlend=75,71,67

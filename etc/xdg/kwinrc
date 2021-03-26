@@ -1,11 +1,14 @@
+[$Version]
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage
+
 [Compositing]
 AnimationSpeed=3
 Backend=OpenGL
 Enabled=true
 GLCore=true
-GLPreferBufferSwap=p
+GLPreferBufferSwap=e
 OpenGLIsUnsafe=false
-GLTextureFilter=2
+GLTextureFilter=1
 LatencyPolicy=ExtremelyLow
 HiddenPreviews=5
 OpenGLIsUnsafe=false
@@ -159,5 +162,8 @@ WindowSnapZone=10
 
 [org.kde.kdecoration2]
 BorderSize=Normal
+BorderSizeAuto=false
+ButtonsOnLeft=XAI
+ButtonsOnRight=
 library=org.kde.mauideco
 theme=Nitrux
