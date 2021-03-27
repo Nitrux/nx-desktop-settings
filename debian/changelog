@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.4.7)  nitrux; urgency=medium
+
+  * Try to fix wrong colors on startup.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 26 Mar 2021 22:19:00 -0500
+
 nx-desktop-settings-legacy (2.4.6)  nitrux; urgency=medium
 
   * Don't add text next to toolbar buttons.
