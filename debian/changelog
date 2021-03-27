@@ -1,5 +1,11 @@
 nx-desktop-settings-legacy (2.4.5)  nitrux; urgency=medium
 
+  * Don't add text next to toolbar buttons.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 26 Mar 2021 17:03:00 -0500
+
+nx-desktop-settings-legacy (2.4.5)  nitrux; urgency=medium
+
   * Update Latte layouts.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 26 Mar 2021 17:03:00 -0500

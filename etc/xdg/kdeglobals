@@ -224,6 +224,10 @@ DisabledEffect[$d]
 DisabledSemiTransparent[$d]
 DisabledValue[$d]
 
+[Toolbar style]
+ToolButtonStyle=NoText
+ToolButtonStyleOtherToolbars=NoText
+
 [WM]
 activeBackground=43,44,49
 activeBlend=43,44,49
