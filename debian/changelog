@@ -1,4 +1,4 @@
-nx-desktop-settings-legacy (2.4.5)  nitrux; urgency=medium
+nx-desktop-settings-legacy (2.4.6)  nitrux; urgency=medium
 
   * Don't add text next to toolbar buttons.
 
