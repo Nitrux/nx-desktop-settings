@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.4.9)  nitrux; urgency=medium
+
+  * Match titlebar color to window.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 30 Apr 2021 01:53:00 -0500
+
 nx-desktop-settings-legacy (2.4.8)  nitrux; urgency=medium
 
   * Try to fix wrong colors on startup.
