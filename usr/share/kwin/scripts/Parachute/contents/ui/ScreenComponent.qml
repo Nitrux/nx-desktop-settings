@@ -1,169 +1,389 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtGraphicalEffects 1.14
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtGraphicalEffects 1.12
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.components 3.0 as PlasmaComponents
 
 Item {
     id: screenItem
-    visible: false
-    clip: true // Fixes the glitches? The glitches are caused by desktopsBar going out of screen?
+    smooth: false // Applied to children
+    antialiasing: false // Applied to children
+    clip: true
 
-    property alias desktopsBarRepeater: desktopsBarRepeater
     property alias bigDesktopsRepeater: bigDesktopsRepeater
-    property alias desktopThumbnail: desktopThumbnail
-    property alias bigDesktopsTopMarginAnimation: bigDesktopsTopMarginAnimation
-    // property alias activitiesBackgrounds: activitiesBackgrounds
+    property alias desktopBackground: desktopBackground
+    property alias searchField: searchField
 
     property int screenIndex: model.index
+    property real aspectRatio: width / height
+    property bool wheelHandlerCreated: false
 
-    // Repeater {
-    //     id: activitiesBackgrounds
-    //     model: workspace.activities.length
+    states: [
+        State {
+            when: mainWindow.horizontalDesktopsLayout
+            PropertyChanges {
+                target: bigDesktops
+                orientation: Qt.Horizontal
+
+                mouseAreaX: 0
+                mouseAreaY: mainWindow.configDesktopsBarPlacement === Enums.Position.Top ? desktopsBar.height : 0
+                mouseAreaWidth: screenItem.width
+                mouseAreaHeight: screenItem.height - desktopsBar.height
+
+                gridAreaX: (screenItem.width - bigDesktops.gridAreaWidth) / 2
+                gridAreaY: mainWindow.configDesktopsBarPlacement === Enums.Position.Top ?
+                        desktopsBar.height + searchFieldContainer.height + mainWindow.desktopMargin :
+                        searchFieldContainer.height + mainWindow.desktopMargin
+                gridAreaWidth: bigDesktops.gridAreaHeight * screenItem.aspectRatio
+                gridAreaHeight: mouseAreaHeight - searchFieldContainer.height - mainWindow.desktopMargin * 2
+            }
+
+            PropertyChanges {
+                target: searchFieldContainer
+                x: (screenItem.width - searchFieldContainer.width) / 2
+                y: mainWindow.configDesktopsBarPlacement === Enums.Position.Top ? desktopsBar.height: 0
+            }
+
+            PropertyChanges {
+                target: milouBackground
+                x: (screenItem.width - milouBackground.width) / 2
+                y: searchFieldContainer.y + searchFieldContainer.height
+                width: screenItem.width / 2
+                height: screenItem.height - searchFieldContainer.height * 2 - desktopsBar.height
+            }
+
+            PropertyChanges {
+                target: desktopsBar
+                x: 0
+                y: mainWindow.configDesktopsBarPlacement === Enums.Position.Top ?
+                        mainWindow.showDesktopsBar ? 0 : -desktopsBar.height :
+                        mainWindow.showDesktopsBar ? screenItem.height - desktopsBar.height : screenItem.height
+                height: Math.round(screenItem.height / 6)
+                width: screenItem.width
+
+                desktopsFullSize: (desktopsBar.height - desktopsWrapper.padding * 2) * screenItem.aspectRatio
+                shrinkDesktopsToFit: desktopsBar.width < (desktopsBar.desktopsFullSize + desktopsWrapper.spacing) * workspace.desktops +
+                        2 * desktopsWrapper.padding + removeDesktop.width + addDesktop.width
+                desktopsWidth: desktopsBar.shrinkDesktopsToFit ?
+                        ((desktopsBar.width - (2 * desktopsWrapper.padding + removeDesktop.width + addDesktop.width)) / workspace.desktops) - desktopsWrapper.spacing :
+                        desktopsBar.desktopsFullSize
+                desktopsHeight: desktopsBar.desktopsWidth / screenItem.aspectRatio
+            }
+
+            PropertyChanges {
+                target: desktopsWrapper
+                rows: 1
+            }
+        },
+        State {
+            when: !mainWindow.horizontalDesktopsLayout
+            PropertyChanges {
+                target: bigDesktops
+                orientation: Qt.Vertical
+
+                mouseAreaX: mainWindow.configDesktopsBarPlacement === Enums.Position.Left ? desktopsBar.width : 0
+                mouseAreaY: 0
+                mouseAreaWidth: screenItem.width - desktopsBar.width
+                mouseAreaHeight: screenItem.height
+
+                gridAreaX: mainWindow.configDesktopsBarPlacement === Enums.Position.Left ?
+                        desktopsBar.width + mainWindow.desktopMargin :
+                        mainWindow.desktopMargin
+                gridAreaY: searchFieldContainer.height + (screenItem.height - searchFieldContainer.height - bigDesktops.gridAreaHeight) / 2
+                gridAreaWidth: mouseAreaWidth - mainWindow.desktopMargin * 2
+                gridAreaHeight: bigDesktops.gridAreaWidth / screenItem.aspectRatio
+            }
+
+            PropertyChanges {
+                target: searchFieldContainer
+                x: mainWindow.configDesktopsBarPlacement === Enums.Position.Left ?
+                        desktopsBar.width + (bigDesktops.mouseAreaWidth - searchFieldContainer.width) / 2 :
+                        (bigDesktops.mouseAreaWidth - searchFieldContainer.width) / 2
+                y: 0
+            }
+
+            PropertyChanges {
+                target: milouBackground
+                x: mainWindow.configDesktopsBarPlacement === Enums.Position.Left ?
+                        desktopsBar.width + (bigDesktops.mouseAreaWidth - milouBackground.width) / 2 :
+                        (bigDesktops.mouseAreaWidth - milouBackground.width) / 2
+                y: searchFieldContainer.y + searchFieldContainer.height
+                width: screenItem.width / 2
+                height: screenItem.height - searchFieldContainer.height * 2
+            }
+
+            PropertyChanges {
+                target: desktopsBar
+                x: mainWindow.configDesktopsBarPlacement === Enums.Position.Left ?
+                        mainWindow.showDesktopsBar ? 0 : -desktopsBar.width :
+                        mainWindow.showDesktopsBar ? screenItem.width - desktopsBar.width : screenItem.width
+                y: 0
+                width: Math.round(screenItem.width / 6)
+                height: screenItem.height
+
+                desktopsFullSize: (desktopsBar.width - desktopsWrapper.padding * 2) / screenItem.aspectRatio
+                shrinkDesktopsToFit: desktopsBar.height < (desktopsBar.desktopsFullSize + desktopsWrapper.spacing) * workspace.desktops +
+                        2 * desktopsWrapper.padding + removeDesktop.height + addDesktop.height
+                desktopsWidth: desktopsBar.desktopsHeight * screenItem.aspectRatio
+                desktopsHeight: desktopsBar.shrinkDesktopsToFit ?
+                        ((desktopsBar.height - (2 * desktopsWrapper.padding + removeDesktop.height + addDesktop.height)) / workspace.desktops) - desktopsWrapper.spacing :
+                        desktopsBar.desktopsFullSize
+            }
+
+            PropertyChanges {
+                target: desktopsWrapper
+                columns: 1
+            }
+        }
+    ]
+
     PlasmaCore.WindowThumbnail {
-        id: desktopThumbnail
+        id: desktopBackground
         anchors.fill: parent
-        visible: desktopThumbnail.winId !== 0
+        visible: winId !== 0
         opacity: mainWindow.configBlurBackground ? 0 : 1
     }
-    // }
 
     FastBlur {
         id: blurBackground
         anchors.fill: parent
-        source: desktopThumbnail
+        source: desktopBackground
         radius: 64
-        visible: desktopThumbnail.winId !== 0 && mainWindow.configBlurBackground
-        // cached: true
-    }
-
-    Rectangle { // To apply some transparency without interfere with children transparency
-        id: desktopsBarBackground
-        anchors.fill: desktopsBar
-        color: "black"
-        opacity: 0.1
-        visible: mainWindow.configShowDesktopBarBackground
-    }
-
-    ScrollView {
-        id: desktopsBar
-        height: parent.height / 6
-        anchors.bottom: bigDesktops.top
-        anchors.right: parent.right
-        anchors.left: parent.left
-        contentWidth: desktopsWrapper.width
-        clip: true
-
-        Item { // To centralize children
-            id: desktopsWrapper
-            width: childrenRect.width + 15
-            height: childrenRect.height + 15
-            x: desktopsBar.width < desktopsWrapper.width ? 0 : (desktopsBar.width - desktopsWrapper.width) / 2
-            // anchors.horizontalCenter: parent.horizontalCenter
-            // anchors.verticalCenter: parent.verticalCenter
-
-            Repeater {
-                id: desktopsBarRepeater
-                model: mainWindow.workWithActivities ? workspace.activities.length : workspace.desktops
-
-                DesktopComponent {
-                    x: 15 + model.index * (width + 15)
-                    y: 15
-                    width: (height / screenItem.height) * screenItem.width
-                    height: desktopsBar.height - 30
-                    activity: mainWindow.workWithActivities ? workspace.activities[model.index] : ""
-
-                    TapHandler {
-                        acceptedButtons: Qt.LeftButton
-                        onTapped: workspace.currentDesktop = model.index + 1;
-                    }
-                }
-            }
-        }
+        visible: desktopBackground.winId !== 0 && mainWindow.configBlurBackground
+        cached: true
     }
 
     SwipeView {
         id: bigDesktops
         anchors.fill: parent
-        anchors.topMargin: parent.height / 6
-        clip: true
-        currentIndex: mainWindow.currentActivityOrDesktop
-        //vertical: true
+        currentIndex: mainWindow.currentDesktop
+        focusPolicy: Qt.NoFocus
+        activeFocusOnTab: false
 
-        Behavior on anchors.topMargin {
-            enabled: mainWindow.easingType !== mainWindow.noAnimation
-            NumberAnimation { id: bigDesktopsTopMarginAnimation; duration: animationsDuration; easing.type: mainWindow.easingType; }
-        }
+        property real mouseAreaX
+        property real mouseAreaY
+        property real mouseAreaWidth
+        property real mouseAreaHeight
+
+        property real gridAreaX
+        property real gridAreaY
+        property real gridAreaWidth
+        property real gridAreaHeight
 
         Repeater {
             id: bigDesktopsRepeater
-            model: mainWindow.workWithActivities ? workspace.activities.length : workspace.desktops
+            model: workspace.desktops
 
-            Item { // Cannot set geometry of SwipeView's root item
-                property alias bigDesktop: bigDesktop
+            DesktopComponent { // Cannot set geometry of SwipeView's root item
+                visible: model.index === mainWindow.currentDesktop
+                big: true
 
-                TapHandler {
-                    acceptedButtons: Qt.AllButtons
+                mouseAreaX: bigDesktops.mouseAreaX
+                mouseAreaY: bigDesktops.mouseAreaY
+                mouseAreaWidth: bigDesktops.mouseAreaWidth
+                mouseAreaHeight: bigDesktops.mouseAreaHeight
 
-                    onTapped: {
-                        if (mainWindow.selectedClientItem === null)
-                            mainWindow.toggleActive();
-                        else
-                            switch (eventPoint.event.button) {
-                                case Qt.LeftButton:
-                                    mainWindow.toggleActive();
-                                    break;
-                                case Qt.MiddleButton:
-                                    mainWindow.selectedClientItem.client.closeWindow();
-                                    break;
-                                case Qt.RightButton:
-                                    if (mainWindow.workWithActivities)
-                                        if (mainWindow.selectedClientItem.client.activities.length === 0)
-                                            mainWindow.selectedClientItem.client.activities.push(workspace.activities[model.index]);
-                                        else
-                                            mainWindow.selectedClientItem.client.activities = [];
-                                    else
-                                        if (mainWindow.selectedClientItem.client.desktop === -1)
-                                            mainWindow.selectedClientItem.client.desktop = model.index + 1;
-                                        else
-                                            mainWindow.selectedClientItem.client.desktop = -1;
-                                    break;
-                            }
-                    }
-                }
-
-                DesktopComponent {
-                    id: bigDesktop
-                    big: true
-                    activity: mainWindow.workWithActivities ? workspace.activities[model.index] : ""
-                    anchors.centerIn: parent
-                    width: desktopRatio < screenRatio ? parent.width - bigDesktopMargin
-                            : parent.height / screenItem.height * screenItem.width - bigDesktopMargin
-                    height: desktopRatio > screenRatio ? parent.height - bigDesktopMargin
-                            : parent.width / screenItem.width * screenItem.height - bigDesktopMargin
-
-                    property real desktopRatio: parent.width / parent.height
-                    property real screenRatio: screenItem.width / screenItem.height
-                }
+                gridAreaX: bigDesktops.gridAreaX
+                gridAreaY: bigDesktops.gridAreaY
+                gridAreaWidth: bigDesktops.gridAreaWidth
+                gridAreaHeight: bigDesktops.gridAreaHeight
             }
         }
 
-        onCurrentIndexChanged: {
-            mainWindow.workWithActivities ? workspace.currentActivity = workspace.activities[currentIndex]
-                    : workspace.currentDesktop = currentIndex + 1;
+        onCurrentIndexChanged: workspace.currentDesktop = currentIndex + 1;
+    }
+
+    Item {
+        id: searchFieldContainer
+        height: 100
+        width: 400
+     
+        TextField {
+            id: searchField
+
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.right: parent.right
+            color: "white"
+            activeFocusOnTab: true
+            placeholderText: "Type to search"
+            // placeholderTextColor: "red"
+
+            background: Rectangle {
+                color: "white"
+                radius: 4
+                opacity: 0.2
+            }
+
+            Keys.onPressed: {
+                if (!mainWindow.searchText) return;
+
+                switch (event.key) {
+                    case Qt.Key_Tab:
+                        mainWindow.focusNextItem = true;
+                        break;
+                    case Qt.Key_Backtab:
+                        mainWindow.focusNextItem = false;
+                        break;                    
+                    case Qt.Key_Escape:
+                        if (searchField.text) {
+                            searchField.text = "";
+                            event.accepted = true;
+                        }
+                        break;
+                    case Qt.Key_Up:
+                        if (mainWindow.configSearchMethod === Enums.SearchMethod.Krunner) {
+                            milouResults.decrementCurrentIndex();
+                            event.accepted = true;
+                        }
+                        break;
+                    case Qt.Key_Down:
+                        switch (configSearchMethod) {
+                            case Enums.SearchMethod.Krunner:
+                                milouResults.incrementCurrentIndex();
+                                break;
+                            case Enums.SearchMethod.Filter:
+                                if (!mainWindow.selectedClientItem) mainWindow.selectFirstClient();
+                                if (mainWindow.selectedClientItem) keyboardHandler.focus = true;
+                                break;
+                        }
+                        event.accepted = true;
+                        break;
+                    case Qt.Key_Return:
+                        if (mainWindow.configSearchMethod === Enums.SearchMethod.Krunner) {
+                            milouResults.runCurrentIndex(event);
+                            event.accepted = true;
+                        }
+                        break;
+                }
+            }
+
+            onTextChanged: {
+                mainWindow.searchText = searchField.text;
+                
+                for (let currentScreen = 0; currentScreen < screensRepeater.count; currentScreen++) {
+                    if (screensRepeater.itemAt(currentScreen).searchField.text !== mainWindow.searchText) {
+                        screensRepeater.itemAt(currentScreen).searchField.text = mainWindow.searchText;
+                    }
+                }
+            }
+
+            onFocusChanged: if (focus) milouResults.parent = milouBackground;
         }
     }
 
-    WheelHandler {
-        property int wheelDelta: 0
+    Rectangle {
+        id: milouBackground
+        color: PlasmaCore.Theme.viewBackgroundColor ? PlasmaCore.Theme.viewBackgroundColor : "#111111"
+        opacity: 0.9
+        visible: searchField.focus && searchField.text && mainWindow.configSearchMethod === Enums.SearchMethod.Krunner
+        radius: 4
+    }
 
-        onWheel: wheelDelta += event.angleDelta.y;
+    Item {
+        id: desktopsBar
 
-        onActiveChanged: {
-            if (active === true) return;
+        property real desktopsFullSize // Size of desktops if we don't need to shrink them more to fit in the bar
+        property bool shrinkDesktopsToFit
+        property real desktopsWidth
+        property real desktopsHeight
 
-            if (wheelDelta >= 120 || wheelDelta <= -120) {
-                wheelDelta > 0 ? workspace.currentDesktop-- : workspace.currentDesktop++;
-                wheelDelta = 0;
+        Rectangle {
+            id: desktopsBarBackground
+            anchors.fill: parent
+            color: "black"
+            opacity: 0.1
+            visible: mainWindow.configShowDesktopsBarBackground
+        }
+
+        HoverHandler {
+            id: desktopsBarHoverHandler
+            enabled: mainWindow.idle
+        }
+
+        Behavior on x {
+            enabled: mainWindow.activated
+            NumberAnimation { duration: mainWindow.configAnimationsDuration; easing.type: mainWindow.easingType; }
+        }
+
+        Behavior on y {
+            enabled: mainWindow.activated
+            NumberAnimation { duration: mainWindow.configAnimationsDuration; easing.type: mainWindow.easingType; }
+        }
+
+        Grid {
+            id: desktopsWrapper
+            spacing: mainWindow.desktopsBarSpacing
+            padding: mainWindow.desktopsBarSpacing
+            anchors.centerIn: parent
+            horizontalItemAlignment: Grid.AlignHCenter
+            verticalItemAlignment: Grid.AlignVCenter
+
+            PlasmaComponents.Button {
+                id: removeDesktop
+                height: 48
+                width: 48
+                flat: true
+                opacity: desktopsBarHoverHandler.hovered ? 1 : 0
+                focusPolicy: Qt.NoFocus
+
+                Image {
+                    anchors.fill: parent
+                    source: "images/remove.svg"
+                    sourceSize.width: parent.width
+                    sourceSize.height: parent.height
+                    cache: true
+                }
+
+                onClicked: {
+                    const currentDesktop = workspace.currentDesktop === workspace.desktops ?
+                            workspace.currentDesktop - 1 : workspace.currentDesktop;
+                    workspace.desktops--; // workspace.removeDesktop(desktopIndex);
+                    workspace.currentDesktop = currentDesktop; // Avoid going to the first desktop
+                }
+            }
+
+            Repeater {
+                id: desktopsBarRepeater
+                model: workspace.desktops
+
+                DesktopComponent {
+                    width: desktopsBar.desktopsWidth
+                    height: desktopsBar.desktopsHeight
+
+                    mouseAreaX: 0
+                    mouseAreaY: 0
+                    mouseAreaWidth: desktopsBar.desktopsWidth
+                    mouseAreaHeight: desktopsBar.desktopsHeight
+
+                    gridAreaX: mainWindow.desktopMargin
+                    gridAreaY: mainWindow.desktopMargin
+                    gridAreaWidth: desktopsBar.desktopsWidth - mainWindow.desktopMargin * 2
+                    gridAreaHeight: desktopsBar.desktopsHeight - mainWindow.desktopMargin * 2
+                }
+            }
+
+            PlasmaComponents.Button {
+                id: addDesktop
+                height: 48
+                width: 48
+                flat: true
+                opacity: desktopsBarHoverHandler.hovered ? 1 : 0
+                focusPolicy: Qt.NoFocus
+
+                Image {
+                    anchors.fill: parent
+                    source: "images/add.svg"
+                    sourceSize.width: parent.width
+                    sourceSize.height: parent.height
+                    cache: true
+                }
+
+                onClicked: {
+                    const currentDesktop = workspace.currentDesktop;
+                    workspace.desktops++; // workspace.createDesktop(desktopIndex + 1, "New desktop");
+                    workspace.currentDesktop = currentDesktop; // Avoid going to the first desktop
+                }
             }
         }
     }
