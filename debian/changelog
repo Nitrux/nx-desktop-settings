@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.5.4)  nitrux; urgency=medium
+
+  * Point /bin/sh to Bash.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 24 May 2021 12:55:00 -0500
+
 nx-desktop-settings-legacy (2.5.3)  nitrux; urgency=medium
 
   * Update Parachute.
