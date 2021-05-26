@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Heroic Games Launcher
+Exec=heroic
+Terminal=false
+Type=Application
+Icon=heroic
+StartupWMClass=heroic
+X-AppImage-Version=1.7.0
+Comment=A native Epic Games launcher for Linux
+MimeType=x-scheme-handler/heroic;
+Categories=Game;

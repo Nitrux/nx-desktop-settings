@@ -1,6 +1,12 @@
+nx-desktop-settings-legacy (2.5.6)  nitrux; urgency=medium
+
+  * Update Latte layouts, add launcher for Heroic.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 26 May 2021 04:01:00 -0500
+
 nx-desktop-settings-legacy (2.5.5)  nitrux; urgency=medium
 
-  * Hide Ksysguard launcehr.
+  * Hide Ksysguard launcher.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Wed, 26 May 2021 03:47:00 -0500
 
