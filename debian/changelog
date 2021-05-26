@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.5.7)  nitrux; urgency=medium
+
+  * Update Latte layouts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 26 May 2021 05:07:00 -0500
+
 nx-desktop-settings-legacy (2.5.6)  nitrux; urgency=medium
 
   * Update Latte layouts, add launcher for Heroic.
