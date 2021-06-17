@@ -82,12 +82,15 @@ plugin=org.kde.plasma.nightcolorcontrol
 [Containments][12][Applets][70][Configuration]
 PreloadWeight=0
 
+[Containments][12][Applets][76][Configuration]
+PreloadWeight=42
+
 [Containments][12][ConfigDialog]
-DialogHeight=703
-DialogWidth=1136
+DialogHeight=696
+DialogWidth=1024
 
 [Containments][12][General]
-extraItems=org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,,org.kde.kupapplet,org.kde.redshiftControl,org.kde.plasma.bluetooth,org.nx.audio,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout
+extraItems=org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,,org.kde.kupapplet,org.kde.redshiftControl,org.kde.plasma.bluetooth,org.nx.audio,org.kde.plasma.nightcolorcontrol
 knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.nx.audio,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.discovernotifier,org.kde.kdeconnect,org.kde.plasma.bluetooth,org.kde.plasma.keyboardindicator,org.kde.plasma.battery,org.kde.plasma.notifications,org.nx.notifications,org.nx.networkmanagement,org.kde.plasma.printmanager,org.kde.kupapplet,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout
 
 [Containments][14]
@@ -101,6 +104,7 @@ isPreferredForShortcuts=false
 lastScreen=-1
 layoutId=
 location=4
+name=
 onPrimary=true
 plugin=org.kde.latte.containment
 raiseOnActivityChange=false
@@ -108,7 +112,7 @@ raiseOnDesktopChange=false
 settingsComplexity=4
 timerHide=700
 timerShow=200
-viewType=1
+viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
@@ -194,6 +198,21 @@ showAtCenter=false
 [Containments][14][Applets][71][Shortcuts]
 global=Meta+Alt+L
 
+[Containments][14][Applets][77]
+immutability=1
+plugin=org.kde.latte.separator
+
+[Containments][14][Applets][77][Configuration]
+PreloadWeight=18
+
+[Containments][14][Applets][77][Configuration][ConfigDialog]
+DialogHeight=558
+DialogWidth=720
+
+[Containments][14][Applets][77][Configuration][General]
+lengthMargin=10
+thickMargin=4
+
 [Containments][14][ConfigDialog]
 DialogHeight=1264
 DialogWidth=509
@@ -207,25 +226,30 @@ advanced=true
 alignment=10
 alignmentUpgraded=true
 animationsEnabled=false
-appletOrder=71;66;48;60
+appletOrder=71;77;66;48;60
 appletShadowsEnabled=false
 autoDecreaseIconSize=false
+backgroundRadius=15
+backgroundShadowSize=10
 durationTime=x3
-iconSize=32
+iconSize=28
 inConfigureAppletsMode=true
+lengthExtMargin=5
+maxLength=98
 panelPosition=10
-panelShadows=false
 panelSize=100
 panelTransparency=65
+screenEdgeMargin=6
 shadowOpacity=60
 shadowSize=45
 shadows=None
 shadowsUpgraded=true
 showGlow=false
 shrinkThickMargins=true
-splitterPosition=4
-splitterPosition2=5
+splitterPosition=5
+splitterPosition2=6
 tasksUpgraded=true
+thickMargin=15
 titleTooltips=false
 zoomLevel=0
 
@@ -247,8 +271,10 @@ color=red
 customBackground=
 customTextColor=fcfcfc
 disableBordersForMaximizedWindows=false
-lastUsedActivity=93d206a1-f783-46be-88ac-b13d8fb69ee8
+icon=
+lastUsedActivity=112ee9fe-d85a-4b4d-b64a-36483e70d2f9
 launchers=
+popUpMargin=-1
 preferredForShortcutsTouched=false
 showInMenu=true
 textColor=

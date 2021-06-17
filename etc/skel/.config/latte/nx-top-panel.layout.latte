@@ -82,12 +82,15 @@ plugin=org.kde.plasma.nightcolorcontrol
 [Containments][12][Applets][69][Configuration]
 PreloadWeight=0
 
+[Containments][12][Applets][75][Configuration]
+PreloadWeight=42
+
 [Containments][12][ConfigDialog]
 DialogHeight=703
-DialogWidth=1136
+DialogWidth=1024
 
 [Containments][12][General]
-extraItems=org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,,org.kde.kupapplet,org.kde.redshiftControl,org.kde.plasma.bluetooth,org.nx.audio,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout
+extraItems=org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.clipboard,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.vault,,org.kde.kupapplet,org.kde.redshiftControl,org.kde.plasma.bluetooth,org.nx.audio,org.kde.plasma.nightcolorcontrol
 knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.vault,org.kde.plasma.devicenotifier,org.kde.plasma.networkmanagement,org.nx.audio,org.kde.plasma.volume,org.kde.plasma.clipboard,org.kde.discovernotifier,org.kde.kdeconnect,org.kde.plasma.bluetooth,org.kde.plasma.keyboardindicator,org.kde.plasma.battery,org.kde.plasma.notifications,org.nx.notifications,org.nx.networkmanagement,org.kde.plasma.printmanager,org.kde.kupapplet,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout
 
 [Containments][13]
@@ -101,6 +104,7 @@ isPreferredForShortcuts=false
 lastScreen=11
 layoutId=
 location=4
+name=
 onPrimary=true
 plugin=org.kde.latte.containment
 raiseOnActivityChange=false
@@ -122,6 +126,7 @@ PreloadWeight=0
 [Containments][13][Applets][47][Configuration][General]
 hoverAction=PreviewWindows
 infoBadgeProminentColorEnabled=true
+isInLatteDock=true
 launchers59=applications:org.kde.index.desktop,applications:org.kde.nota.desktop,applications:firefox.desktop,applications:systemsettings.desktop,applications:org.kde.station.desktop
 showOnlyCurrentActivity=false
 showOnlyCurrentDesktop=true
@@ -139,14 +144,17 @@ advanced=true
 alignmentUpgraded=true
 appletOrder=47
 appletShadowsEnabled=false
+backgroundRadius=15
+backgroundShadowSize=10
 durationTime=x3
 hoverAction=PreviewWindows
 iconSize=48
 indicateAudioStreams=false
 infoBadgeProminentColorEnabled=true
-panelShadows=false
-panelSize=25
+lengthExtMargin=5
+panelSize=100
 panelTransparency=65
+screenEdgeMargin=6
 shadows=None
 shadowsUpgraded=true
 showOnlyCurrentActivity=false
@@ -154,6 +162,7 @@ showOnlyCurrentDesktop=true
 showWindowActions=true
 shrinkThickMargins=true
 tasksUpgraded=true
+thickMargin=15
 threeColorsWindows=true
 zoomLevel=0
 
@@ -179,6 +188,7 @@ isPreferredForShortcuts=false
 lastScreen=11
 layoutId=
 location=3
+name=
 onPrimary=true
 plugin=org.kde.latte.containment
 raiseOnActivityChange=false
@@ -300,11 +310,11 @@ plugin=org.kde.windowbuttons
 PreloadWeight=0
 
 [Containments][14][Applets][71][Configuration][ConfigDialog]
-DialogHeight=540
+DialogHeight=558
 DialogWidth=720
 
 [Containments][14][Applets][71][Configuration][General]
-buttonSizePercentage=65
+buttonSizePercentage=85
 containmentType=Latte
 inactiveStateEnabled=true
 lengthLastMargin=8
@@ -318,10 +328,10 @@ immutability=1
 plugin=org.kde.latte.separator
 
 [Containments][14][Applets][74][Configuration]
-PreloadWeight=10
+PreloadWeight=0
 
 [Containments][14][Applets][74][Configuration][ConfigDialog]
-DialogHeight=540
+DialogHeight=558
 DialogWidth=720
 
 [Containments][14][Applets][74][Configuration][General]
@@ -341,11 +351,11 @@ advanced=true
 alignment=10
 alignmentUpgraded=true
 animationsEnabled=false
-appletOrder=54;71;74;57;51;48;60
+appletOrder=54;74;71;57;51;48;60
 appletShadowsEnabled=false
 autoDecreaseIconSize=false
 durationTime=x3
-iconSize=28
+iconSize=22
 inConfigureAppletsMode=true
 panelPosition=10
 panelShadows=false
@@ -357,8 +367,8 @@ shadows=None
 shadowsUpgraded=true
 showGlow=false
 shrinkThickMargins=true
-splitterPosition=5
-splitterPosition2=6
+splitterPosition=6
+splitterPosition2=7
 tasksUpgraded=true
 titleTooltips=false
 zoomLevel=0
@@ -381,8 +391,10 @@ color=red
 customBackground=
 customTextColor=fcfcfc
 disableBordersForMaximizedWindows=false
-lastUsedActivity=63fef3da-ae58-4077-9d86-6248f5f090b1
+icon=
+lastUsedActivity=112ee9fe-d85a-4b4d-b64a-36483e70d2f9
 launchers=
+popUpMargin=-1
 preferredForShortcutsTouched=false
 showInMenu=true
 textColor=
