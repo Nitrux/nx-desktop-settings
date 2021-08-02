@@ -1,4 +1,13 @@
 [1]
+Description=Application settings for calamares
+fullscreen=true
+fullscreenrule=3
+positionrule=0
+types=1
+wmclass=calamares
+wmclasscomplete=false
+
+[2]
 Description=Preferencias para la aplicación libreoffice-startcenter
 position=-2,30
 positionrule=3
@@ -7,4 +16,4 @@ wmclasscomplete=true
 wmclassmatch=1
 
 [General]
-count=1
+count=2

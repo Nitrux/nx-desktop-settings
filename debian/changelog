@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.6.1)  nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 17 Jun 2021 18:47:00 -0500
+
 nx-desktop-settings-legacy (2.6.0)  nitrux; urgency=medium
 
   * Update settings folder for LibreOffice.
