@@ -5,7 +5,8 @@ fullscreenrule=3
 positionrule=0
 types=1
 wmclass=calamares
-wmclasscomplete=false
+wmclasscomplete=true
+wmclassmatch=1
 
 [2]
 Description=Preferencias para la aplicación libreoffice-startcenter
