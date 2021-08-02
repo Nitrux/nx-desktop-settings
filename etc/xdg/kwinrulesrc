@@ -1,37 +1,10 @@
 [1]
 Description=Preferencias para la aplicación libreoffice-startcenter
-fullscreenrule=0
 position=-2,30
 positionrule=3
-types=4294967295
 wmclass=libreoffice libreoffice-startcenter
-
-[2]
-Description=Window settings for Nitrux OS Installer
-aboverule=3
-belowrule=3
-desktopfile=io.calamares.calamares
-desktopfilerule=3
-fullscreen=true
-fullscreenrule=3
-maximizehoriz=true
-maximizehorizrule=3
-maximizevert=true
-maximizevertrule=3
-minimizerule=3
-noborderrule=3
-position[$d]
-positionrule=0
-shaderule=3
-skippagerrule=3
-skipswitcherrule=3
-skiptaskbarrule=3
-title=Nitrux OS Installer
-typerule=2
-types=1
-wmclass=calamares calamares
-wmclasscomplete[$d]
-wmclassmatch[$d]
+wmclasscomplete=true
+wmclassmatch=1
 
 [General]
-count=2
+count=1

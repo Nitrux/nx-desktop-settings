@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.6.4)  nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 02 Aug 2021 16:06:00 -0500
+
 nx-desktop-settings-legacy (2.6.3)  nitrux; urgency=medium
 
   * Update package.
