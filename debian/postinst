@@ -56,6 +56,13 @@ sed -i "/env_reset/d" /etc/sudoers
 
 ln -sv /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
 
+#	let Parachute be configured from system settings.
+
+ln -sv /usr/share/kwin/scripts/Parachute/metadata.desktop /usr/share/kservices5/parachute.desktop
+
+#	let Force blur be configured from system settings.
+
+ln -sv /usr/share/kwin/scripts/forceblur/metadata.desktop /usr/share/kservices5/forceblur.desktop
 
 #	use bash and zsh in userland.
 
