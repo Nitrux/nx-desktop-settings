@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.6.9)  nitrux; urgency=medium
+
+  * Update LO dir.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 31 Aug 2021 06:23:00 -0500
+
 nx-desktop-settings-legacy (2.6.8)  nitrux; urgency=medium
 
   * Add powerline10k theme.
