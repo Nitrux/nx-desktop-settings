@@ -1,3 +1,9 @@
+nx-desktop-settings (3.0.2)  nitrux; urgency=medium
+
+  * Add powerline10k and theme.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 31 Aug 2021 00:42:00 -0500
+
 nx-desktop-settings (3.0.1)  nitrux; urgency=medium
 
   * Change dir with LO settings.

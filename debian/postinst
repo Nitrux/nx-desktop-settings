@@ -32,6 +32,18 @@ ln -svf /usr/games/nsnake /usr/bin/nsnake
 git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
 
 
+#	add powerline10k to zsh
+
+mkdir -p /etc/skel/.oh-my-zsh/themes/powerlevel10k
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /etc/skel/.oh-my-zsh/themes/powerlevel10k
+
+
+#	add our Konsole colorscheme to qmltermwidget path
+
+wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.colorscheme https://raw.githubusercontent.com/nx-desktop/nx-plasma-look-and-feel/master/konsole/Nitrux.colorscheme
+
+
 #	add support for AppImages,
 
 echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
