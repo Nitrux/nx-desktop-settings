@@ -31,6 +31,13 @@ ln -svf /usr/games/nsnake /usr/bin/nsnake
 git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
 
 
+#	add powerline10k to zsh
+
+mkdir -p /etc/skel/.oh-my-zsh/themes/powerlevel10k
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /etc/skel/.oh-my-zsh/themes/powerlevel10k
+
+
 # fix systemd.
 
 sed -i 's/#DefaultTimeoutStartSec=90s/DefaultTimeoutStartSec=5s/g' /etc/systemd/system.conf
