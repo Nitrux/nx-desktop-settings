@@ -1,8 +1,14 @@
+nx-desktop-settings-legacy (2.6.8)  nitrux; urgency=medium
+
+  * Add powerline10k theme.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 31 Aug 2021 00:35:00 -0500
+
 nx-desktop-settings-legacy (2.6.7)  nitrux; urgency=medium
 
   * Add powerline10k.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Mon, 31 Aug 2021 21:10:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 30 Aug 2021 21:10:00 -0500
 
 nx-desktop-settings-legacy (2.6.6)  nitrux; urgency=medium
 
