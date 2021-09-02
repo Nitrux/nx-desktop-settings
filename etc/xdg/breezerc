@@ -9,4 +9,4 @@ ButtonHOffset=4
 ButtonPadding=2
 ButtonSize=ButtonDefault
 CornerRadius=4
-MatchColorForTitleBar=true
+MatchColorForTitleBar=false
