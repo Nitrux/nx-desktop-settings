@@ -1,11 +1,22 @@
 [Desktop Entry]
-Name=Heroic Games Launcher
-Exec=heroic
+Name=Heroic Games Launcher (1.9.2)
+Exec=firejail --env=DESKTOPINTEGRATION=appimaged --noprofile --appimage /Applications/heroic --no-sandbox %U
 Terminal=false
 Type=Application
 Icon=heroic
-StartupWMClass=heroic
-X-AppImage-Version=1.7.0
-Comment=A native Epic Games launcher for Linux
+StartupWMClass=Heroic
+X-AppImage-Version=1.9.2
+Comment=An Open Source alternative to the Epic Games launcher
 MimeType=x-scheme-handler/heroic;
 Categories=Game;
+
+TryExec=/Applications/heroic
+X-AppImage-Old-Icon=heroic
+X-AppImage-Old-Name=Heroic Games Launcher
+X-AppImage-Identifier=ddcccc273b2b77b29d544f5585489012
+Actions=FirejailProfile;
+
+[Desktop Action FirejailProfile]
+Name=Run without sandbox profile
+Exec=firejail --env=DESKTOPINTEGRATION=appimaged --private --appimage /Applications/heroic --no-sandbox %U
+TryExec=firejail
