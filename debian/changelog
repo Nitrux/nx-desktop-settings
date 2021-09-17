@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.7.1)  nitrux; urgency=medium
+
+  * Add FF launcher.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 17 Sep 2021 14:13:00 -0500
+
 nx-desktop-settings-legacy (2.7.0)  nitrux; urgency=medium
 
   * Update LO dir.
