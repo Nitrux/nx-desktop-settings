@@ -119,7 +119,7 @@ mv /etc/skel/Desktop/Compendium.pdf	/etc/skel/Desktop/Nitrux\ —\ Compendium.pd
 mv /etc/skel/Desktop/FAQ.pdf /etc/skel/Desktop/Nitrux\ —\ FAQ.pdf
 
 
-#	force set nitrux_cursors as the default x-curosr-theme
+#	force set nitrux_cursors as the default x-cursor-theme
 
 cp /usr/share/icons/nitrux_snow_cursors/index.theme /etc/X11/cursors/nitrux_cursors.theme
 ln -svf /etc/X11/cursors/nitrux_cursors.theme /etc/alternatives/x-cursor-theme

@@ -1,3 +1,9 @@
+nx-desktop-settings (3.0.7)  nitrux; urgency=medium
+
+  * Add more custom launchers.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 18 Sep 2021 17:44:00 -0500
+
 nx-desktop-settings (3.0.6)  nitrux; urgency=medium
 
   * Update FF launcher.
