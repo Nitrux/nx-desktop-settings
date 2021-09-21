@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.7.3)  nitrux; urgency=medium
+
+  * Update script to install itch.io.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 20 Sep 2021 19:35:00 -0500
+
 nx-desktop-settings-legacy (2.7.2)  nitrux; urgency=medium
 
   * Remove unncessary files, use firejail for firefox, gimp, heroic, libreoffice and kdenlive in default launchers.

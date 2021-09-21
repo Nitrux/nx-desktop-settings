@@ -4,7 +4,7 @@ set -eu -o pipefail
 
 # -- Download setup file.
 
-wget -q -O ~/.config/itch-setup https://raw.githubusercontent.com/UriHerrera/storage/master/Files/itch-setup
+wget -q -O ~/.config/itch-setup https://raw.githubusercontent.com/Nitrux/storage/master/Other/itch-setup
 
 # -- Run setup.
 chmod +x ~/.config/itch-setup
