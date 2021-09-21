@@ -125,7 +125,6 @@ Actions=FirejailProfile;
 
 TryExec=/Applications/firefox
 X-AppImage-Old-Icon=firefox
-X-AppImage-Identifier=13e096f2a11dd27115677128a912dbba
 
 [Desktop Action new-window]
 Name=New Window
