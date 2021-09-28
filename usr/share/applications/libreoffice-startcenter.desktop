@@ -25,7 +25,7 @@ Type=Application
 Categories=Office;X-Red-Hat-Base;X-SuSE-Core-Office;X-MandrivaLinux-Office-Other;
 Exec=firejail --env=DESKTOPINTEGRATION=appimaged --noprofile --appimage /Applications/libreoffice %U
 MimeType=application/vnd.openofficeorg.extension;x-scheme-handler/vnd.libreoffice.cmis;x-scheme-handler/vnd.sun.star.webdav;x-scheme-handler/vnd.sun.star.webdavs;x-scheme-handler/vnd.libreoffice.command;x-scheme-handler/ms-word;x-scheme-handler/ms-powerpoint;x-scheme-handler/ms-excel;x-scheme-handler/ms-visio;x-scheme-handler/ms-access;
-Name=LibreOffice (fresh.standard)
+Name=LibreOffice
 GenericName=LibreOffice
 GenericName[af]=Kantoor
 GenericName[am]=ቢሮ
@@ -277,9 +277,8 @@ Actions=FirejailProfile;
 X-AppImage-Version=fresh.standard
 
 TryExec=/Applications/libreoffice
-X-AppImage-Old-Icon=libreoffice7.2-startcenter
+X-AppImage-Old-Icon=libreoffice
 X-AppImage-Old-Name=LibreOffice
-X-AppImage-Identifier=5dcdf8402b3a97e2f3d68c75d0854eef
 
 [Desktop Action Writer]
 Name=LibreOffice

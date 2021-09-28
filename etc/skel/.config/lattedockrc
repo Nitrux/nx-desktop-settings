@@ -5,24 +5,28 @@ Width 1024=700
 [KFileDialog Settings]
 listViewIconSize=0
 
+[KPropertiesDialog]
+Virtual1 Height 1024x768=481
+Virtual1 Width 1024x768=409
+
 [Notification Messages]
 really_clear_history=true
 
 [PlasmaThemeExtended]
 outlineWidth=1
 
-[PlasmaTransientsConfig]
-PreloadWeight=42
-
 [ScreenConnectors]
-10=VGA-1
-11=Virtual1
+10=VGA-1:::0,0 1920x1080
+11=Virtual1:::0,0 1024x768
 
 [UniversalSettings]
 badges3DStyle=true
 canDisableBorders=false
+contextMenuActionsAlwaysShown=_layouts,_preferences,_quit_latte,_separator1,_add_latte_widgets,_add_view
 currentLayout=nx-top-panel-2
 downloadWindowSize=800,550
+inAdvancedModeForEditSettings=false
+isAvailableGeometryBroadcastedToPlasma=true
 lastNonAssignedLayout=nx-top-panel-2
 launchers=
 layoutsColumnWidths=43,204,127,0
@@ -32,4 +36,5 @@ metaPressAndHoldEnabled=true
 mouseSensitivity=2
 screenTrackerInterval=2500
 showInfoWindow=true
+singleModeLayoutName=nx-top-panel-2
 version=2
