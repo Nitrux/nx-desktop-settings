@@ -1,3 +1,9 @@
+nx-desktop-settings (3.0.8)  nitrux; urgency=medium
+
+  * Remove unused custom launchers.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 05 Oct 2021 16:38:00 -0500
+
 nx-desktop-settings (3.0.7)  nitrux; urgency=medium
 
   * Add more custom launchers.
