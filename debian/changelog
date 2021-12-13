@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.7.9)  nitrux; urgency=medium
+
+  * Workaround for Parachute.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 15 Dec 2021 16:16:00 -0500
+
 nx-desktop-settings-legacy (2.7.8)  nitrux; urgency=medium
 
   * Update sddm config.
