@@ -42,8 +42,6 @@ Item {
 
     property Item highlight
 
-    Layout.fillWidth: true
-
     height: size + 2 * units.smallSpacing
     width: height
 
@@ -53,19 +51,6 @@ Item {
         enabled: item.interactive
         hoverEnabled: true
         onClicked: item.clicked()
-        onContainsMouseChanged: {
-            if (!highlight) {
-                return
-            }
-
-            if (containsMouse) {
-                highlight.parent = item
-                highlight.width = item.width
-                highlight.height = item.height
-            }
-
-            highlight.visible = containsMouse
-        }
     }
 
     PlasmaCore.IconItem {
@@ -78,6 +63,26 @@ Item {
             visible: item.interactiveIcon
             cursorShape: Qt.PointingHandCursor
             onClicked: item.iconClicked()
+        }
+    }
+
+    PlasmaCore.ToolTipArea {
+        id: toolTip
+        property string text: label.text
+        anchors.fill: parent
+        active: root.visible //&& label.truncated
+        mainItem: toolTipDelegate
+        onContainsMouseChanged: {
+            if (!highlight) {
+                return
+            }
+            if (containsMouse) {
+                highlight.parent = item
+                highlight.width = item.width
+                highlight.height = item.height
+
+            }
+            highlight.visible = containsMouse
         }
     }
 

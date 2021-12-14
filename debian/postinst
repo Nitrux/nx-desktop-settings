@@ -5,7 +5,6 @@ set -x
 #	remove stupid things from Plasma, generic KDE launchers, breeze cursors, etc.
 
 rm -rf \
-	/usr/share/icons/breeze_cursors /usr/share/icons/Breeze_Snow \
 	/usr/share/applications/htop.desktop \
 	/usr/share/applications/ibus-setup* \
 	/usr/share/applications/info.desktop \

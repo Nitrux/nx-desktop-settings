@@ -47,8 +47,11 @@ Item {
 
     property alias cfg_numberColumns: numberColumns.value
     property alias cfg_numberRows: numberRows.value
-    property alias cfg_showAtCenter: showAtCenter.checked
     property alias cfg_showFavoritesFirst: showFavoritesFirst.checked
+
+    property alias cfg_viewUser: viewUser.checked
+    property alias cfg_labels2lines: labels2lines.checked
+    property alias cfg_displayPosition: displayPosition.currentIndex
 
     ColumnLayout {
         anchors.left: parent.left
@@ -183,14 +186,26 @@ Item {
                     id: showFavoritesFirst
                     text: i18n("Show favorites first")
                 }
-                CheckBox {
-                    id: showAtCenter
-                    text: i18n("Position launcher at the center of the screen")
+            }
+        }
+
+        GroupBox {
+            Layout.fillWidth: true
+            flat: true
+
+            ColumnLayout {
+                RowLayout {
+                    Label { text: i18n("Menu position:")     }
+                    ComboBox {
+                        id: displayPosition
+                        model: [
+                            i18n("Default"),
+                            i18n("Center"),
+                            i18n("Center bottom"),
+                        ]
+                        onActivated: cfg_displayPosition = currentIndex
+                    }
                 }
-                // CheckBox {
-                //     id: switchCategoriesOnHover
-                //     text: i18n("Switch categories on hover")
-                // }
             }
         }
 
@@ -202,6 +217,22 @@ Item {
                 CheckBox {
                     id: useExtraRunners
                     text: i18n("Expand search to bookmarks, files and emails")
+                }
+            }
+        }
+
+        GroupBox {
+            Layout.fillWidth: true
+            //title: i18n("Show user icon")
+            flat: true
+            ColumnLayout {
+                CheckBox {
+                    id: viewUser
+                    text: i18n("Show user icon")
+                }
+                CheckBox {
+                    id: labels2lines
+                    text: i18n("Show labels in two lines")
                 }
             }
         }
@@ -244,17 +275,19 @@ Item {
                 }
             }
         }
+
+        RowLayout{
+            //Layout.fillWidth: true
+            Button {
+                text: i18n("Unhide all hidden applications")
+                onClicked: {
+                    plasmoid.configuration.hiddenApplications = [""];
+                    unhideAllAppsPopup.text = i18n("Unhidden!");
+                }
+            }
+            Label {
+                id: unhideAllAppsPopup
+            }
+        }
     }
 }
-//SpinBox{
-//                    id: iconSizeSpn
-//                    minimumValue: 16
-//                    maximumValue: 128
-//                    suffix: " " + i18nc("pixels","px.")
-//                    enabled: !iconFillChk.checked
-//                }
-//
-//                Label {
-//                    Layout.leftMargin: units.smallSpacing
-//                    text: "maximum"
-//                }

@@ -44,8 +44,8 @@ PlasmaCore.Dialog {
     hideOnWindowDeactivate: true
 
     property int iconSize: units.iconSizes.large
-    property int cellSize: iconSize + theme.mSize(theme.defaultFont).height
-                           + (2 * units.smallSpacing)
+    property int cellSize: iconSize
+                           + units.gridUnit * 2
                            + (2 * Math.max(highlightItemSvg.margins.top + highlightItemSvg.margins.bottom,
                                            highlightItemSvg.margins.left + highlightItemSvg.margins.right))
     property bool searching: (searchField.text != "")
@@ -58,6 +58,7 @@ PlasmaCore.Dialog {
             y = pos.y;
             requestActivate();
             reset();
+            animation1.start()
         }
     }
 
@@ -82,6 +83,7 @@ PlasmaCore.Dialog {
         }
     }
 
+
     function reset() {
         
         if (!searching) {
@@ -104,7 +106,7 @@ PlasmaCore.Dialog {
                              screenAvail.height);
 
 
-        var offset = units.gridUnit;
+        var offset = units.largeSpacing * 0.5;
 
         // Fall back to bottom-left of screen area when the applet is on the desktop or floating.
         var x = offset;
@@ -114,11 +116,16 @@ PlasmaCore.Dialog {
         var vertMidPoint;
 
 
-        if (plasmoid.configuration.showAtCenter) {
+        if (plasmoid.configuration.displayPosition === 1) {
             horizMidPoint = screen.x + (screen.width / 2);
             vertMidPoint = screen.y + (screen.height / 2);
             x = horizMidPoint - width / 2;
             y = vertMidPoint - height / 2;
+        } else if (plasmoid.configuration.displayPosition === 2) {
+            horizMidPoint = screen.x + (screen.width / 2);
+            vertMidPoint = screen.y + (screen.height / 2);
+            x = horizMidPoint - width / 2;
+            y = screen.height - height - offset - panelSvg.margins.top;
         } else if (plasmoid.location === PlasmaCore.Types.BottomEdge) {
             horizMidPoint = screen.x + (screen.width / 2);
             appletTopLeft = parent.mapToGlobal(0, 0);
@@ -146,16 +153,20 @@ PlasmaCore.Dialog {
 
 
     FocusScope {
+
+        id: focusScope
         Layout.minimumWidth:  (cellSize *  plasmoid.configuration.numberColumns)
         Layout.maximumWidth:  (cellSize *  plasmoid.configuration.numberColumns)
-        Layout.minimumHeight: (cellSize *  plasmoid.configuration.numberRows) + searchField.height + paginationBar.height + iconUser.height +  units.iconSizes.smallMedium
-        Layout.maximumHeight: (cellSize *  plasmoid.configuration.numberRows) + searchField.height + paginationBar.height + iconUser.height +  units.iconSizes.smallMedium
+        Layout.minimumHeight: (cellSize *  plasmoid.configuration.numberRows) + searchField.height + paginationBar.height + iconUser.height +  units.largeSpacing * 6
+        Layout.maximumHeight: (cellSize *  plasmoid.configuration.numberRows) + searchField.height + paginationBar.height + iconUser.height +  units.largeSpacing * 6
 
         focus: true
 
         KCoreAddons.KUser {   id: kuser  }
         Logic {   id: logic }
-        
+
+
+        OpacityAnimator { id: animation1; target: focusScope; from: 0; to: 1; }
 
         PlasmaCore.DataSource {
             id: pmEngine
@@ -216,40 +227,65 @@ PlasmaCore.Dialog {
             }
         }
 
-        ListDelegate {
-            id: iconMenu
+        RowLayout{
+            id: rowTop
             anchors {
-                bottom: iconUser.bottom
                 left: parent.left
+                right: parent.right
+                top: parent.top
                 margins: units.smallSpacing
+                topMargin: units.largeSpacing
             }
-            text: "System Preferences"
-            highlight: delegateHighlight
-            icon: "configure"
-            size: units.iconSizes.smallMedium
-            onClicked: logic.openUrl("file:///usr/share/applications/systemsettings.desktop")
+
+            ListDelegate {
+                id: iconMenu
+                text: i18n("System Preferences")
+                highlight: delegateHighlight
+                icon: "configure"
+                size: units.iconSizes.smallMedium
+                onClicked: logic.openUrl("file:///usr/share/applications/systemsettings.desktop")
+            }
+
+            Item{
+                Layout.fillWidth: true
+            }
+
+            ListDelegate {
+                text: i18nc("@action", "Lock Screen")
+                icon: "system-lock-screen"
+                highlight: delegateHighlight
+                enabled: pmEngine.data["Sleep States"]["LockScreen"]
+                size: units.iconSizes.smallMedium
+                onClicked: pmEngine.performOperation("lockScreen")
+            }
+
+            ListDelegate {
+                text: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Leave ... ")
+                highlight: delegateHighlight
+                icon: "system-shutdown"
+                size: units.iconSizes.smallMedium
+                onClicked:  pmEngine.performOperation("requestShutDown")
+            }
         }
 
         Image {
             id: iconUser
-            //source: kuser.faceIconUrl
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                top: parent.top
+                topMargin: units.largeSpacing
+            }
+
             source: kuser.faceIconUrl.toString() || "user-identity"
             cache: false
-            visible: source !== ""
-
-            height: units.iconSizes.huge
+            visible: source !== "" && plasmoid.configuration.viewUser
+            height: plasmoid.configuration.viewUser ? units.gridUnit * 5 : units.iconSizes.smallMedium  // FIXME
             width: height
-
             sourceSize.width: width
             sourceSize.height: height
 
             fillMode: Image.PreserveAspectFit
 
-            anchors {
-                top: parent.top
-                topMargin: units.smallSpacing
-            }
 
             // Crop the avatar to fit in a circle, like the lock and login screens
             // but don't on software rendering where this won't render
@@ -263,67 +299,41 @@ PlasmaCore.Dialog {
                     visible: false
                 }
             }
-        }
 
-        MouseArea {
-            anchors.fill: iconUser
-            acceptedButtons: Qt.LeftButton
-            cursorShape: Qt.PointingHandCursor
-            onClicked: {
-                KCMShell.open("user_manager")
+            MouseArea {
+                anchors.fill: parent
+                acceptedButtons: Qt.LeftButton
+                cursorShape: Qt.PointingHandCursor
+                onClicked: {
+                    KCMShell.openSystemSettings("kcm_users")
+                }
+                visible: KCMShell.authorize("user_manager.desktop").length > 0
             }
-            visible: KCMShell.authorize("user_manager.desktop").length > 0
-        }
-        
-        ListDelegate {
-            id: iconLeave
-            anchors {
-                bottom: iconUser.bottom
-                right: parent.right
-                margins: units.smallSpacing
-            }
-            text: i18nc("@action", "Lock Screen")
-            
-            icon: "system-shutdown"
-            highlight: delegateHighlight
-            enabled: pmEngine.data["Sleep States"]["LockScreen"]
-            size: units.iconSizes.smallMedium
-
-            onClicked: pmEngine.performOperation("requestShutDown")
-        }
-        ListDelegate {
-            anchors {
-                bottom: iconUser.bottom
-                right: iconLeave.left
-                margins: units.smallSpacing
-            }
-            text: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Leave ... ")
-            highlight: delegateHighlight
-            icon: "system-lock-screen"
-            size: units.iconSizes.smallMedium
-            onClicked: pmEngine.performOperation("lockScreen")
         }
 
 
         PlasmaComponents.TextField {
             id: searchField
             anchors{
-                top: iconUser.bottom
-                topMargin: units.smallSpacing
+                top: plasmoid.configuration.viewUser ? iconUser.bottom : rowTop.bottom
+                topMargin: units.largeSpacing
                 left: parent.left
                 right: parent.right
-                leftMargin:  units.largeSpacing
-                rightMargin: units.largeSpacing
+                leftMargin:  units.largeSpacing * 3
+                rightMargin: units.largeSpacing * 3
             }
 
             width: parent.width - units.iconSizes.large
-            opacity: 0.8
             placeholderText: i18n("Search ...")
             //font.pointSize: 14 // fixme: QTBUG font size in plasmaComponent3
             text: ""
+            clearButtonShown: true
             onTextChanged: {
                 runnerModel.query = text;
             }
+
+
+
             Keys.onPressed: {
                 if (event.key == Qt.Key_Down) {
                     event.accepted = true;
@@ -368,7 +378,6 @@ PlasmaCore.Dialog {
                 if (!root.visible) {
                     return;
                 }
-
                 focus = true;
                 text = text + newText;
             }
@@ -379,12 +388,12 @@ PlasmaCore.Dialog {
 
             anchors {
                 top: searchField.bottom
-                topMargin: units.smallSpacing
+                topMargin: units.largeSpacing * 2
                 left: parent.left
                 right: parent.right
                 bottomMargin: units.smallSpacing
-
             }
+
             width: (cellSize * plasmoid.configuration.numberColumns)
             height: (cellSize * plasmoid.configuration.numberRows)
             focus: true;
@@ -420,7 +429,10 @@ PlasmaCore.Dialog {
                 onModelChanged: {
                     //currentIndex = 0;
                     currentIndex = (searching || plasmoid.configuration.showFavoritesFirst) ? 0 : 1;
+
                 }
+
+
 
                 onFlickingChanged: {
                     if (!flicking) {
@@ -470,6 +482,7 @@ PlasmaCore.Dialog {
 
                         horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
                         verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+                        iconSize: root.iconSize
 
                         dragEnabled: (index == 0)
 
@@ -563,7 +576,7 @@ PlasmaCore.Dialog {
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 bottom: parent.bottom
-                bottomMargin: units.smallSpacing
+                bottomMargin: units.largeSpacing
             }
 
             width: model.count * units.iconSizes.small
