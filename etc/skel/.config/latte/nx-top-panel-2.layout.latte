@@ -20,66 +20,63 @@ immutability=1
 plugin=org.nx.audio
 
 [Containments][12][Applets][74][Configuration]
-PreloadWeight=34
+PreloadWeight=10
 
 [Containments][12][Applets][75]
 immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][12][Applets][75][Configuration]
-PreloadWeight=34
-
-[Containments][12][Applets][76][Configuration]
-PreloadWeight=42
+PreloadWeight=20
 
 [Containments][12][Applets][77]
 immutability=1
 plugin=org.kde.kdeconnect
 
 [Containments][12][Applets][77][Configuration]
-PreloadWeight=34
+PreloadWeight=10
 
 [Containments][12][Applets][78]
 immutability=1
 plugin=org.nx.notifications
 
 [Containments][12][Applets][78][Configuration]
-PreloadWeight=34
+PreloadWeight=25
 
 [Containments][12][Applets][79]
 immutability=1
 plugin=org.kde.plasma.nightcolorcontrol
 
 [Containments][12][Applets][79][Configuration]
-PreloadWeight=34
+PreloadWeight=10
 
 [Containments][12][Applets][80]
 immutability=1
 plugin=org.kde.plasma.vault
 
 [Containments][12][Applets][80][Configuration]
-PreloadWeight=34
+PreloadWeight=10
 
 [Containments][12][Applets][81]
 immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][12][Applets][81][Configuration]
-PreloadWeight=34
+PreloadWeight=10
 
 [Containments][12][Applets][82]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][12][Applets][82][Configuration]
-PreloadWeight=34
+PreloadWeight=10
 
 [Containments][12][Applets][83]
 immutability=1
 plugin=org.nx.networkmanagement
 
 [Containments][12][Applets][83][Configuration]
-PreloadWeight=34
+PreloadWeight=10
 
 [Containments][12][ConfigDialog]
 DialogHeight=703
@@ -132,6 +129,47 @@ showOnlyCurrentActivity=false
 showOnlyCurrentDesktop=true
 showWindowActions=true
 
+[Containments][13][Applets][84]
+immutability=1
+plugin=org.kde.plasma.trash
+
+[Containments][13][Applets][85]
+immutability=1
+plugin=org.kde.plasma.pager
+
+[Containments][13][Applets][85][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][13][Applets][85][Configuration][General]
+displayedText=Number
+showOnlyCurrentScreen=true
+showWindowIcons=true
+
+[Containments][13][Applets][86]
+immutability=1
+plugin=org.kde.latte.separator
+
+[Containments][13][Applets][86][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][13][Applets][86][Configuration][General]
+lengthMargin=10
+thickMargin=8
+
+[Containments][13][Applets][87]
+immutability=1
+plugin=org.kde.latte.separator
+
+[Containments][13][Applets][87][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][13][Applets][87][Configuration][General]
+lengthMargin=10
+thickMargin=8
+
 [Containments][13][ConfigDialog]
 DialogHeight=612
 DialogWidth=509
@@ -142,13 +180,14 @@ PreloadWeight=0
 [Containments][13][General]
 advanced=true
 alignmentUpgraded=true
-appletOrder=47
+appletOrder=47;86;84;87;85
 appletShadowsEnabled=false
 backgroundRadius=15
 backgroundShadowSize=10
 durationTime=x3
 hoverAction=PreviewWindows
 iconSize=48
+inConfigureAppletsMode=true
 indicateAudioStreams=false
 infoBadgeProminentColorEnabled=true
 lengthExtMargin=5
@@ -205,7 +244,7 @@ immutability=1
 plugin=org.nx.systemtray
 
 [Containments][14][Applets][48][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 SystrayContainmentId=12
 
 [Containments][14][Applets][50]
@@ -395,7 +434,7 @@ customBackground=
 customTextColor=fcfcfc
 disableBordersForMaximizedWindows=false
 icon=
-lastUsedActivity=655b7801-bae8-4f5b-845d-d15eaca9d0b2
+lastUsedActivity=f114ee86-7153-484f-b5ac-ec580fc4ffe8
 launchers=
 popUpMargin=-1
 preferredForShortcutsTouched=false
