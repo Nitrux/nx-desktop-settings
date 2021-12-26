@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.8.4)  nitrux; urgency=medium
+
+  * Keep file to enable CSD for Maui apps but disable it by default
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 Dec 2021 18:50:00 -0500
+
 nx-desktop-settings-legacy (2.8.3)  nitrux; urgency=medium
 
   * Enable CSD for Maui apps, disable focus mode in station.
