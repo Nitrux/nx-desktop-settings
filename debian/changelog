@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.8.3)  nitrux; urgency=medium
+
+  * Enable CSD for Maui apps.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 Dec 2021 18:24:00 -0500
+
 nx-desktop-settings-legacy (2.8.2)  nitrux; urgency=medium
 
   * Update latte config.
