@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.8.6)  nitrux; urgency=medium
+
+  * Update config for kdenlive.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 27 Dec 2021 15:36:00 -0500
+
 nx-desktop-settings-legacy (2.8.5)  nitrux; urgency=medium
 
   * Add config for kdenlive.
