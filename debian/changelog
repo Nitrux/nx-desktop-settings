@@ -1,3 +1,9 @@
+nx-desktop-settings (3.1.0)  nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 05 Dec 2022 19:32:00 -0500
+
 nx-desktop-settings (3.0.9)  nitrux; urgency=medium
 
   * Update custom launchers.

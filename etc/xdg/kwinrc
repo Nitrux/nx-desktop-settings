@@ -28,6 +28,9 @@ Id_4=dd101948-4295-4fc6-88ab-e1345f3081b0
 Number=4
 Rows=1
 
+[ModifierOnlyShortcuts]
+Meta=org.kde.plasmashell,/PlasmaShell,org.kde.PlasmaShell,activateLauncherMenu
+
 [Effect-Cube]
 BorderActivate=9
 BorderActivateCylinder=9
