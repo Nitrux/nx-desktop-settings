@@ -78,15 +78,20 @@ ln -sv /home/.pnx/usr/lib/zsh/5.8/zsh/datetime.so /usr/lib/zsh/5.8/zsh/datetime.
 ln -sv /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
 
 
+#	let Parachute be configured from system settings.
+
+ln -sv /usr/share/kwin/scripts/Parachute/metadata.desktop /usr/share/kservices5/parachute.desktop
+
+
+#	let Force blur be configured from system settings.
+
+ln -sv /usr/share/kwin/scripts/forceblur/metadata.desktop /usr/share/kservices5/forceblur.desktop
+
+
 #	use zsh in userland.
 
 sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
 sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
-
-
-#	workaround for vmetal
-
-ln -sv /usr/lib/x86_64-linux-gnu/libffi.so.7.1.0 /usr/lib/x86_64-linux-gnu/libffi.so.6
 
 
 #	add xdg_dir environment variables
@@ -116,3 +121,9 @@ mv /etc/skel/Desktop/FAQ.pdf /etc/skel/Desktop/Nitrux\ —\ FAQ.pdf
 cp /usr/share/icons/nitrux_snow_cursors/index.theme /etc/X11/cursors/nitrux_cursors.theme
 ln -svf /etc/X11/cursors/nitrux_cursors.theme /etc/alternatives/x-cursor-theme
 sed -i '$ a Inherits=nitrux_snow_cursors' /etc/X11/cursors/nitrux_cursors.theme
+
+
+#	Set permissions for doas.conf.
+
+chown -c root:root /etc/doas.conf
+chmod -c 0400 /etc/doas.conf
