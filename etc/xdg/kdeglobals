@@ -1,15 +1,22 @@
 [ColorEffects:Disabled]
-ChangeSelectionColor=
+Color=56,56,56
+ColorAmount=0
+ColorEffect=0
 ContrastAmount=0.8
 ContrastEffect=1
-Enable=
+IntensityAmount=0.1
+IntensityEffect=0
 
 [ColorEffects:Inactive]
 ChangeSelectionColor=false
+Color=112,111,110
 ColorAmount=-0.5
 ColorEffect=1
 ContrastAmount=0.4
+ContrastEffect=2
+Enable=true
 IntensityAmount=0.2
+IntensityEffect=0
 
 [Colors:Button]
 BackgroundAlternate=189,195,199
@@ -99,19 +106,142 @@ ForegroundNormal=244,245,246
 ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
-[DirSelect Dialog]
-DirSelectDialog Size=845,600
-History Items[$e]=file:///Users/nitrux/Backups,file:///Users/nitrux
-
 [General]
 TerminalApplication=station
 TerminalService=org.kde.station.desktop
+ColorScheme=NitruxDark
+Name=Nitrux Dark
+XftAntialias=true
+XftHintStyle=hintmedium
+XftSubPixel=rgb
+font=Fira Sans,10,-1,5,50,0,0,0,0,0
+menuFont=Fira Sans,10,-1,5,50,0,0,0,0,0
+smallestReadableFont=Fira Sans,8,-1,5,50,0,0,0,0,0
+fixed=Calling Code,10,-1,5,50,0,0,0,0,0,Regular
+toolBarFont=Fira Sans,10,-1,5,50,0,0,0,0,0
+shadeSortColumn=true
+
+[Icons]
+Theme=Luv
 
 [KDE]
 LookAndFeelPackage=org.kde.nitrux.dark.desktop
+ShowDeleteCommand=false
 ShowIconsInMenuItems=false
 ShowIconsOnPushButtons=false
+contrast=0
 widgetStyle=Nitrux
 
+[KFileDialog Settings]
+Automatically select filename extension=true
+Breadcrumb Navigation=true
+Decoration position=0
+LocationCombo Completionmode=5
+PathCombo Completionmode=5
+Previews=false
+Show Bookmarks=false
+Show Full Path=false
+Show Preview=false
+Show Speedbar=true
+Show hidden files=false
+Sort by=Name
+Sort directories first=true
+Sort reversed=false
+Speedbar Width=260
+View Style=Simple
+listViewIconSize=0
+
+[KShortcutsDialog Settings]
+Dialog Size=600,480
+
+[MainToolbarIcons]
+ActiveColor=169,156,255
+ActiveColor2=0,0,0
+ActiveEffect=none
+ActiveSemiTransparent=false
+ActiveValue=1
+Animated=false
+DefaultColor=144,128,248
+DefaultColor2=0,0,0
+DefaultEffect=none
+DefaultSemiTransparent=false
+DefaultValue=1
+DisabledColor=34,202,0
+DisabledColor2=0,0,0
+DisabledEffect=togray
+DisabledSemiTransparent=true
+DisabledValue=1
+Size=22
+
+[PanelIcons]
+ActiveColor=169,156,255
+ActiveColor2=0,0,0
+ActiveEffect=togamma
+ActiveSemiTransparent=false
+ActiveValue=0.699999988079071
+Animated=false
+DefaultColor=144,128,248
+DefaultColor2=0,0,0
+DefaultEffect=none
+DefaultSemiTransparent=false
+DefaultValue=1
+DisabledColor=34,202,0
+DisabledColor2=0,0,0
+DisabledEffect=togray
+DisabledSemiTransparent=true
+DisabledValue=1
+Size=32
+
+[PreviewSettings]
+MaximumRemoteSize=0
+
+[SmallIcons]
+ActiveColor=169,156,255
+ActiveColor2=0,0,0
+ActiveEffect=none
+ActiveSemiTransparent=false
+ActiveValue=1
+Animated=false
+DefaultColor=144,128,248
+DefaultColor2=0,0,0
+DefaultEffect=none
+DefaultSemiTransparent=false
+DefaultValue=1
+DisabledColor=34,202,0
+DisabledColor2=0,0,0
+DisabledEffect=togray
+DisabledSemiTransparent=true
+DisabledValue=1
+Size=16
+
+[Toolbar style]
+ToolButtonStyle=NoText
+ToolButtonStyleOtherToolbars=NoText
+
+[ToolbarIcons]
+ActiveColor=169,156,255
+ActiveColor2=0,0,0
+ActiveEffect=none
+ActiveSemiTransparent=false
+ActiveValue=1
+Animated=false
+DefaultColor=144,128,248
+DefaultColor2=0,0,0
+DefaultEffect=none
+DefaultSemiTransparent=false
+DefaultValue=1
+DisabledColor=34,202,0
+DisabledColor2=0,0,0
+DisabledEffect=togray
+DisabledSemiTransparent=true
+DisabledValue=1
+Size=22
+
 [WM]
+activeBackground=43,44,49
 activeBlend=43,44,49
+activeForeground=249,249,249
+inactiveBackground=55,56,63
+inactiveBlend=75,71,67
+inactiveForeground=155,172,187
+activeFont=Fira Sans,10,-1,5,50,0,0,0,0,0
