@@ -10,3 +10,5 @@ ButtonPadding=2
 ButtonSize=ButtonDefault
 CornerRadius=4
 MatchColorForTitleBar=false
+HideTitleBar=Always
+MatchColorForTitleBar=true
