@@ -1,3 +1,9 @@
+nx-desktop-settings (3.1.5)  nitrux; urgency=medium
+
+  * Update arch linux pacman keyrings.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 07 Dec 2022 18:44:00 -0500
+
 nx-desktop-settings (3.1.4)  nitrux; urgency=medium
 
   * Update doas.conf.
