@@ -129,6 +129,32 @@ DialogWidth=720
 lengthMargin=10
 thickMargin=8
 
+[Containments][1][Applets][162]
+immutability=1
+plugin=com.github.configurable_button
+
+[Containments][1][Applets][162][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][1][Applets][162][Configuration][General]
+iconOff=view-file-columns
+iconOn=view-file-columns
+offScript=qdbus org.kde.kglobalaccel /component/kwin invokeShortcut 'Parachute'
+onScript=qdbus org.kde.kglobalaccel /component/kwin invokeShortcut 'Parachute'
+
+[Containments][1][Applets][163]
+immutability=1
+plugin=org.kde.latte.separator
+
+[Containments][1][Applets][163][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][1][Applets][163][Configuration][General]
+lengthMargin=10
+thickMargin=8
+
 [Containments][1][ConfigDialog]
 DialogHeight=613
 DialogWidth=509
@@ -142,7 +168,7 @@ alignmentUpgraded=true
 animationLauncherBouncing=false
 animationWindowAddedInGroup=false
 animationWindowInAttention=false
-appletOrder=115;154;130;153;157;158;116
+appletOrder=115;154;162;163;130;153;157;158;116
 backgroundRadius=25
 iconSize=32
 inConfigureAppletsMode=true
@@ -164,7 +190,7 @@ taskScrollAction=ScrollNone
 tasksUpgraded=true
 thickMargin=10
 titleTooltips=false
-zoomLevel=2
+zoomLevel=0
 
 [Containments][1][Indicator]
 customType=
@@ -259,7 +285,7 @@ immutability=1
 plugin=org.nx.systemtray
 
 [Containments][120][Applets][135][Configuration]
-PreloadWeight=97
+PreloadWeight=100
 SystrayContainmentId=136
 
 [Containments][120][Applets][155]
@@ -470,7 +496,7 @@ customBackground=
 customTextColor=fcfcfc
 disableBordersForMaximizedWindows=false
 icon=
-lastUsedActivity=0532ba80-13b0-4f24-b04d-72725ac57171
+lastUsedActivity=1a653b58-63c1-4a43-b158-b65cb7efcc54
 launchers=
 popUpMargin=-1
 preferredForShortcutsTouched=false
