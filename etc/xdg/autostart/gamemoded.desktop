@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=gamemoded
+Comment=Feral Interactive Gamemode
+Icon=applications-games
+Type=Application
+Exec=/usr/bin/gamemoded
+NoDisplay=true
+StartupNotify=false
+Terminal=false

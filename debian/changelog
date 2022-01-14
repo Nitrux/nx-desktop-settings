@@ -1,8 +1,14 @@
+nx-desktop-settings (3.1.8)  nitrux; urgency=medium
+
+  * Update latte layout, add gamemode config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 14 Jan 2022 01:37:00 -0500
+
 nx-desktop-settings (3.1.7)  nitrux; urgency=medium
 
   * Update latte layout.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Fri, 13 Jan 2022 06:41:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 13 Jan 2022 06:41:00 -0500
 
 nx-desktop-settings (3.1.6)  nitrux; urgency=medium
 
