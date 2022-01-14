@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.8.8)  nitrux; urgency=medium
+
+  * Disable CSD for Maui Apps.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 14 Jan 2022 02:13:00 -0500
+
 nx-desktop-settings-legacy (2.8.7)  nitrux; urgency=medium
 
   * Add gamemode config, add new latte layout, remove old layouts, add launchpad plasmoid.
