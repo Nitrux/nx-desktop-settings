@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.8.9)  nitrux; urgency=medium
+
+  * Update latte layout, kwin config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 14 Jan 2022 15:37:00 -0500
+
 nx-desktop-settings-legacy (2.8.8)  nitrux; urgency=medium
 
   * Disable CSD for Maui Apps.

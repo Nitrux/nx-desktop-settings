@@ -24,10 +24,9 @@ TabBox=false
 TabBoxAlternative=false
 
 [Desktops]
-Id_1=8db602fd-5a95-49ab-ba02-df440fae5588
-Id_2=8acad981-e8d3-4da4-ab11-5021fb49c790
-Id_3=e6cccd87-c058-4d59-acfc-5a38fa9e0f83
-Id_4=9ebe6510-0ff6-43b0-a849-229caba0774f
+Id_2[$d]
+Id_3[$d]
+Id_4[$d]
 Number=4
 Rows=1
 
@@ -165,7 +164,7 @@ WindowSnapZone=10
 
 [org.kde.kdecoration2]
 BorderSize=Normal
-BorderSizeAuto=false
+BorderSizeAuto=true
 ButtonsOnLeft=XAI
 ButtonsOnRight=
 library=org.kde.mauideco
