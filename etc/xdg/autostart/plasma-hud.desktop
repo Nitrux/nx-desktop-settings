@@ -3,7 +3,7 @@ Name=Plasma HUD
 GenericName=Menu Searcher
 Comment=Search active window menus
 
-Icon=search
+Icon=preferences-desktop-search
 Type=Application
 
 Exec=/usr/lib/plasma-hud/plasma-hud
