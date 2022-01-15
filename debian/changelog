@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.9.5)  nitrux; urgency=medium
+
+  * Update latte config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 15 Jan 2022 14:29:00 -0500
+
 nx-desktop-settings-legacy (2.9.4)  nitrux; urgency=medium
 
   * Update latte config.
