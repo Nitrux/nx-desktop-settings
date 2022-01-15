@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=latte-dock
-Exec=/Applications/latte-dock
-Comment=Dock for the masses
-Icon=latte-dock
-Categories=Utility;X-SuSE-DesktopUtility;
-Terminal=false
-NoDisplay=true
