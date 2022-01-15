@@ -1,3 +1,9 @@
+nx-desktop-settings (3.2.1)  nitrux; urgency=medium
+
+  * Add sysctl config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 15 Jan 2022 05:00:00 -0500
+
 nx-desktop-settings (3.2.0)  nitrux; urgency=medium
 
   * Add udev rules for i/o sched., add script for cfs sched.

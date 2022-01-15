@@ -127,3 +127,15 @@ sed -i '$ a Inherits=nitrux_snow_cursors' /etc/X11/cursors/nitrux_cursors.theme
 
 chown -c root:root /etc/doas.conf
 chmod -c 0400 /etc/doas.conf
+
+
+#	Add K4YT3X's Hardened sysctl Configuration
+
+{
+	printf "%s %s\n" \
+		99-sysctl.conf		"https://raw.githubusercontent.com/k4yt3x/sysctl/master/sysctl.conf"
+} | {
+	while read name url; do
+		axel -a -q -o /etc/sysctl.d/$name "$url"
+	done
+}
