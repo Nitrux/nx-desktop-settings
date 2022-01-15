@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.9.1)  nitrux; urgency=medium
+
+  * Fix permissions in script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 14 Jan 2022 18:05:00 -0500
+
 nx-desktop-settings-legacy (2.9.0)  nitrux; urgency=medium
 
   * Update gamemode launcher, add udev rules, add script for cfs sched.
