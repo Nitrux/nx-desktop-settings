@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.9.2)  nitrux; urgency=medium
+
+  * Update lattedockrc.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 15 Jan 2022 23:21:00 -0500
+
 nx-desktop-settings-legacy (2.9.1)  nitrux; urgency=medium
 
   * Fix permissions in script.

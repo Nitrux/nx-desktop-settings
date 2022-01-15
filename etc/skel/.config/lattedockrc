@@ -1,16 +1,11 @@
-[DownloadDialog Settings]
-Height 768=482
-Width 1024=700
+[LatteSettingsDialog]
+downloadWindowSize=980,600
+windowSize=680,560
 
-[KFileDialog Settings]
-listViewIconSize=0
-
-[KPropertiesDialog]
-Virtual1 Height 1024x768=481
-Virtual1 Width 1024x768=409
-
-[Notification Messages]
-really_clear_history=true
+[LatteSettingsDialog][TabLayouts]
+columnWidths=48,508,129,104
+sortColumn=3
+sortOrder=0
 
 [PlasmaThemeExtended]
 outlineWidth=1
@@ -24,17 +19,16 @@ badges3DStyle=true
 canDisableBorders=false
 contextMenuActionsAlwaysShown=_layouts,_preferences,_quit_latte,_separator1,_add_latte_widgets,_add_view
 currentLayout=nx-floating-panel-dark
-downloadWindowSize=800,550
-inAdvancedModeForEditSettings=false
+inAdvancedModeForEditSettings=true
 isAvailableGeometryBroadcastedToPlasma=true
 lastNonAssignedLayout=nx-floating-panel-dark
 launchers=
-layoutsColumnWidths=43,204,127,0
-layoutsWindowSize=700,587
+layoutsWindowSize=700,450
 memoryUsage=0
 metaPressAndHoldEnabled=true
 mouseSensitivity=2
 screenTrackerInterval=2500
 showInfoWindow=true
 singleModeLayoutName=nx-floating-panel-dark
+userConfiguredAutostart=true
 version=2
