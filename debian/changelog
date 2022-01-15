@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.9.0)  nitrux; urgency=medium
+
+  * Update gamemode launcher, add udev rules, add script for cfs sched.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 14 Jan 2022 18:01:00 -0500
+
 nx-desktop-settings-legacy (2.8.9)  nitrux; urgency=medium
 
   * Update latte layout, kwin config.
