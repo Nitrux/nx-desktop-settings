@@ -1,3 +1,9 @@
+nx-desktop-settings (3.2.3)  nitrux; urgency=medium
+
+  * Update package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 17 Jan 2022 00:57:00 -0500
+
 nx-desktop-settings (3.2.2)  nitrux; urgency=medium
 
   * Add sysctl config.
