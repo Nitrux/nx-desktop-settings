@@ -2,13 +2,13 @@ nx-desktop-settings (3.2.4)  nitrux; urgency=medium
 
   * Add schedtoold conf file, add mesa custom file.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Mon, 17 Jan 2022 05:27:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 16 Jan 2022 05:27:00 -0500
 
 nx-desktop-settings (3.2.3)  nitrux; urgency=medium
 
   * Update package.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Mon, 17 Jan 2022 00:57:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 16 Jan 2022 00:57:00 -0500
 
 nx-desktop-settings (3.2.2)  nitrux; urgency=medium
 

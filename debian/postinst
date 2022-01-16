@@ -43,10 +43,17 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /etc/skel/.oh-m
 wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.colorscheme https://raw.githubusercontent.com/nx-desktop/nx-plasma-look-and-feel/master/konsole/Nitrux.colorscheme
 
 
-#	add support for AppImages,
+#	add support for AppImages.
 
 echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
+sed -i "/env_reset/d" /etc/sudoers
+
+
+#	add support for binaries un /usr/games.
+
+echo -e "PATH=$PATH:/usr/games\n" >> /etc/environment
+sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/usr/games\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
 
 
