@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.0.3)  nitrux; urgency=medium
+
+  * Remove x11 config file.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 17 Jan 2022 17:23:00 -0500
+
 nx-desktop-settings-legacy (3.0.2)  nitrux; urgency=medium
 
   * Do not overwrite dash.
