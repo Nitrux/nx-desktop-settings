@@ -104,8 +104,3 @@ sed -i "/env_reset/d" /etc/sudoers
 cp /usr/share/icons/nitrux_snow_cursors/index.theme /etc/X11/cursors/nitrux_cursors.theme
 ln -svf /etc/X11/cursors/nitrux_cursors.theme /etc/alternatives/x-cursor-theme
 sed -i '$ a Inherits=nitrux_snow_cursors' /etc/X11/cursors/nitrux_cursors.theme
-
-
-#	create link to bash
-
-ln -svf /bin/bash /bin/dash
