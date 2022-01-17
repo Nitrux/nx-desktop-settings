@@ -1,3 +1,9 @@
+nx-desktop-settings (3.2.7)  nitrux; urgency=medium
+
+  * Adjust kwin settings.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 16 Jan 2022 19:57:00 -0500
+
 nx-desktop-settings (3.2.6)  nitrux; urgency=medium
 
   * Adjust kwin settings.
