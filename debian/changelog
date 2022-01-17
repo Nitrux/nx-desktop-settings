@@ -1,3 +1,9 @@
+nx-desktop-settings (3.2.9)  nitrux; urgency=medium
+
+  * Add xorg configuration files.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 17 Jan 2022 05:52:00 -0500
+
 nx-desktop-settings (3.2.8)  nitrux; urgency=medium
 
   * Adjust maui apps settings.
