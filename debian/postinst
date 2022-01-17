@@ -92,6 +92,13 @@ echo -e "XDG_CONFIG_DIRS=/etc/xdg" >> /etc/environment
 echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
 
 
+#	add support for binaries un /usr/games.
+
+echo -e "PATH=$PATH:/usr/games\n" >> /etc/environment
+sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/usr/games\"|g" /etc/sudoers
+sed -i "/env_reset/d" /etc/sudoers
+
+
 #	force set nitrux_cursors as the default x-curosr-theme
 
 cp /usr/share/icons/nitrux_snow_cursors/index.theme /etc/X11/cursors/nitrux_cursors.theme

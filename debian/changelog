@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.9.6)  nitrux; urgency=medium
+
+  * Update kwin config, add binaries in usr/games to path, add mesa customization.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 16 Jan 2022 17:58:00 -0500
+
 nx-desktop-settings-legacy (2.9.5)  nitrux; urgency=medium
 
   * Update latte config.

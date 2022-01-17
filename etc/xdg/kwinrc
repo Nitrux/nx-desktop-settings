@@ -1,15 +1,12 @@
-[$Version]
-update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage
-
 [Compositing]
 AnimationSpeed=3
 Backend=OpenGL
 Enabled=true
 GLCore=true
-GLPreferBufferSwap=e
+GLPreferBufferSwap=a
 OpenGLIsUnsafe=false
-GLTextureFilter=1
-LatencyPolicy=ExtremelyLow
+GLTextureFilter=2
+LatencyPolicy=ExtremelyHigh
 HiddenPreviews=5
 OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
@@ -24,9 +21,10 @@ TabBox=false
 TabBoxAlternative=false
 
 [Desktops]
-Id_2[$d]
-Id_3[$d]
-Id_4[$d]
+Id_1=f96d4d9c-ba6c-4040-81e8-7b7c9e84db0d
+Id_2=4414a07d-d6ab-4f67-bab5-19a9c3849baf
+Id_3=3defe8cb-112e-47c2-8e79-afd7504dbe71
+Id_4=dd101948-4295-4fc6-88ab-e1345f3081b0
 Number=4
 Rows=1
 
@@ -46,11 +44,13 @@ TabBox=false
 TabBoxAlternative=false
 
 [Effect-PresentWindows]
+LayoutMode=1
 BorderActivate=9
 BorderActivateAll=9
 BorderActivateClass=9
 TouchBorderActivate=9
 TouchBorderActivateAll=7
+TouchBorderActivateClass=9
 
 [MouseBindings]
 CommandActiveTitlebar1=Raise
@@ -80,7 +80,18 @@ Top=None
 TopLeft=None
 TopRight=None
 
+[NightColor]
+Active=true
+LatitudeAuto=19.3837
+LongitudeAuto=-99.1757
+NightTemperature=5000
+
 [Plugins]
+ParachuteEnabled=true
+krohnkiteEnabled=false
+minimizeallEnabled=false
+synchronizeskipswitcherEnabled=false
+videowallEnabled=false
 desktopgridEnabled=false
 diminactiveEnabled=true
 glideEnabled=true
