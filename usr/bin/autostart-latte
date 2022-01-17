@@ -1,0 +1,10 @@
+#! /bin/sh
+
+set -xe
+
+# -- Start Cask
+
+killall latte-dock
+sleep 1 && latte-dock --replace
+
+exit
