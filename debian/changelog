@@ -1,4 +1,4 @@
-nx-desktop-settings-legacy (2.9.8)  nitrux; urgency=medium
+nx-desktop-settings-legacy (2.9.9)  nitrux; urgency=medium
 
   * Add x11 config files.
 
