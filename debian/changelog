@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.0.0)  nitrux; urgency=medium
+
+  * Remove x11 config file.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 17 Jan 2022 16:37:00 -0500
+
 nx-desktop-settings-legacy (2.9.9)  nitrux; urgency=medium
 
   * Add x11 config files.
