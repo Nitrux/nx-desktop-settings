@@ -1,3 +1,9 @@
+nx-desktop-settings (3.3.2)  nitrux; urgency=medium
+
+  * Remove xorg configuration file.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 17 Jan 2022 17:01:00 -0500
+
 nx-desktop-settings (3.3.1)  nitrux; urgency=medium
 
   * Add Applications directory in home.
