@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (2.9.7)  nitrux; urgency=medium
+
+  * Update kwin config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 16 Jan 2022 20:02:00 -0500
+
 nx-desktop-settings-legacy (2.9.6)  nitrux; urgency=medium
 
   * Update kwin config, add binaries in usr/games to path, add mesa customization.
