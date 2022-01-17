@@ -2,7 +2,7 @@
 
 set -xe
 
-# -- Start Cask
+# -- Start Latte Dock
 
 killall latte-dock
 sleep 1 && latte-dock --replace
