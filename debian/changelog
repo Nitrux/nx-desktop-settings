@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.0.6)  nitrux; urgency=medium
+
+  * Update latte autostart script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 17 Jan 2022 22:47:00 -0500
+
 nx-desktop-settings-legacy (3.0.5)  nitrux; urgency=medium
 
   * Make sh point to dash.

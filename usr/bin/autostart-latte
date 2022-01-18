@@ -4,7 +4,9 @@ set -xe
 
 # -- Start Latte Dock
 
-killall latte-dock
-sleep 1 && latte-dock --replace
-
-exit
+if pgrep -f latte-dock >/dev/null
+    then
+        killall latte-dock
+    else
+        sleep 1 && latte-dock --replace &
+fi
