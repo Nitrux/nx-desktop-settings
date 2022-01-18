@@ -109,6 +109,8 @@ echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
 
 #	add documentation
 
+mkdir -p /etc/skel/Desktop
+
 {
 	printf "%s %s\n" \
 		Compendium.pdf		"https://github.com/Nitrux/iso-tool/raw/master/configs/other/compendium_offline.pdf" \
