@@ -1,3 +1,9 @@
+nx-desktop-settings (3.3.4)  nitrux; urgency=medium
+
+  * Update vvave conf file.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 17 Jan 2022 19:36:00 -0500
+
 nx-desktop-settings (3.3.3)  nitrux; urgency=medium
 
   * Create directory to download docs.
