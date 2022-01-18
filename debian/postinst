@@ -78,9 +78,9 @@ ln -sv /usr/share/kwin/scripts/Parachute/metadata.desktop /usr/share/kservices5/
 ln -sv /usr/share/kwin/scripts/forceblur/metadata.desktop /usr/share/kservices5/forceblur.desktop
 
 
-#	use bash and zsh in userland.
+#	use dash and zsh in userland.
 
-ln -svf /bin/bash /bin/sh
+ln -svf /bin/dash /bin/sh
 
 sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
 sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
