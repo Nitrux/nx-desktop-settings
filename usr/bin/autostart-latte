@@ -1,12 +1,13 @@
-#! /bin/sh
+#! /bin/zsh
 
 set -xe
 
 # -- Start Latte Dock
 
-if pgrep -f latte-dock >/dev/null
+if [[ `pgrep -a latte-dock | rev | cut -d' ' -f1 | rev` !="/usr/bin/latte-dock" ]];
     then
-        killall latte-dock
-    else
         sleep 1 && latte-dock --replace &
+    else
+        killall latte-dock
+        latte-dock --replace &
 fi

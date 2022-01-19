@@ -17,7 +17,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-if [ `tput colors` != "256"]; then  
+# Set theme for robyrusell when login to a TTY
+if [[ `echo "$TERM"` != "xterm" ]]; then  
   ZSH_THEME="robbyrussell"  
 fi
 
