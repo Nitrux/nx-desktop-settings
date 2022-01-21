@@ -1,3 +1,9 @@
+nx-desktop-settings (3.3.7)  nitrux; urgency=medium
+
+  * Remove script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 20 Jan 2022 18:33:00 -0500
+
 nx-desktop-settings (3.3.6)  nitrux; urgency=medium
 
   * Make zsh use a different theme when login to a tty.
