@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.1.1)  nitrux; urgency=medium
+
+  * Update latte autostart script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Jan 2022 22:45:00 -0500
+
 nx-desktop-settings-legacy (3.1.0)  nitrux; urgency=medium
 
   * Update latte layouts.

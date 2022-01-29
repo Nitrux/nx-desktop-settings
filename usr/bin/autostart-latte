@@ -4,7 +4,7 @@ set -xe
 
 # -- Start Latte Dock
 
-if [[ `pgrep -a latte-dock | rev | cut -d' ' -f1 | rev` !="/usr/bin/latte-dock" ]];
+if [[ `pgrep -a latte-dock | rev | cut -d' ' -f1 | rev` != "/usr/bin/latte-dock" ]];
     then
         sleep 1 && latte-dock --replace &
     else
