@@ -1,6 +1,12 @@
+nx-desktop-settings-legacy (3.1.6)  nitrux; urgency=medium
+
+  * Update sddm conf.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 01 Feb 2022 04:34:00 -0500
+
 nx-desktop-settings-legacy (3.1.5)  nitrux; urgency=medium
 
-  * Update sddm cobf.
+  * Update sddm conf.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 01 Feb 2022 04:24:00 -0500
 
