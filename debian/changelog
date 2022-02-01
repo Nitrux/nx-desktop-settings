@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.1.7)  nitrux; urgency=medium
+
+  * Update zshrc.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 01 Feb 2022 16:26:00 -0500
+
 nx-desktop-settings-legacy (3.1.6)  nitrux; urgency=medium
 
   * Update sddm conf.
