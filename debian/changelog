@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.1.8)  nitrux; urgency=medium
+
+  * Remove unused launchers.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 02 Feb 2022 07:37:00 -0500
+
 nx-desktop-settings-legacy (3.1.7)  nitrux; urgency=medium
 
   * Update zshrc.
