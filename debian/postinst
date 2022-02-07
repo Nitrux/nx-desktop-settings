@@ -31,14 +31,14 @@ ln -svf /usr/games/nsnake /usr/bin/nsnake
 git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
 
 
-#	add powerline10k to zsh
+#	add powerline10k to zsh.
 
 mkdir -p /etc/skel/.oh-my-zsh/themes/powerlevel10k
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /etc/skel/.oh-my-zsh/themes/powerlevel10k
 
 
-#	add our Konsole colorscheme to qmltermwidget path
+#	add our Konsole colorscheme to qmltermwidget path.
 
 wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.colorscheme https://raw.githubusercontent.com/nx-desktop/nx-plasma-look-and-feel/master/konsole/Nitrux.colorscheme
 
@@ -55,29 +55,6 @@ sed -i "/env_reset/d" /etc/sudoers
 echo -e "PATH=$PATH:/usr/games\n" >> /etc/environment
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/usr/games\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
-
-
-#	workarounds for pnx.
-
-ln -sv /home/.pnx/usr/lib/dri /usr/lib/dri
-ln -sv /home/.pnx/usr/lib/pulseaudio /usr/lib/pulseaudio
-ln -sv /home/.pnx/usr/lib/gdk-pixbuf-2.0 /usr/lib/gdk-pixbuf-2.0
-ln -sv /home/.pnx/usr/lib/gs-plugins-13 /usr/lib/gs-plugins-13
-ln -sv /home/.pnx/usr/lib/liblmdb.so /usr/lib/liblmdb.so
-ln -sv /home/.pnx/usr/lib/systemd /usr/lib/systemd
-ln -sv /home/.pnx/usr/lib/samba /usr/lib/samba
-ln -sv /home/.pnx/usr/lib/girepository-1.0 /usr/lib/girepository-1.0
-ln -sv /home/.pnx/usr/lib/tracker-2.0 /usr/lib/tracker-2.0
-ln -sv /home/.pnx/usr/lib/WebKitNetworkProcess /usr/lib/WebKitNetworkProcess
-ln -sv /home/.pnx/usr/lib/epiphany /usr/lib/epiphany
-ln -sv /home/.pnx/usr/lib/opera /usr/lib/opera
-ln -sv /home/.pnx/usr/lib/firefox /usr/lib/firefox
-ln -sv /home/.pnx/usr/share/tracker /usr/share/tracker
-ln -sv /home/.pnx/usr/share/xonotic /usr/share/xonotic
-ln -sv /home/.pnx/usr/share/inkscape /usr/share/inkscape
-
-mkdir -p /usr/lib/zsh/5.8/zsh/
-ln -sv /home/.pnx/usr/lib/zsh/5.8/zsh/datetime.so /usr/lib/zsh/5.8/zsh/datetime.so
 
 
 #	let krohnkite be configured from system settings.
@@ -101,44 +78,26 @@ sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
 sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
 
 
-#	add xdg_dir environment variables
+#	add xdg_dir environment variables.
 
 echo -e "XDG_CONFIG_DIRS=/etc/xdg" >> /etc/environment
 echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
 
 
-#	add documentation
-
-mkdir -p /etc/skel/Desktop
-
-{
-	printf "%s %s\n" \
-		Compendium.pdf		"https://github.com/Nitrux/iso-tool/raw/master/configs/other/compendium_offline.pdf" \
-		FAQ.pdf				"https://github.com/Nitrux/iso-tool/raw/master/configs/other/faq_offline.pdf"
-} | {
-	while read name url; do
-		axel -a -q -o /etc/skel/Desktop/$name "$url"
-	done
-}
-
-mv /etc/skel/Desktop/Compendium.pdf	/etc/skel/Desktop/Nitrux\ —\ Compendium.pdf
-mv /etc/skel/Desktop/FAQ.pdf /etc/skel/Desktop/Nitrux\ —\ FAQ.pdf
-
-
-#	force set nitrux_cursors as the default x-cursor-theme
+#	force set nitrux_cursors as the default x-cursor-theme.
 
 cp /usr/share/icons/nitrux_snow_cursors/index.theme /etc/X11/cursors/nitrux_cursors.theme
 ln -svf /etc/X11/cursors/nitrux_cursors.theme /etc/alternatives/x-cursor-theme
 sed -i '$ a Inherits=nitrux_snow_cursors' /etc/X11/cursors/nitrux_cursors.theme
 
 
-#	Set permissions for doas.conf.
+#	set permissions for doas.conf.
 
 chown -c root:root /etc/doas.conf
 chmod -c 0400 /etc/doas.conf
 
 
-#	Add K4YT3X's Hardened sysctl Configuration
+#	add K4YT3X's Hardened sysctl configuration.
 
 {
 	printf "%s %s\n" \

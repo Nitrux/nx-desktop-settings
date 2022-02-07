@@ -1,3 +1,9 @@
+nx-desktop-settings (3.4.1)  nitrux; urgency=medium
+
+  * Remove sddm files form this package, remove unused launcher.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 07 Feb 2022 02:53:00 -0500
+
 nx-desktop-settings (3.4.0)  nitrux; urgency=medium
 
   * Replace p10k theme with basic version due to bug in station and nota.
