@@ -1,6 +1,12 @@
+nx-desktop-settings (3.4.3)  nitrux; urgency=medium
+
+  * Fix files for kwin scripts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 15 Feb 2022 12:44:00 -0500
+
 nx-desktop-settings (3.4.2)  nitrux; urgency=medium
 
-  *Remove pacman-related files.
+  * Remove pacman-related files.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Mon, 07 Feb 2022 20:52:00 -0500
 

@@ -9,6 +9,7 @@ X-Plasma-API=declarativescript
 X-Plasma-MainScript=ui/main.qml
 X-KDE-ServiceTypes=KWin/Script,KCModule
 X-KDE-Library=kwin/effects/configs/kcm_kwin4_genericscripted
+X-KDE-ConfigModule=kwin/effects/configs/kcm_kwin4_genericscripted
 X-KDE-PluginKeyword=Parachute
 X-KDE-ParentComponents=Parachute
 
