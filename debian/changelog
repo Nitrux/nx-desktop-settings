@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.2.0)  nitrux; urgency=medium
+
+  * Fix files for kwin scripts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 15 Feb 2022 12:45:00 -0500
+
 nx-desktop-settings-legacy (3.1.9)  nitrux; urgency=medium
 
   * Update Libreoffice config dir.
