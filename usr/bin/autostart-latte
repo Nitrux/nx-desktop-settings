@@ -3,11 +3,14 @@
 set -xe
 
 # -- Start Latte Dock
+# -- Need to start plasmashell now too because of course you have to
 
-if [[ `pgrep -a latte-dock | rev | cut -d' ' -f1 | rev` != "/usr/bin/latte-dock" ]];
+if [[ `pgrep -a plasmashell | rev | cut -d' ' -f1 | rev` != "/usr/bin/plasmashell" ]];
     then
-        sleep 1 && latte-dock --replace &
+        sleep 1 && plasmashell &
+        latte-dock &
     else
-        killall latte-dock
-        latte-dock --replace &
+        killall plasmashell latte-dock
+        plasmashell &
+        latte-dock &
 fi
