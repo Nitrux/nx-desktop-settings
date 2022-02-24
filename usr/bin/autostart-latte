@@ -7,4 +7,11 @@ set -x
 
 killall latte-dock plasmashell
 sleep 2 && plasmashell &
-sleep 1 && latte-dock -d -r  2>&1 | tee /var/log/latte-dock.log &
+
+if [[ `pgrep -a latte-dock | rev | cut -d' ' -f1 | rev` != "/usr/bin/latte-dock" ]];
+    then
+        sleep 1 && latte-dock -d -r  2>&1 | tee /var/log/latte-dock.log &
+    else
+        killall latte-dock
+        latte-dock -r 2>&1 | tee /var/log/latte-dock.log &
+fi
