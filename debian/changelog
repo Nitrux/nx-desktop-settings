@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.2.2)  nitrux; urgency=medium
+
+  * Update autostart script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 23 Feb 2022 18:00:00 -0500
+
 nx-desktop-settings-legacy (3.2.1)  nitrux; urgency=medium
 
   * Update autostart script.

@@ -1,16 +1,10 @@
 #! /bin/zsh
 
-set -xe
+set -x
 
 # -- Start Latte Dock
 # -- Need to start plasmashell now too because of course you have to
 
-if [[ `pgrep -a plasmashell | rev | cut -d' ' -f1 | rev` != "/usr/bin/plasmashell" ]];
-    then
-        sleep 1 && plasmashell &
-        latte-dock &
-    else
-        killall plasmashell latte-dock
-        plasmashell &
-        latte-dock &
-fi
+killall latte-dock plasmashell
+sleep 2 && latte-dock --replace &
+sleep 2 && plasmashell &
