@@ -5,13 +5,17 @@ set -x
 # -- Start Latte Dock
 # -- Need to start plasmashell now too because of course you have to
 
-killall latte-dock plasmashell
+killall plasmashell
 sleep 2 && plasmashell &
 
-if [[ `pgrep -a latte-dock | rev | cut -d' ' -f1 | rev` != "/usr/bin/latte-dock" ]];
+latte-dock -d -r
+
+touch $HOME/.latte-dock.log
+
+if [[ `pgrep -a latte-dock | rev | cut -d' ' -f1 | rev` != "latte-dock" ]];
     then
-        sleep 1 && latte-dock -d -r  2>&1 | tee /var/log/latte-dock.log &
+        sleep 2 && latte-dock -d -r 2>&1 | tee $HOME/.latte-dock.log &
     else
         killall latte-dock
-        latte-dock -r 2>&1 | tee /var/log/latte-dock.log &
+        sleep 2 && latte-dock -d -r 2>&1 | tee $HOME/.latte-dock.log &
 fi
