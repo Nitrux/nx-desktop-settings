@@ -12,6 +12,6 @@ flatpak install -y flathub com.valvesoftware.Steam
 
 # -- Check if Steam flatpak dir exists then delete install launcher.
 
-[ -d ~/.var/app/com.valvesoftware.Steam ] && rm ~/.local/share/applications/install.steam.desktop
+[ -d ~/.var/app/com.valvesoftware.Steam ] && rm ~/.config/install-steam-flatpak.sh ~/.local/share/applications/install.steam-flatpak.desktop
 
 exit
