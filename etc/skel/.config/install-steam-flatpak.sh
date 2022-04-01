@@ -1,6 +1,6 @@
-#! /bin/bash
+#! /bin/bas
 
-set -eu -o pipefail 
+set -x
 
 # -- Add flathub.
 

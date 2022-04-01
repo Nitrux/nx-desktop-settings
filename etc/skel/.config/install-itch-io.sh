@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -eu -o pipefail 
+set -x
 
 # -- Download setup file.
 
