@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.2.8)  nitrux; urgency=medium
+
+  * Update libreoffice settings.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 01 Apr 2022 00:05:00 -0500
+
 nx-desktop-settings-legacy (3.2.7)  nitrux; urgency=medium
 
   * Update sddm files.
