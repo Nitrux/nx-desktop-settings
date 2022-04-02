@@ -18,9 +18,9 @@ notify-send "Installation complete." --icon=steam
 
 notify-send "Launching Steam." --icon=steam
 
-flatpak run com.valvesoftware.Steam
+flatpak run com.valvesoftware.Steam &
 
-if [ -d "$HOME/.var/app/com.valvesoftware.Steam" ];
+if [ -d "/var/lib/flatpak/app/com.valvesoftware.Steam" ];
     then
          rm "$HOME/.config/install-steam-flatpak.sh"
          rm "$HOME/.local/share/applications/install.steam-flatpak.desktop"
