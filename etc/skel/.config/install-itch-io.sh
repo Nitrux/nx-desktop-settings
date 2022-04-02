@@ -15,7 +15,12 @@ chmod +x ~/.config/itch-setup
 
 # -- Check if itch dir exists then delete setup file.
 
-[ -d ~/.itch ] && rm ~/.config/itch-setup ~/.config/install-itch-io.sh ~/.local/share/applications/install.itch.io.desktop
+if [ -d "$HOME/.itch" ];
+    then
+         rm "$HOME/.config/itch-setup"
+         rm "$HOME/.config/install-itch-io.sh"
+         rm "$HOME/.local/share/applications/install.itch.io.desktop"
+fi
 
 notify-send "Installation complete." --icon=itch-io
 
