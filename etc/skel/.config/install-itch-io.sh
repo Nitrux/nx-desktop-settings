@@ -13,7 +13,11 @@ notify-send "Installing itch.io, please wait..." --icon=itch-io
 chmod +x ~/.config/itch-setup
 ~/.config/./itch-setup
 
+notify-send "Installation complete." --icon=itch-io
+
 # -- Check if itch dir exists then delete setup file.
+
+notify-send "Launching itch.io." --icon=steam
 
 if [ -d "$HOME/.itch" ];
     then
@@ -21,7 +25,5 @@ if [ -d "$HOME/.itch" ];
          rm "$HOME/.config/install-itch-io.sh"
          rm "$HOME/.local/share/applications/install.itch.io.desktop"
 fi
-
-notify-send "Installation complete." --icon=itch-io
 
 exit
