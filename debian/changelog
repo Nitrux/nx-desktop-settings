@@ -1,3 +1,9 @@
+nx-desktop-settings (3.4.5)  nitrux; urgency=medium
+
+  * Remove files.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 9 Apr 2022 22:46:00 -0500
+
 nx-desktop-settings (3.4.4)  nitrux; urgency=medium
 
   * Remove files.
