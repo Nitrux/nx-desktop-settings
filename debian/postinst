@@ -43,12 +43,13 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /etc/skel/.oh-m
 wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.colorscheme https://raw.githubusercontent.com/nx-desktop/nx-plasma-look-and-feel/master/konsole/Nitrux.colorscheme
 
 
-#	add support for AppImages.
+#	add support for launching AppImages from /Applications.
 #	add xdg_dir environment variables.
 
 echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
 echo -e "XDG_CONFIG_DIRS=/etc/xdg" >> /etc/environment
 echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
+
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
 
