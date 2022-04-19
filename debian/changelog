@@ -1,3 +1,9 @@
+nx-desktop-settings (3.4.7)  nitrux; urgency=medium
+
+  * Update zsh profile.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 18 Apr 2022 20:55:00 -0500
+
 nx-desktop-settings (3.4.6)  nitrux; urgency=medium
 
   * Update /etc/environment.

@@ -127,5 +127,8 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Make DrKonqi shupt the F up
+# Make DrKonqi shut the F up
 export KDE_DEBUG=1
+
+# Add $PATH for AppImages
+export PATH="/Applications:$PATH"
