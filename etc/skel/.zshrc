@@ -132,6 +132,3 @@ export KDE_DEBUG=1
 
 # Add $PATH for AppImages
 export PATH="/Applications:$PATH"
-
-# Add other dirs to $PATH
-export PATH="/usr/local/sbin:/usr/sbin:/sbin:/usr/local/games:$PATH"
