@@ -128,3 +128,6 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # Make DrKonqi shupt the F up
 export KDE_DEBUG=1
+
+# Add $PATH for AppImages
+export PATH="/Applications:$PATH"
