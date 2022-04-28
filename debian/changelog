@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.3.6)  nitrux; urgency=medium
+
+  * Add aliases to zshrc and bashrc.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 27 Apr 2022 22:37:00 -0500
+
 nx-desktop-settings-legacy (3.3.5)  nitrux; urgency=medium
 
   * Update install scripts.
