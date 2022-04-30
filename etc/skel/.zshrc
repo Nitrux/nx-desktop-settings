@@ -131,3 +131,6 @@ export KDE_DEBUG=1
 
 # Add $PATH for AppImages
 export PATH="/Applications:$PATH"
+
+# Allow sudo to be removed
+export SUDO_FORCE_REMOVE=yes
