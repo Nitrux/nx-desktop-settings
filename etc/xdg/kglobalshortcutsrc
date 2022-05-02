@@ -85,7 +85,8 @@ Krohnkite: Stair Layout=none,none,
 Krohnkite: Three Column Layout=none,none,
 Krohnkite: Tile Layout=Meta+T,none,
 Krohnkite: Up/Prev=Meta+K,none,
-Parachute=Ctrl+F10,none,Parachute
+Overview=Meta+Ctrl+D,Meta+W,Overview
+Parachute=,none,Parachute
 Setup Window Shortcut=none,none,Setup Window Shortcut
 Show Desktop=,Meta+D,Show Desktop
 Suspend Compositing=Alt+Shift+F12,Alt+Shift+F12,Suspend Compositing
@@ -270,6 +271,10 @@ show-on-mouse-pos=none,none,Abrir Klipper en la posición del ratón
 [org.kde.plasma.emojier.desktop]
 _k_friendly_name=Emoji Selector
 _launch=none,Meta+.,Emoji Selector
+
+[org.kde.station.desktop]
+_k_friendly_name=Station
+_launch=Meta+T,none,Station
 
 [org.kde.spectacle.desktop]
 ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window

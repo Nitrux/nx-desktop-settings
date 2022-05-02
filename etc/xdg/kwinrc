@@ -87,7 +87,8 @@ LongitudeAuto=-99.1757
 NightTemperature=5000
 
 [Plugins]
-ParachuteEnabled=true
+ParachuteEnabled=false
+overviewEnabled=true
 krohnkiteEnabled=false
 minimizeallEnabled=false
 synchronizeskipswitcherEnabled=false
