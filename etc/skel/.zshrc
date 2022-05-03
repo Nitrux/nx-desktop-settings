@@ -112,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias apt="echo 'Whoops! Looks like you are trying to use APT in $(cat /etc/os-release | grep "PRETTY_NAME=*" | rev | cut -d '=' -f 1 | rev)'; echo ' '; echo 'We strongly emphasize using AppImages over Debian packages'; echo ' '; echo 'However, to manage Debian packages from the repositories please use: pkcon and press Enter'; echo ' '; echo 'For help use: pkcon --help'; echo ' '; echo 'pkcon DOES NOT REQUIRE sudo'"
 alias dpkg="echo 'Whoops! Looks like you are trying to use dpkg in $(cat /etc/os-release | grep "PRETTY_NAME=*" | rev | cut -d '=' -f 1 | rev)'; echo ' '; echo 'We strongly emphasize using AppImages over Debian packages'; echo ' '; echo 'However, to manage Debian packages from the repositories please use: pkcon and press Enter'; echo ' '; echo 'For help use: pkcon --help'; echo ' '; echo 'pkcon DOES NOT REQUIRE sudo'"
+alias sudo='sudo '
 
 # # Add $PATH for NPM
 # export NPM_PACKAGES="${HOME}/.npm-packages"

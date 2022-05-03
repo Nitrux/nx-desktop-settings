@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.4.4)  nitrux; urgency=medium
+
+  * Update aliases.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 03 May 2022 00:00:00 -0500
+
 nx-desktop-settings-legacy (3.4.3)  nitrux; urgency=medium
 
   * Update zshrc, postinst script.
