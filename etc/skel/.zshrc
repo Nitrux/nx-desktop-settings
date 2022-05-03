@@ -113,14 +113,14 @@ source $ZSH/oh-my-zsh.sh
 alias apt="echo 'Whoops! Looks like you are trying to use APT in $(cat /etc/os-release | grep "PRETTY_NAME=*" | rev | cut -d '=' -f 1 | rev)'; echo ' '; echo 'We strongly emphasize using AppImages over Debian packages'; echo ' '; echo 'However, to manage Debian packages from the repositories please use: pkcon and press Enter'; echo ' '; echo 'For help use: pkcon --help'; echo ' '; echo 'pkcon DOES NOT REQUIRE sudo'"
 alias dpkg="echo 'Whoops! Looks like you are trying to use dpkg in $(cat /etc/os-release | grep "PRETTY_NAME=*" | rev | cut -d '=' -f 1 | rev)'; echo ' '; echo 'We strongly emphasize using AppImages over Debian packages'; echo ' '; echo 'However, to manage Debian packages from the repositories please use: pkcon and press Enter'; echo ' '; echo 'For help use: pkcon --help'; echo ' '; echo 'pkcon DOES NOT REQUIRE sudo'"
 
-# Add $PATH for NPM
-export NPM_PACKAGES="${HOME}/.npm-packages"
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
-export PATH="$PATH:$NPM_PACKAGES/bin:$PATH"
+# # Add $PATH for NPM
+# export NPM_PACKAGES="${HOME}/.npm-packages"
+# export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
+# export PATH="$PATH:$NPM_PACKAGES/bin:$PATH"
 
-# Preserve MANPATH if you already defined it somewhere in your config.
-# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
-export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+# # Preserve MANPATH if you already defined it somewhere in your config.
+# # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+# export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

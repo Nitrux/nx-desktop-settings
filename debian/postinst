@@ -2,6 +2,7 @@
 
 set -x
 
+
 #	remove stupid things from Plasma, generic KDE launchers, breeze cursors, etc.
 
 rm -rf \
@@ -17,7 +18,7 @@ rm -rf \
 	/usr/share/applications/org.kde.kdeconnect.sms.desktop \
 	/usr/share/applications/org.kde.kdeconnect_open.desktop \
 	/usr/share/applications/org.kde.kinfocenter.desktop \
-	/usr/share/applications/org.kde.plasma.emojier.desktop 
+	/usr/share/applications/org.kde.plasma.emojier.desktop
 
 
 #	let nsnake be reachable through $PATH.
@@ -30,35 +31,26 @@ ln -svf /usr/games/nsnake /usr/bin/nsnake
 git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
 
 
-#	add powerline10k to zsh
+#	add powerline10k to zsh.
 
 mkdir -p /etc/skel/.oh-my-zsh/themes/powerlevel10k
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /etc/skel/.oh-my-zsh/themes/powerlevel10k
 
 
-#	add our Konsole colorscheme to qmltermwidget path
+#	add our Konsole colorscheme to qmltermwidget path.
 
 wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.colorscheme https://raw.githubusercontent.com/nx-desktop/nx-plasma-look-and-feel/master/konsole/Nitrux.colorscheme
 
 
-# fix systemd.
+#	add xdg_dir environment variables.
 
-sed -i 's/#DefaultTimeoutStartSec=90s/DefaultTimeoutStartSec=5s/g' /etc/systemd/system.conf
-sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=5s/g' /etc/systemd/system.conf
-
-mkdir -p /etc/systemd/system/networking.service.d/
-bash -c 'echo -e "[Service]\nTimeoutStartSec=20sec" > /etc/systemd/system/networking.service.d/timeout.conf'
-
-systemctl mask avahi-daemon.service
-systemctl disable cupsd.service cupsd-browsed.service NetworkManager-wait-online.service keyboard-setup.service
-
-sed -i 's/ACTION!="add", GOTO="libmtp_rules_end"/ACTION!="bind", ACTION!="add", GOTO="libmtp_rules_end"/g' /lib/udev/rules.d/69-libmtp.rules
+echo -e "XDG_CONFIG_DIRS=/etc/xdg" >> /etc/environment
+echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
 
 
-#	add support for AppImages.
+#	add /Applications to sudoers
 
-echo -e "PATH=$PATH:/Applications\n" >> /etc/environment
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
 
@@ -73,28 +65,13 @@ ln -sv /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/
 ln -sv /usr/share/kwin/scripts/forceblur/metadata.desktop /usr/share/kservices5/forceblur.desktop
 
 
-#	use dash and zsh in userland.
-
-ln -svf /bin/dash /bin/sh
+#	use zsh in userland.
 
 sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
 sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
 
 
-#	add xdg_dir environment variables
-
-echo -e "XDG_CONFIG_DIRS=/etc/xdg" >> /etc/environment
-echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
-
-
-#	add support for binaries un /usr/games.
-
-echo -e "PATH=$PATH:/usr/games\n" >> /etc/environment
-sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/usr/games\"|g" /etc/sudoers
-sed -i "/env_reset/d" /etc/sudoers
-
-
-#	force set nitrux_cursors as the default x-curosr-theme
+#	force set nitrux_cursors as the default x-cursor-theme.
 
 cp /usr/share/icons/nitrux_snow_cursors/index.theme /etc/X11/cursors/nitrux_cursors.theme
 ln -svf /etc/X11/cursors/nitrux_cursors.theme /etc/alternatives/x-cursor-theme

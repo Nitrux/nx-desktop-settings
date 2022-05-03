@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.4.3)  nitrux; urgency=medium
+
+  * Update zshrc, postinst script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 02 May 2022 19:46:00 -0500
+
 nx-desktop-settings-legacy (3.4.2)  nitrux; urgency=medium
 
   * Remove unused file.
