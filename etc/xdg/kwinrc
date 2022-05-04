@@ -20,6 +20,9 @@ NoiseStrength=1
 TabBox=false
 TabBoxAlternative=false
 
+[Effect-Overview]
+LayoutMode=0
+
 [Desktops]
 Id_1=f96d4d9c-ba6c-4040-81e8-7b7c9e84db0d
 Id_2=4414a07d-d6ab-4f67-bab5-19a9c3849baf

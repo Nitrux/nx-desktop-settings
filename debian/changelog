@@ -1,6 +1,12 @@
+nx-desktop-settings (3.5.1)  nitrux; urgency=medium
+
+  * Update kwin config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 21 Apr 2022 23:00:00 -0500
+
 nx-desktop-settings (3.5.0)  nitrux; urgency=medium
 
-  * Update zsh profile, remove Parachute, update Latte layout, update 
+  * Update zsh profile, remove Parachute, update Latte layout.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 21 Apr 2022 05:29:00 -0500
 
