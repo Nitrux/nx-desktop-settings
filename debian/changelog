@@ -1,3 +1,9 @@
+nx-desktop-settings (3.5.5)  nitrux; urgency=medium
+
+  * Update latte layout.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 14 May 2022 18:57:00 -0500
+
 nx-desktop-settings (3.5.4)  nitrux; urgency=medium
 
   * Update latte layout, launchers.
