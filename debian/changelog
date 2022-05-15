@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.4.8)  nitrux; urgency=medium
+
+  * Update conf file for NX SC.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 15 May 2022 04:38:00 -0500
+
 nx-desktop-settings-legacy (3.4.7)  nitrux; urgency=medium
 
   * Update latte layouts.
