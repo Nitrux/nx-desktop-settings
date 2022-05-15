@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.4.6)  nitrux; urgency=medium
+
+  * Update conf files for Maui apps.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 15 May 2022 04:18:00 -0500
+
 nx-desktop-settings-legacy (3.4.5)  nitrux; urgency=medium
 
   * Update aliases.
