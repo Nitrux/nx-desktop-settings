@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.4.7)  nitrux; urgency=medium
+
+  * Update latte layouts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 15 May 2022 04:24:00 -0500
+
 nx-desktop-settings-legacy (3.4.6)  nitrux; urgency=medium
 
   * Update conf files for Maui apps.
