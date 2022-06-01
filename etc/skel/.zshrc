@@ -133,5 +133,8 @@ export KDE_DEBUG=1
 # Add $PATH for AppImages
 export PATH="/Applications:$PATH"
 
+# Add $PATH for sbin
+export PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+
 # Allow sudo to be removed
 export SUDO_FORCE_REMOVE=yes
