@@ -1,8 +1,14 @@
+nx-desktop-settings-legacy (3.5.1)  nitrux; urgency=medium
+
+  * Update latte layouts and zsh profile.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 18 Jun 2022 14:35:00 -0500
+
 nx-desktop-settings-legacy (3.5.0)  nitrux; urgency=medium
 
   * Update zsh config.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Wed, 01 Jul 2022 00:29:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 01 Jun 2022 00:29:00 -0500
 
 nx-desktop-settings-legacy (3.4.9)  nitrux; urgency=medium
 
