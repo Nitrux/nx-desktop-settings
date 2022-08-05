@@ -17,7 +17,7 @@ notify-send "Installation complete." --icon=itch-io
 
 # -- Check if itch dir exists then delete setup file.
 
-notify-send "Launching itch.io." --icon=steam
+notify-send "Launching itch.io." --icon=itch-io
 
 if [ -d "$HOME/.itch" ];
     then
