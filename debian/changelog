@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.5.4)  nitrux; urgency=medium
+
+  * Add install launcher for Bottles.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 05 AUg 2022 02:18:00 -0500
+
 nx-desktop-settings-legacy (3.5.3)  nitrux; urgency=medium
 
   * Update bash profile.

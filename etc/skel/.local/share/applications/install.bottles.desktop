@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=com.usebottles.bottles
+Name=Install Bottles
+Exec=~/.config/install-bottles-flatpak.sh
+Categories=Utility;
