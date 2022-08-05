@@ -23,7 +23,7 @@ flatpak run com.usebottles.bottles &
 if [ -d "/var/lib/flatpak/app/com.usebottles.bottles" ];
     then
          rm "$HOME/.config/install-bottles-flatpak.sh"
-         rm "$HOME/.local/share/applications/install.bottles-flatpak.desktop"
+         rm "$HOME/.local/share/applications/install.bottles.desktop"
 fi
 
 exit
