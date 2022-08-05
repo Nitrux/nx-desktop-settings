@@ -14,11 +14,11 @@ flatpak install -y flathub com.usebottles.bottles
 
 notify-send "Installation complete." --icon=steam
 
-# -- Check if Steam flatpak dir exists then delete install launcher.
+# -- Check if Bottles flatpak dir exists then delete install launcher.
 
-notify-send "Launching Steam." --icon=steam
+notify-send "Launching Bottles." --icon=com.usebottles.bottles
 
-flatpak run com.valvesoftware.Steam &
+flatpak run com.usebottles.bottles &
 
 if [ -d "/var/lib/flatpak/app/com.usebottles.bottles" ];
     then
