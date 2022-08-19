@@ -12,16 +12,27 @@ OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
 XRenderSmoothScale=false
 
-[Effect-Blur]
+[Effect-blur]
 BlurStrength=6
 NoiseStrength=1
 
-[Effect-CoverSwitch]
-TabBox=false
-TabBoxAlternative=false
-
-[Effect-Overview]
+[Effect-overview]
 LayoutMode=0
+
+[Effect-desktopgrid]
+BorderActivate=9
+
+[Effect-presentwindows]
+LayoutMode=1
+BorderActivate=9
+BorderActivateAll=9
+BorderActivateClass=9
+TouchBorderActivate=9
+TouchBorderActivateAll=7
+TouchBorderActivateClass=9
+
+[Effect-windowview]
+BorderActivate=9
 
 [Desktops]
 Id_1=f96d4d9c-ba6c-4040-81e8-7b7c9e84db0d
@@ -33,27 +44,6 @@ Rows=1
 
 [ModifierOnlyShortcuts]
 Meta=org.kde.plasmashell,/PlasmaShell,org.kde.PlasmaShell,activateLauncherMenu
-
-[Effect-Cube]
-BorderActivate=9
-BorderActivateCylinder=9
-BorderActivateSphere=9
-
-[Effect-DesktopGrid]
-BorderActivate=9
-
-[Effect-FlipSwitch]
-TabBox=false
-TabBoxAlternative=false
-
-[Effect-PresentWindows]
-LayoutMode=1
-BorderActivate=9
-BorderActivateAll=9
-BorderActivateClass=9
-TouchBorderActivate=9
-TouchBorderActivateAll=7
-TouchBorderActivateClass=9
 
 [MouseBindings]
 CommandActiveTitlebar1=Raise
@@ -120,12 +110,11 @@ BorderActivate=9
 BorderAlternativeActivate=9
 DesktopMode=0
 HighlightWindows=true
-LayoutName=thumbnails
 MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
 ShowTabBox=true
-SwitchingMode=0
+SwitchingMode=1
 TouchBorderActivate=9
 TouchBorderAlternativeActivate=9
 
@@ -134,7 +123,7 @@ ActivitiesMode=1
 ApplicationsMode=0
 DesktopMode=1
 HighlightWindows=true
-LayoutName=org.kde.breeze.desktop
+LayoutName=flipswitch
 MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
@@ -178,9 +167,6 @@ TitlebarDoubleClickCommand=Maximize
 WindowSnapZone=10
 
 [org.kde.kdecoration2]
-BorderSize=Normal
-BorderSizeAuto=true
-ButtonsOnLeft=XAI
-ButtonsOnRight=
 library=org.kde.mauideco
+ButtonsOnRight=IAX
 theme=Nitrux
