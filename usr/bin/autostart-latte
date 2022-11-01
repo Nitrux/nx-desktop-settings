@@ -1,0 +1,10 @@
+#! /bin/bash
+
+killall kwin_x11
+kwin_x11 --replace &
+
+killall plasmashell
+plasmashell &
+
+killall latte-dock
+latte-dock -r &
