@@ -7,14 +7,15 @@ if [ $? == 0 ]; then
     sleep 0.5; pkill -f latte-dock
 fi
 
-rm -r "$HOME/latte-dock.log"; touch "$HOME/latte-dock.log"
+touch "/tmp/latte-dock.log"
 
-if pgrep latte-dock &>> "$HOME/latte-dock.log"
+if pgrep latte-dock &>> "/tmp/latte-dock.log"
     then
         sleep 2; notify-send "Latte Dock is crashing..." &
         sleep 3; notify-send "Latte Dock is restarting..." &
-        nohup latte-dock -d -r --cc 2>&1 &>> "$HOME/latte-dock.log"
+        nohup latte-dock -d -r --cc 2>&1 &>> "/tmp/latte-dock.log"
     else
-        sleep 2; notify-send "Latte Dock is running but let's restart it anyway..." &
+        sleep 2; notify-send "Latte Dock is running..." &
+        kquitapp5 plasmashell; kstart5 plasmashell &
         latte-dock -d -r --cc
 fi
