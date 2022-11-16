@@ -1,3 +1,9 @@
+nx-desktop-settings (3.6.0)  nitrux; urgency=medium
+
+  * Fix MauiMan.conf.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 16 Nov 2022 16:13:00 -0500
+
 nx-desktop-settings (3.5.9)  nitrux; urgency=medium
 
   * Fix MauiMan.conf.

@@ -55,11 +55,6 @@ sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
 
 
-#	let krohnkite be configured from system settings.
-
-ln -sv /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
-
-
 #	let Force blur be configured from system settings.
 
 ln -sv /usr/share/kwin/scripts/forceblur/metadata.desktop /usr/share/kservices5/forceblur.desktop
