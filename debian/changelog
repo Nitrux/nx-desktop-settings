@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.6.6)  nitrux; urgency=medium
+
+  * Add custom plasma system monitor pages and update bashrc.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 02 Dec 2022 04:25:00 -0500
+
 nx-desktop-settings-legacy (3.6.5)  nitrux; urgency=medium
 
   * Update Latte layouts.
