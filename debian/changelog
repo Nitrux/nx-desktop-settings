@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.6.4)  nitrux; urgency=medium
+
+  * Add a script to tell users not to use the package manager emphatically.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 01 Dec 2022 19:46:00 -0500
+
 nx-desktop-settings-legacy (3.6.3)  nitrux; urgency=medium
 
   * Update script to autostart latte.

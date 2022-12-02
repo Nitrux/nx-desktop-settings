@@ -1,0 +1,84 @@
+#! /bin/bash
+
+#####   -- Variables
+
+dist=$(cat /etc/os-release | grep "PRETTY_NAME=*" | rev | cut -d '=' -f 1 | rev)
+url='https://nxos.org/tutorial/how-to-use-distrobox-in-nitrux/'
+pkcon_repo='https://github.com/PackageKit/PackageKit/issues'
+vendor='Nitrux Latinoamericana S.C.'
+fecha=$(date +%Y)
+
+#####   --  Format
+
+BOLD='\e[1m'
+ITALIC='\e[3m'
+UNDERLINE='\e[4m'
+NF='\e[0m'
+
+#####   -- Colors
+
+BLUE='\033[0;34m'
+WHITE='\033[1;37m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+#####   -- Message
+
+echo ' ';
+echo '                          =                  ';
+echo '                          =     .            ';
+echo '                          =     .:::         ';
+echo '::+.      ....:......     =         :::      ';
+echo '%+-#=  ..:    :-:    .    =            :::.  ';
+echo '--#-=-- --    .:#---.     =            .=#%#=';
+echo '- .**=#= :      *    .    =         :+#%%%#=.';
+echo '-   -# =#.    --     .    =      :+%%%%*-.   ';
+echo '        ..  ..  ....      =   -+%%%%*-       ';
+echo '                          =-*%%%%+:          ';
+echo '                          +%%#+:             ';
+echo ' ';
+echo ' ';
+echo -e "$dist";
+echo ' ';
+echo -e "(c) $fecha Some Rights Reserved. Made by $vendor";
+echo ' ';
+echo ' ';
+echo -e "${YELLOW}#################################${NC}";
+echo -e "${YELLOW}# About Software Management     #${NC}";
+echo -e "${YELLOW}#################################${NC}";
+echo ' ';
+echo -e "Whoops! Looks like you are trying to use ${BLUE}dpkg${NC} in $dist.";
+echo ' ';
+echo 'We strongly emphasize using AppImages or Flatpaks over Debian (.deb) packages to install end-user software.';
+echo ' ';
+echo -e "However, if you require to use a package manager create a container using ${BOLD}Distrobox${NF}.";
+echo ' ';
+echo -e "For help creating a container in Nitrux, visit our blog: ${WHITE}${UNDERLINE}$url${NC}${NF}";
+echo ' ';
+echo -e "${YELLOW}#######################${NC}";
+echo -e "${YELLOW}# About PackageKit    #${NC}";
+echo -e "${YELLOW}#######################${NC}";
+echo ' ';
+echo -e "${ITALIC}The purpose of PackageKit (pkcon) in this distribution is to perform upgrades of the packages that we have included by default${NF}.";
+echo -e "${ITALIC}Not for users to install software using Debian (.deb) packages. Likewise, we do not encourage users to add extra Debian repositories.${NF}";
+echo -e "${ITALIC}Examples include Launchpad PPAs or other third-party repositories, as doing so can cause undetermined issues.${NF}";
+echo ' ';
+echo 'For help using PackageKit, run the following command:';
+echo ' ';
+echo -e "${BOLD}pkcon --help${NF}";
+echo ' ';
+echo 'To view the user manual of PackageKit, run the following command:';
+echo ' ';
+echo -e "${BOLD}man pkcon${NF}";
+echo ' ';
+echo -e "${ITALIC}pkcon ${RED}${ITALIC}DOES NOT REQUIRE sudo${NC}${NF}";
+echo ' ';
+echo -e "${YELLOW}##################${NC}";
+echo -e "${YELLOW}# Disclaimer     #${NC}";
+echo -e "${YELLOW}##################${NC}";
+echo ' ';
+echo -e "${BOLD}${ITALIC}$vendor does not develop PackageKit, or its backend, APTCC${NF}.";
+echo ' ';
+echo -e "To report bugs about PackageKit, file issues at the PackageKit repository ${WHITE}${UNDERLINE}$pkcon_repo${NC}${NF}";
+echo ' ';
