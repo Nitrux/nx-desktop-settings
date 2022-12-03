@@ -110,29 +110,68 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias apt="echo 'Whoops! Looks like you are trying to use APT in $(cat /etc/os-release | grep "PRETTY_NAME=*" | rev | cut -d '=' -f 1 | rev)'; echo ' '; echo 'We strongly emphasize using AppImages'; echo ' '; echo 'To manage AppImages using the terminal please use: app and press Enter'; echo ' '; echo 'For help use: app --help'; echo ' '; echo 'app DOES NOT REQUIRE sudo'"
-alias dpkg="echo 'Whoops! Looks like you are trying to use APT in $(cat /etc/os-release | grep "PRETTY_NAME=*" | rev | cut -d '=' -f 1 | rev)'; echo ' '; echo 'We strongly emphasize using AppImages'; echo ' '; echo 'To manage AppImages using the terminal please use: app and press Enter'; echo ' '; echo 'For help use: app --help'; echo ' '; echo 'app DOES NOT REQUIRE sudo'"
-alias sudo='doas '
+# Aliases for apt
+alias apt="apt-msg"
+
+# Aliases for apt-*
+alias apt-cache="apt-msg"
+alias apt-cdrom="apt-msg"
+alias apt-config="apt-msg"
+alias apt-extracttemplates="apt-msg"
+alias apt-ftparchive="apt-msg"
+alias apt-get="apt-msg"
+alias apt-key="apt-msg"
+alias apt-mark="apt-msg" 
+alias apt-sortpkgs="apt-msg"
+
+# Aliases for dpkg
+alias dpkg="dpkg-msg"
+
+# Aliases for dpkg-*
+alias dpkg-architecture="dpkg-msg"
+alias dpkg-buildflags="dpkg-msg"
+alias dpkg-checkbuilddeps="dpkg-msg"
+alias dpkg-deb="dpkg-msg"
+alias dpkg-distaddfile="dpkg-msg"
+alias dpkg-divert="dpkg-msg"
+alias dpkg-fsys-usrunmess="dpkg-msg"
+alias dpkg-genbuildinfo="dpkg-msg"
+alias dpkg-genchanges="dpkg-msg"
+alias dpkg-gencontrol="dpkg-msg"
+alias dpkg-maintscript-helper="dpkg-msg"
+alias dpkg-mergechangelogs="dpkg-msg"
+alias dpkg-name="dpkg-msg"
+alias dpkg-parsechangelog="dpkg-msg"
+alias dpkg-preconfigure="dpkg-msg"
+alias dpkg-query="dpkg-msg"
+alias dpkg-realpath="dpkg-msg"
+alias dpkg-reconfigure="dpkg-msg"
+alias dpkg-scanpackages="dpkg-msg"
+alias dpkg-scansources="dpkg-msg"
+alias dpkg-shlibdeps="dpkg-msg"
+alias dpkg-source="dpkg-msg"
+alias dpkg-split="dpkg-msg"
+alias dpkg-statoverride="dpkg-msg"
+alias dpkg-trigger="dpkg-msg"
+alias dpkg-vendor="dpkg-msg"
+
+# Aliases for others
+alias sudo='sudo '
 alias pkexec='pkexec '
 
-# Add $PATH for Homebrew
-# export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-# export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
-# export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
-
-# Add $PATH for NPM
+# # Add $PATH for NPM
 # export NPM_PACKAGES="${HOME}/.npm-packages"
 # export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
 # export PATH="$PATH:$NPM_PACKAGES/bin:$PATH"
 
-# Preserve MANPATH if you already defined it somewhere in your config.
-# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+# # Preserve MANPATH if you already defined it somewhere in your config.
+# # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 # export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Make DrKonqi shut the F up
+# Make DrKonqi shupt the F up
 export KDE_DEBUG=1
 
 # Add $PATH for AppImages
