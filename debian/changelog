@@ -1,3 +1,9 @@
+nx-desktop-settings (3.6.2)  nitrux; urgency=medium
+
+  * Update shell config files.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 15 Dec 2022 12:51:00 -0500
+
 nx-desktop-settings (3.6.1)  nitrux; urgency=medium
 
   * Update shell config files.
