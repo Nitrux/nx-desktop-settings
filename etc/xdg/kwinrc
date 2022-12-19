@@ -5,8 +5,8 @@ Enabled=true
 GLCore=true
 GLPreferBufferSwap=a
 OpenGLIsUnsafe=false
-GLTextureFilter=2
-LatencyPolicy=ExtremelyHigh
+GLTextureFilter=1
+LatencyPolicy=High
 HiddenPreviews=5
 OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
@@ -33,6 +33,7 @@ TouchBorderActivateClass=9
 
 [Effect-windowview]
 BorderActivate=9
+BorderActivateAll=9
 
 [Desktops]
 Id_1=f96d4d9c-ba6c-4040-81e8-7b7c9e84db0d

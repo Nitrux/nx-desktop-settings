@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.6.7)  nitrux; urgency=medium
+
+  * Update kwinrc.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 19 Dec 2022 14:31:00 -0500
+
 nx-desktop-settings-legacy (3.6.6)  nitrux; urgency=medium
 
   * Add custom plasma system monitor pages and update bashrc.
