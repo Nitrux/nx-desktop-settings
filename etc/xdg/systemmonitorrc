@@ -1,0 +1,5 @@
+[General]
+height=750
+hiddenPages=applications.page
+lastVisitedPage=overview.page
+pageOrder=overview.page,applications.page,history.page,processes.page,GPU_Util.page,IO.page

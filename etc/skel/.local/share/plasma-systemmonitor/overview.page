@@ -19,7 +19,7 @@ showTitle=false
 askWhenKilling=false
 columnDisplay={"command":"text","ioCharactersActuallyReadRate":"text","ioCharactersActuallyWrittenRate":"text","netInbound":"text","netOutbound":"text","numThreads":"text","usage":"lineScaled","vmPSS":"text"}
 sortedColumns=name,usage,vmPSS,ioCharactersActuallyReadRate,ioCharactersActuallyWrittenRate,sysTime,totalUserUsage,canUserLogin,command,egid,numThreads,userUsage,vmSize,ioWriteSyscalls,scheduler,uid,vmShared,ioPriorityClass,ioReadSyscallsRate,vmURSS,ioCharactersRead,tracerpid,tty,username,sgid,fsgid,startTime,ioCharactersActuallyRead,gid,ioniceLevel,pid,parentPid,ioCharactersWritten,ioReadSyscalls,totalSysUsage,niceLevel,status,euid,sysUsage,ioCharactersReadRate,ioCharactersWrittenRate,fsuid,totalUsage,suid,login,userTime,name
-userFilterMode=1
+userFilterMode=3
 
 [Face-94410261307168][SensorColors]
 disk/all/used=38,198,218
@@ -49,9 +49,9 @@ network/eth1/download=38,198,218
 network/eth1/upload=218,58,38
 
 [page]
-Title=Resumen
+Title=Overview
 actionsFace=
-loadType=
+loadType=ondemand
 
 [page][row-3]
-Title=Procesos
+Title=Processes
