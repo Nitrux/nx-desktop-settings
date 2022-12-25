@@ -62,5 +62,5 @@ echo -e "${YELLOW}##################${NC}";
 echo ' ';
 echo -e "${BOLD}${ITALIC}$vendor does not develop KDE Plasma, KDE Frameworks, Qt, Latte Dock, MESA, or the Liquroix kernel${NF}.";
 echo ' ';
-echo -e "To report bugs about problems caused by $vednor, file issues at our bug repository ${WHITE}${UNDERLINE}$bug_repo${NC}${NF}";
+echo -e "To report bugs about problems caused by $vendor, file issues at our bug repository ${WHITE}${UNDERLINE}$bug_repo${NC}${NF}";
 echo ' ';
