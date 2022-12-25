@@ -110,51 +110,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Aliases for apt
-alias apt="apt-msg"
-
-# Aliases for apt-*
-alias apt-cache="apt-msg"
-alias apt-cdrom="apt-msg"
-alias apt-config="apt-msg"
-alias apt-extracttemplates="apt-msg"
-alias apt-ftparchive="apt-msg"
-alias apt-get="apt-msg"
-alias apt-key="apt-msg"
-alias apt-mark="apt-msg" 
-alias apt-sortpkgs="apt-msg"
-
-# Aliases for dpkg
-alias dpkg="deb-dpkg-msg"
-
-# Aliases for dpkg-*
-alias dpkg-architecture="deb-dpkg-msg"
-alias dpkg-buildflags="deb-dpkg-msg"
-alias dpkg-checkbuilddeps="deb-dpkg-msg"
-alias dpkg-deb="deb-dpkg-msg"
-alias dpkg-distaddfile="deb-dpkg-msg"
-alias dpkg-divert="deb-dpkg-msg"
-alias dpkg-fsys-usrunmess="deb-dpkg-msg"
-alias dpkg-genbuildinfo="deb-dpkg-msg"
-alias dpkg-genchanges="deb-dpkg-msg"
-alias dpkg-gencontrol="deb-dpkg-msg"
-alias dpkg-maintscript-helper="deb-dpkg-msg"
-alias dpkg-mergechangelogs="deb-dpkg-msg"
-alias dpkg-name="deb-dpkg-msg"
-alias dpkg-parsechangelog="deb-dpkg-msg"
-alias dpkg-preconfigure="deb-dpkg-msg"
-alias dpkg-query="deb-dpkg-msg"
-alias dpkg-realpath="deb-dpkg-msg"
-alias dpkg-reconfigure="deb-dpkg-msg"
-alias dpkg-scanpackages="deb-dpkg-msg"
-alias dpkg-scansources="deb-dpkg-msg"
-alias dpkg-shlibdeps="deb-dpkg-msg"
-alias dpkg-source="deb-dpkg-msg"
-alias dpkg-split="deb-dpkg-msg"
-alias dpkg-statoverride="deb-dpkg-msg"
-alias dpkg-trigger="deb-dpkg-msg"
-alias dpkg-vendor="deb-dpkg-msg"
-
 # Aliases for others
 alias sudo='sudo '
 alias pkexec='pkexec '
