@@ -3,7 +3,7 @@ nx-desktop-settings-legacy (3.7.1)  nitrux; urgency=medium
   * Remove scripts, change filename of other script, update zshrc
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sun, 25 Dec 2022 14:34:00 -0500
-16
+
 nx-desktop-settings-legacy (3.7.0)  nitrux; urgency=medium
 
   * Update mesa conf.
