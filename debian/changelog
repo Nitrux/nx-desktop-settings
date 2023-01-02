@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.7.3)  nitrux; urgency=medium
+
+  * Add pipewire.conf to limits.d.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 02 Jan 2023 04:25:00 -0500
+
 nx-desktop-settings-legacy (3.7.2)  nitrux; urgency=medium
 
   * Add script to autostart pipewire.
