@@ -1,0 +1,19 @@
+#! /bin/zsh
+set -x
+# -- Start PipeWire processes
+for process in pipewire pipewire-pulse wireplumber 
+    do nohup $process & 
+done
+# -- Download sample file to test with aplay
+audio_sample=$HOME/.local/share/sounds/pop1.wav
+if [[ ! -f $audio_sample ]]; then
+    echo "File not found! Downloading..." 2>&1
+    mkdir -p "$HOME/.local/share/sounds"
+    axel -a -q -o "$HOME/.local/share/sounds/pop1.wav" -n 10 https://www.pachd.com/sfx/pop1.wav
+    else
+        echo "File found! Do nothing..."
+fi
+# -- Reproduce sound to make PipeWire work
+for device in default sysdefault pipewire
+    do nohup aplay -D $device $audio_sample &
+done

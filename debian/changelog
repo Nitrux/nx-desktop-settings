@@ -1,6 +1,12 @@
+nx-desktop-settings-legacy (3.7.2)  nitrux; urgency=medium
+
+  * Add script to autostart pipewire.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 02 Jan 2023 04:23:00 -0500
+
 nx-desktop-settings-legacy (3.7.1)  nitrux; urgency=medium
 
-  * Remove scripts, change filename of other script, update zshrc
+  * Remove scripts, change filename of other script, update zshrc.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sun, 25 Dec 2022 14:34:00 -0500
 
