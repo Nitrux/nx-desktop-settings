@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.7.5)  nitrux; urgency=medium
+
+  * Remove other latte layouts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 05 Mar 2023 04:30:00 -0500
+
 nx-desktop-settings-legacy (3.7.4)  nitrux; urgency=medium
 
   * Remove pipewire.conf from limits.d.
