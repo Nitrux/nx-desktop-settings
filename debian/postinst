@@ -13,6 +13,7 @@ rm -rf \
 	/usr/share/applications/mc.desktop \
 	/usr/share/applications/mcedit.desktop \
 	/usr/share/applications/nsnake.desktop \
+	/usr/share/applications/micro.desktop \
 	/usr/share/applications/org.freedesktop.IBus* \
 	/usr/share/applications/org.kde.kdeconnect.app.desktop \
 	/usr/share/applications/org.kde.kdeconnect.sms.desktop \
