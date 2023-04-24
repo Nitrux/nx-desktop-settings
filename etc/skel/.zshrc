@@ -18,8 +18,11 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set theme for robyrusell when login to a TTY
-if [[ `echo "$TERM"` != "xterm" ]]; then  
-  ZSH_THEME="robbyrussell"  
+if [[ $(echo "$TERM") != "xterm-256color" ]]; then  
+	echo "This is a TTY, changing theme"
+	sed -i 's#ZSH_THEME="powerlevel10k/powerlevel10k"#ZSH_THEME="robbyrussell"#g' "$HOME/.zshrc"
+else
+	echo "Not in a TTY, leave p10k"
 fi
 
 # Set list of themes to pick from when loading at random
