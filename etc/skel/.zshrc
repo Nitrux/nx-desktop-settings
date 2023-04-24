@@ -140,3 +140,10 @@ export PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 
 # Allow sudo to be removed
 export SUDO_FORCE_REMOVE=yes
+
+# Add environment variables for Plasma Wayland to use Nvidia GBM
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+# Add Flatpak environment variables to XDG_DATA_DIRS
+export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/uri/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
