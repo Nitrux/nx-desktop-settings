@@ -1,9 +1,8 @@
 nx-desktop-settings-legacy (3.7.9)  nitrux; urgency=medium
 
-  * Add file to increase file limits.
-  * Add file for stsctl overrides.
+  * Add file to increase file limits, add file for sysctl overrides.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Tue, 25 Apr 2023 15:10:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 25 Apr 2023 15:51:00 -0500
 
 nx-desktop-settings-legacy (3.7.8)  nitrux; urgency=medium
 
