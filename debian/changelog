@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.8.2)  nitrux; urgency=medium
+
+  * Update zsh config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 26 Apr 2023 01:28:00 -0500
+
 nx-desktop-settings-legacy (3.8.1)  nitrux; urgency=medium
 
   * Update file for sysctl overrides, update llate layout, add aliases from zsh to bash, delete micro launcher.
