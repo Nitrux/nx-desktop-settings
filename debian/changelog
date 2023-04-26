@@ -1,3 +1,15 @@
+nx-desktop-settings-legacy (3.8.1)  nitrux; urgency=medium
+
+  * Update file for sysctl overrides, update llate layout, add aliases from zsh to bash, delete micro launcher.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 25 Apr 2023 15:51:00 -0500
+
+nx-desktop-settings-legacy (3.8.0)  nitrux; urgency=medium
+
+  * Update file for sysctl overrides.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 25 Apr 2023 15:51:00 -0500
+
 nx-desktop-settings-legacy (3.7.9)  nitrux; urgency=medium
 
   * Add file to increase file limits, add file for sysctl overrides.

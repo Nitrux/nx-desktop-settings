@@ -12,6 +12,7 @@ rm -rf \
 	/usr/share/applications/links2.desktop \
 	/usr/share/applications/mc.desktop \
 	/usr/share/applications/mcedit.desktop \
+	/usr/share/applications/micro.desktop \
 	/usr/share/applications/nsnake.desktop \
 	/usr/share/applications/org.freedesktop.IBus* \
 	/usr/share/applications/org.kde.kdeconnect.app.desktop \
@@ -53,11 +54,6 @@ echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
 
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
-
-
-#	let krohnkite be configured from system settings.
-
-ln -sv /usr/share/kwin/scripts/krohnkite/metadata.desktop /usr/share/kservices5/krohnkite.desktop
 
 
 #	let Force blur be configured from system settings.
