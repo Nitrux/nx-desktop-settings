@@ -48,6 +48,8 @@ wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.co
 
 echo -e "XDG_CONFIG_DIRS=/etc/xdg" >> /etc/environment
 echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
+echo -e "MOZ_USE_XINPUT2=1" >> /etc/environment
+echo -e "MOZ_ENABLE_WAYLAND=1" >> /etc/environment
 
 
 #	add /Applications to sudoers
