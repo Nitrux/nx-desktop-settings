@@ -143,7 +143,7 @@ export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 # Add Flatpak environment variables to XDG_DATA_DIRS
-export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/uri/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 
 # Add variables for Firefox to work with touchscreens in X11 and Wayland
 export MOZ_USE_XINPUT2=1
