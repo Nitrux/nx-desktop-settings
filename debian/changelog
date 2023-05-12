@@ -1,6 +1,7 @@
 nx-desktop-settings-legacy (3.8.4)  nitrux; urgency=medium
 
   * Add dnscrypt config.
+  * Update sysctl configuration.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 12 May 2023 14:43:00 -0500
 
