@@ -1,4 +1,0 @@
-# Redirect everything to dnscrypt-proxy
-server=127.0.2.1
-no-resolv
-proxy-dnssec
