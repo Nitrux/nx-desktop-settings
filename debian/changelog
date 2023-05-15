@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.8.7)  nitrux; urgency=medium
+
+  * Update nm config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 15 May 2023 04:25:00 -0500
+
 nx-desktop-settings-legacy (3.8.6)  nitrux; urgency=medium
 
   * Update dnscrypt config.
