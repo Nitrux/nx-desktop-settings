@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.8.9)  nitrux; urgency=medium
+
+  * Add config files for plasma.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 17 May 2023 15:08:00 -0500
+
 nx-desktop-settings-legacy (3.8.8)  nitrux; urgency=medium
 
   * Update latte layout.
