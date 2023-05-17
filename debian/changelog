@@ -1,3 +1,11 @@
+nx-desktop-settings-legacy (3.8.8)  nitrux; urgency=medium
+
+  * Update latte layout.
+  * Update sysctl config.
+  * Update pam config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 16 May 2023 18:54:00 -0500
+
 nx-desktop-settings-legacy (3.8.7)  nitrux; urgency=medium
 
   * Update nm config.
