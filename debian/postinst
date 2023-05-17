@@ -83,9 +83,9 @@ $(which cp) -rf /etc/skel/.bak.bashrc /etc/skel/.bashrc
 
 #	set user password expiration. See https://cisofy.com/lynis/controls/AUTH-9282/
 
-sed -i 's+PASS_MAX_DAYS   99999+PASS_MAX_DAYS   90+g' /etc/login.defs
-sed -i 's+PASS_MIN_DAYS   0+PASS_MIN_DAYS   7+g' /etc/login.defs
-sed -i 's+PASS_WARN_AGE   7+PASS_WARN_AGE   5+g' /etc/login.defs
+sed -E -i 's+PASS_MAX_DAYS[[:blank:]]99999+PASS_MAX_DAYS	90+g' /etc/login.defs
+sed -E -i 's+PASS_MIN_DAYS[[:blank:]]0+PASS_MIN_DAYS	7+g' /etc/login.defs
+sed -E -i 's+PASS_WARN_AGE[[:blank:]]7+PASS_WARN_AGE	5+g' /etc/login.defs
 
 
 #	increase size of hashing rounds in /etc/login.defs. See https://cisofy.com/lynis/controls/AUTH-9230/
