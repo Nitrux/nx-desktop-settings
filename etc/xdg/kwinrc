@@ -172,7 +172,13 @@ SnapOnlyWhenOverlapping=false
 TitlebarDoubleClickCommand=Maximize
 WindowSnapZone=10
 
+[Xwayland]
+Scale=1
+
 [org.kde.kdecoration2]
+BorderSize=Large
+BorderSizeAuto=false
+ButtonsOnLeft=
+ButtonsOnRight=
 library=org.kde.mauideco
-ButtonsOnRight=IAX
 theme=Nitrux

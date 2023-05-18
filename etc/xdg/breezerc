@@ -12,5 +12,5 @@ CornerRadius=4
 MatchColorForTitleBar=true
 DrawBorderOnMaximizedWindows=true
 DrawSizeGrip=true
-HideTitleBar=Always
+HideTitleBar=Never
 MatchColorForTitleBar=true
