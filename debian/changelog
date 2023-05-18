@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.9.1)  nitrux; urgency=medium
+
+  * Force add plasma config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 17 May 2023 19:03:00 -0500
+
 nx-desktop-settings-legacy (3.9.0)  nitrux; urgency=medium
 
   * Move config files for plasma.
