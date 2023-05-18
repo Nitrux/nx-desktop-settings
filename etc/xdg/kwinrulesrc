@@ -16,4 +16,5 @@ wmclasscomplete=true
 wmclassmatch=1
 
 [General]
-count=1,2
+count=2
+rules=1,2

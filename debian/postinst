@@ -52,7 +52,7 @@ echo -e "MOZ_USE_XINPUT2=1" >> /etc/environment
 echo -e "MOZ_ENABLE_WAYLAND=1" >> /etc/environment
 
 
-#	add /Applications to sudoers
+#	add /Applications to sudoers.
 
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
@@ -76,12 +76,12 @@ ln -svf /etc/X11/cursors/nitrux_cursors.theme /etc/alternatives/x-cursor-theme
 sed -i '$ a Inherits=nitrux_snow_cursors' /etc/X11/cursors/nitrux_cursors.theme
 
 
-#	overwrite file from bash
+#	overwrite file from bash.
 
 $(which cp) -rf /etc/skel/.bak.bashrc /etc/skel/.bashrc
 
 
-#	set user password expiration. See https://cisofy.com/lynis/controls/AUTH-9282/
+#	set user password expiration /etc/login.defs. See https://cisofy.com/lynis/controls/AUTH-9282/
 
 sed -E -i 's+PASS_MAX_DAYS[[:blank:]]99999+PASS_MAX_DAYS	90+g' /etc/login.defs
 sed -E -i 's+PASS_MIN_DAYS[[:blank:]]0+PASS_MIN_DAYS	7+g' /etc/login.defs
