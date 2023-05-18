@@ -10,7 +10,8 @@ xdg_user_path="$HOME/.config"
 
 [ -f "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc" ] &&
     rm "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc"
-    $(which cp) "$xdg_skel_path/{plasma-org.kde.plasma.desktop-appletsrc,plasmashellrc}"
+    $(which cp) "$xdg_skel_path/plasma-org.kde.plasma.desktop-appletsrc" $xdg_user_path
+    $(which cp) "$xdg_skel_path/plasmashellrc" $xdg_user_path
 
 
 sleep 1
