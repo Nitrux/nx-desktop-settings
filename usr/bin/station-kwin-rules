@@ -1,0 +1,26 @@
+#! /bin/bash
+
+set -x
+
+
+#   (force) Add plasma config to use latte in wayland
+
+xdg_skel_path="/etc/skel/.config"
+xdg_user_path="$HOME/.config"
+
+[ -f "$xdg_user_path/kwinrulesrc" ] &&
+    $(which cp) -r "$xdg_skel_path/kwinrulesrc" $xdg_user_path
+
+sleep 1
+
+
+#   restart plasma
+
+if pgrep -x "plasmashell" > /dev/null
+    then
+        plasmashell --replace &
+fi
+
+sleep 1
+
+exit 0

@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.9.5)  nitrux; urgency=medium
+
+  * Add script to force station kwinrules.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 18 May 2023 12:44:00 -0500
+
 nx-desktop-settings-legacy (3.9.4)  nitrux; urgency=medium
 
   * Update kwinrules.
