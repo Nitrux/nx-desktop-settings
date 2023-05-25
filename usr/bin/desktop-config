@@ -40,7 +40,7 @@ del () { rm -rf "$@"; }
 
 
 #   Detect whether the session is X11 or Wayland.
-#   If on Wayland, add Plasma and KWin configuration, then retsart both AND Latte Dock becuase of course.
+#   If on Wayland, add Plasma and KWin configuration, then restart both AND Latte Dock becuase of course.
 #   If on not on Wayland (which can only mean that it's X11), only add KWin configuration.
 
 if [ "${xdg_session}" == "wayland" ]; then
