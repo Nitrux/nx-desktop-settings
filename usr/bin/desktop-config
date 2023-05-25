@@ -72,7 +72,6 @@ if [ "${xdg_session}" == "wayland" ]; then
             echo "running on x11" >> "$HOME/.nx-x11-check"
             del "$HOME/.nx-wayland-check" || true
     fi
-
     if pgrep -x "plasmashell" > /dev/null
         then
             killall plasmashell && plasmashell --replace &
