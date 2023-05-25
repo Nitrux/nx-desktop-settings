@@ -1,0 +1,10 @@
+[1]
+Description=Preferencias para la aplicación libreoffice-startcenter
+position=-2,30
+positionrule=3
+wmclass=libreoffice libreoffice-startcenter
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+count=1

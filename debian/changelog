@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (3.9.7)  nitrux; urgency=medium
+
+  * Update script to load plasma desktop and kwin configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 24 May 2023 00:002:00 -0500
+
 nx-desktop-settings-legacy (3.9.6)  nitrux; urgency=medium
 
   * Update script to force plasma desktop configuration to use latte in wayland.

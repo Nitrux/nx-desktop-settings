@@ -1,0 +1,16 @@
+[Common]
+ShadowSize=ShadowSmall
+ShadowStrength=230
+
+[Windeco]
+AnimationsDuration=250
+AnimationsEnabled=true
+ButtonHOffset=4
+ButtonPadding=2
+ButtonSize=ButtonDefault
+CornerRadius=4
+MatchColorForTitleBar=true
+DrawBorderOnMaximizedWindows=true
+DrawSizeGrip=true
+HideTitleBar=Always
+MatchColorForTitleBar=true

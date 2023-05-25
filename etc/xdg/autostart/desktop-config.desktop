@@ -1,10 +1,10 @@
 [Desktop Entry]
 Comment=
-Exec=desktop-config-wayland
+Exec=desktop-config
 GenericName=
 Icon=preferences-desktop
 MimeType=
-Name=desktop-config-wayland
+Name=desktop-config
 Path=
 StartupNotify=true
 Terminal=false

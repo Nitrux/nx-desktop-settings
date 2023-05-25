@@ -1,0 +1,51 @@
+#! /bin/bash
+
+set -x
+
+
+#   Variables.
+
+xdg_config_path="/etc/skel/.config"
+xdg_rc_path="/etc/xdg"
+xdg_user_path="$HOME/.config"
+xdg_session="echo $XDG_SESSION_TYPE"
+
+
+#   Functions.
+
+cp_rc () { $(which cp) -rf "$@"; }
+
+
+#   Detect whether the session is X11 or Wayland.
+#   If on Wayland, add Plasma and KWin configuration.
+#   If on not on Wayland (which can only mean that it's X11), only add KWin configuration.
+
+if [ "${xdg_session}" == "wayland" ]; then
+    if [ -f "$HOME/.nx-wayland-check" ]
+        then
+            exit
+        else
+            cp_rc "$xdg_config_path/plasma-org.kde.plasma.desktop-appletsrc" "$xdg_user_path"
+            cp_rc "$xdg_config_path/plasmashellrc" "$xdg_user_path"
+            cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+            cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+            cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+            echo "running on wayland" >> "$HOME/.nx-wayland-check"
+
+        if pgrep -x "plasmashell" > /dev/null
+            then
+                plasmashell --replace &
+        fi
+    fi
+    else
+        if [ -f "$HOME/.nx-x11-check" ]
+            then
+                exit
+            else
+                cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
+                cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
+                cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
+                echo "running on x11" >> "$HOME/.nx-x11-check"
+        fi
+
+fi
