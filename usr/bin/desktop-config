@@ -62,20 +62,19 @@ if [ "${xdg_session}" == "wayland" ]; then
         fi
     fi
     else
-        if [ -f "$HOME/.nx-x11-check" ]
-            then
-                exit
-            else
-                cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
-                cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
-                cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
-                echo "running on x11" >> "$HOME/.nx-x11-check"
-                del "$HOME/.nx-wayland-check" || true
-        fi
+    if [ -f "$HOME/.nx-x11-check" ]
+        then
+            exit
+        else
+            cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
+            cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
+            cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
+            echo "running on x11" >> "$HOME/.nx-x11-check"
+            del "$HOME/.nx-wayland-check" || true
+    fi
 
-        if pgrep -x "plasmashell" > /dev/null
-            then
-                killall plasmashell && plasmashell --replace &
-        fi
-
+    if pgrep -x "plasmashell" > /dev/null
+        then
+            killall plasmashell && plasmashell --replace &
+    fi
 fi
