@@ -1,6 +1,6 @@
 nx-desktop-settings-legacy (3.9.6)  nitrux; urgency=medium
 
-  * Update script to force station kwinrules.
+  * Update script to force plasma desktop configuration to use latte in wayland.
   * Move password creating stuff to iso-tool.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Wed, 23 May 2023 18:41:00 -0500
