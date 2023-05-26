@@ -14,6 +14,28 @@ location=3
 plugin=org.kde.panel
 wallpaperplugin=org.kde.image
 
+[Containments][2][Applets][112]
+immutability=1
+plugin=org.kde.plasma.digitalclock
+
+[Containments][2][Applets][112][Configuration]
+PreloadWeight=55
+popupHeight=720
+popupWidth=810
+
+[Containments][2][Applets][112][Configuration][Appearance]
+autoFontAndSize=false
+enabledCalendarPlugins=/usr/lib/x86_64-linux-gnu/qt5/plugins/plasmacalendarplugins/holidaysevents.so
+fontFamily=Homenaje
+fontSize=14
+fontStyleName=Regular
+showDate=false
+showSeconds=true
+
+[Containments][2][Applets][112][Configuration][ConfigDialog]
+DialogHeight=755
+DialogWidth=979
+
 [Containments][2][Applets][15]
 immutability=1
 plugin=org.kde.windowbuttons
@@ -89,18 +111,6 @@ DialogWidth=720
 lengthMargin=10
 thickMargin=6
 
-[Containments][2][Applets][85]
-immutability=1
-plugin=org.nx.clock
-
-[Containments][2][Applets][85][Configuration][Appearance]
-fontFamily=Homenaje
-showSeconds=true
-
-[Containments][2][Applets][85][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
 [Containments][2][Applets][86]
 immutability=1
 plugin=org.kde.plasma.systemtray
@@ -117,7 +127,7 @@ DialogWidth=2560
 PreloadWeight=0
 
 [Containments][2][General]
-AppletOrder=15;16;17;18;19;61;86;84;85
+AppletOrder=15;16;17;18;19;61;86;84;112
 
 [Containments][3]
 ItemGeometries-2560x1440=Applet-108:1962,1402,842,54,0;

@@ -47,21 +47,20 @@ start_latte () {
             nohup latte-dock -d -r --cc &>> "/tmp/latte-dock.log" 2>&1
         else
             sleep 2; notify-send "Latte Dock is running..." &
-            plasmashell --replace &
+            killall plasmashell && plasmashell --replace &
             latte-dock -d -r --cc
     fi;
  }
-find_latte () { pgrep -l "latte-dock" | cut -c -15 | rev | cut -c -10 | rev | uniq; }
 
 
 #   Detect whether the session is X11 or Wayland.
 #
-#   If on Wayland check if previous run file exist, then add Plasma and KWin configuration, then restart Plasma, KWin Wayland and Latte Dock because... of course.
+#   If on Wayland check if previous run file exist, then add Plasma and KWin configuration, then restart Plasma.
 #
-#   >   >   Detect if on Wayland and using Nvidia, then add specific configuration for Plasma because Latte Dock does not work.
-#   >   >   If on Wayland and not using Nvidia, start Latte Dock and don't add specific configuration files.
+#   >   >   Detect if on Wayland and using Nvidia, then add Nvidia specific configuration for Plasma because Latte Dock does not work.
+#   >   >   If on Wayland and not using Nvidia, start Latte Dock and add MESA specific configuration files for Plasma to use Latte Dock.
 #
-#   If not on Wayland (which can only mean that it's X11), start Latte Dock and add KWin configuration (as in previous releases).
+#   If not on Wayland (which can only mean that it's X11), delete residual Plasma configuration, start Latte Dock and add KWin configuration (as in previous releases).
 
 if [ "${xdg_session}" == "wayland" ]; then
         echo "this is wayland"
@@ -84,7 +83,7 @@ if [ "${xdg_session}" == "wayland" ]; then
                     cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
                     echo "do not start latte because this is nvidia on wayland"
                     echo "restart kwin wayland and plasma for nvidia on wayland"
-                    kwin_wayland --replace && plasmashell --replace &
+                    plasmashell --replace &
                     echo "creating first run file for nvidia on wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
                     del "$HOME/.nx-kwin-x11-check" || true
                     echo "configuration complete for nvidia on wayland"
@@ -97,8 +96,8 @@ if [ "${xdg_session}" == "wayland" ]; then
                 cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
                 cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
                 echo "restart kwin wayland and plasma for mesa on wayland"
-                kwin_wayland --replace && plasmashell --replace &
-                echo "creating wayland first-run file" >> "$HOME/.nx-mesa-kwin-wayland-check"
+                plasmashell --replace &
+                echo "creating wayland first-run file for mesa on wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
                 del "$HOME/.nx-kwin-x11-check" || true
                 echo "configuration complete for mesa on wayland"
                 echo "start latte"
@@ -111,11 +110,13 @@ if [ "${xdg_session}" == "wayland" ]; then
             echo "x11 first-run file exists"
         else
             echo "x11 first-run file does not exist"
+            echo "detected as x11"
+            del "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc" "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc"
             cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
-            echo "creating x11 first-run file" >> "$HOME/.nx-kwin-x11-check"
-            del "$HOME/.nx-kwin-wayland-check" || true
+            echo "creating x11 first-run file for x11" >> "$HOME/.nx-kwin-x11-check"
+            del "$HOME/.nx-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" || true
             echo "configuration complete for x11"
             echo "start latte because this is x11"
             start_latte
