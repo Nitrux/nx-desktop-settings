@@ -1,6 +1,24 @@
 [ActionPlugins][0]
-RightButton;NoModifier=org.kde.contextmenu
-wheel:Vertical;NoModifier=org.kde.switchdesktop
+LeftButton;NoModifier=org.kde.contextmenu
+
+[ActionPlugins][0][LeftButton;NoModifier]
+_add panel=true
+_context=true
+_display_settings=true
+_lock_screen=false
+_logout=false
+_open_terminal=false
+_run_command=false
+_sep1=true
+_sep2=true
+_sep3=true
+_wallpaper=true
+add widgets=true
+configure=true
+configure shortcuts=false
+edit mode=true
+manage activities=true
+remove=true
 
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
@@ -19,7 +37,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][112][Configuration]
-PreloadWeight=55
+PreloadWeight=60
 popupHeight=720
 popupWidth=810
 
@@ -116,7 +134,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][2][Applets][86][Configuration]
-PreloadWeight=85
+PreloadWeight=100
 SystrayContainmentId=87
 
 [Containments][2][ConfigDialog]
@@ -479,12 +497,15 @@ lastScreen=0
 location=3
 plugin=org.kde.plasma.private.systemtray
 popupHeight=720
-popupWidth=432
+popupWidth=436
 wallpaperplugin=org.kde.image
 
 [Containments][87][Applets][100]
 immutability=1
 plugin=org.nx.notifications
+
+[Containments][87][Applets][100][Configuration]
+PreloadWeight=55
 
 [Containments][87][Applets][101]
 immutability=1
@@ -509,14 +530,21 @@ immutability=1
 plugin=org.nx.networkmanagement
 
 [Containments][87][Applets][105][Configuration]
-PreloadWeight=55
+PreloadWeight=60
 
 [Containments][87][Applets][106]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][87][Applets][106][Configuration]
-PreloadWeight=55
+PreloadWeight=60
+
+[Containments][87][Applets][113]
+immutability=1
+plugin=org.nx.audio
+
+[Containments][87][Applets][113][Configuration]
+PreloadWeight=65
 
 [Containments][87][Applets][88]
 immutability=1
@@ -531,7 +559,7 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][87][Applets][90][Configuration]
-PreloadWeight=60
+PreloadWeight=65
 
 [Containments][87][Applets][91][Configuration]
 PreloadWeight=42
@@ -567,7 +595,7 @@ immutability=1
 plugin=org.kde.plasma.vault
 
 [Containments][87][Applets][97][Configuration]
-PreloadWeight=55
+PreloadWeight=60
 
 [Containments][87][Applets][98][Configuration]
 PreloadWeight=42
@@ -580,10 +608,10 @@ DialogHeight=847
 DialogWidth=1176
 
 [Containments][87][General]
-extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.nightcolorcontrol,org.kde.plasma.printmanager,org.kde.plasma.vault,org.nx.networkmanagement,org.nx.notifications
+extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.nightcolorcontrol,org.kde.plasma.printmanager,org.kde.plasma.vault,org.nx.networkmanagement,org.nx.notifications,org.nx.audio
 hiddenItems=org.kde.plasma.manage-inputmethod
 knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.audio,org.nx.networkmanagement,org.nx.notifications
-shownItems=org.nx.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.vault,org.kde.kupapplet,org.nx.notifications
+shownItems=org.nx.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.vault,org.kde.kupapplet,org.nx.notifications,org.nx.audio
 
 [ScreenMapping]
 itemsOnDisabledScreens=
