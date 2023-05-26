@@ -72,7 +72,7 @@ if [ "${xdg_session}" == "wayland" ]; then
             echo "check if using nvidia or mesa"
             if [ "$(nv_chk)" == "NVIDIA" ]; then
                 echo "detected as nvidia on wayland"
-                if [ -f "$HOME/.nx-wayland-nvidia-check" ]; then
+                if [ -f "$HOME/.nx-nvidia-kwin-wayland-check" ]; then
                     echo "nvidia on wayland first-run file exists"
                 else
                     echo "nvidia on wayland first-run file does not exist"
@@ -96,6 +96,7 @@ if [ "${xdg_session}" == "wayland" ]; then
                 cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
                 cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
                 echo "restart kwin wayland and plasma for mesa on wayland"
+                nohup kwin_wayland --replace &>> /dev/null
                 plasmashell --replace &
                 echo "creating wayland first-run file for mesa on wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
                 del "$HOME/.nx-kwin-x11-check" || true
@@ -116,7 +117,7 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
             echo "creating x11 first-run file for x11" >> "$HOME/.nx-kwin-x11-check"
-            del "$HOME/.nx-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" || true
+            del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" || true
             echo "configuration complete for x11"
             echo "start latte because this is x11"
             start_latte
