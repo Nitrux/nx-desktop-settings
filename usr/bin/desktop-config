@@ -3,7 +3,7 @@
 #############################################################################################################################################################################
 #   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
 #                                                                                                                                                                           #
-#   Copyright <2023> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                               #
+#   Copyright <2023> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
 #                                                                                                                                                                           #
 #   Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:                          #
 #                                                                                                                                                                           #
@@ -37,43 +37,87 @@ xdg_session="$XDG_SESSION_TYPE"
 
 cp_rc () { $(which cp) -rf "$@"; }
 del () { rm -rf "$@"; }
+nv_chk () { nvidia-smi -L | cut -c -13 | rev | cut -c -6 | rev | uniq; }
+start_latte () { 
+    touch "/tmp/latte-dock.log"
+    if pgrep latte-dock &>> "/tmp/latte-dock.log"
+        then
+            sleep 2; notify-send "Latte Dock is crashing..." &
+            sleep 3; notify-send "Latte Dock is restarting..." &
+            nohup latte-dock -d -r --cc &>> "/tmp/latte-dock.log" 2>&1
+        else
+            sleep 2; notify-send "Latte Dock is running..." &
+            plasmashell --replace &
+            latte-dock -d -r --cc
+    fi;
+ }
+find_latte () { pgrep -l "latte-dock" | cut -c -15 | rev | cut -c -10 | rev | uniq; }
 
 
 #   Detect whether the session is X11 or Wayland.
-#   If on Wayland, add Plasma and KWin configuration, then restart both AND Latte Dock becuase of course.
-#   If not on Wayland (which can only mean that it's X11), only add KWin configuration.
+#
+#   If on Wayland check if previous run file exist, then add Plasma and KWin configuration, then restart Plasma, KWin Wayland and Latte Dock because... of course.
+#
+#   >   >   Detect if on Wayland and using Nvidia, then add specific configuration for Plasma because Latte Dock does not work.
+#   >   >   If on Wayland and not using Nvidia, start Latte Dock and don't add specific configuration files.
+#
+#   If not on Wayland (which can only mean that it's X11), start Latte Dock and add KWin configuration (as in previous releases).
 
 if [ "${xdg_session}" == "wayland" ]; then
-    if [ -f "$HOME/.nx-wayland-check" ]
-        then
-            exit
+        echo "this is wayland"
+        if [ -f "$HOME/.nx-kwin-wayland-check" ]; then
+            echo "wayland first-run file exists"
+            echo "do nothing"
         else
-            cp_rc "$xdg_config_path/plasma-org.kde.plasma.desktop-appletsrc" "$xdg_user_path"
-            cp_rc "$xdg_config_path/plasmashellrc" "$xdg_user_path"
-            cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-            cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-            cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-            echo "running on wayland" >> "$HOME/.nx-wayland-check"
-            del "$HOME/.nx-x11-check" || true
-        if pgrep -x "plasmashell" > /dev/null
-            then
+            echo "wayland first-run file does not exist"
+            echo "check if using nvidia or mesa"
+            if [ "$(nv_chk)" == "NVIDIA" ]; then
+                echo "detected as nvidia on wayland"
+                if [ -f "$HOME/.nx-wayland-nvidia-check" ]; then
+                    echo "nvidia on wayland first-run file exists"
+                else
+                    echo "nvidia on wayland first-run file does not exist"
+                    cp_rc "$xdg_config_path/nvidia.plasma-org.kde.plasma.desktop-appletsrc" "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc"
+                    cp_rc "$xdg_config_path/nvidia.plasmashellrc" "$xdg_user_path/plasmashellrc"
+                    cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+                    cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+                    cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+                    echo "do not start latte because this is nvidia on wayland"
+                    echo "restart kwin wayland and plasma for nvidia on wayland"
+                    kwin_wayland --replace && plasmashell --replace &
+                    echo "creating first run file for nvidia on wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
+                    del "$HOME/.nx-kwin-x11-check" || true
+                    echo "configuration complete for nvidia on wayland"
+                fi
+            else
+                echo "detected as mesa on wayland"
+                cp_rc "$xdg_config_path/mesa.plasma-org.kde.plasma.desktop-appletsrc" "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc"
+                cp_rc "$xdg_config_path/mesa.plasmashellrc" "$xdg_user_path/plasmashellrc"
+                cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+                cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+                cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+                echo "restart kwin wayland and plasma for mesa on wayland"
                 kwin_wayland --replace && plasmashell --replace &
-                autostart-latte
+                echo "creating wayland first-run file" >> "$HOME/.nx-mesa-kwin-wayland-check"
+                del "$HOME/.nx-kwin-x11-check" || true
+                echo "configuration complete for mesa on wayland"
+                echo "start latte"
+                start_latte
+            fi
         fi
-    fi
     else
-    if [ -f "$HOME/.nx-x11-check" ]
-        then
-            exit
+        echo "this is not wayland; it is x11"
+        if [ -f "$HOME/.nx-kwin-x11-check" ]; then
+            echo "x11 first-run file exists"
         else
+            echo "x11 first-run file does not exist"
             cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
-            echo "running on x11" >> "$HOME/.nx-x11-check"
-            del "$HOME/.nx-wayland-check" || true
-    fi
-    if pgrep -x "plasmashell" > /dev/null
-        then
-            killall plasmashell && plasmashell --replace &
-    fi
+            echo "creating x11 first-run file" >> "$HOME/.nx-kwin-x11-check"
+            del "$HOME/.nx-kwin-wayland-check" || true
+            echo "configuration complete for x11"
+            echo "start latte because this is x11"
+            start_latte
+        fi
 fi
