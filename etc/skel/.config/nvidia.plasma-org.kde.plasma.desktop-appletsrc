@@ -147,7 +147,7 @@ ToolBoxButtonX=780
 ToolBoxButtonY=26
 
 [Containments][3][Wallpaper][org.kde.image][General]
-Image=/usr/share/wallpapers/GoldenHour/
+Image=/usr/share/wallpapers/Cask/
 SlidePaths=/usr/share/wallpapers/
 
 [Containments][4]
@@ -241,6 +241,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][4][Applets][5][Configuration][General]
+backgroundOpacity=90
 favoritesPortedToKAstats=true
 hiddenApplications=appimagekit_e00131cdaf6606b58dc63e02f6f9667a-appimage-cli-tool.desktop,appimagekit_691afdd8254cdd6210cad9fe09dc3c0c-appimage-cli-tool.desktop,appimagekit_c622bf8ce674464048e56ad7b1c9c3ec-AppImageUpdate.desktop,appimagekit_33264d7382d4da20e2058b56c70584b3-Firefox.desktop,appimagekit_13e096f2a11dd27115677128a912dbba-Firefox.desktop
 numberColumns=10

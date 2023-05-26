@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (3.9.9)  nitrux; urgency=medium
+
+  * Update script to load plasma desktop and kwin configuration.
+  * Remove script to autostart latte.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 24 May 2023 19:16:00 -0500
+
 nx-desktop-settings-legacy (3.9.8)  nitrux; urgency=medium
 
   * Update script to load plasma desktop and kwin configuration.
