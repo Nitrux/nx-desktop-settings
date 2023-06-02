@@ -148,3 +148,8 @@ export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/
 # Add variables for Firefox to work with touchscreens in X11 and Wayland
 export MOZ_USE_XINPUT2=1
 export MOZ_ENABLE_WAYLAND=1
+
+# Add variables for Fcitx5
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
