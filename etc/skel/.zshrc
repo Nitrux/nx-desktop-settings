@@ -150,6 +150,8 @@ export MOZ_USE_XINPUT2=1
 export MOZ_ENABLE_WAYLAND=1
 
 # Add variables for Fcitx5
+export INPUT_METHOD=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+export XIM_SERVERS=fcitx
