@@ -27,8 +27,8 @@ set -e
 # -- Variables.
 
 # xdg_config_path="/etc/skel/.config"
-# xdg_rc_path="/etc/xdg"
-# xdg_user_path="$HOME/.config"
+xdg_rc_path="/etc/xdg"
+xdg_user_path="$HOME/.config"
 xdg_session="$XDG_SESSION_TYPE"
 desktop_config_log="/tmp/desktop-config.log"
 
@@ -65,11 +65,17 @@ get_gpu_manufacturer() {
             else
                 echo "Nvidia on Wayland first-run file does not exist"
                 echo "Creating first run file for Nvidia on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
+                cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+                cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+                cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
                 del "$HOME/.nx-kwin-x11-check" || true
             fi
         else
             echo "Detected as Mesa on Wayland"
             echo "Creating Wayland first-run file for Mesa on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
+            cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+            cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+            cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
             del "$HOME/.nx-kwin-x11-check" || true
         fi
     fi
@@ -81,6 +87,9 @@ else
         echo "X11 first-run file does not exist"
         echo "Detected as X11"
         echo "Creating X11 first-run file for X11" >> "$HOME/.nx-kwin-x11-check"
+        cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+        cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+        cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
         del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" || true
     fi
 fi ) 2>&1 | tee -a "$desktop_config_log"
