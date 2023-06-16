@@ -60,19 +60,17 @@ get_gpu_manufacturer() {
         echo "Check if using Nvidia or Mesa"
         if [ "$(get_gpu_manufacturer)" == "NVIDIA" ]; then
             echo "Detected as Nvidia on Wayland"
-            if [ -f "$HOME/.nx-nvidia-kwin-wayland-check" ]; then
-                echo "Nvidia on Wayland first-run file exists"
-            else
-                echo "Nvidia on Wayland first-run file does not exist"
-                echo "Creating first run file for Nvidia on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
-                cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-                cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-                cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-                del "$HOME/.nx-kwin-x11-check" || true
-            fi
+            echo "Nvidia on Wayland first-run file does not exist"
+            echo "Creating first run file for Nvidia on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
+            ln -sv "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
+            cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+            cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+            cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+            del "$HOME/.nx-kwin-x11-check" || true
         else
             echo "Detected as Mesa on Wayland"
             echo "Creating Wayland first-run file for Mesa on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
+            ln -sv "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
@@ -90,6 +88,6 @@ else
         cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
         cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
         cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-        del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" || true
+        del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check" || true
     fi
 fi ) 2>&1 | tee -a "$desktop_config_log"

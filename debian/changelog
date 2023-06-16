@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.1.2)  nitrux; urgency=medium
+
+  * Fix desktop-config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 16 Jun 2023 03:49:00 -0500
+
 nx-desktop-settings-legacy (4.1.1)  nitrux; urgency=medium
 
   * Use same Plasma configuration.
