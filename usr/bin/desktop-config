@@ -24,15 +24,16 @@
 
 set -e
 
-#   Variables.
+# -- Variables.
 
-xdg_config_path="/etc/skel/.config"
-xdg_rc_path="/etc/xdg"
-xdg_user_path="$HOME/.config"
+# xdg_config_path="/etc/skel/.config"
+# xdg_rc_path="/etc/xdg"
+# xdg_user_path="$HOME/.config"
 xdg_session="$XDG_SESSION_TYPE"
 desktop_config_log="/tmp/desktop-config.log"
 
-#   Functions.
+
+# -- Functions.
 
 cp_rc() {
     cp -rf "$@"
@@ -46,25 +47,8 @@ get_gpu_manufacturer() {
     nvidia-smi -L | awk -F ' ' '$3=="NVIDIA"{print $3; exit}'
 }
 
-start_latte() {
-    if pgrep latte-dock >/dev/null; then
-        sleep 1; notify-send "Latte Dock is crashing..."
-        sleep 2; notify-send "Latte Dock is restarting..."
-        nohup latte-dock -d -r --cc
-    else
-        sleep 1; notify-send "Latte Dock is running..."
-        killall plasmashell && plasmashell --replace
-        nohup latte-dock -d -r --cc
-    fi
-}
 
-#   Detect whether the session is X11 or Wayland.
-#
-#   If on Wayland, check if a previous run file exists, then add Plasma and KWin configuration, then restart Plasma.
-#   If on Wayland and using Nvidia, add Nvidia-specific configuration for Plasma because Latte Dock does not work.
-#   If on Wayland and not using Nvidia, start Latte Dock and add MESA-specific configuration files for Plasma to use Latte Dock.
-#
-#   If not on Wayland (which can only mean that it's X11), delete residual Plasma configuration, start Latte Dock, and add KWin configuration (as in previous releases).
+# -- Detect whether the session is X11 or Wayland.
 
 ( if [ "${xdg_session}" == "wayland" ]; then
     echo "This is Wayland"
@@ -80,32 +64,13 @@ start_latte() {
                 echo "Nvidia on Wayland first-run file exists"
             else
                 echo "Nvidia on Wayland first-run file does not exist"
-                cp_rc "$xdg_config_path/nvidia.plasma-org.kde.plasma.desktop-appletsrc" "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc"
-                cp_rc "$xdg_config_path/nvidia.plasmashellrc" "$xdg_user_path/plasmashellrc"
-                cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-                cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-                cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-                echo "Do not start Latte Dock because this is Nvidia on Wayland"
-                echo "Restart KWin Wayland and Plasma for Nvidia on Wayland"
-                plasmashell --replace &
                 echo "Creating first run file for Nvidia on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
                 del "$HOME/.nx-kwin-x11-check" || true
-                echo "Configuration complete for Nvidia on Wayland"
             fi
         else
             echo "Detected as Mesa on Wayland"
-            cp_rc "$xdg_config_path/mesa.plasma-org.kde.plasma.desktop-appletsrc" "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc"
-            cp_rc "$xdg_config_path/mesa.plasmashellrc" "$xdg_user_path/plasmashellrc"
-            cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-            cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-            cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-            echo "Restart KWin Wayland and Plasma for Mesa on Wayland"
-            plasmashell --replace &
             echo "Creating Wayland first-run file for Mesa on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
             del "$HOME/.nx-kwin-x11-check" || true
-            echo "Configuration complete for Mesa on Wayland"
-            echo "Start Latte Dock"
-            start_latte
         fi
     fi
 else
@@ -115,22 +80,7 @@ else
     else
         echo "X11 first-run file does not exist"
         echo "Detected as X11"
-        del "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc" "$xdg_user_path/plasma-org.kde.plasma.desktop-appletsrc"
-        cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
-        cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
-        cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
         echo "Creating X11 first-run file for X11" >> "$HOME/.nx-kwin-x11-check"
         del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" || true
-        echo "Configuration complete for X11"
-        echo "Start Latte Dock because this is X11"
-        start_latte
     fi
-fi
-
-if [ "$1" == "--restart-latte" ]; then
-    start_latte
-    exit 0
-else
-    echo "Invalid flag. Usage: desktop-config --restart-latte"
-    exit 1
 fi ) 2>&1 | tee -a "$desktop_config_log"
