@@ -66,6 +66,7 @@ get_gpu_manufacturer() {
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+            plasmashell --replace &
             del "$HOME/.nx-kwin-x11-check" || true
         else
             echo "Detected as Mesa on Wayland"
@@ -74,6 +75,8 @@ get_gpu_manufacturer() {
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+            nohup kwin_wayland --replace &>> /dev/null
+            plasmashell --replace &
             del "$HOME/.nx-kwin-x11-check" || true
         fi
     fi
