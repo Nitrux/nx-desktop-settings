@@ -6,20 +6,8 @@ set -x
 #	remove stupid things from Plasma, generic KDE launchers, breeze cursors, etc.
 
 rm -rf \
-	/usr/share/applications/htop.desktop \
-	/usr/share/applications/ibus-setup* \
-	/usr/share/applications/info.desktop \
-	/usr/share/applications/links2.desktop \
-	/usr/share/applications/mc.desktop \
-	/usr/share/applications/mcedit.desktop \
-	/usr/share/applications/micro.desktop \
-	/usr/share/applications/nsnake.desktop \
-	/usr/share/applications/org.freedesktop.IBus* \
-	/usr/share/applications/org.kde.kdeconnect.app.desktop \
-	/usr/share/applications/org.kde.kdeconnect.sms.desktop \
-	/usr/share/applications/org.kde.kdeconnect_open.desktop \
-	/usr/share/applications/org.kde.kinfocenter.desktop \
-	/usr/share/applications/org.kde.plasma.emojier.desktop
+	/usr/share/applications/{htop.desktop,ibus-setup*,info.desktop,links2.desktop,mc.desktop,mcedit.desktop,micro.desktop,nsnake.desktop,org.freedesktop.IBus*,org.kde.kdeconnect.app.desktop,org.kde.kdeconnect.sms.desktop,org.kde.kdeconnect_open.desktop,org.kde.kinfocenter.desktop,org.kde.plasma.emojier.desktop}
+
 
 
 #	let nsnake be reachable through $PATH.
@@ -46,10 +34,12 @@ wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.co
 
 #	add xdg_dir environment variables.
 
-echo -e "XDG_CONFIG_DIRS=/etc/xdg" >> /etc/environment
-echo -e "XDG_DATA_DIRS=/usr/local/share:/usr/share" >> /etc/environment
-echo -e "MOZ_USE_XINPUT2=1" >> /etc/environment
-echo -e "MOZ_ENABLE_WAYLAND=1" >> /etc/environment
+{ 
+  echo 'XDG_CONFIG_DIRS=/etc/xdg'
+  echo 'XDG_DATA_DIRS=/usr/local/share:/usr/share'
+  echo 'MOZ_USE_XINPUT2=1'
+  echo 'MOZ_ENABLE_WAYLAND=1'
+} >> /etc/environment
 
 
 #	add /Applications to sudoers.

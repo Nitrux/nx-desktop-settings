@@ -2,7 +2,7 @@
 
 #####   -- Variables
 
-dist=$(cat /etc/os-release | grep "PRETTY_NAME=*" | rev | cut -d '=' -f 1 | rev)
+dist=$(grep -oP 'PRETTY_NAME=\K.*' /etc/os-release | tr -d '"')
 dbox_url='https://nxos.org/tutorial/how-to-use-distrobox-in-nitrux/'
 notes_url='https://nxos.org/notes/'
 bug_repo='https://github.com/Nitrux/nitrux-bug-tracker/issues'

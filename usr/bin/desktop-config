@@ -22,7 +22,7 @@
 #    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.   #
 #############################################################################################################################################################################
 
-set -x
+set -e
 
 #   Variables.
 
@@ -30,6 +30,7 @@ xdg_config_path="/etc/skel/.config"
 xdg_rc_path="/etc/xdg"
 xdg_user_path="$HOME/.config"
 xdg_session="$XDG_SESSION_TYPE"
+desktop_config_log="/tmp/desktop-config.log"
 
 #   Functions.
 
@@ -47,15 +48,14 @@ get_gpu_manufacturer() {
 
 start_latte() {
     if pgrep latte-dock >/dev/null; then
-        sleep 2; notify-send "Latte Dock is crashing..."
-        sleep 3; notify-send "Latte Dock is restarting..."
-        nohup latte-dock -d -r --cc &>> "/tmp/latte-dock.log" 2>&1
+        sleep 1; notify-send "Latte Dock is crashing..."
+        sleep 2; notify-send "Latte Dock is restarting..."
+        nohup latte-dock -d -r --cc
     else
-        sleep 2; notify-send "Latte Dock is running..."
+        sleep 1; notify-send "Latte Dock is running..."
         killall plasmashell && plasmashell --replace
-        latte-dock -d -r --cc
+        nohup latte-dock -d -r --cc
     fi
-    touch "/tmp/latte-dock.log"
 }
 
 #   Detect whether the session is X11 or Wayland.
@@ -66,7 +66,7 @@ start_latte() {
 #
 #   If not on Wayland (which can only mean that it's X11), delete residual Plasma configuration, start Latte Dock, and add KWin configuration (as in previous releases).
 
-if [ "${xdg_session}" == "wayland" ]; then
+( if [ "${xdg_session}" == "wayland" ]; then
     echo "This is Wayland"
     if [ -f "$HOME/.nx-kwin-wayland-check" ]; then
         echo "Wayland first-run file exists"
@@ -100,7 +100,6 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
             echo "Restart KWin Wayland and Plasma for Mesa on Wayland"
-            nohup kwin_wayland --replace &>> /dev/null
             plasmashell --replace &
             echo "Creating Wayland first-run file for Mesa on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
             del "$HOME/.nx-kwin-x11-check" || true
@@ -130,6 +129,8 @@ fi
 
 if [ "$1" == "--restart-latte" ]; then
     start_latte
+    exit 0
 else
     echo "Invalid flag. Usage: desktop-config --restart-latte"
-fi
+    exit 1
+fi ) 2>&1 | tee -a "$desktop_config_log"
