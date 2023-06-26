@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=heroic
+Name=Install Heroic Games Laucnher
+Exec=~/.config/install-hgl-flatpak.sh
+Categories=Utility;

@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (4.1.5)  nitrux; urgency=medium
+
+  * Update Bottles and Steam install scripts.
+  * Add script to install HGL.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 26 Jun 2023 05:46:00 -0500
+
 nx-desktop-settings-legacy (4.1.4)  nitrux; urgency=medium
 
   * Update Plasma configuration.
