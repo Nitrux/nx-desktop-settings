@@ -1,0 +1,17 @@
+[Desktop Entry]
+Comment[es_MX]=Because who knows why it won't start
+Comment=Because who knows why it won't start
+Exec=/usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil
+GenericName[es_MX]=Launcher to start Powerdevil
+GenericName=Launcher to start Powerdevil
+Icon=preferences-system-power-management
+MimeType=
+Name[es_MX]=Start Powerdevil
+Name=Start Powerdevil
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
