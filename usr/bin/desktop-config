@@ -96,8 +96,8 @@ else
 fi 
 
 if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil" >/dev/null; then
-  echo "Process is already running."
+  echo "Powerdevil process is already running."
 else
-  echo "Process is not running. Starting it now..."
+  echo "Powerdevil process is not running. Starting it now..."
   nohup /usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil >/dev/null 2>&1 &
 fi ) 2>&1 | tee -a "$desktop_config_log"
