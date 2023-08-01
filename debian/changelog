@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.2.0)  nitrux; urgency=medium
+
+  * Autostart PolicyKit-Kde because why not.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 31 Jul 2023 21:23:00 -0500
+
 nx-desktop-settings-legacy (4.1.9)  nitrux; urgency=medium
 
   * Hide hw-probe launcher.

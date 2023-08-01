@@ -93,11 +93,20 @@ else
         cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
         del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check" || true
     fi
-fi 
+fi
+
+# -- Manually start these Plasma services that, for some reason, don't autostart, even though they have files in /etc/xdg/autostart.
 
 if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil" >/dev/null; then
   echo "Powerdevil process is already running."
 else
   echo "Powerdevil process is not running. Starting it now..."
   nohup /usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil >/dev/null 2>&1 &
+fi
+
+if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1" >/dev/null; then
+  echo "PolicyKit-Kde process is already running."
+else
+  echo "PolicyKit-Kde process is not running. Starting it now..."
+  nohup /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 >/dev/null 2>&1 &
 fi ) 2>&1 | tee -a "$desktop_config_log"
