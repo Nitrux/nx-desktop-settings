@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.2.1)  nitrux; urgency=medium
+
+  * FU DW.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 06 Aug 2023 05:57:00 -0500
+
 nx-desktop-settings-legacy (4.2.0)  nitrux; urgency=medium
 
   * Autostart PolicyKit-Kde because why not.
