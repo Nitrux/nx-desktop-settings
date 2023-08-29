@@ -30,8 +30,11 @@ set -e
 xdg_rc_path="/etc/xdg"
 xdg_user_path="$HOME/.config"
 xdg_session="$XDG_SESSION_TYPE"
-desktop_config_log="/tmp/desktop-config.log"
-
+desktop_config_log="/var/log/desktop-config.log"
+dist=$(grep -oP 'PRETTY_NAME=\K.*' /etc/os-release | tr -d '"')
+vendor='Nitrux Latinoamericana S.C.'
+fecha=$(date +%Y)
+hora=$(date %H.%M)
 
 # -- Functions.
 
@@ -47,10 +50,23 @@ get_gpu_manufacturer() {
     nvidia-smi -L | awk -F ' ' '$3=="NVIDIA"{print $3; exit}'
 }
 
+usage() {
+    echo "Usage: $0 [--restart-desktop] [--help]"
+    echo "  --restart-desktop       Kill and replace plasmashell"
+    echo "  --help                  Display this help message"
+}
 
 # -- Detect whether the session is X11 or Wayland.
 
-( if [ "${xdg_session}" == "wayland" ]; then
+( echo "Logging started at $hora"
+echo ' ';
+echo -e "Welcome to $dist";
+echo ' ';
+echo -e "(c) $fecha Some Rights Reserved. Made by $vendor";
+echo ' ';
+echo ' ';
+
+if [ "${xdg_session}" == "wayland" ]; then
     echo "This is Wayland"
     if [ -f "$HOME/.nx-kwin-wayland-check" ]; then
         echo "Wayland first-run file exists"
@@ -69,8 +85,8 @@ get_gpu_manufacturer() {
             plasmashell --replace &
             del "$HOME/.nx-kwin-x11-check" || true
         else
-            echo "Detected as Mesa on Wayland"
-            echo "Creating Wayland first-run file for Mesa on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
+            echo "Detected as MESA on Wayland"
+            echo "Creating Wayland first-run file for MESA on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
             ln -sv "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
@@ -112,8 +128,21 @@ else
 fi
 
 if pgrep -f "/usr/bin/fcitx5" >/dev/null; then
-  echo "Fcitx5 process is already running."
+  echo "Fcitx5 process is already running, restarting it now..."
+  nohup /usr/bin/fcitx5 --replace >/dev/null 2>&1 &
 else
   echo "Fcitx5 process is not running. Starting it now..."
   nohup /usr/bin/fcitx5 >/dev/null 2>&1 &
+fi 
+
+# -- Check for command-line arguments.
+
+if [ "$1" == "--restart-desktop" ]; then
+    echo "Restarting the desktop environment..."
+    killall plasmashell
+    plasmashell --replace
+    exit 0
+elif [ "$1" == "--help" ]; then
+    usage
+    exit 0
 fi ) 2>&1 | tee -a "$desktop_config_log"

@@ -1,3 +1,12 @@
+nx-desktop-settings-legacy (4.2.6)  nitrux; urgency=medium
+
+  * Update desktop-config to include an argument to restart Plasma.
+  * Ensure that Fcitx5 is running or restarted when desktop-config starts.
+  * Change the desktop-config log file path.
+  * Do not display the disclaimer text in the help script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 29 Aug 2023 15:32:00 -0500
+
 nx-desktop-settings-legacy (4.2.5)  nitrux; urgency=medium
 
   * Add conf file to not use Plasma systemd startup, supposedly.
