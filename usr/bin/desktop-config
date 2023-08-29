@@ -34,7 +34,7 @@ desktop_config_log="/var/log/desktop-config.log"
 dist=$(grep -oP 'PRETTY_NAME=\K.*' /etc/os-release | tr -d '"')
 vendor='Nitrux Latinoamericana S.C.'
 fecha=$(date +%Y)
-hora=$(date %H.%M)
+hora=$(date +%H:%M)
 
 # -- Functions.
 
