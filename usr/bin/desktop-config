@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 #############################################################################################################################################################################
 #   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
@@ -30,7 +30,7 @@ set -eu
 xdg_rc_path="/etc/xdg"
 xdg_user_path="$HOME/.config"
 xdg_session="$XDG_SESSION_TYPE"
-desktop_config_log="/var/log/desktop-config.log"
+desktop_config_log="/$HOME/.desktop-config.log"
 dist=$(grep -oP 'PRETTY_NAME=\K.*' /etc/os-release | tr -d '"')
 vendor='Nitrux Latinoamericana S.C.'
 fecha=$(date +%Y)
@@ -137,12 +137,20 @@ fi
 
 # -- Check for command-line arguments.
 
-if [ "$1" == "--restart-desktop" ]; then
-    echo "Restarting the desktop environment..."
-    killall plasmashell
-    nohup plasmashell --replace >/dev/null 2>&1 &
-    exit 0
-elif [ "$1" == "--help" ]; then
-    usage
-    exit 0
+if [ $# -eq 0 ]; then
+    echo "No arguments provided. The script will run normally."
+else
+    if [ "$1" == "--restart-desktop" ]; then
+        echo "Restarting the desktop environment..."
+        killall plasmashell
+        nohup plasmashell --replace >/dev/null 2>&1 &
+        exit 0
+    elif [ "$1" == "--help" ]; then
+        usage
+        exit 0
+    else
+        echo "Invalid argument: $1"
+        usage
+        exit 1
+    fi
 fi ) 2>&1 | tee -a "$desktop_config_log"
