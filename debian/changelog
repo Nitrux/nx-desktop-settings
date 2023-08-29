@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.2.5)  nitrux; urgency=medium
+
+  * Add conf file to not use Plasma systemd startup, supposedly.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 29 Aug 2023 04:45:00 -0500
+
 nx-desktop-settings-legacy (4.2.4)  nitrux; urgency=medium
 
   * Yet again, use desktop-config to autostart something because god knows why Plasma refuses to autostart something from the user autostart directory.
