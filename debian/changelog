@@ -1,6 +1,12 @@
+nx-desktop-settings-legacy (4.2.4)  nitrux; urgency=medium
+
+  * Yet again, use desktop-config to autostart something because god knows why Plasma refuses to autostart something from the user autostart directory.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 28 Aug 2023 21:48:00 -0500
+
 nx-desktop-settings-legacy (4.2.3)  nitrux; urgency=medium
 
-  * Ensure to Turn this feature off in Station.
+  * Ensure to turn this feature off in Station.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Mon, 28 Aug 2023 20:14:00 -0500
 

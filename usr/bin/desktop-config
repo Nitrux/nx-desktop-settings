@@ -109,4 +109,11 @@ if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
 else
   echo "PolicyKit-Kde process is not running. Starting it now..."
   nohup /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 >/dev/null 2>&1 &
+fi
+
+if pgrep -f "/usr/bin/fcitx5" >/dev/null; then
+  echo "Fcitx5 process is already running."
+else
+  echo "Fcitx5 process is not running. Starting it now..."
+  nohup /usr/bin/fcitx5 >/dev/null 2>&1 &
 fi ) 2>&1 | tee -a "$desktop_config_log"
