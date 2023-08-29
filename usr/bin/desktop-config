@@ -22,7 +22,7 @@
 #    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.   #
 #############################################################################################################################################################################
 
-set -e
+set -eu
 
 # -- Variables.
 
@@ -34,7 +34,7 @@ desktop_config_log="/var/log/desktop-config.log"
 dist=$(grep -oP 'PRETTY_NAME=\K.*' /etc/os-release | tr -d '"')
 vendor='Nitrux Latinoamericana S.C.'
 fecha=$(date +%Y)
-hora=$(date +%H:%M)
+hora=$(date +%Y.%m.%d-%H.%M)
 
 # -- Functions.
 
@@ -140,7 +140,7 @@ fi
 if [ "$1" == "--restart-desktop" ]; then
     echo "Restarting the desktop environment..."
     killall plasmashell
-    plasmashell --replace
+    nohup plasmashell --replace >/dev/null 2>&1 &
     exit 0
 elif [ "$1" == "--help" ]; then
     usage
