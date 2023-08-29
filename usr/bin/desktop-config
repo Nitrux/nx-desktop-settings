@@ -30,7 +30,7 @@ set -eu
 xdg_rc_path="/etc/xdg"
 xdg_user_path="$HOME/.config"
 xdg_session="$XDG_SESSION_TYPE"
-desktop_config_log="/$HOME/.desktop-config.log"
+desktop_config_log="$HOME/.desktop-config.log"
 dist=$(grep -oP 'PRETTY_NAME=\K.*' /etc/os-release | tr -d '"')
 vendor='Nitrux Latinoamericana S.C.'
 fecha=$(date +%Y)
@@ -64,7 +64,6 @@ echo -e "Welcome to $dist";
 echo ' ';
 echo -e "(c) $fecha Some Rights Reserved. Made by $vendor";
 echo ' ';
-echo ' ';
 
 if [ "${xdg_session}" == "wayland" ]; then
     echo "This is Wayland"
@@ -82,7 +81,7 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-            plasmashell --replace &
+            plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
             del "$HOME/.nx-kwin-x11-check" || true
         else
             echo "Detected as MESA on Wayland"
@@ -92,7 +91,7 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
             nohup kwin_wayland --replace &>> /dev/null
-            plasmashell --replace &
+            plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
             del "$HOME/.nx-kwin-x11-check" || true
         fi
     fi
