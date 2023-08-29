@@ -62,7 +62,9 @@ check_plasmashell_running() {
 
 # -- Detect whether the session is X11 or Wayland.
 
-( echo "Logging started at $hora"
+( echo ' ';
+echo "=========================="
+echo "Logging started at $hora"
 echo ' ';
 echo -e "Welcome to $dist";
 echo ' ';
