@@ -56,6 +56,10 @@ usage() {
     echo "  --help                  Display this help message"
 }
 
+check_plasmashell_running() {
+    pgrep -x plasmashell >/dev/null
+}
+
 # -- Detect whether the session is X11 or Wayland.
 
 ( echo "Logging started at $hora"
@@ -140,9 +144,11 @@ if [ $# -eq 0 ]; then
     echo "No arguments provided. The script will run normally."
 else
     if [ "$1" == "--restart-desktop" ]; then
-        echo "Restarting the desktop environment..."
-        killall plasmashell
-        nohup plasmashell --replace >/dev/null 2>&1 &
+        echo "Restarting KDE Plasma..."
+        if check_plasmashell_running; then
+            killall plasmashell
+        fi
+        nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
         exit 0
     elif [ "$1" == "--help" ]; then
         usage
