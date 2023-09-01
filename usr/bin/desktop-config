@@ -92,10 +92,19 @@ if [ "${xdg_session}" == "wayland" ]; then
         cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
         cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
         cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-        nohup kwin_wayland --replace &>> /dev/null
-        sleep 2
-        killall plasmashell
-        plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+
+        # -- Continuously check if plasmashell is running because I don't know why it decides to just die.
+
+        while true; do
+            if pgrep -x "plasmashell" > /dev/null; then
+                echo "plasmashell is already running, restarting..."
+                pkill -x plasmashell
+            else
+                echo "plasmashell is not running, starting..."
+                nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+            fi
+            sleep 1
+        done
         del "$HOME/.nx-kwin-x11-check" || true
     fi
 else
