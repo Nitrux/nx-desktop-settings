@@ -88,6 +88,7 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
             nohup kwin_wayland --replace &>> /dev/null
+            killall plasmashell
             plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
             del "$HOME/.nx-kwin-x11-check" || true
         else
@@ -98,6 +99,7 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
             nohup kwin_wayland --replace &>> /dev/null
+            killall plasmashell
             plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
             del "$HOME/.nx-kwin-x11-check" || true
         fi
