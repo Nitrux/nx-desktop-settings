@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.3.0)  nitrux; urgency=medium
+
+  * Update desktop-config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 01 Sep 2023 16:01:00 -0500
+
 nx-desktop-settings-legacy (4.2.9)  nitrux; urgency=medium
 
   * Update desktop-config.
