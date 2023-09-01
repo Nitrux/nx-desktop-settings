@@ -36,12 +36,21 @@ BorderActivate=9
 BorderActivateAll=9
 
 [Desktops]
+BlurStrength=6
+BorderActivate=9
+BorderActivateAll=9
+BorderActivateClass=9
 Id_1=f96d4d9c-ba6c-4040-81e8-7b7c9e84db0d
 Id_2=4414a07d-d6ab-4f67-bab5-19a9c3849baf
 Id_3=3defe8cb-112e-47c2-8e79-afd7504dbe71
 Id_4=dd101948-4295-4fc6-88ab-e1345f3081b0
+LayoutMode=1
+NoiseStrength=1
 Number=4
 Rows=1
+TouchBorderActivate=9
+TouchBorderActivateAll=7
+TouchBorderActivateClass=9
 
 [ModifierOnlyShortcuts]
 Meta=org.kde.plasmashell,/PlasmaShell,org.kde.PlasmaShell,activateLauncherMenu
@@ -176,8 +185,6 @@ WindowSnapZone=10
 Scale=1
 
 [org.kde.kdecoration2]
-BorderSize=Large
-BorderSizeAuto=false
 ButtonsOnLeft=
 ButtonsOnRight=
 library=org.kde.mauideco
