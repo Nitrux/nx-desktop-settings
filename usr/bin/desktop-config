@@ -91,7 +91,7 @@ if [ "${xdg_session}" == "wayland" ]; then
             sleep 2
             kwin_wayland --replace
             sleep 1
-            plasmashell
+            nohup plasmashell 2>&1 | tee -a "$desktop_config_log" &
         else
             echo "Detected as MESA on Wayland"
             echo "Creating Wayland first-run file for MESA on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
@@ -103,7 +103,7 @@ if [ "${xdg_session}" == "wayland" ]; then
             sleep 2
             kwin_wayland --replace
             sleep 1
-            plasmashell
+            nohup plasmashell 2>&1 | tee -a "$desktop_config_log" &
         fi
     fi
 else
@@ -141,10 +141,10 @@ if pgrep -f "fcitx5" >/dev/null; then
   echo "Fcitx5 process is already running, restarting it now..."
   killall fcitx5
   sleep 2
-  fcitx5
+  fcitx5 2>&1 | tee -a "$desktop_config_log" &
 else
   echo "Fcitx5 process is not running. Starting it now..."
-  fcitx5
+  fcitx5 2>&1 | tee -a "$desktop_config_log" &
 fi 
 
 # -- Check for command-line arguments.
