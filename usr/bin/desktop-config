@@ -137,6 +137,16 @@ else
   nohup /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 >/dev/null 2>&1 &
 fi
 
+if pgrep -f "fcitx5" >/dev/null; then
+  echo "Fcitx5 process is already running, restarting it now..."
+  killall fcitx5
+  sleep 2
+  fcitx5
+else
+  echo "Fcitx5 process is not running. Starting it now..."
+  fcitx5
+fi 
+
 # -- Check for command-line arguments.
 
 if [ $# -eq 0 ]; then
