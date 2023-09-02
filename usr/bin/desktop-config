@@ -87,6 +87,9 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+            killall kwin_wayland
+            sleep 1
+            nohup kwin_wayland --replace &>> /dev/null
             killall plasmashell
             sleep 1
             plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
@@ -98,6 +101,9 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+            killall kwin_wayland
+            sleep 1
+            nohup kwin_wayland --replace &>> /dev/null
             killall plasmashell
             sleep 1
             plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
@@ -112,9 +118,9 @@ else
         echo "X11 first-run file does not exist"
         echo "Detected as X11"
         echo "Creating X11 first-run file for X11" >> "$HOME/.nx-kwin-x11-check"
-        cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-        cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-        cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+        cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
+        cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
+        cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
         del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check" || true
     fi
 fi
@@ -137,7 +143,9 @@ fi
 
 if pgrep -f "/usr/bin/fcitx5" >/dev/null; then
   echo "Fcitx5 process is already running, restarting it now..."
-  nohup /usr/bin/fcitx5 --replace >/dev/null 2>&1 &
+  killall fcitx5
+  sleep 1
+  nohup /usr/bin/fcitx5 >/dev/null 2>&1 &
 else
   echo "Fcitx5 process is not running. Starting it now..."
   nohup /usr/bin/fcitx5 >/dev/null 2>&1 &
