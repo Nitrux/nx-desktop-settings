@@ -87,15 +87,6 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-            killall kwin_wayland
-            sleep 1
-            nohup kwin_wayland --replace &>> /dev/null
-            if pgrep -f "/usr/bin/plasmashell" >/dev/null; then
-                echo "Plasmashell process is already running."
-            else
-                echo "Plasmashell process is not running. Starting it now..."
-                nohup /usr/bin/plasmashell >/dev/null 2>&1 &
-            fi
             del "$HOME/.nx-kwin-x11-check" || true
         else
             echo "Detected as MESA on Wayland"
@@ -104,15 +95,6 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-            killall kwin_wayland
-            sleep 1
-            nohup kwin_wayland --replace &>> /dev/null
-            if pgrep -f "/usr/bin/plasmashell" >/dev/null; then
-                echo "Plasmashell process is already running."
-            else
-                echo "Plasmashell process is not running. Starting it now..."
-                nohup /usr/bin/plasmashell >/dev/null 2>&1 &
-            fi
             del "$HOME/.nx-kwin-x11-check" || true
         fi
     fi
@@ -150,7 +132,7 @@ fi
 if pgrep -f "/usr/bin/fcitx5" >/dev/null; then
   echo "Fcitx5 process is already running, restarting it now..."
   killall fcitx5
-  sleep 1
+  sleep 2
   nohup /usr/bin/fcitx5 >/dev/null 2>&1 &
 else
   echo "Fcitx5 process is not running. Starting it now..."
