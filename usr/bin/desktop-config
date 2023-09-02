@@ -90,9 +90,12 @@ if [ "${xdg_session}" == "wayland" ]; then
             killall kwin_wayland
             sleep 1
             nohup kwin_wayland --replace &>> /dev/null
-            killall plasmashell
-            sleep 1
-            plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+            if pgrep -f "/usr/bin/plasmashell" >/dev/null; then
+                echo "Plasmashell process is already running."
+            else
+                echo "Plasmashell process is not running. Starting it now..."
+                nohup /usr/bin/plasmashell >/dev/null 2>&1 &
+            fi
             del "$HOME/.nx-kwin-x11-check" || true
         else
             echo "Detected as MESA on Wayland"
@@ -104,9 +107,12 @@ if [ "${xdg_session}" == "wayland" ]; then
             killall kwin_wayland
             sleep 1
             nohup kwin_wayland --replace &>> /dev/null
-            killall plasmashell
-            sleep 1
-            plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+            if pgrep -f "/usr/bin/plasmashell" >/dev/null; then
+                echo "Plasmashell process is already running."
+            else
+                echo "Plasmashell process is not running. Starting it now..."
+                nohup /usr/bin/plasmashell >/dev/null 2>&1 &
+            fi
             del "$HOME/.nx-kwin-x11-check" || true
         fi
     fi
