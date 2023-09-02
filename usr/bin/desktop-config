@@ -84,28 +84,25 @@ if [ "${xdg_session}" == "wayland" ]; then
             echo "Nvidia on Wayland first-run file does not exist"
             echo "Creating first run file for Nvidia on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
             ln -sv "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
+            cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+            cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+            cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+            killall plasmashell
+            sleep 1
+            plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+            del "$HOME/.nx-kwin-x11-check" || true
         else
             echo "Detected as MESA on Wayland"
             echo "Creating Wayland first-run file for MESA on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
             ln -sv "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
-        fi
-        cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-        cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-        cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-
-        # -- Continuously check if plasmashell is running because I don't know why it decides to just die.
-
-        while true; do
-            if pgrep -x "plasmashell" > /dev/null; then
-                echo "plasmashell is already running, restarting..."
-                pkill -x plasmashell
-            else
-                echo "plasmashell is not running, starting..."
-                nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
-            fi
+            cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+            cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+            cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+            killall plasmashell
             sleep 1
-        done
-        del "$HOME/.nx-kwin-x11-check" || true
+            plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+            del "$HOME/.nx-kwin-x11-check" || true
+        fi
     fi
 else
     echo "This is not Wayland; it is X11"
@@ -115,10 +112,10 @@ else
         echo "X11 first-run file does not exist"
         echo "Detected as X11"
         echo "Creating X11 first-run file for X11" >> "$HOME/.nx-kwin-x11-check"
+        cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+        cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+        cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
         del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check" || true
-        cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
-        cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
-        cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
     fi
 fi
 
