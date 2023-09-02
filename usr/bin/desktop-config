@@ -92,10 +92,6 @@ if [ "${xdg_session}" == "wayland" ]; then
             kwin_wayland --replace
             sleep 1
             plasmashell
-            sleep 1
-            pkill -o fcitx5
-            sleep 1
-            fcitx5
         else
             echo "Detected as MESA on Wayland"
             echo "Creating Wayland first-run file for MESA on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
@@ -108,10 +104,6 @@ if [ "${xdg_session}" == "wayland" ]; then
             kwin_wayland --replace
             sleep 1
             plasmashell
-            sleep 1
-            pkill -o fcitx5
-            sleep 1
-            fcitx5
         fi
     fi
 else
