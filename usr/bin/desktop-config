@@ -88,7 +88,14 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
             del "$HOME/.nx-kwin-x11-check" || true
-            sleep 2; kwin_wayland --replace; sleep 1; plasmashell; sleep 1; fcitx5 --replace
+            sleep 2
+            kwin_wayland --replace
+            sleep 1
+            plasmashell
+            sleep 1
+            pkill -o fcitx5
+            sleep 1
+            fcitx5
         else
             echo "Detected as MESA on Wayland"
             echo "Creating Wayland first-run file for MESA on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
@@ -97,7 +104,14 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
             del "$HOME/.nx-kwin-x11-check" || true
-            sleep 2; kwin_wayland --replace; sleep 1; plasmashell; sleep 1; fcitx5 --replace
+            sleep 2
+            kwin_wayland --replace
+            sleep 1
+            plasmashell
+            sleep 1
+            pkill -o fcitx5
+            sleep 1
+            fcitx5
         fi
     fi
 else
