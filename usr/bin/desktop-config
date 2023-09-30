@@ -24,6 +24,7 @@
 
 set -eu
 
+
 # -- Variables.
 
 # xdg_config_path="/etc/skel/.config"
@@ -35,6 +36,7 @@ dist=$(grep -oP 'PRETTY_NAME=\K.*' /etc/os-release | tr -d '"')
 vendor='Nitrux Latinoamericana S.C.'
 fecha=$(date +%Y)
 hora=$(date +%Y.%m.%d-%H.%M)
+
 
 # -- Functions.
 
@@ -59,6 +61,7 @@ usage() {
 check_plasmashell_running() {
     pgrep -x plasmashell >/dev/null
 }
+
 
 # -- Detect whether the session is X11 or Wayland.
 
@@ -121,6 +124,7 @@ else
     fi
 fi
 
+
 # -- Manually start these Plasma services that, for some reason, don't autostart, even though they have files in /etc/xdg/autostart.
 
 if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil" >/dev/null; then
@@ -146,6 +150,17 @@ else
   echo "Fcitx5 process is not running. Starting it now..."
   fcitx5 2>&1 | tee -a "$desktop_config_log" &
 fi 
+
+
+# -- Check if plasmashell is running, if not start it, or replace if it's running.
+
+echo "Checking KDE Plasma is running..."
+if check_plasmashell_running; then
+    echo "Restarting KDE Plasma..."
+    killall plasmashell
+fi
+nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+
 
 # -- Check for command-line arguments.
 
