@@ -10,7 +10,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 notify-send "Installing Bottles, please wait..." --icon=heroic
 
-flatpak --user install -y flathub com.heroicgameslauncher.hgl
+flatpak install -y com.heroicgameslauncher.hgl
 
 notify-send "Installation complete." --icon=heroic
 

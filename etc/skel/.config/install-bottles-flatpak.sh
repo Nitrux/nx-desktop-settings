@@ -10,7 +10,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 notify-send "Installing Bottles, please wait..." --icon=com.usebottles.bottles
 
-flatpak --user install -y flathub com.usebottles.bottles
+flatpak install -y com.usebottles.bottles
 
 notify-send "Installation complete." --icon=com.usebottles.bottles
 

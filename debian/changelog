@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.3.5)  nitrux; urgency=medium
+
+  * Update install scripts for steam, hgl and bottles.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 29 Sep 2023 19:39:00 -0500
+
 nx-desktop-settings-legacy (4.3.4)  nitrux; urgency=medium
 
   * Remove LO leftovers from eons ago.
