@@ -22,8 +22,8 @@ flatpak run com.heroicgameslauncher.hgl &
 
 if [ -d "$HOME/.var/app/com.heroicgameslauncher.hgl" ];
     then
-         rm "$HOME/.config/install-bottles-flatpak.sh"
-         rm "$HOME/.local/share/applications/install.bottles.desktop"
+         rm "$HOME/.config/install-hgl-flatpak.sh"
+         rm "$HOME/.local/share/applications/install.hgl.desktop"
 fi
 
 exit
