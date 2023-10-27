@@ -6,7 +6,7 @@ set -x
 #	remove stupid things from Plasma, generic KDE launchers, breeze cursors, etc.
 
 rm -rf \
-	/usr/share/applications/{htop.desktop,ibus-setup*,info.desktop,links2.desktop,mc.desktop,mcedit.desktop,micro.desktop,nsnake.desktop,org.freedesktop.IBus*,org.kde.kdeconnect.app.desktop,org.kde.kdeconnect.sms.desktop,org.kde.kdeconnect_open.desktop,org.kde.kinfocenter.desktop,org.kde.plasma.emojier.desktop}
+	/usr/share/applications/{htop.desktop,ibus-setup*,info.desktop,links2.desktop,mc.desktop,mcedit.desktop,micro.desktop,nsnake.desktop,org.freedesktop.IBus*,org.kde.kdeconnect.app.desktop,org.kde.kdeconnect.sms.desktop,org.kde.kdeconnect_open.desktop,org.kde.kinfocenter.desktop,org.kde.plasma.emojier.desktop,rofi.desktop,rofi-theme-selector.desktop}
 
 
 

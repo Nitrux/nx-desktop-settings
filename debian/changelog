@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (4.3.7)  nitrux; urgency=medium
+
+  * Update desktop-config.
+  * Delete unecessary launchers.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 27 Oct 2023 02:18:00 -0500
+
 nx-desktop-settings-legacy (4.3.6)  nitrux; urgency=medium
 
   * Update desktop-config.

@@ -151,6 +151,13 @@ else
   fcitx5 2>&1 | tee -a "$desktop_config_log" &
 fi 
 
+if pgrep -f "plasma-hud" >/dev/null; then
+  echo "plasma-hud process is already running."
+else
+  echo "plasma-hud process is not running. Starting it now..."
+  nohup /usr/lib/plasma-hud/plasma-hud >/dev/null 2>&1 &
+fi
+
 
 # -- Check if plasmashell is running, if not start it, or replace if it's running.
 
