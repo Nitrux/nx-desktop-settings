@@ -116,6 +116,55 @@ fi
 alias sudo='sudo '
 alias pkexec='pkexec '
 
+# Consistently display only our custom directories.
+function ls() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command ls "${new_args[@]}"
+}
+
+function tree() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command tree "${new_args[@]}"
+}
+
+function dir() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command dir "${new_args[@]}"
+}
+
+function vdir() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command vdir "${new_args[@]}"
+}
+
 # Make DrKonqi shupt the F up
 export KDE_DEBUG=1
 

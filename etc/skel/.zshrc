@@ -123,10 +123,59 @@ alias pkexec='pkexec '
 # # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 # export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
+# Consistently display only our custom directories.
+function ls() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command ls "${new_args[@]}"
+}
+
+function tree() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command tree "${new_args[@]}"
+}
+
+function dir() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command dir "${new_args[@]}"
+}
+
+function vdir() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command vdir "${new_args[@]}"
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Make DrKonqi shupt the F up
+# Make DrKonqi shut the F up
 export KDE_DEBUG=1
 
 # Add $PATH for AppImages
