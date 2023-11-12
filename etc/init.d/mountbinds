@@ -30,8 +30,6 @@ start() {
     mount --bind /usr/lib /System/Libraries
     mount --bind /usr/share /System/Shareable
     mount --bind /var /System/Variable
-    mount --bind /var/lib /System/Variable/Library
-    mount --bind /var/log /System/Variable/Logs
     mount --bind /home /Users
 
     eend $?
@@ -50,8 +48,6 @@ stop() {
     umount /System/Libraries
     umount /System/Shareable
     umount /System/Variable
-    umount /System/Variable/Library
-    umount /System/Variable/Logs
     umount /Users
 
     eend $?
