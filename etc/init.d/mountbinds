@@ -32,6 +32,7 @@ start() {
     mount --bind /var /System/Variable
     mount --bind /var/lib /System/Variable/Library
     mount --bind /var/log /System/Variable/Logs
+    mount --bind /home /Users
 
     eend $?
 }
@@ -51,6 +52,7 @@ stop() {
     umount /System/Variable
     umount /System/Variable/Library
     umount /System/Variable/Logs
+    umount /Users
 
     eend $?
 }

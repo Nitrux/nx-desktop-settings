@@ -1,8 +1,8 @@
-nx-desktop-settings-legacy (4.3.9)  nitrux; urgency=medium
+nx-desktop-settings-legacy (4.4.0)  nitrux; urgency=medium
 
-  * Update shell profiles with custom functions.
+  * Add missing directory to init script.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Sun, 12 Nov 2023 00:13:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 12 Nov 2023 05:37:00 -0500
 
 nx-desktop-settings-legacy (4.3.8)  nitrux; urgency=medium
 
