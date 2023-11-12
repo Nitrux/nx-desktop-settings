@@ -1,0 +1,51 @@
+#!/sbin/openrc-run
+
+depend() {
+    need mountall
+}
+
+start() {
+    ebegin "Copying NetworkManager system connections at startup"
+
+    local source_dir="/var/lib/NetworkManager/system-connections"
+    local dest_dir="/etc/NetworkManager/system-connections"
+
+    # Create destination directory if it doesn't exist
+    if [ ! -d "$dest_dir" ]; then
+        mkdir -p "$dest_dir"
+        einfo "Created directory $dest_dir"
+    fi
+
+    # Copy files from source to destination
+    if [ -d "$source_dir" ] && [ "$(ls -A $source_dir)" ]; then
+        cp -r $source_dir/* $dest_dir/
+        einfo "Copied files to $dest_dir"
+    else
+        einfo "Source directory $source_dir is empty or does not exist. No files copied."
+    fi
+
+    eend $?
+}
+
+stop() {
+    ebegin "Copying NetworkManager system connections before shutdown"
+
+    local source_dir="/etc/NetworkManager/system-connections"
+    local dest_dir="/var/lib/NetworkManager/system-connections"
+
+    # Create destination directory if it doesn't exist
+    if [ ! -d "$dest_dir" ]; then
+        mkdir -p "$dest_dir"
+        einfo "Created directory $dest_dir"
+    fi
+
+    # Copy files from source to destination
+    if [ -d "$source_dir" ] && [ "$(ls -A $source_dir)" ]; then
+        cp -r $source_dir/* $dest_dir/
+        einfo "Copied files to $dest_dir"
+    else
+        einfo "Source directory $source_dir is empty or does not exist. No files copied."
+    fi
+
+    eend $?
+}

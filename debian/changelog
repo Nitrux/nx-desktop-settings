@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.4.2)  nitrux; urgency=medium
+
+  * Add init script to copy wireless connections to var lib so they persist
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 12 Nov 2023 16:30:00 -0500
+
 nx-desktop-settings-legacy (4.4.1)  nitrux; urgency=medium
 
   * Remove directories from the init script as they do not exist in the root even for whatever reason.
