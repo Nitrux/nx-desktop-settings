@@ -25,8 +25,8 @@ start() {
     mount --bind /usr/sbin /System/Binaries/Administrative
     mount --bind /usr/bin /System/Binaries/Standard
     mount --bind /opt /System/Binaries/Optional
-    mount --bind /mnt /System/Filesystems/External
-    mount --bind /media /System/Filesystems/Internal
+    mount --bind /mnt /System/Filesystems/Internal
+    mount --bind /media /System/Filesystems/External
     mount --bind /usr/lib /System/Libraries
     mount --bind /usr/share /System/Shareable
     mount --bind /var /System/Variable
