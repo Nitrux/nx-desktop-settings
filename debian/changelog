@@ -1,6 +1,13 @@
+nx-desktop-settings-legacy (4.4.3)  nitrux; urgency=medium
+
+  * Remove init script.
+  * Add extra flags for desktop-config to show or hide the window titlebar.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 13 Nov 2023 06:49:00 -0500
+
 nx-desktop-settings-legacy (4.4.2)  nitrux; urgency=medium
 
-  * Add init script to copy wireless connections to var lib so they persist
+  * Add init script to copy wireless connections to var lib so they persist.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sun, 12 Nov 2023 16:30:00 -0500
 

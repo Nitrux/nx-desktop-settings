@@ -54,8 +54,10 @@ get_gpu_manufacturer() {
 
 usage() {
     echo "Usage: $0 [--restart-desktop] [--help]"
-    echo "  --restart-desktop       Kill and replace plasmashell"
-    echo "  --help                  Display this help message"
+    echo "  --restart-desktop          Kill and replace plasmashell"
+    echo "  --show-window-titlebar     Show the window titlebar"
+    echo "  --hide-window-titlebar     Don't show the window titlebar"
+    echo "  --help                     Display this help message"
 }
 
 check_plasmashell_running() {
@@ -174,19 +176,35 @@ nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
 if [ $# -eq 0 ]; then
     echo "No arguments provided. The script will run normally."
 else
-    if [ "$1" == "--restart-desktop" ]; then
-        echo "Restarting KDE Plasma..."
-        if check_plasmashell_running; then
-            killall plasmashell
-        fi
-        nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
-        exit 0
-    elif [ "$1" == "--help" ]; then
-        usage
-        exit 0
-    else
-        echo "Invalid argument: $1"
-        usage
-        exit 1
-    fi
+    case "$1" in
+        --restart-desktop)
+            echo "Restarting KDE Plasma..."
+            if check_plasmashell_running; then
+                killall plasmashell
+            fi
+            nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+            exit 0
+            ;;
+        --show-window-titlebar)
+            echo "Showing window titlebar..."
+            sed -i 's/HideTitleBar=Always/HideTitleBar=Never/' "$HOME/.config/breezerc"
+            echo "Reload KWin or change theme to apply changes..."
+            exit 0
+            ;;
+        --hide-window-titlebar)
+            echo "Hiding window titlebar..."
+            sed -i 's/HideTitleBar=Never/HideTitleBar=Always/' "$HOME/.config/breezerc"
+            echo "Reload KWin or change theme to apply changes..."
+            exit 0
+            ;;
+        --help)
+            usage
+            exit 0
+            ;;
+        *)
+            echo "Invalid argument: $1"
+            usage
+            exit 1
+            ;;
+    esac
 fi ) 2>&1 | tee -a "$desktop_config_log"
