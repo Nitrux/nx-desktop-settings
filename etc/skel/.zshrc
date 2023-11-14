@@ -172,6 +172,18 @@ function vdir() {
     command vdir "${new_args[@]}"
 }
 
+function grep() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command grep "${new_args[@]}"
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

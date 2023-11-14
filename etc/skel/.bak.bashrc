@@ -165,6 +165,18 @@ function vdir() {
     command vdir "${new_args[@]}"
 }
 
+function grep() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command grep "${new_args[@]}"
+}
+
 # Make DrKonqi shupt the F up
 export KDE_DEBUG=1
 
