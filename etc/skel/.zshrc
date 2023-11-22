@@ -129,6 +129,8 @@ function ls() {
     for arg in "$@"; do
         if [[ "$arg" == "/" ]]; then
             new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
         else
             new_args+=("$arg")
         fi
@@ -141,6 +143,8 @@ function tree() {
     for arg in "$@"; do
         if [[ "$arg" == "/" ]]; then
             new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
         else
             new_args+=("$arg")
         fi
@@ -153,6 +157,8 @@ function dir() {
     for arg in "$@"; do
         if [[ "$arg" == "/" ]]; then
             new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
         else
             new_args+=("$arg")
         fi
@@ -177,11 +183,27 @@ function grep() {
     for arg in "$@"; do
         if [[ "$arg" == "/" ]]; then
             new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
         else
             new_args+=("$arg")
         fi
     done
     command grep "${new_args[@]}"
+}
+
+function cat() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command cat "${new_args[@]}"
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

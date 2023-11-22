@@ -96,7 +96,7 @@ fi
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+#	shellcheck source=/dev/null
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -104,6 +104,7 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
+#	shellcheck source=/dev/null
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -122,6 +123,8 @@ function ls() {
     for arg in "$@"; do
         if [[ "$arg" == "/" ]]; then
             new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
         else
             new_args+=("$arg")
         fi
@@ -134,6 +137,8 @@ function tree() {
     for arg in "$@"; do
         if [[ "$arg" == "/" ]]; then
             new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
         else
             new_args+=("$arg")
         fi
@@ -146,6 +151,8 @@ function dir() {
     for arg in "$@"; do
         if [[ "$arg" == "/" ]]; then
             new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
         else
             new_args+=("$arg")
         fi
@@ -170,11 +177,27 @@ function grep() {
     for arg in "$@"; do
         if [[ "$arg" == "/" ]]; then
             new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
         else
             new_args+=("$arg")
         fi
     done
     command grep "${new_args[@]}"
+}
+
+function cat() {
+    local new_args=()
+    for arg in "$@"; do
+        if [[ "$arg" == "/" ]]; then
+            new_args+=("/System" "/Applications" "/Users")
+        elif [[ "$arg" == "/home/$USER" ]]; then
+            new_args+=("/Users/$USER")
+        else
+            new_args+=("$arg")
+        fi
+    done
+    command cat "${new_args[@]}"
 }
 
 # Make DrKonqi shupt the F up

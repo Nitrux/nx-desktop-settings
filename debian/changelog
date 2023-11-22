@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.4.6)  nitrux; urgency=medium
+
+  * Update shell profiles with custom functions.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 Nov 2023 15:26:00 -0500
+
 nx-desktop-settings-legacy (4.4.5)  nitrux; urgency=medium
 
   * Silence fcitx5 Plasma wayland notification.
