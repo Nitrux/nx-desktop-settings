@@ -22,6 +22,7 @@ start() {
 
     mount --bind /dev /System/Devices
     mount --bind /boot /System/Boot
+    mount --bind /etc /System/Configuration
     mount --bind /usr/sbin /System/Binaries/Administrative
     mount --bind /usr/bin /System/Binaries/Standard
     mount --bind /opt /System/Binaries/Optional
@@ -40,6 +41,7 @@ stop() {
 
     umount /System/Devices
     umount /System/Boot
+    umount /System/Configuration
     umount /System/Binaries/Administrative
     umount /System/Binaries/Standard
     umount /System/Binaries/Optional
