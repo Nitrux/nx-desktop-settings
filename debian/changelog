@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (4.4.9)  nitrux; urgency=medium
+
+  * Fix desktop-config to actually use the flags, include a check to restart plasma shell twice when using NVIDIA hardware.
+  * Add another flag to restart KWin X11.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 27 Nov 2023 22:10:00 -0500
+
 nx-desktop-settings-legacy (4.4.8)  nitrux; urgency=medium
 
   * Fix wrong name in notification sent by HGL install script.

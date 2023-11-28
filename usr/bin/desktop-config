@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #############################################################################################################################################################################
 #   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
@@ -53,8 +53,15 @@ get_gpu_manufacturer() {
 }
 
 usage() {
-    echo "Usage: $0 [--restart-desktop] [--help]"
-    echo "  --restart-desktop          Kill and replace plasmashell"
+    script_name=$(basename "$0")
+    echo "NX Desktop is our set of applied customizations to the Plasma 5 Desktop."
+    echo
+    echo -e "(c) $fecha Some Rights Reserved. Made by $vendor"
+    echo
+    echo "Usage: $script_name [--restart-desktop] [--restart-wm] [--show-window-titlebar] [--hide-window-titlebar] [--help]"
+    echo
+    echo "  --restart-desktop          Restart KDE Plasma"
+    echo "  --restart-wm               Restart KWin X11"
     echo "  --show-window-titlebar     Show the window titlebar"
     echo "  --hide-window-titlebar     Don't show the window titlebar"
     echo "  --help                     Display this help message"
@@ -64,9 +71,14 @@ check_plasmashell_running() {
     pgrep -x plasmashell >/dev/null
 }
 
+check_kwin_x11_running() {
+    pgrep -x kwin_x11 >/dev/null
+}
 
-# -- Detect whether the session is X11 or Wayland.
 
+# -- Detect whether the session is X11 or Wayland and if it's running on NVIDIA or MESA.
+
+main_script() {
 ( echo ' ';
 echo "=========================="
 echo "Logging started at $hora"
@@ -83,11 +95,11 @@ if [ "${xdg_session}" == "wayland" ]; then
         echo "Do nothing"
     else
         echo "Wayland first-run file does not exist"
-        echo "Check if using Nvidia or Mesa"
+        echo "Check if using NVIDIA or Mesa"
         if [ "$(get_gpu_manufacturer)" == "NVIDIA" ]; then
-            echo "Detected as Nvidia on Wayland"
-            echo "Nvidia on Wayland first-run file does not exist"
-            echo "Creating first run file for Nvidia on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
+            echo "Detected as NVIDIA on Wayland"
+            echo "NVIDIA on Wayland first-run file does not exist"
+            echo "Creating first run file for NVIDIA on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
             ln -sv "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
             cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
@@ -168,13 +180,28 @@ if check_plasmashell_running; then
     echo "Restarting KDE Plasma..."
     killall plasmashell
 fi
-nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" & 
+
+
+# -- Restart plasmashell again during the Live session if the Wayland session is running on NVIDIA hardware.
+# -- But, only do this during the Live session because who the hell knows why plasmashell crashes here but not after installation.
+
+if [ -f "$HOME/.nx-nvidia-kwin-wayland-check" ] && [ -f "/usr/bin/calamares" ]; then
+    echo "Detected NVIDIA hardware with Wayland session in Live session. Restarting plasmashell again in 3 seconds..."
+    sleep 3
+    if check_plasmashell_running; then
+        killall plasmashell
+    fi
+    nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
+fi ) 2>&1 | tee -a "$desktop_config_log"
+}
 
 
 # -- Check for command-line arguments.
 
 if [ $# -eq 0 ]; then
     echo "No arguments provided. The script will run normally."
+    main_script
 else
     case "$1" in
         --restart-desktop)
@@ -184,6 +211,23 @@ else
             fi
             nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
             exit 0
+            ;;
+        --restart-wm)
+            echo "Checking for Wayland session..."
+            if [ -f "$HOME/.nx-kwin-wayland-check" ]; then
+                echo "KWin Wayland is detected. KWin X11 cannot be restarted in a Wayland session."
+                exit 1
+            else
+                echo "Restarting KWin X11..."
+                if check_kwin_x11_running; then
+                    killall kwin_x11
+                    nohup kwin_x11 --replace 2>&1 | tee -a "$desktop_config_log" &
+                    echo "KWin X11 restarted successfully."
+                else
+                    echo "KWin X11 is not running and cannot be restarted."
+                fi
+                exit 0
+            fi
             ;;
         --show-window-titlebar)
             echo "Showing window titlebar..."
@@ -207,4 +251,4 @@ else
             exit 1
             ;;
     esac
-fi ) 2>&1 | tee -a "$desktop_config_log"
+fi
