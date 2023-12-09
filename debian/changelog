@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.5.2)  nitrux; urgency=medium
+
+  * Remove link protection override since the Liquorix kernel does not support it.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 09 Dec 2023 14:15:00 -0500
+
 nx-desktop-settings-legacy (4.5.1)  nitrux; urgency=medium
 
   * Enable link protection for all users including root.
