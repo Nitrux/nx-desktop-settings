@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.5.1)  nitrux; urgency=medium
+
+  * Enable link protection for all users including root.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 09 Dec 2023 13:01:00 -0500
+
 nx-desktop-settings-legacy (4.5.0)  nitrux; urgency=medium
 
   * Add link protection to sysctl configuration.
