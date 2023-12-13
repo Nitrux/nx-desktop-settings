@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.5.3)  nitrux; urgency=medium
+
+  * Use IBM Plex Sans as default font.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 13 Dec 2023 16:49:00 -0500
+
 nx-desktop-settings-legacy (4.5.2)  nitrux; urgency=medium
 
   * Remove link protection override since the value 2 is not a valid argument and it is already enabled.
