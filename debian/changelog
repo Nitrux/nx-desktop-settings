@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (4.5.5)  nitrux; urgency=medium
+
+  * Update desktop-config to delete kwinrc before copying our config file.
+  * Add Polonium KWin script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 14 Dec 2023 16:12:00 -0500
+
 nx-desktop-settings-legacy (4.5.4)  nitrux; urgency=medium
 
   * Use Switzer as default sans font and CamingoCode as default mono space font.

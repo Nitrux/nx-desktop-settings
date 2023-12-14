@@ -88,6 +88,8 @@ echo ' ';
 echo -e "(c) $fecha Some Rights Reserved. Made by $vendor";
 echo ' ';
 
+del "$xdg_user_path/kwinrc"
+
 if [ "${xdg_session}" == "wayland" ]; then
     echo "This is Wayland"
     if [ -f "$HOME/.nx-kwin-wayland-check" ]; then
