@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.5.6)  nitrux; urgency=medium
+
+  * Update desktop-config to ensure that XWayland scaling is set to 1.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 14 Dec 2023 20:13:00 -0500
+
 nx-desktop-settings-legacy (4.5.5)  nitrux; urgency=medium
 
   * Update desktop-config to delete kwinrc before copying our config file.

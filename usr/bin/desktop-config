@@ -88,8 +88,6 @@ echo ' ';
 echo -e "(c) $fecha Some Rights Reserved. Made by $vendor";
 echo ' ';
 
-del "$xdg_user_path/kwinrc"
-
 if [ "${xdg_session}" == "wayland" ]; then
     echo "This is Wayland"
     if [ -f "$HOME/.nx-kwin-wayland-check" ]; then
@@ -107,6 +105,13 @@ if [ "${xdg_session}" == "wayland" ]; then
             cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
             cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
             del "$HOME/.nx-kwin-x11-check" || true
+            if grep -q "\[Xwayland\]" "$xdg_user_path/kwinrc"; then
+                echo "[Xwayland] section exists, updating Scale setting."
+                sed -i '/^\[Xwayland\]/,/^\[/ s/^Scale=.*/Scale=1/' "$xdg_user_path/kwinrc"
+            else
+                echo "Adding [Xwayland] section with Scale=1."
+                echo -e "\n[Xwayland]\nScale=1" >> "$xdg_user_path/kwinrc"
+            fi
             sleep 2
             kwin_wayland --replace
             sleep 1
