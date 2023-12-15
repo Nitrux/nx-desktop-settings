@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.5.8)  nitrux; urgency=medium
+
+  * Force XWayland scaling is set to 1.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 15 Dec 2023 01:33:00 -0500
+
 nx-desktop-settings-legacy (4.5.7)  nitrux; urgency=medium
 
   * Add font configuration.
