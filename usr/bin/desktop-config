@@ -75,11 +75,25 @@ check_kwin_x11_running() {
     pgrep -x kwin_x11 >/dev/null
 }
 
+check_log_file_size() {
+    local max_size_kb=10240  # Maximum size in KB (10 MB)
+    local log_file_size_kb
+
+    if [ -f "$desktop_config_log" ]; then
+        log_file_size_kb=$(du -k "$desktop_config_log" | cut -f1)
+        if [ "$log_file_size_kb" -ge "$max_size_kb" ]; then
+            echo "Log file size exceeded $max_size_kb KB, deleting..."
+            rm -f "$desktop_config_log"
+        fi
+    fi
+}
+
 
 # -- Detect whether the session is X11 or Wayland and if it's running on NVIDIA or MESA.
 
 main_script() {
-( echo ' ';
+( check_log_file_size
+echo ' ';
 echo "=========================="
 echo "Logging started at $hora"
 echo ' ';
