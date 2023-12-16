@@ -217,7 +217,13 @@ fi ) 2>&1 | tee -a "$desktop_config_log"
 
 if grep -q "\[Xwayland\]" "$xdg_user_path/kwinrc"; then
     echo "[Xwayland] section exists, updating Scale setting."
-    sed -i '/^\[Xwayland\]/,/^\[/ s/^Scale=.*/Scale=1/' "$xdg_user_path/kwinrc"
+    awk '
+        /^\[Xwayland\]/ { print; inSection = 1; next }
+        /^\[/ { inSection = 0 }
+        inSection && /^Scale=/ { print "Scale=1"; next }
+        { print }
+    ' "$xdg_user_path/kwinrc" > "$xdg_user_path/kwinrc.tmp"
+    mv "$xdg_user_path/kwinrc.tmp" "$xdg_user_path/kwinrc"
 else
     echo "Adding [Xwayland] section with Scale=1."
     echo -e "\n[Xwayland]\nScale=1" >> "$xdg_user_path/kwinrc"

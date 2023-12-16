@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.6.0)  nitrux; urgency=medium
+
+  * Force XWayland scaling is set to 1.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 16 Dec 2023 02:16:00 -0500
+
 nx-desktop-settings-legacy (4.5.9)  nitrux; urgency=medium
 
   * Cap the log file size at 10 MB otherwise it grows too big.
