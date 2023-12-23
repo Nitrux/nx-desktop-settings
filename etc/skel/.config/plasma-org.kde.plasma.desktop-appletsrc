@@ -42,6 +42,27 @@ remove=true
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
 
+[Containments][115]
+ItemGeometries-1280x800=
+ItemGeometriesHorizontal=
+activityId=3dbff847-9bbc-46b2-960e-bd5fba26bd10
+formfactor=0
+immutability=1
+lastScreen=0
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=a2n.blur
+
+[Containments][115][ConfigDialog]
+DialogHeight=510
+DialogWidth=680
+
+[Containments][115][Wallpaper][a2n.blur][General]
+AnimationDuration=150
+Image=/usr/share/wallpapers/Aqua/
+PreviewImage=/usr/share/wallpapers/Aqua/
+SlidePaths=/usr/share/wallpapers/
+
 [Containments][2]
 activityId=
 formfactor=2
@@ -49,7 +70,7 @@ immutability=1
 lastScreen=0
 location=3
 plugin=org.kde.panel
-wallpaperplugin=org.kde.image
+wallpaperplugin=a2n.blur
 
 [Containments][2][Applets][112]
 immutability=1
@@ -166,37 +187,6 @@ PreloadWeight=0
 [Containments][2][General]
 AppletOrder=15;16;17;18;19;61;86;84;112
 
-[Containments][3]
-ItemGeometries-2560x1440=Applet-108:1962,1402,842,54,0;
-ItemGeometriesHorizontal=Applet-108:1962,1402,842,54,0;
-activityId=49f589cc-d2a1-43da-b4cf-1f559693615c
-formfactor=0
-immutability=1
-lastScreen=0
-location=0
-plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
-
-[Containments][3][Applets][108]
-immutability=1
-plugin=org.kde.plasma.panelspacer
-
-[Containments][3][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][3][Configuration]
-PreloadWeight=2
-
-[Containments][3][General]
-ToolBoxButtonState=topcenter
-ToolBoxButtonX=780
-ToolBoxButtonY=26
-
-[Containments][3][Wallpaper][org.kde.image][General]
-Image=/usr/share/wallpapers/Cask/
-SlidePaths=/usr/share/wallpapers/
-
 [Containments][4]
 activityId=
 formfactor=2
@@ -204,7 +194,7 @@ immutability=1
 lastScreen=0
 location=4
 plugin=org.kde.panel
-wallpaperplugin=org.kde.image
+wallpaperplugin=a2n.blur
 
 [Containments][4][Applets][107]
 immutability=1
@@ -241,6 +231,36 @@ launchers=preferred://filemanager,applications:org.nx.softwarecenter.desktop,pre
 showOnlyCurrentScreen=true
 wheelSkipMinimized=false
 
+[Containments][4][Applets][116]
+immutability=1
+plugin=P-Connor.PlasmaDrawer
+
+[Containments][4][Applets][116][Configuration]
+PreloadWeight=100
+
+[Containments][4][Applets][116][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][4][Applets][116][Configuration][General]
+animationSpeedMultiplier=1.3000000000000003
+appIconSize=128
+backgroundOpacity=90
+favoritesPortedToKAstats=true
+hiddenApplications=appimagekit_e00131cdaf6606b58dc63e02f6f9667a-appimage-cli-tool.desktop,appimagekit_691afdd8254cdd6210cad9fe09dc3c0c-appimage-cli-tool.desktop,appimagekit_c622bf8ce674464048e56ad7b1c9c3ec-AppImageUpdate.desktop,appimagekit_33264d7382d4da20e2058b56c70584b3-Firefox.desktop,appimagekit_13e096f2a11dd27115677128a912dbba-Firefox.desktop,org.kde.kmenuedit.desktop,appimagekit_cc22cf1990cbd4ea25c2cd3f9236c9d9-appimage-cli-tool.desktop,org.maui.settings.desktop,org.kde.fiery.desktop,org.kde.latte-dock.desktop,org.kde.agenda.desktop,org.kde.communicator.desktop,appimagekit_654a6860494c0adba861ecb314e23fe4-Firefox.desktop,org.kde.booth.desktop,org.fcitx.Fcitx5.desktop,setup-mozc.desktop,im-config.desktop,appimagekit_89688fd275690f87364cb0aa03793f66-Hardware_Probe.desktop,appimagekit_18fdaa3ea99118c7b9bee6bc187e2d70-Hardware_Probe.desktop,org.kde.kwalletmanager5.desktop
+numberColumns=6
+numberRows=4
+scrollAnimationDuration=250
+searchIconSize=64
+showFavorites=false
+showSystemActions=false
+spaceHeight=20
+spaceWidth=36
+useCustomSizeGrid=true
+
+[Containments][4][Applets][116][Shortcuts]
+global=Alt+F1
+
 [Containments][4][Applets][12]
 immutability=1
 plugin=org.kde.plasma.lock_logout
@@ -275,32 +295,6 @@ DialogWidth=720
 [Containments][4][Applets][14][Configuration][General]
 lengthMargin=16
 thickMargin=11
-
-[Containments][4][Applets][5]
-immutability=1
-plugin=launchpadPlasmaMod
-
-[Containments][4][Applets][5][Configuration]
-PreloadWeight=100
-
-[Containments][4][Applets][5][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][4][Applets][5][Configuration][General]
-backgroundOpacity=90
-favoritesPortedToKAstats=true
-hiddenApplications=appimagekit_e00131cdaf6606b58dc63e02f6f9667a-appimage-cli-tool.desktop,appimagekit_691afdd8254cdd6210cad9fe09dc3c0c-appimage-cli-tool.desktop,appimagekit_c622bf8ce674464048e56ad7b1c9c3ec-AppImageUpdate.desktop,appimagekit_33264d7382d4da20e2058b56c70584b3-Firefox.desktop,appimagekit_13e096f2a11dd27115677128a912dbba-Firefox.desktop,org.kde.kmenuedit.desktop,appimagekit_cc22cf1990cbd4ea25c2cd3f9236c9d9-appimage-cli-tool.desktop,org.maui.settings.desktop,org.kde.fiery.desktop,org.kde.latte-dock.desktop,org.kde.agenda.desktop,org.kde.communicator.desktop,appimagekit_654a6860494c0adba861ecb314e23fe4-Firefox.desktop,org.kde.booth.desktop,org.fcitx.Fcitx5.desktop,setup-mozc.desktop,im-config.desktop,appimagekit_89688fd275690f87364cb0aa03793f66-Hardware_Probe.desktop,appimagekit_18fdaa3ea99118c7b9bee6bc187e2d70-Hardware_Probe.desktop,org.kde.kwalletmanager5.desktop
-numberColumns=6
-numberRows=4
-scrollAnimationDuration=250
-showFavorites=true
-spaceHeight=20
-spaceWidth=36
-useCustomSizeGrid=true
-
-[Containments][4][Applets][5][Shortcuts]
-global=Alt+F1
 
 [Containments][4][Applets][6]
 immutability=1
@@ -345,7 +339,7 @@ DialogHeight=84
 DialogWidth=2560
 
 [Containments][4][General]
-AppletOrder=109;5;6;7;8;111;13;11;14;12;107
+AppletOrder=109;116;6;7;8;111;13;11;14;12;107
 
 [Containments][41]
 activityId=
@@ -356,7 +350,7 @@ location=3
 plugin=org.kde.plasma.private.systemtray
 popupHeight=432
 popupWidth=432
-wallpaperplugin=org.kde.image
+wallpaperplugin=a2n.blur
 
 [Containments][41][Applets][110]
 immutability=1
@@ -517,7 +511,7 @@ location=3
 plugin=org.kde.plasma.private.systemtray
 popupHeight=720
 popupWidth=436
-wallpaperplugin=org.kde.image
+wallpaperplugin=a2n.blur
 
 [Containments][87][Applets][100]
 immutability=1
@@ -634,4 +628,4 @@ shownItems=org.nx.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.pla
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/org.nxos.installer.desktop,0,5931787d-4974-4b3b-bc06-45e4e6983f02
+screenMapping=desktop:/org.nxos.installer.desktop,0,3dbff847-9bbc-46b2-960e-bd5fba26bd10,desktop:/org.nxos.installer.desktop,0,958da15a-8db3-4db5-b92d-eeb1f4877317,desktop:/org.nxos.installer.desktop,0,5931787d-4974-4b3b-bc06-45e4e6983f02
