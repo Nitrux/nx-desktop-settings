@@ -109,7 +109,7 @@ contrastEnabled=true
 [TabBox]
 DesktopLayout=org.kde.nitrux.dark.desktop
 DesktopListLayout=org.kde.nitrux.dark.desktop
-LayoutName=big_icons
+LayoutName=coverswitch
 ActivitiesMode=0
 ApplicationsMode=0
 BorderActivate=9
@@ -120,7 +120,6 @@ MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
 ShowTabBox=true
-SwitchingMode=1
 TouchBorderActivate=9
 TouchBorderAlternativeActivate=9
 

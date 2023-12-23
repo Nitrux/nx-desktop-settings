@@ -1,3 +1,98 @@
+nx-desktop-settings-legacy (4.7.6)  nitrux; urgency=medium
+
+  * Revert remove files used to create Plasma desktop layout since now the look-and-feel creates the panels succesfully.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 23 Dec 2023 02:37:00 -0500
+
+nx-desktop-settings-legacy (4.7.5)  nitrux; urgency=medium
+
+  * Ensure the desktop layout is actually loaded.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 22 Dec 2023 07:36:00 -0500
+
+nx-desktop-settings-legacy (4.7.4)  nitrux; urgency=medium
+
+  * Remove files used to create Plasma desktop layout since now the look-and-feel creates the panels succesfully.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 22 Dec 2023 05:53:00 -0500
+
+nx-desktop-settings-legacy (4.7.3)  nitrux; urgency=medium
+
+  * Update Maui apps configuration files.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 21 Dec 2023 21:15:00 -0500
+
+nx-desktop-settings-legacy (4.7.2)  nitrux; urgency=medium
+
+  * Enable MAC address randomization mode for Wi-Fi networks in NetworkManager.
+  * Enable IPV6 privacy extensions in NetworkManager and in sysctl.
+  * Remove workaround for NetWorkManager carried over from old Ubuntu days.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 21 Dec 2023 19:12:00 -0500
+
+nx-desktop-settings-legacy (4.7.1)  nitrux; urgency=medium
+
+  * Change plasma drawer configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 21 Dec 2023 03:09:00 -0500
+
+nx-desktop-settings-legacy (4.7.0)  nitrux; urgency=medium
+
+  * Revert changes, actually use the look and feel to configure the panel layout.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 21 Dec 2023 01:06:00 -0500
+
+nx-desktop-settings-legacy (4.6.9)  nitrux; urgency=medium
+
+  * Force our Plasma configuration the first time.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 21 Dec 2023 00:14:00 -0500
+
+nx-desktop-settings-legacy (4.6.8)  nitrux; urgency=medium
+
+  * Update kwinrc to use coverswitch window switcher.
+  * Update kwinrc to use recently used as switching order instead of stacking.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 20 Dec 2023 20:57:00 -0500
+
+nx-desktop-settings-legacy (4.6.7)  nitrux; urgency=medium
+
+  * Update Plasma configuration with Active Blur and Plasma Drawer.
+  * Remove help from /usr/bin.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 20 Dec 2023 18:31:00 -0500
+
+nx-desktop-settings-legacy (4.6.5)  nitrux; urgency=medium
+
+  * Add missing information in desktop-config help.
+  * Move plasmoids to nx-plasma-look-and-feel package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 18 Dec 2023 21:58:00 -0500
+
+nx-desktop-settings-legacy (4.6.4)  nitrux; urgency=medium
+
+  * Revert some changes in desktop-config otherwise KWin configuration is ignored on first boot.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 18 Dec 2023 01:27:00 -0500
+
+nx-desktop-settings-legacy (4.6.3)  nitrux; urgency=medium
+
+  * Update kwinrc, plasma-org.kde.plasma.desktop-appletsrc and add plasmarc.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 17 Dec 2023 15:01:00 -0500
+
+nx-desktop-settings-legacy (4.6.2)  nitrux; urgency=medium
+
+  * Make desktop-config less verbose by default.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 16 Dec 2023 16:36:00 -0500
+
+nx-desktop-settings-legacy (4.6.1)  nitrux; urgency=medium
+
+  * Clean desktop-config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 16 Dec 2023 13:28:00 -0500
+
 nx-desktop-settings-legacy (4.6.0)  nitrux; urgency=medium
 
   * Force XWayland scaling is set to 1.

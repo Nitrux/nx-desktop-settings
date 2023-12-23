@@ -22,7 +22,7 @@
 #    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.   #
 #############################################################################################################################################################################
 
-set -eu
+set -euo pipefail
 
 
 # -- Variables.
@@ -40,6 +40,22 @@ hora=$(date +%Y.%m.%d-%H.%M)
 
 # -- Functions.
 
+usage() {
+    script_name=$(basename "$0")
+    echo "NX Desktop is our set of applied customizations to the Plasma 5 Desktop."
+    echo
+    echo -e "(c) $fecha Some Rights Reserved. Made by $vendor"
+    echo
+    echo "Usage: $script_name [--restart-desktop] [--restart-wm] [--show-window-titlebar] [--hide-window-titlebar] [--help]"
+    echo
+    echo "  --restart-desktop          Restart KDE Plasma"
+    echo "  --restart-desktop-debug    Restart KDE Plasma and write the console output to a log file"
+    echo "  --restart-wm-x11           Restart KWin X11"
+    echo "  --show-window-titlebar     Show the window titlebar"
+    echo "  --hide-window-titlebar     Don't show the window titlebar"
+    echo "  --help                     Display this help message"
+}
+
 cp_rc() {
     cp -rf "$@"
 }
@@ -52,21 +68,6 @@ get_gpu_manufacturer() {
     nvidia-smi -L | awk -F ' ' '$3=="NVIDIA"{print $3; exit}'
 }
 
-usage() {
-    script_name=$(basename "$0")
-    echo "NX Desktop is our set of applied customizations to the Plasma 5 Desktop."
-    echo
-    echo -e "(c) $fecha Some Rights Reserved. Made by $vendor"
-    echo
-    echo "Usage: $script_name [--restart-desktop] [--restart-wm] [--show-window-titlebar] [--hide-window-titlebar] [--help]"
-    echo
-    echo "  --restart-desktop          Restart KDE Plasma"
-    echo "  --restart-wm               Restart KWin X11"
-    echo "  --show-window-titlebar     Show the window titlebar"
-    echo "  --hide-window-titlebar     Don't show the window titlebar"
-    echo "  --help                     Display this help message"
-}
-
 check_plasmashell_running() {
     pgrep -x plasmashell >/dev/null
 }
@@ -76,7 +77,7 @@ check_kwin_x11_running() {
 }
 
 check_log_file_size() {
-    local max_size_kb=10240  # Maximum size in KB (10 MB)
+    local max_size_kb=10240
     local log_file_size_kb
 
     if [ -f "$desktop_config_log" ]; then
@@ -88,147 +89,121 @@ check_log_file_size() {
     fi
 }
 
-
 # -- Detect whether the session is X11 or Wayland and if it's running on NVIDIA or MESA.
 
-main_script() {
-( check_log_file_size
-echo ' ';
-echo "=========================="
-echo "Logging started at $hora"
-echo ' ';
-echo -e "Welcome to $dist";
-echo ' ';
-echo -e "(c) $fecha Some Rights Reserved. Made by $vendor";
-echo ' ';
+main_script() { 
+    ( 
+        check_log_file_size
+        echo ' ';
+        echo "=========================="
+        echo "Logging started at $hora"
+        echo ' ';
+        echo -e "Welcome to $dist";
+        echo ' ';
+        echo -e "(c) $fecha Some Rights Reserved. Made by $vendor";
+        echo ' ';
 
-del "$xdg_user_path/kwinrc"
+        if [ "${xdg_session}" == "wayland" ]; then
+            echo "This is Wayland"
+            if [ -f "$HOME/.nx-kwin-wayland-check" ]; then
+                echo "Wayland first-run file exists"
+                echo "Do nothing"
+            else
+                echo "Wayland first-run file does not exist"
+                echo "Check if using NVIDIA or Mesa"
+                if [ "$(get_gpu_manufacturer)" == "NVIDIA" ]; then
+                    echo "Detected as NVIDIA on Wayland"
+                    echo "NVIDIA on Wayland first-run file does not exist"
+                    echo "Creating first run file for NVIDIA on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
+                    ln -sv "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
+                    cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+                    cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+                    cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+                    del "$HOME/.nx-kwin-x11-check" || true
+                    sleep 2
+                    kwin_wayland --replace
+                    sleep 1
+                    nohup plasmashell --replace 2>&1
 
-if [ "${xdg_session}" == "wayland" ]; then
-    echo "This is Wayland"
-    if [ -f "$HOME/.nx-kwin-wayland-check" ]; then
-        echo "Wayland first-run file exists"
-        echo "Do nothing"
-    else
-        echo "Wayland first-run file does not exist"
-        echo "Check if using NVIDIA or Mesa"
-        if [ "$(get_gpu_manufacturer)" == "NVIDIA" ]; then
-            echo "Detected as NVIDIA on Wayland"
-            echo "NVIDIA on Wayland first-run file does not exist"
-            echo "Creating first run file for NVIDIA on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
-            ln -sv "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
-            cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-            cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-            cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-            del "$HOME/.nx-kwin-x11-check" || true
-            sleep 2
-            kwin_wayland --replace
-            sleep 1
-            nohup plasmashell 2>&1 | tee -a "$desktop_config_log" &
+                else
+                    echo "Detected as MESA on Wayland"
+                    echo "Creating Wayland first-run file for MESA on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
+                    ln -sv "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
+                    cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+                    cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+                    cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+                    del "$HOME/.nx-kwin-x11-check" || true
+                    sleep 2
+                    kwin_wayland --replace
+                    sleep 1
+                    nohup plasmashell --replace 2>&1
+
+                fi
+            fi
         else
-            echo "Detected as MESA on Wayland"
-            echo "Creating Wayland first-run file for MESA on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
-            ln -sv "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
-            cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-            cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-            cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-            del "$HOME/.nx-kwin-x11-check" || true
-            sleep 2
-            kwin_wayland --replace
-            sleep 1
-            nohup plasmashell 2>&1 | tee -a "$desktop_config_log" &
+            echo "This is not Wayland; it is X11"
+            if [ -f "$HOME/.nx-kwin-x11-check" ]; then
+                echo "X11 first-run file exists"
+            else
+                echo "X11 first-run file does not exist"
+                echo "Detected as X11"
+                echo "Creating X11 first-run file for X11" >> "$HOME/.nx-kwin-x11-check"
+                cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
+                cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
+                cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
+                del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check" || true
+            fi
         fi
-    fi
-else
-    echo "This is not Wayland; it is X11"
-    if [ -f "$HOME/.nx-kwin-x11-check" ]; then
-        echo "X11 first-run file exists"
-    else
-        echo "X11 first-run file does not exist"
-        echo "Detected as X11"
-        echo "Creating X11 first-run file for X11" >> "$HOME/.nx-kwin-x11-check"
-        cp_rc "$xdg_rc_path/bak.breezerc.x11" "$xdg_user_path/breezerc"
-        cp_rc "$xdg_rc_path/bak.kwinrc.x11" "$xdg_user_path/kwinrc"
-        cp_rc "$xdg_rc_path/bak.kwinrulesrc.x11" "$xdg_user_path/kwinrulesrc"
-        del "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check" || true
-    fi
-fi
 
 
-# -- Manually start these Plasma services that, for some reason, don't autostart, even though they have files in /etc/xdg/autostart.
+        # -- Manually start these Plasma services that, for some reason, don't autostart, even though they have files in /etc/xdg/autostart.
 
-if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil" >/dev/null; then
-  echo "Powerdevil process is already running."
-else
-  echo "Powerdevil process is not running. Starting it now..."
-  nohup /usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil >/dev/null 2>&1 &
-fi
+        if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil" >/dev/null; then
+        echo "Powerdevil process is already running."
+        else
+        echo "Powerdevil process is not running. Starting it now..."
+        nohup /usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil >/dev/null 2>&1 &
+        fi
 
-if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1" >/dev/null; then
-  echo "PolicyKit-Kde process is already running."
-else
-  echo "PolicyKit-Kde process is not running. Starting it now..."
-  nohup /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 >/dev/null 2>&1 &
-fi
+        if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1" >/dev/null; then
+        echo "PolicyKit-Kde process is already running."
+        else
+        echo "PolicyKit-Kde process is not running. Starting it now..."
+        nohup /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 >/dev/null 2>&1 &
+        fi
 
-if pgrep -f "fcitx5" >/dev/null; then
-  echo "Fcitx5 process is already running, restarting it now..."
-  killall fcitx5
-  sleep 2
-  fcitx5 2>&1 | tee -a "$desktop_config_log" &
-else
-  echo "Fcitx5 process is not running. Starting it now..."
-  fcitx5 2>&1 | tee -a "$desktop_config_log" &
-fi 
+        if pgrep -f "fcitx5" >/dev/null; then
+        echo "Fcitx5 process is already running, restarting it now..."
+        killall fcitx5
+        sleep 2
+        fcitx5 > /dev/null 2>&1 &
+        else
+        echo "Fcitx5 process is not running. Starting it now..."
+        fcitx5 > /dev/null 2>&1 &
+        fi 
 
-if pgrep -f "plasma-hud" >/dev/null; then
-  echo "plasma-hud process is already running."
-else
-  echo "plasma-hud process is not running. Starting it now..."
-  nohup /usr/lib/plasma-hud/plasma-hud >/dev/null 2>&1 &
-fi
-
-
-# -- Check if plasmashell is running, if not start it, or replace if it's running.
-
-echo "Checking KDE Plasma is running..."
-if check_plasmashell_running; then
-    echo "Restarting KDE Plasma..."
-    killall plasmashell
-fi
-nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" & 
+        if pgrep -f "plasma-hud" >/dev/null; then
+        echo "plasma-hud process is already running."
+        else
+        echo "plasma-hud process is not running. Starting it now..."
+        nohup /usr/lib/plasma-hud/plasma-hud >/dev/null 2>&1 &
+        fi
 
 
-# -- Restart plasmashell again during the Live session if the Wayland session is running on NVIDIA hardware.
-# -- But, only do this during the Live session because who the hell knows why plasmashell crashes here but not after installation.
+        # -- Restart plasmashell again during the Live session if the Wayland session is running on NVIDIA hardware.
+        # -- But, only do this during the Live session because who the hell knows why plasmashell crashes here but not after installation.
 
-if [ -f "$HOME/.nx-nvidia-kwin-wayland-check" ] && [ -f "/usr/bin/calamares" ]; then
-    echo "Detected NVIDIA hardware with Wayland session in Live session. Restarting plasmashell again in 3 seconds..."
-    sleep 3
-    if check_plasmashell_running; then
-        killall plasmashell
-    fi
-    nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
-fi ) 2>&1 | tee -a "$desktop_config_log"
+        if [ -f "$HOME/.nx-nvidia-kwin-wayland-check" ] && [ -f "/usr/bin/calamares" ]; then
+            echo "Detected NVIDIA hardware with Wayland session in Live session. Restarting plasmashell again in 3 seconds..."
+            sleep 2
+            if check_plasmashell_running; then
+                killall plasmashell
+            fi
+            nohup plasmashell --replace 2>&1 &
+        fi
+
+    ) 2>&1 | tee -a "$desktop_config_log"
 }
-
-
-# -- Force scaling to 100% including Xwayland.
-
-if grep -q "\[Xwayland\]" "$xdg_user_path/kwinrc"; then
-    echo "[Xwayland] section exists, updating Scale setting."
-    awk '
-        /^\[Xwayland\]/ { print; inSection = 1; next }
-        /^\[/ { inSection = 0 }
-        inSection && /^Scale=/ { print "Scale=1"; next }
-        { print }
-    ' "$xdg_user_path/kwinrc" > "$xdg_user_path/kwinrc.tmp"
-    mv "$xdg_user_path/kwinrc.tmp" "$xdg_user_path/kwinrc"
-else
-    echo "Adding [Xwayland] section with Scale=1."
-    echo -e "\n[Xwayland]\nScale=1" >> "$xdg_user_path/kwinrc"
-fi
-
 
 # -- Check for command-line arguments.
 
@@ -242,10 +217,18 @@ else
             if check_plasmashell_running; then
                 killall plasmashell
             fi
+            nohup plasmashell --replace 2>&1 &
+            exit 0
+            ;;
+        --restart-desktop-debug)
+            echo "Restarting KDE Plasma..."
+            if check_plasmashell_running; then
+                killall plasmashell
+            fi
             nohup plasmashell --replace 2>&1 | tee -a "$desktop_config_log" &
             exit 0
             ;;
-        --restart-wm)
+        --restart-wm-x11)
             echo "Checking for Wayland session..."
             if [ -f "$HOME/.nx-kwin-wayland-check" ]; then
                 echo "KWin Wayland is detected. KWin X11 cannot be restarted in a Wayland session."
@@ -254,7 +237,7 @@ else
                 echo "Restarting KWin X11..."
                 if check_kwin_x11_running; then
                     killall kwin_x11
-                    nohup kwin_x11 --replace 2>&1 | tee -a "$desktop_config_log" &
+                    nohup kwin_x11 --replace 2>&1 &
                     echo "KWin X11 restarted successfully."
                 else
                     echo "KWin X11 is not running and cannot be restarted."
