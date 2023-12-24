@@ -42,26 +42,16 @@ remove=true
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
 
-[Containments][115]
+[Containments][119]
 ItemGeometries-1280x800=
 ItemGeometriesHorizontal=
-activityId=3dbff847-9bbc-46b2-960e-bd5fba26bd10
+activityId=c9e97d18-8f75-4b67-82ea-f70a596a4b54
 formfactor=0
 immutability=1
 lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=a2n.blur
-
-[Containments][115][ConfigDialog]
-DialogHeight=510
-DialogWidth=680
-
-[Containments][115][Wallpaper][a2n.blur][General]
-AnimationDuration=150
-Image=/usr/share/wallpapers/Aqua/
-PreviewImage=/usr/share/wallpapers/Aqua/
-SlidePaths=/usr/share/wallpapers/
+wallpaperplugin=org.kde.image
 
 [Containments][2]
 activityId=
@@ -359,6 +349,10 @@ plugin=org.kde.plasma.mediacontroller
 [Containments][41][Applets][110][Configuration]
 PreloadWeight=42
 
+[Containments][41][Applets][117]
+immutability=1
+plugin=org.kde.plasma.gamemode
+
 [Containments][41][Applets][42]
 immutability=1
 plugin=org.kde.kdeconnect
@@ -499,8 +493,8 @@ PreloadWeight=42
 PreloadWeight=42
 
 [Containments][41][General]
-extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.audio,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode
-knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.audio,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode
+extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode
+knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode
 
 [Containments][87]
 activityId=
@@ -558,6 +552,17 @@ plugin=org.nx.audio
 
 [Containments][87][Applets][113][Configuration]
 PreloadWeight=65
+
+[Containments][87][Applets][118]
+immutability=1
+plugin=org.kde.plasma.gamemode
+
+[Containments][87][Applets][120]
+immutability=1
+plugin=org.kde.plasma.volume
+
+[Containments][87][Applets][120][Configuration][General]
+migrated=true
 
 [Containments][87][Applets][88]
 immutability=1
@@ -617,15 +622,15 @@ PreloadWeight=42
 PreloadWeight=42
 
 [Containments][87][ConfigDialog]
-DialogHeight=847
-DialogWidth=1176
+DialogHeight=564
+DialogWidth=749
 
 [Containments][87][General]
-extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.nightcolorcontrol,org.kde.plasma.printmanager,org.kde.plasma.vault,org.nx.networkmanagement,org.nx.notifications,org.nx.audio,org.kde.plasma.gamemode
+extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.nightcolorcontrol,org.kde.plasma.printmanager,org.kde.plasma.vault,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode,org.kde.plasma.volume
 hiddenItems=org.kde.plasma.manage-inputmethod
-knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.audio,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode
-shownItems=org.nx.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.vault,org.kde.kupapplet,org.nx.notifications,org.nx.audio
+knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode
+shownItems=org.nx.networkmanagement,org.nx.notifications,org.nx.audio,org.kde.plasma.volume
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/org.nxos.installer.desktop,0,3dbff847-9bbc-46b2-960e-bd5fba26bd10,desktop:/org.nxos.installer.desktop,0,958da15a-8db3-4db5-b92d-eeb1f4877317,desktop:/org.nxos.installer.desktop,0,5931787d-4974-4b3b-bc06-45e4e6983f02
+screenMapping=desktop:/org.nxos.installer.desktop,0,958da15a-8db3-4db5-b92d-eeb1f4877317,desktop:/org.nxos.installer.desktop,0,c9e97d18-8f75-4b67-82ea-f70a596a4b54,desktop:/org.nxos.installer.desktop,0,5931787d-4974-4b3b-bc06-45e4e6983f02,desktop:/org.nxos.installer.desktop,0,3dbff847-9bbc-46b2-960e-bd5fba26bd10
