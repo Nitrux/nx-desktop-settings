@@ -22,7 +22,7 @@
 #    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.   #
 #############################################################################################################################################################################
 
-set -euo pipefail
+set -eu
 
 
 # -- Variables.
@@ -204,6 +204,7 @@ main_script() {
 
     ) 2>&1 | tee -a "$desktop_config_log"
 }
+
 
 # -- Check for command-line arguments.
 
