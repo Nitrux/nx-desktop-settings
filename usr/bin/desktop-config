@@ -97,7 +97,7 @@ main_script() {
         check_log_file_size
         echo ' ';
         echo "=========================="
-        echo "Logging started at $hora"
+        echo "NX Desktop logging started at $hora"
         echo ' ';
         echo -e "Welcome to $dist";
         echo ' ';
