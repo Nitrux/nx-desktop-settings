@@ -89,6 +89,7 @@ check_log_file_size() {
     fi
 }
 
+
 # -- Detect whether the session is X11 or Wayland and if it's running on NVIDIA or MESA.
 
 main_script() { 
