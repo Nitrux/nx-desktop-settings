@@ -42,11 +42,10 @@ remove=true
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
 
-[Containments][121]
+[Containments][123]
 ItemGeometries-1280x800=
-ItemGeometries-2048x1152=
 ItemGeometriesHorizontal=
-activityId=6cd857d9-7c85-4385-a526-6de87b5aeb8a
+activityId=c9b3385a-7049-4e67-8554-e9c90c8c35b0
 formfactor=0
 immutability=1
 lastScreen=0
@@ -506,8 +505,8 @@ PreloadWeight=42
 PreloadWeight=42
 
 [Containments][41][General]
-extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode
-knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode
+extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.kde.plasma.gamemode
+knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.kde.plasma.gamemode
 
 [Containments][87]
 activityId=
@@ -577,6 +576,17 @@ plugin=org.kde.plasma.volume
 [Containments][87][Applets][120][Configuration][General]
 migrated=true
 
+[Containments][87][Applets][124]
+immutability=1
+plugin=org.kde.plasma.devicenotifier
+
+[Containments][87][Applets][125]
+immutability=1
+plugin=org.kde.plasma.notifications
+
+[Containments][87][Applets][125][Configuration]
+PreloadWeight=55
+
 [Containments][87][Applets][88]
 immutability=1
 plugin=org.kde.kdeconnect
@@ -639,11 +649,11 @@ DialogHeight=564
 DialogWidth=749
 
 [Containments][87][General]
-extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.nightcolorcontrol,org.kde.plasma.printmanager,org.kde.plasma.vault,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode,org.kde.plasma.volume
+extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.nightcolorcontrol,org.kde.plasma.printmanager,org.kde.plasma.vault,org.nx.networkmanagement,org.kde.plasma.gamemode,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.notifications
 hiddenItems=org.kde.plasma.manage-inputmethod
-knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.nx.notifications,org.kde.plasma.gamemode
-shownItems=org.nx.networkmanagement,org.nx.notifications,org.nx.audio,org.kde.plasma.volume
+knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.kde.plasma.gamemode
+shownItems=org.nx.networkmanagement,org.nx.notifications,org.nx.audio,org.kde.plasma.volume,org.kde.plasma.notifications
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/org.nxos.installer.desktop,0,c9e97d18-8f75-4b67-82ea-f70a596a4b54,desktop:/org.nxos.installer.desktop,0,5931787d-4974-4b3b-bc06-45e4e6983f02,desktop:/org.nxos.installer.desktop,0,6cd857d9-7c85-4385-a526-6de87b5aeb8a,desktop:/org.nxos.installer.desktop,0,3dbff847-9bbc-46b2-960e-bd5fba26bd10,desktop:/org.nxos.installer.desktop,0,958da15a-8db3-4db5-b92d-eeb1f4877317
+screenMapping=desktop:/org.nxos.installer.desktop,0,3dbff847-9bbc-46b2-960e-bd5fba26bd10,desktop:/org.nxos.installer.desktop,0,6cd857d9-7c85-4385-a526-6de87b5aeb8a,desktop:/org.nxos.installer.desktop,0,958da15a-8db3-4db5-b92d-eeb1f4877317,desktop:/org.nxos.installer.desktop,0,5931787d-4974-4b3b-bc06-45e4e6983f02,desktop:/org.nxos.installer.desktop,0,c9e97d18-8f75-4b67-82ea-f70a596a4b54,desktop:/org.nxos.installer.desktop,0,c9b3385a-7049-4e67-8554-e9c90c8c35b0
