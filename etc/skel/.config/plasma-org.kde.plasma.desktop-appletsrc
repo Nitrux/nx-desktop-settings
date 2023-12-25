@@ -42,10 +42,11 @@ remove=true
 [ActionPlugins][1]
 RightButton;NoModifier=org.kde.contextmenu
 
-[Containments][119]
+[Containments][121]
 ItemGeometries-1280x800=
+ItemGeometries-2048x1152=
 ItemGeometriesHorizontal=
-activityId=c9e97d18-8f75-4b67-82ea-f70a596a4b54
+activityId=6cd857d9-7c85-4385-a526-6de87b5aeb8a
 formfactor=0
 immutability=1
 lastScreen=0
@@ -83,6 +84,18 @@ showSeconds=true
 [Containments][2][Applets][112][Configuration][ConfigDialog]
 DialogHeight=755
 DialogWidth=979
+
+[Containments][2][Applets][122]
+immutability=1
+plugin=org.kde.latte.separator
+
+[Containments][2][Applets][122][Configuration][ConfigDialog]
+DialogHeight=510
+DialogWidth=680
+
+[Containments][2][Applets][122][Configuration][General]
+lengthMargin=10
+thickMargin=6
 
 [Containments][2][Applets][15]
 immutability=1
@@ -169,13 +182,13 @@ SystrayContainmentId=87
 
 [Containments][2][ConfigDialog]
 DialogHeight=84
-DialogWidth=2560
+DialogWidth=2048
 
 [Containments][2][Configuration]
 PreloadWeight=0
 
 [Containments][2][General]
-AppletOrder=15;16;17;18;19;61;86;84;112
+AppletOrder=15;16;17;18;19;61;122;86;84;112
 
 [Containments][4]
 activityId=
@@ -633,4 +646,4 @@ shownItems=org.nx.networkmanagement,org.nx.notifications,org.nx.audio,org.kde.pl
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/org.nxos.installer.desktop,0,958da15a-8db3-4db5-b92d-eeb1f4877317,desktop:/org.nxos.installer.desktop,0,c9e97d18-8f75-4b67-82ea-f70a596a4b54,desktop:/org.nxos.installer.desktop,0,5931787d-4974-4b3b-bc06-45e4e6983f02,desktop:/org.nxos.installer.desktop,0,3dbff847-9bbc-46b2-960e-bd5fba26bd10
+screenMapping=desktop:/org.nxos.installer.desktop,0,c9e97d18-8f75-4b67-82ea-f70a596a4b54,desktop:/org.nxos.installer.desktop,0,5931787d-4974-4b3b-bc06-45e4e6983f02,desktop:/org.nxos.installer.desktop,0,6cd857d9-7c85-4385-a526-6de87b5aeb8a,desktop:/org.nxos.installer.desktop,0,3dbff847-9bbc-46b2-960e-bd5fba26bd10,desktop:/org.nxos.installer.desktop,0,958da15a-8db3-4db5-b92d-eeb1f4877317
