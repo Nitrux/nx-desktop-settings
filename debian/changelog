@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.8.0)  nitrux; urgency=medium
+
+  * Update plasma-org.kde.plasma.desktop-appletsrc.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 21 Mar 2024 16:54:00 -0500
+
 nx-desktop-settings-legacy (4.7.9)  nitrux; urgency=medium
 
   * Update plasma-org.kde.plasma.desktop-appletsrc.

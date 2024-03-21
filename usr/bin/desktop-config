@@ -53,6 +53,8 @@ usage() {
     echo "  --restart-wm-x11           Restart KWin X11"
     echo "  --show-window-titlebar     Show the window titlebar"
     echo "  --hide-window-titlebar     Don't show the window titlebar"
+    echo "  --enable-double-click      Use double-click to open directories in Maui Apps (default)"
+    echo "  --disable-double-click     Don't use double-click to open directories in Maui Apps"
     echo "  --help                     Display this help message"
 }
 
@@ -256,6 +258,18 @@ else
         --hide-window-titlebar)
             echo "Hiding window titlebar..."
             sed -i 's/HideTitleBar=Never/HideTitleBar=Always/' "$HOME/.config/breezerc"
+            echo "Reload KWin or change theme to apply changes..."
+            exit 0
+            ;;
+        --enable-double-click)
+            echo "Enabling double-click for Maui Apps..."
+            sed -i 's/SingleClick=false/SingleClick=true/' "$HOME/.config/Maui/MauiMan.conf"
+            echo "Reload KWin or change theme to apply changes..."
+            exit 0
+            ;;
+        --disable-double-click)
+            echo "Disabling double-click for Maui Apps..."
+            sed -i 's/SingleClick=true/SingleClick=false/' "$HOME/.config/Maui/MauiMan.conf"
             echo "Reload KWin or change theme to apply changes..."
             exit 0
             ;;

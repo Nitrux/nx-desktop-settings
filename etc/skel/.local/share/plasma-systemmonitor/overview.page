@@ -6,6 +6,10 @@ network/eth0/ipv4address=38,198,218
 network/eth0/ipv6address=218,58,38
 network/eth1/ipv4address=38,198,218
 network/eth1/ipv6address=218,58,38
+network/wlan0/ipv4address=38,198,218
+network/wlan0/ipv6address=218,58,38
+network/wlx7cdd90ebf1b5/ipv4address=38,198,218
+network/wlx7cdd90ebf1b5/ipv6address=218,58,38
 
 [Face-94410254040128][Appearance]
 chartFace=org.kde.ksysguard.processtable
@@ -22,7 +26,13 @@ sortedColumns=name,usage,vmPSS,ioCharactersActuallyReadRate,ioCharactersActually
 userFilterMode=3
 
 [Face-94410261307168][SensorColors]
+disk/all/total=38,218,95
 disk/all/used=38,198,218
+
+[Face-94410261307168][Sensors]
+highPrioritySensorIds=["disk/all/total","disk/all/used"]
+lowPrioritySensorIds=["disk/(?!all).*/name"]
+totalSensors=["disk/all/freePercent","disk/all/usedPercent"]
 
 [Face-94410266684256][SensorColors]
 cpu/all/usage=38,198,218
@@ -33,20 +43,27 @@ os/plasma/kfVersion=218,166,38
 os/plasma/plasmaVersion=218,38,126
 os/plasma/qtVersion=54,218,38
 os/system/hostname=38,198,218
+os/system/logo=218,87,38
+os/system/name=177,218,38
 os/system/prettyName=94,38,218
+os/system/url=218,142,38
 
 [Face-94410278989264][SensorLabels]
 os/system/prettyName=OS
 
 [Face-94410278989264][Sensors]
-highPrioritySensorIds=["os/system/prettyName","os/plasma/plasmaVersion","os/plasma/kfVersion","os/plasma/qtVersion"]
-lowPrioritySensorIds=["os/kernel/version"]
+highPrioritySensorIds=[]
+lowPrioritySensorIds=["os/system/prettyName","os/kernel/version","os/plasma/kfVersion","os/plasma/plasmaVersion","os/plasma/windowsystem","os/system/uptime"]
 
 [Face-94410280144624][SensorColors]
 network/eth0/download=38,198,218
 network/eth0/upload=218,58,38
 network/eth1/download=38,198,218
 network/eth1/upload=218,58,38
+network/wlan0/download=38,198,218
+network/wlan0/upload=218,58,38
+network/wlx7cdd90ebf1b5/download=38,198,218
+network/wlx7cdd90ebf1b5/upload=218,58,38
 
 [page]
 Title=Overview
