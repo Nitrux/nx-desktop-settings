@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (4.8.2)  nitrux; urgency=medium
+
+  * Fix plasma system monitor page.
+  * Add configuration file for plasma system monitor.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 01 Apr 2024 08:15:00 -0500
+
 nx-desktop-settings-legacy (4.8.1)  nitrux; urgency=medium
 
   * Update maui conf files.

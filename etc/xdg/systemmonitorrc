@@ -1,0 +1,4 @@
+[General]
+hiddenPages=applications.page
+lastVisitedPage=Mobile_GPU_Util.page
+pageOrder=overview.page,applications.page,history.page,processes.page,GPU_Util.page,Mobile_GPU_Util.page,IO.page

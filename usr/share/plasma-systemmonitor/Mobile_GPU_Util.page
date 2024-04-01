@@ -100,7 +100,10 @@ highPrioritySensorIds=["gpu/gpu1/temperature"]
 rangeAutoY=false
 
 [page]
-loadType=onstart
+Title=Mobile GPU Util
+actionsFace=
+icon=device-pci-gpu
+margin=1
 
 [page][row-0]
 Title=Uso
