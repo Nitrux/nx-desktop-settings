@@ -1,0 +1,27 @@
+#include <tunables/global>
+
+/usr/bin/rm {
+    #include <abstractions/base>
+    #include <abstractions/bash>
+    capability dac_override,
+    capability fowner,
+    
+    # Allow executing itself
+    /usr/bin/rm ix,
+
+    # Allow deleting files generally
+    /** rwk,
+
+    # Restrict deleting specific directories
+    deny / rm,
+    deny /home/** rm,
+    deny /etc/** rm,
+    deny /usr/** rm,
+    deny /var/** rm,
+
+    # Log attempts to delete protected directories
+    audit deny /home/** w,
+    audit deny /etc/** w,
+    audit deny /usr/** w,
+    audit deny /var/** w,
+}
