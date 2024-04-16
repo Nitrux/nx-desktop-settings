@@ -1,8 +1,14 @@
+nx-desktop-settings-legacy (4.8.4)  nitrux; urgency=medium
+
+  * Update gpu page, again.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 15 Apr 2024 18:22:00 -0500
+
 nx-desktop-settings-legacy (4.8.3)  nitrux; urgency=medium
 
   * Update gpu page.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Sat, 14 Apr 2024 11:06:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 14 Apr 2024 11:06:00 -0500
 
 nx-desktop-settings-legacy (4.8.2)  nitrux; urgency=medium
 
