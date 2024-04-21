@@ -17,14 +17,13 @@ ln -svf /usr/games/nsnake /usr/bin/nsnake
 
 #	add oh-my-zsh.
 
-git clone https://github.com/robbyrussell/oh-my-zsh.git /etc/skel/.oh-my-zsh
+git clone -- https://github.com/ohmyzsh/ohmyzsh.git /etc/skel/.oh-my-zsh
 
 
 #	add powerline10k to zsh.
 
-mkdir -p /etc/skel/.oh-my-zsh/themes/powerlevel10k
-
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /etc/skel/.oh-my-zsh/themes/powerlevel10k
+mkdir -p /etc/skel/.oh-my-zsh/custom/themes/powerlevel10k
+git clone --depth=1 -- https://github.com/romkatv/powerlevel10k.git /etc/skel/.oh-my-zsh/custom/themes/powerlevel10k
 
 
 #	add our Konsole colorscheme to qmltermwidget path.
@@ -46,11 +45,6 @@ wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.co
 
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
-
-
-#	let Force blur be configured from system settings.
-
-ln -sv /usr/share/kwin/scripts/forceblur/metadata.desktop /usr/share/kservices5/forceblur.desktop
 
 
 #	use zsh in userland.

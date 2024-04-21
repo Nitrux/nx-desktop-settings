@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.8.5)  nitrux; urgency=medium
+
+  * Update zsh configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 20 Apr 2024 18:48:00 -0500
+
 nx-desktop-settings-legacy (4.8.4)  nitrux; urgency=medium
 
   * Update gpu page, again.
