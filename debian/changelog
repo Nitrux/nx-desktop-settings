@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.8.6)  nitrux; urgency=medium
+
+  * Add xorg configuration file to enable overclocking NVIDIA graphics cards.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 22 Apr 2024 16:40:00 -0500
+
 nx-desktop-settings-legacy (4.8.5)  nitrux; urgency=medium
 
   * Update zsh configuration.
