@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (4.9.0)  nitrux; urgency=medium
+
+  * Change rc-manager to unmanaged.
+  * Change nohup filename when restarting plasmashell using desktop-config. 
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 02 May 2024 14:37:00 -0500
+
 nx-desktop-settings-legacy (4.8.9)  nitrux; urgency=medium
 
   * Add extra configuration files for NetworkManager.

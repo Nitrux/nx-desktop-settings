@@ -126,7 +126,7 @@ main_script() {
                     sleep 2
                     kwin_wayland --replace
                     sleep 1
-                    nohup plasmashell --replace 2>&1 >/dev/null 2>&1 &
+                    nohup plasmashell --replace >/dev/null 2>&1 &
 
                 else
                     echo "Detected as MESA on Wayland"
@@ -139,7 +139,7 @@ main_script() {
                     sleep 2
                     kwin_wayland --replace
                     sleep 1
-                    nohup plasmashell --replace 2>&1 >/dev/null 2>&1 &
+                    nohup plasmashell --replace >/dev/null 2>&1 &
 
                 fi
             fi
@@ -221,7 +221,8 @@ else
             if check_plasmashell_running; then
                 killall plasmashell
             fi
-            nohup plasmashell --replace 2>&1 &
+            nohup plasmashell --replace > .restart_plasmashell.out 2>&1 &
+
             exit 0
             ;;
         --restart-desktop-debug)
