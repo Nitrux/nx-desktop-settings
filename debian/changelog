@@ -1,3 +1,11 @@
+nx-desktop-settings-legacy (4.8.9)  nitrux; urgency=medium
+
+  * Add extra configuration files for NetworkManager.
+  * Make NetworkManager use dnsmasq.
+  * Rename existing configuration files for NetworkManager.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 02 May 2024 12:52:00 -0500
+
 nx-desktop-settings-legacy (4.8.8)  nitrux; urgency=medium
 
   * Autostart openrazer-daemon as a user.
