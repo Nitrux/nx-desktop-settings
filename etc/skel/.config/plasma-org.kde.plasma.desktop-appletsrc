@@ -51,7 +51,14 @@ immutability=1
 lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
+wallpaperplugin=a2n.blur
+
+[Containments][126][ConfigDialog]
+DialogHeight=510
+DialogWidth=680
+
+[Containments][126][Wallpaper][a2n.blur][General]
+SlidePaths=/usr/share/wallpapers
 
 [Containments][2]
 activityId=
