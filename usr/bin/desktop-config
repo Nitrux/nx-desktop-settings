@@ -194,20 +194,6 @@ main_script() {
         fi
 
 
-        # -- Remove these launchers from the home.
-
-        launchers_keywords=("clip" "buho" "NX_Software_Center" "Firefox" "pix" "vvave" "Hardware_Probe" "strike" "VMetal" "bonsai" "shelf" "nota")
-
-        for keyword in "${launchers_keywords[@]}"; do
-        files=$(find "$user_desktop_launchers" -type f -name "appimagekit_*${keyword}*.desktop")
-        if [ -n "$files" ]; then
-            echo "$files" | xargs rm -f
-        fi
-        done
-
-        echo "Cleanup completed. Specified .desktop files have been removed if they existed."
-
-
         # -- Restart plasmashell again during the Live session if the Wayland session is running on NVIDIA hardware.
         # -- But, only do this during the Live session because who the hell knows why plasmashell crashes here but not after installation.
 
@@ -219,6 +205,23 @@ main_script() {
             fi
             nohup plasmashell --replace 2>&1 &
         fi
+
+
+        # -- Remove these launchers from the home.
+
+        launchers_keywords=("clip" "buho" "NX_Software_Center" "Firefox" "pix" "vvave" "Hardware_Probe" "strike" "VMetal" "bonsai" "shelf" "nota")
+
+        sleep 2
+
+        for keyword in "${launchers_keywords[@]}"; do
+        files=$(find "$user_desktop_launchers" -type f -name "appimagekit_*${keyword}*.desktop")
+        if [ -n "$files" ]; then
+            echo "$files" | xargs rm -f
+        fi
+        done
+
+        echo "Cleanup completed. Specified .desktop files have been removed if they existed."
+
 
     ) 2>&1 | tee -a "$desktop_config_log"
 }
