@@ -36,6 +36,7 @@ dist=$(grep -oP 'PRETTY_NAME=\K.*' /etc/os-release | tr -d '"')
 vendor='Nitrux Latinoamericana S.C.'
 fecha=$(date +%Y)
 hora=$(date +%Y.%m.%d-%H.%M)
+user_desktop_launchers="$HOME/.local/share/applications"
 
 
 # -- Functions.
@@ -191,6 +192,20 @@ main_script() {
         echo "plasma-hud process is not running. Starting it now..."
         nohup /usr/lib/plasma-hud/plasma-hud >/dev/null 2>&1 &
         fi
+
+
+        # -- Remove these launchers from the home.
+
+        launchers_keywords=("clip" "buho" "NX_Software_Center" "Firefox" "pix" "vvave" "Hardware_Probe" "strike" "VMetal" "bonsai" "shelf" "nota")
+
+        for keyword in "${launchers_keywords[@]}"; do
+        files=$(find "$user_desktop_launchers" -type f -name "appimagekit_*${keyword}*.desktop")
+        if [ -n "$files" ]; then
+            echo "$files" | xargs rm -f
+        fi
+        done
+
+        echo "Cleanup completed. Specified .desktop files have been removed if they existed."
 
 
         # -- Restart plasmashell again during the Live session if the Wayland session is running on NVIDIA hardware.

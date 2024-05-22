@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.9.4)  nitrux; urgency=medium
+
+  * Update desktop-config to delete unwanted desktop launchers from the home directory.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 May 2024 03:33:00 -0500
+
 nx-desktop-settings-legacy (4.9.3)  nitrux; urgency=medium
 
   * Update plasma applets configuration file to hide launchers.
