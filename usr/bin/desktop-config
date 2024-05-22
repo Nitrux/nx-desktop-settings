@@ -211,7 +211,7 @@ main_script() {
 
         launchers_keywords=("clip" "buho" "NX_Software_Center" "Firefox" "pix" "vvave" "Hardware_Probe" "strike" "VMetal" "bonsai" "shelf" "nota")
 
-        sleep 2
+        sleep 3
 
         for keyword in "${launchers_keywords[@]}"; do
         files=$(find "$user_desktop_launchers" -type f -name "appimagekit_*${keyword}*.desktop")
