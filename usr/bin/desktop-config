@@ -216,12 +216,13 @@ main_script() {
         for keyword in "${launchers_keywords[@]}"; do
         files=$(find "$user_desktop_launchers" -type f -name "appimagekit_*${keyword}*.desktop")
         if [ -n "$files" ]; then
+            sleep 2
+            files=$(find "$user_desktop_launchers" -type f -name "appimagekit_*${keyword}*.desktop")
+            if [ -n "$files" ]; then
             echo "$files" | xargs rm -f
+            fi
         fi
         done
-
-        echo "Cleanup completed. Specified .desktop files have been removed if they existed."
-
 
     ) 2>&1 | tee -a "$desktop_config_log"
 }
