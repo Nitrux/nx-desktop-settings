@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.9.6)  nitrux; urgency=medium
+
+  * Update cleanup script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 May 2024 20:57:00 -0500
+
 nx-desktop-settings-legacy (4.9.5)  nitrux; urgency=medium
 
   * Move code to delete unwanted launchers to separate script.

@@ -3,7 +3,7 @@
 #############################################################################################################################################################################
 #   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
 #                                                                                                                                                                           #
-#   Copyright <2023> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
+#   Copyright <2024> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
 #                                                                                                                                                                           #
 #   Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:                          #
 #                                                                                                                                                                           #
@@ -29,21 +29,26 @@ set -eu
 
 directory="$HOME/.local/share/applications"
 keywords=("clip" "buho" "NX_Software_Center" "Firefox" "pix" "vvave" "Hardware_Probe" "strike" "VMetal" "bonsai" "shelf" "nota")
+clean_launchers_log="$HOME/.clean-launchers.log"
 
 
 # -- Remove these launchers from the home.
 
-sleep 3
+( 
+  sleep 3
 
-for keyword in "${keywords[@]}"; do
-  files=$(find "$directory" -type f -name "appimagekit_*${keyword}*.desktop")
-  if [ -n "$files" ]; then
-    sleep 2
+  for keyword in "${keywords[@]}"; do
     files=$(find "$directory" -type f -name "appimagekit_*${keyword}*.desktop")
     if [ -n "$files" ]; then
       echo "$files" | xargs rm -f
+      sleep 2
+      files=$(find "$directory" -type f -name "appimagekit_*${keyword}*.desktop")
+      if [ -n "$files" ]; then
+        echo "$files" | xargs rm -f
+        echo "Cleanup completed. Specified .desktop files have been removed if they existed."
+        # update-desktop-database "$directory"
+        # echo "Update desktop database."
+      fi
     fi
-  fi
-done
-
-echo "Cleanup completed. Specified .desktop files have been removed if they existed."
+  done
+) 2>&1 | tee -a "$clean_launchers_log"
