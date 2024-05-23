@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (4.9.5)  nitrux; urgency=medium
+
+  * Move code to delete unwanted launchers to separate script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 May 2024 18:34:00 -0500
+
 nx-desktop-settings-legacy (4.9.4)  nitrux; urgency=medium
 
   * Update desktop-config to delete unwanted desktop launchers from the home directory.

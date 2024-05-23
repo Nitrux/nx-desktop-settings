@@ -1,12 +1,15 @@
 #!/usr/bin/env zsh
 set -e
 
-# Start PipeWire processes
+# -- Start PipeWire processes.
+
 for process in pipewire pipewire-pulse wireplumber; do
     nohup "$process" >/dev/null 2>&1 &
 done
 
-# Download sample file to test with aplay
+
+# --Download sample file to test with aplay.
+
 audio_sample="$HOME/.local/share/sounds/pop1.wav"
 url="https://www.pachd.com/sfx/pop1.wav"
 
@@ -18,7 +21,9 @@ else
     echo "File found! Do nothing..."
 fi
 
-# Reproduce sound to make PipeWire work
+
+# -- Reproduce sound to make PipeWire work.
+
 for device in default sysdefault pipewire; do
     nohup aplay -D "$device" "$audio_sample" >/dev/null 2>&1 &
 done

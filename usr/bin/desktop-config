@@ -36,7 +36,6 @@ dist=$(grep -oP 'PRETTY_NAME=\K.*' /etc/os-release | tr -d '"')
 vendor='Nitrux Latinoamericana S.C.'
 fecha=$(date +%Y)
 hora=$(date +%Y.%m.%d-%H.%M)
-user_desktop_launchers="$HOME/.local/share/applications"
 
 
 # -- Functions.
@@ -205,25 +204,6 @@ main_script() {
             fi
             nohup plasmashell --replace 2>&1 &
         fi
-
-
-        # -- Remove these launchers from the home.
-
-        launchers_keywords=("clip" "buho" "NX_Software_Center" "Firefox" "pix" "vvave" "Hardware_Probe" "strike" "VMetal" "bonsai" "shelf" "nota")
-
-        sleep 3
-
-        for keyword in "${launchers_keywords[@]}"; do
-        files=$(find "$user_desktop_launchers" -type f -name "appimagekit_*${keyword}*.desktop")
-        if [ -n "$files" ]; then
-            sleep 2
-            files=$(find "$user_desktop_launchers" -type f -name "appimagekit_*${keyword}*.desktop")
-            if [ -n "$files" ]; then
-            echo "$files" | xargs rm -f
-            fi
-        fi
-        done
-
     ) 2>&1 | tee -a "$desktop_config_log"
 }
 
