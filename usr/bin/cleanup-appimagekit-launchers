@@ -37,18 +37,27 @@ clean_launchers_log="$HOME/.clean-launchers.log"
 ( 
   sleep 3
 
-  for keyword in "${keywords[@]}"; do
-    files=$(find "$directory" -type f -name "appimagekit_*${keyword}*.desktop")
-    if [ -n "$files" ]; then
-      echo "$files" | xargs rm -f
-      sleep 2
+  while true; do
+    no_files_found=true
+
+    for keyword in "${keywords[@]}"; do
       files=$(find "$directory" -type f -name "appimagekit_*${keyword}*.desktop")
       if [ -n "$files" ]; then
+        no_files_found=false
+        echo "Files found for keyword '$keyword':"
+        echo "$files"
+        echo "Deleting..."
         echo "$files" | xargs rm -f
-        echo "Cleanup completed. Specified .desktop files have been removed if they existed."
-        # update-desktop-database "$directory"
-        # echo "Update desktop database."
       fi
+    done
+
+    if "$no_files_found"; then
+      break
     fi
+
+    sleep 2
   done
+
+  echo "Cleanup completed. Specified .desktop files have been removed if they existed."
+
 ) 2>&1 | tee -a "$clean_launchers_log"
