@@ -1,6 +1,6 @@
 nx-desktop-settings-legacy (4.9.9)  nitrux; urgency=medium
 
-  * Add add kded5rc configuration file.
+  * Add kded5rc configuration file.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 May 2024 19:21:00 -0500
 
