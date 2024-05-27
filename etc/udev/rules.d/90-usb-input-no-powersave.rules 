@@ -1,0 +1,2 @@
+# Selective USB power saving on Linux Laptop
+ACTION=="add", SUBSYSTEM=="input", TEST=="power/control", ATTR{power/control}="on"

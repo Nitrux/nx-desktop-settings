@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.0.0)  nitrux; urgency=medium
+
+  * Add udev rule for Selective USB power saving on Linux.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 26 May 2024 21:40:00 -0500
+
 nx-desktop-settings-legacy (4.9.9)  nitrux; urgency=medium
 
   * Add kded5rc configuration file.
