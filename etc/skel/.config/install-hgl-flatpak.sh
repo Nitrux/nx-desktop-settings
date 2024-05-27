@@ -10,7 +10,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 notify-send "Installing Heroic Games Launcher, please wait..." --icon=heroic
 
-flatpak install -y com.heroicgameslauncher.hgl
+flatpak install -y --user com.heroicgameslauncher.hgl
 
 notify-send "Installation complete." --icon=heroic
 

@@ -10,7 +10,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 notify-send "Installing Steam, please wait..." --icon=steam
 
-flatpak install -y com.valvesoftware.Steam
+flatpak install -y --user com.valvesoftware.Steam
 
 notify-send "Installation complete." --icon=steam
 
