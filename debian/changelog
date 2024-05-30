@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.0.4)  nitrux; urgency=medium
+
+  * Set lower page lock unfariness to 1.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 May 2024 02:37:00 -0500
+
 nx-desktop-settings-legacy (5.0.3)  nitrux; urgency=medium
 
   * Adjust Sysctl configuration to use compaction proactiveness and lower page lock unfariness.
