@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 #############################################################################################################################################################################
 #   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
@@ -25,29 +25,12 @@
 set -e
 
 
-# -- Start PipeWire processes.
+# -- Script to toggle Wi-Fi radio on resume or thaw.
 
-for process in pipewire pipewire-pulse wireplumber; do
-    nohup "$process" >/dev/null 2>&1 &
-done
-
-
-# --Download sample file to test with aplay.
-
-audio_sample="$HOME/.local/share/sounds/pop1.wav"
-url="https://www.pachd.com/sfx/pop1.wav"
-
-if [[ ! -f "$audio_sample" ]]; then
-    echo "File not found! Downloading..." 2>&1
-    mkdir -p "$HOME/.local/share/sounds"
-    axel -a -q -o "$audio_sample" -n 10 "$url"
-else
-    echo "File found! Do nothing..."
-fi
-
-
-# -- Reproduce sound to make PipeWire work.
-
-for device in default sysdefault pipewire; do
-    nohup aplay -D "$device" "$audio_sample" >/dev/null 2>&1 &
-done
+case "${1}" in
+    resume|thaw)
+        nmcli radio wifi off && nmcli radio wifi on;;
+    *)
+        echo "Usage: $0 [resume|thaw]" >&2
+        exit 1;;
+esac
