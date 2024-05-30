@@ -1,0 +1,15 @@
+#!/sbin/openrc-run
+
+description="Set Transparent Huge Page Settings"
+
+start() {
+    ebegin "Setting Transparent Huge Page Settings"
+    echo "always" > /sys/kernel/mm/transparent_hugepage/enabled
+    echo "0" > /sys/kernel/mm/transparent_hugepage/khugepaged/defrag
+    eend $? "Failed to set Transparent Huge Page Settings"
+}
+
+stop() {
+    # No need to do anything on stop
+    return 0
+}

@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.0.5)  nitrux; urgency=medium
+
+  * Remove file from /etc/local.d.
+  * Add service script to apply the THP settings.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 May 2024 05:18:00 -0500
+
 nx-desktop-settings-legacy (5.0.4)  nitrux; urgency=medium
 
   * Set lower page lock unfariness to 1.
