@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.0.3)  nitrux; urgency=medium
+
+  * Adjust Sysctl configuration to use compaction proactiveness and lower page lock unfariness.
+  * Add local service to set THP to always and disable khugepaged defragmentation.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 May 2024 02:04:00 -0500
+
 nx-desktop-settings-legacy (5.0.2)  nitrux; urgency=medium
 
   * Update p10k configuration to use Lean style instead of Pure.
