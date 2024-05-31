@@ -131,7 +131,7 @@ EOF"
             echo ""
             echo "⚠️ Important: Permanently enabling the Steam (gamescope) session is not supported yet."
             sleep 2
-            startx /usr/bin/xinit -- :1 vt6 -once /usr/share/xsessions/steam-gamescope.desktop
+            startx /usr/bin/xinit /usr/share/xsessions/steam-gamescope.desktop -- :1 vt6 -once
             ;;
         n|N )
             echo "Quitting the Steam (gamescope) session startup."

@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.0.9)  nitrux; urgency=medium
+
+  * Fix flatpak installers scripts.
+  * Fix syntax of command in function in desktop-config.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 May 2024 20:40:00 -0500
+
 nx-desktop-settings-legacy (5.0.8)  nitrux; urgency=medium
 
   * Recreate udev rules file due to typo in filename.
