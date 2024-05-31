@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.1.0)  nitrux; urgency=medium
+
+  * Remove stuff for setting gamescope session.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 May 2024 20:52:00 -0500
+
 nx-desktop-settings-legacy (5.0.9)  nitrux; urgency=medium
 
   * Fix flatpak installers scripts.
