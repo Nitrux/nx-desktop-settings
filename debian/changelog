@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.0.7)  nitrux; urgency=medium
+
+  * Add functionality to desktop-config to enable a dedicated Steam session mode.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 May 2024 18:57:00 -0500
+
 nx-desktop-settings-legacy (5.0.6)  nitrux; urgency=medium
 
   * Add script to /etc/pm/sleep.d to make the wireless resume after sleep.

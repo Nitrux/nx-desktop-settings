@@ -55,6 +55,8 @@ usage() {
     echo "  --hide-window-titlebar     Don't show the window titlebar"
     echo "  --enable-double-click      Use double-click to open directories in Maui Apps (default)"
     echo "  --disable-double-click     Don't use double-click to open directories in Maui Apps"
+    echo "  --enable-steam-mode        Enables the dedicated Steam mode session using Valve's gamescope micro-compositor"
+    echo "  --disable-steam-mode       Disables the dedicated Steam mode session using Valve's gamescope micro-compositor"
     echo "  --help                     Display this help message"
 }
 
@@ -89,6 +91,73 @@ check_log_file_size() {
             rm -f "$desktop_config_log"
         fi
     fi
+}
+
+enable_gamescope_session() {
+    screen_width=$(xdpyinfo | awk '/dimensions/{print $2}' | cut -d 'x' -f 1)
+    screen_height=$(xdpyinfo | awk '/dimensions/{print $2}' | cut -d 'x' -f 2)
+    output_name=$(xrandr | awk '/ connected/ && /primary/{print $1}')
+
+    if ! flatpak list --app | grep -q com.valvesoftware.Steam; then
+        echo "Steam (Flatpak) is not installed. Installing..."
+        bash "$HOME/.config/install-steam-flatpak.sh"
+    fi
+
+    if flatpak ps | grep -q com.valvesoftware.Steam; then
+        echo "Terminating the Steam (Flatpak) process."
+        flatpak kill com.valvesoftware.Steam
+    fi
+
+    if [ ! -f /usr/share/xsessions/steam-gamescope.desktop ]; then
+        echo "Creating the Steam (gamescope) session file requires elevated privileges."
+        sudo bash -c "cat <<EOF > /usr/share/xsessions/steam-gamescope.desktop
+[Desktop Entry]
+Name=Steam (gamescope)
+Comment=Run Steam using the Valve gamescope micro-compositor.
+Exec=gamescope -W $screen_width -H $screen_height -e -O $output_name --xwayland-count 2 -- flatpak run com.valvesoftware.Steam -gamepadui -steamos3
+Type=Application
+EOF"
+        echo "Steam (gamescope) session file created in /usr/share/xsessions/steam-gamescope.desktop"
+    else
+        echo "Steam (gamescope) session file already exists."
+    fi
+
+    read -r -p "Do you want to start the Steam (gamescope) session on TTY6? (y/n): " choice
+    case "$choice" in
+        y|Y )
+            echo "Starting the Steam (gamescope) session on TTY6. Please switch to TTY6 to access the new session."
+            echo "To switch between the current session and the new session in TTY6, use CTRL+SHIFT+F7 and CTRL+SHIFT+F6."
+            echo "You will need to log in to TTY6 to access the new session."
+            echo ""
+            echo "⚠️ Important: Permanently enabling the Steam (gamescope) session is not supported yet."
+            sleep 2
+            startx /usr/bin/xinit -- :1 vt6 -once /usr/share/xsessions/steam-gamescope.desktop
+            ;;
+        n|N )
+            echo "Quitting the Steam (gamescope) session startup."
+            ;;
+        * )
+            echo "Invalid choice. Quitting the Steam (gamescope) session startup."
+            ;;
+    esac
+}
+
+disable_gamescope_session() {
+    read -r -p "This will terminate the Steam (gamescope) session and remove session file. Do you want to proceed? (y/n): " choice
+    case "$choice" in
+        y|Y )
+            echo "Terminating the Steam (gamescope) session and removing the session file."
+            pkill gamescope
+            sudo rm /usr/share/xsessions/steam-gamescope.desktop
+            echo "Steam (gamescope) session disabled."
+            ;;
+        n|N )
+            echo "Quitting the Steam (gamescope) session removal."
+            ;;
+        * )
+            echo "Invalid choice. Quitting the Steam (gamescope) session removal."
+            ;;
+    esac
 }
 
 
@@ -271,6 +340,16 @@ else
             echo "Disabling double-click for Maui Apps..."
             sed -i 's/SingleClick=true/SingleClick=false/' "$HOME/.config/Maui/MauiMan.conf"
             echo "Reload KWin or change theme to apply changes..."
+            exit 0
+            ;;
+        --enable-steam-mode)
+            echo "Enabling dedicated Steam mode..."
+            enable_gamescope_session
+            exit 0
+            ;;
+        --disable-steam-mode)
+            echo "Disabling dedicated Steam mode..."
+            disable_gamescope_session
             exit 0
             ;;
         --help)
