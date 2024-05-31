@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.0.8)  nitrux; urgency=medium
+
+  * Recreate udev rules file due to typo in filename.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 May 2024 19:42:00 -0500
+
 nx-desktop-settings-legacy (5.0.7)  nitrux; urgency=medium
 
   * Add functionality to desktop-config to enable a dedicated Steam session mode.
