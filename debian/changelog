@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.1.1)  nitrux; urgency=medium
+
+  * Add more envrionment variables for zsh and bash.
+  * Remove unused settings files for latte, liquidshell, and inkscape.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 31 May 2024 15:38:00 -0500
+
 nx-desktop-settings-legacy (5.1.0)  nitrux; urgency=medium
 
   * Remove stuff for setting gamescope session.

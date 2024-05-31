@@ -200,7 +200,7 @@ function cat() {
     command cat "${new_args[@]}"
 }
 
-# Make DrKonqi shupt the F up
+# Make DrKonqi shut the F up
 export KDE_DEBUG=1
 
 # Add $PATH for AppImages
@@ -217,4 +217,21 @@ export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 # Add Flatpak environment variables to XDG_DATA_DIRS
-export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/uri/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+
+# Add variables for Firefox to work with touchscreens in X11 and Wayland
+export MOZ_USE_XINPUT2=1
+export MOZ_ENABLE_WAYLAND=1
+
+# Add variables for Fcitx5
+export INPUT_METHOD=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export XIM_SERVERS=fcitx
+
+# Add variable to make Plasma use Qt scaling
+export PLASMA_USE_QT_SCALING=1
+
+# Add variable for Qt scale factor
+export QT_SCALE_FACTOR=1

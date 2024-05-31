@@ -235,3 +235,9 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export XIM_SERVERS=fcitx
+
+# Add variable to make Plasma use Qt scaling
+export PLASMA_USE_QT_SCALING=1
+
+# Add variable for Qt scale factor
+export QT_SCALE_FACTOR=1
