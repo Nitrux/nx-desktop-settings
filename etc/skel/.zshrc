@@ -1,3 +1,6 @@
+# Prevent a problem with p10k redirecting stdin to /dev/null that causes GPG to not ask for the passphrase for a key.
+export GPG_TTY=$TTY
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.

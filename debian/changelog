@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.1.2)  nitrux; urgency=medium
+
+  * Fix tremendous bug caused by powerlevel10k that redirects stdin to /dev/null which causes GPG to not ask for the passphrase for a key.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 01 Jun 2024 02:38:00 -0500
+
 nx-desktop-settings-legacy (5.1.1)  nitrux; urgency=medium
 
   * Add more envrionment variables for zsh and bash.
