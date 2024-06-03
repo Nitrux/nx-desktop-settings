@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.1.5)  nitrux; urgency=medium
+
+  * Move dns-block to etc/NetworkManager/dnsmasq.d
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 03 Jun 2024 05:13:00 -0500
+
 nx-desktop-settings-legacy (5.1.4)  nitrux; urgency=medium
 
   * Rename custom page files for system monitor, again.
