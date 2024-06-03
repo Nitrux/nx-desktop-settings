@@ -1,3 +1,3 @@
 [General]
-hiddenPages=applications.page
+hiddenPages=applications.page, disks,page, integrated_discrete_gpus.page, discrete_laptop_gpu.page
 lastVisitedPage=overview.page
