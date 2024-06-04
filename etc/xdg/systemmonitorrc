@@ -1,4 +1,4 @@
 [General]
-hiddenPages=applications.page,integrated_discrete_gpus.page,disks.page,discrete_laptop_gpu.page
+hiddenPages=applications.page,disks.page,gpu.page
 lastVisitedPage=overview.page
-pageOrder=overview.page,applications.page,history.page,processes.page,integrated_discrete_gpus.page,disks.page,discrete_laptop_gpu.page
+pageOrder=overview.page,applications.page,history.page,processes.page,gpu.page

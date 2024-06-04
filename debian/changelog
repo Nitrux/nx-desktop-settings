@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.1.6)  nitrux; urgency=medium
+
+  * Remove additional sysetm monitor page.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 04 Jun 2024 01:47:00 -0500
+
 nx-desktop-settings-legacy (5.1.5)  nitrux; urgency=medium
 
   * Move dns-block to etc/NetworkManager/dnsmasq.d
