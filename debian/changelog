@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.1.7)  nitrux; urgency=medium
+
+  * Revert using dnsmasq as as plugin in NetworkManager.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 04 Jun 2024 03:53:00 -0500
+
 nx-desktop-settings-legacy (5.1.6)  nitrux; urgency=medium
 
   * Remove additional sysetm monitor page.
