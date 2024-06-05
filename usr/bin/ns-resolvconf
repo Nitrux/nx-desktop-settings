@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+
+#############################################################################################################################################################################
+#   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
+#                                                                                                                                                                           #
+#   Copyright <2024> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
+#                                                                                                                                                                           #
+#   Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:                          #
+#                                                                                                                                                                           #
+#    1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.                                        #
+#                                                                                                                                                                           #
+#    2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer                                      #
+#       in the documentation and/or other materials provided with the distribution.                                                                                         #
+#                                                                                                                                                                           #
+#    3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software                    #
+#       without specific prior written permission.                                                                                                                          #
+#                                                                                                                                                                           #
+#    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,                      #
+#    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS                  #
+#    BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE                 #
+#    GOODS OR SERVICES; LOSS OF USE, DATA,   OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,                      #
+#    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.   #
+#############################################################################################################################################################################
+
+import subprocess
+
+def get_active_connection_info():
+    try:
+        nmcli_output = subprocess.check_output(['nmcli', 'dev', 'show']).decode('utf-8').splitlines()
+        connections = {}
+        current_device = None
+
+        for line in nmcli_output:
+            if line.startswith('GENERAL.DEVICE:'):
+                current_device = line.split(':', 1)[1].strip()
+                connections[current_device] = {
+                    'state': None,
+                    'connection_name': None,
+                    'ipv4_gateway': None,
+                    'ipv6_gateway': None
+                }
+            elif current_device and line.startswith('GENERAL.STATE:'):
+                state_str = line.split(':', 1)[1].strip().split()[0]
+                try:
+                    connections[current_device]['state'] = int(state_str)
+                except ValueError:
+                    connections[current_device]['state'] = None
+            elif current_device and line.startswith('GENERAL.CONNECTION:'):
+                connections[current_device]['connection_name'] = line.split(':', 1)[1].strip()
+            elif current_device and line.startswith('IP4.GATEWAY:'):
+                connections[current_device]['ipv4_gateway'] = line.split(':', 1)[1].strip()
+            elif current_device and line.startswith('IP6.GATEWAY:'):
+                connections[current_device]['ipv6_gateway'] = line.split(':', 1)[1].strip()
+
+        for device, info in connections.items():
+            if info['state'] == 100:
+                ipv4_gateway = info['ipv4_gateway']
+                ipv6_gateway = info['ipv6_gateway']
+                update_resolv_conf(ipv4_gateway, ipv6_gateway)
+                print(f"Active connection: {info['connection_name']}")
+                print(f"Device: {device}")
+                print(f"IPv4 Gateway: {ipv4_gateway}")
+                print(f"IPv6 Gateway: {ipv6_gateway}")
+                return
+
+        print("No active connection.")
+        
+    except subprocess.CalledProcessError as e:
+        print(f"Error running nmcli: {e}")
+
+def update_resolv_conf(ipv4_gateway, ipv6_gateway):
+    try:
+        with open('/etc/resolv.conf', 'w') as resolv_file:
+            resolv_file.write("# Configuration for /etc/resolv.conf to set up DNS resolution mechanism\n\n")
+            if ipv4_gateway:
+                resolv_file.write(f"nameserver {ipv4_gateway}\n")
+            if ipv6_gateway:
+                resolv_file.write(f"nameserver {ipv6_gateway}\n")
+        print("/etc/resolv.conf updated successfully.\n")
+    except IOError as e:
+        print(f"Error writing to /etc/resolv.conf: {e}\n")
+
+get_active_connection_info()

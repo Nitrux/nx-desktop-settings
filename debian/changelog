@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.1.9)  nitrux; urgency=medium
+
+  * Add dnsmasq configuration file.
+  * Add ns-resolvconf to configure /etc/resolv.conf locally and indepent of dnsmasq and NetworkManager.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 05 Jun 2024 16:52:00 -0500
+
 nx-desktop-settings-legacy (5.1.8)  nitrux; urgency=medium
 
   * Set NetWorkManager to dns=none.
