@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.1.8)  nitrux; urgency=medium
+
+  * Set NetWorkManager to dns=none.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 05 Jun 2024 00:30:00 -0500
+
 nx-desktop-settings-legacy (5.1.7)  nitrux; urgency=medium
 
   * Revert using dnsmasq as as plugin in NetworkManager.
