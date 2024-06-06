@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.2.0)  nitrux; urgency=medium
+
+  * Properly configure dnsmasq as a plugin in NetworkManager.
+  * Remove ns-resolvconf.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 05 Jun 2024 18:51:00 -0500
+
 nx-desktop-settings-legacy (5.1.9)  nitrux; urgency=medium
 
   * Add dnsmasq configuration file.
