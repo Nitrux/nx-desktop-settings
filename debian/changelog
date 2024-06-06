@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.2.2)  nitrux; urgency=medium
+
+  * Update 03-dns-servers.conf to use Cloudflare DNS.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 05 Jun 2024 20:55:00 -0500
+
 nx-desktop-settings-legacy (5.2.1)  nitrux; urgency=medium
 
   * Update files in dnsmasq.d.
