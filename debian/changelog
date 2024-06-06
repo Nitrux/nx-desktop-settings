@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.2.1)  nitrux; urgency=medium
+
+  * Update files in dnsmasq.d.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 05 Jun 2024 20:33:00 -0500
+
 nx-desktop-settings-legacy (5.2.0)  nitrux; urgency=medium
 
   * Properly configure dnsmasq as a plugin in NetworkManager.
