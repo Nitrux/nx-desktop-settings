@@ -23,6 +23,7 @@
 #############################################################################################################################################################################
 
 import subprocess
+import datetime
 
 def get_active_connection_info():
     try:
@@ -71,7 +72,8 @@ def get_active_connection_info():
 def update_resolv_conf(ipv4_gateway, ipv6_gateway):
     try:
         with open('/etc/resolv.conf', 'w') as resolv_file:
-            resolv_file.write("# Configuration for /etc/resolv.conf to set up DNS resolution mechanism\n\n")
+            resolv_file.write("# Configuration for /etc/resolv.conf to set up DNS resolution mechanism\n")
+            resolv_file.write("# File modified by ns-resolvconf on {}\n".format(datetime.datetime.now().strftime("%Y-%m-%d")))
             if ipv4_gateway:
                 resolv_file.write(f"nameserver {ipv4_gateway}\n")
             if ipv6_gateway:
