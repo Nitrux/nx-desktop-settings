@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.2.4)  nitrux; urgency=medium
+
+  * Disable dnssec use within dnsmasq as it causes a DNSSEC validation issue and brakes DNS resolution.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 06 Jun 2024 04:12:00 -0500
+
 nx-desktop-settings-legacy (5.2.3)  nitrux; urgency=medium
 
   * Configure dnsmasq as a plugin in NetworkManager, again.
