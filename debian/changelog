@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.2.5)  nitrux; urgency=medium
+
+  * Add settings for TLP.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 08 Jun 2024 20:28:00 -0500
+
 nx-desktop-settings-legacy (5.2.4)  nitrux; urgency=medium
 
   * Disable dnssec use within dnsmasq as it causes a DNSSEC validation issue and brakes DNS resolution.
