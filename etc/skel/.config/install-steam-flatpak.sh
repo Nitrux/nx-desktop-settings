@@ -8,9 +8,12 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 
 # -- Install Steam flatpak.
 
-notify-send "Installing Steam, please wait..." --icon=steam
+notify-send "Installing Steam in the background, please wait..." --icon=steam
 
 flatpak install -y --user com.valvesoftware.Steam
+flatpak install -y --user org.freedesktop.Platform.VulkanLayer.MangoHud
+flatpak install -y --user org.freedesktop.Platform.VulkanLayer.gamescope
+flatpak install -y --user org.freedesktop.Platform.VulkanLayer.vkBasalt
 
 notify-send "Installation complete." --icon=steam
 

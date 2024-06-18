@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.2.7)  nitrux; urgency=medium
+
+  * Install mangohud, vkBasalt and Gamescope when installing Steam, HGL and Bottles.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 18 Jun 2024 02:35:00 -0500
+
 nx-desktop-settings-legacy (5.2.6)  nitrux; urgency=medium
 
   * Add settings for NetworkManager for dhcp and fix typo in ifupdown.

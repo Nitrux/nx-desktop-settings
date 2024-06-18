@@ -8,9 +8,12 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 
 # -- Install Bottles flatpak.
 
-notify-send "Installing Bottles, please wait..." --icon=com.usebottles.bottles
+notify-send "Installing Bottles in the background, please wait..." --icon=com.usebottles.bottles
 
 flatpak install -y --user com.usebottles.bottles
+flatpak install -y --user org.freedesktop.Platform.VulkanLayer.MangoHud
+flatpak install -y --user org.freedesktop.Platform.VulkanLayer.gamescope
+flatpak install -y --user org.freedesktop.Platform.VulkanLayer.vkBasalt
 
 notify-send "Installation complete." --icon=com.usebottles.bottles
 

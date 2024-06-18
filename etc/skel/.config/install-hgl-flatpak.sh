@@ -8,9 +8,12 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 
 # -- Install HGL flatpak.
 
-notify-send "Installing Heroic Games Launcher, please wait..." --icon=heroic
+notify-send "Installing Heroic Games Launcher in the background, please wait..." --icon=heroic
 
 flatpak install -y --user com.heroicgameslauncher.hgl
+flatpak install -y --user org.freedesktop.Platform.VulkanLayer.MangoHud
+flatpak install -y --user org.freedesktop.Platform.VulkanLayer.gamescope
+flatpak install -y --user org.freedesktop.Platform.VulkanLayer.vkBasalt
 
 notify-send "Installation complete." --icon=heroic
 
