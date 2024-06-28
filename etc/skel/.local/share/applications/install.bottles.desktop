@@ -3,5 +3,5 @@ Type=Application
 Terminal=false
 Icon=com.usebottles.bottles
 Name=Install Bottles
-Exec=~/.config/install-bottles-flatpak.sh
+Exec=~/.local/bin/install-bottles-flatpak
 Categories=Utility;

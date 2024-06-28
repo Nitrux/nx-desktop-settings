@@ -34,8 +34,8 @@ done
 
 # --Download sample file to test with aplay.
 
-audio_sample="$HOME/.local/share/sounds/pop1.wav"
-url="https://www.pachd.com/sfx/pop1.wav"
+audio_sample="$HOME/.local/share/sounds/tinkerbell.wav"
+url="https://raw.githubusercontent.com/Nitrux/storage/master/Other/370211__jugraf__tinkerbell.wav"
 
 if [[ ! -f "$audio_sample" ]]; then
     echo "File not found! Downloading..." 2>&1

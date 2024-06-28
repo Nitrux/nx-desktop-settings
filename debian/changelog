@@ -1,3 +1,13 @@
+nx-desktop-settings-legacy (5.2.9)  nitrux; urgency=medium
+
+  * Move install scripts to appropriate path.
+  * Ensure the scripts and the launcher are deleted after installing the Flatpaks.
+  * Change PipeWire test sound.
+  * Remove help script.
+  * Add offline documentation.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 28 Jun 2024 11:57:00 -0500
+
 nx-desktop-settings-legacy (5.2.8)  nitrux; urgency=medium
 
   * Fix install scripts.
