@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.3.1)  nitrux; urgency=medium
+
+  * Update sysctl configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 01 Jul 2024 00:59:00 -0500
+
 nx-desktop-settings-legacy (5.3.0)  nitrux; urgency=medium
 
   * Add udev rule for fido_id.
