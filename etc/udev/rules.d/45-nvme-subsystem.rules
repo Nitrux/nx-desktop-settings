@@ -1,0 +1,2 @@
+# Ensures the iopolicy attribute is set to round-robin to maximize throughput and provide a more consistent performance.
+ACTION=="add|change", SUBSYSTEM=="nvme-subsystem", ATTR{iopolicy}="round-robin"

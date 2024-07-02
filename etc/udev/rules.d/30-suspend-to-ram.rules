@@ -1,0 +1,6 @@
+# Set system to 'mem' state if the driver used for card0 is amdgpu
+SUBSYSTEM=="drm", KERNEL=="card0", DRIVER=="amdgpu", ACTION=="suspend", RUN+="/bin/sh -c 'loginctl lock-session && echo mem > /sys/power/state'"
+# Set system to 'mem' state if the driver used for card0 is amdgpu and the device has a battery
+SUBSYSTEM=="drm", KERNEL=="card0", DRIVER=="amdgpu", ATTR{type}=="Battery", ACTION=="suspend", RUN+="/bin/sh -c 'loginctl lock-session && echo mem > /sys/power/state'"
+# Set system to 'freeze' state if the driver used for card0 is not amdgpu and the device has a battery
+SUBSYSTEM=="drm", KERNEL=="card0", DRIVER!="amdgpu", ATTR{type}=="Battery", ACTION=="suspend", RUN+="/bin/sh -c 'loginctl lock-session && echo freeze > /sys/power/state'"

@@ -1,3 +1,11 @@
+nx-desktop-settings-legacy (5.3.2)  nitrux; urgency=medium
+
+  * Rename udev rule for I/O schedulers.
+  * Add udev rule for NVMe multipath scheduler.
+  * Add udev rule for suspension to RAM when AMD GPUs are detected.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 02 Jul 2024 12:17:00 -0500
+
 nx-desktop-settings-legacy (5.3.1)  nitrux; urgency=medium
 
   * Update sysctl configuration.
