@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.3.3)  nitrux; urgency=medium
+
+  * Add configuration file to use supervisor and monitor plasmashell.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 13 Jul 2024 02:25:00 -0500
+
 nx-desktop-settings-legacy (5.3.2)  nitrux; urgency=medium
 
   * Rename udev rule for I/O schedulers.
