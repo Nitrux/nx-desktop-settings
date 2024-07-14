@@ -505,6 +505,10 @@ PreloadWeight=42
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
+[Containments][41][Applets][61]
+immutability=1
+plugin=org.kde.plasma.networkmanagement
+
 [Containments][41][Applets][60][Configuration]
 PreloadWeight=42
 
@@ -656,10 +660,10 @@ DialogHeight=564
 DialogWidth=749
 
 [Containments][87][General]
-extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.nightcolorcontrol,org.kde.plasma.printmanager,org.kde.plasma.vault,org.nx.networkmanagement,org.kde.plasma.gamemode,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.notifications
+extraItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.nightcolorcontrol,org.kde.plasma.printmanager,org.kde.plasma.vault,org.nx.networkmanagement,org.kde.plasma.gamemode,org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.notifications,org.kde.plasma.networkmanagement
 hiddenItems=org.kde.plasma.manage-inputmethod
 knownItems=org.kde.kdeconnect,org.kde.kscreen,org.kde.kupapplet,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.notifications,org.kde.plasma.printmanager,org.kde.plasma.vault,org.kde.plasma.volume,org.nx.networkmanagement,org.kde.plasma.gamemode
-shownItems=org.nx.networkmanagement,org.nx.notifications,org.nx.audio,org.kde.plasma.volume,org.kde.plasma.notifications
+shownItems=org.nx.networkmanagement,org.nx.notifications,org.nx.audio,org.kde.plasma.volume,org.kde.plasma.notifications,org.kde.plasma.networkmanagement
 
 [ScreenMapping]
 itemsOnDisabledScreens=

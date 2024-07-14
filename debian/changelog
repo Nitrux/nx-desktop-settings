@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.3.5)  nitrux; urgency=medium
+
+  * Update plasma widgets configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 13 Jul 2024 19:15:00 -0500
+
 nx-desktop-settings-legacy (5.3.4)  nitrux; urgency=medium
 
   * Add autostart script to monitor plasmashell and restart it whenever the process is not found.
