@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.3.7)  nitrux; urgency=medium
+
+  * Add udev rule to use multipathing in SATA devices.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 18 Jul 2024 05:10:00 -0500
+
 nx-desktop-settings-legacy (5.3.6)  nitrux; urgency=medium
 
   * Remove 10-globally-managed-devices since it didn't do anything.

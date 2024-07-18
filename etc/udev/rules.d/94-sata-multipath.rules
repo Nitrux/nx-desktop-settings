@@ -1,0 +1,2 @@
+# Trigger the multipath tool when a SATA device is added or changed.
+ACTION=="add|change", SUBSYSTEM=="block", KERNEL=="sd[a-z]", RUN+="/sbin/multipath -v0"
