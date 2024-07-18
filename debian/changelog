@@ -1,8 +1,8 @@
 nx-desktop-settings-legacy (5.3.6)  nitrux; urgency=medium
 
-  * Move 10-globally-managed-devices to where it actually belongs.
+  * Remove 10-globally-managed-devices since it didn't do anything.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Wed, 17 Jul 2024 20:18:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 17 Jul 2024 20:21:00 -0500
 
 nx-desktop-settings-legacy (5.3.5-1)  nitrux; urgency=medium
 
