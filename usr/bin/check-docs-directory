@@ -27,9 +27,8 @@ set -e
 
 # -- Copy documentation directory to Desktop.
 
-if [ ! -d "$HOME/Desktop/Documentation" ] && [ -f "$HOME/Desktop/.nx-docs-check" ]; then
-    cp -r "/etc/skel/Desktop/Documentation" "$HOME/Desktop/Documentation"
-    touch "$HOME/Desktop/.nx-docs-check"
+if [ ! -d "$HOME/Desktop/Documentation" ]; then
+    cp -R "/etc/skel/Desktop/Documentation" "$HOME/Desktop"
 elif [ -d "$HOME/Desktop/Documentation" ] && [ ! -f "$HOME/Desktop/.nx-docs-check" ]; then
     touch "$HOME/Desktop/.nx-docs-check"
 fi
