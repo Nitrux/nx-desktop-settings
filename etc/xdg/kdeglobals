@@ -130,7 +130,7 @@ Theme=Luv
 
 [KDE]
 LookAndFeelPackage=org.kde.nitrux.dark.desktop
-AnimationDurationFactor=1.000000
+AnimationDurationFactor=0.7071067811865475
 ColorScheme=NitruxDark
 ShowIconsInMenuItems=false
 ShowIconsOnPushButtons=false

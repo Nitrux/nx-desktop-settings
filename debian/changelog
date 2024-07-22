@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.3.8)  nitrux; urgency=medium
+
+  * Increase the animation speed in KWin.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 22 Jul 2024 00:51:00 -0500
+
 nx-desktop-settings-legacy (5.3.7)  nitrux; urgency=medium
 
   * Add udev rule to use multipathing in SATA devices.
