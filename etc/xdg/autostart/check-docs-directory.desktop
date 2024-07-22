@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=check-docs-directory
+Exec=check-docs-directory
+Comment=Check if the directory that includes the documentation exists.
+Icon=preferences-desktop
+Categories=System;
+Terminal=false
+NoDisplay=true
