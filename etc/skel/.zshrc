@@ -224,6 +224,7 @@ export SUDO_FORCE_REMOVE=yes
 # Add environment variables for Plasma Wayland to use Nvidia GBM
 export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __NV_PRIME_RENDER_OFFLOAD=1
 
 # Add Flatpak environment variables to XDG_DATA_DIRS
 export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"

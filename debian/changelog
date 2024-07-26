@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.4.0)  nitrux; urgency=medium
+
+  * Add environment varaible to zshrc.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 25 Jul 2024 22:05:00 -0500
+
 nx-desktop-settings-legacy (5.3.9)  nitrux; urgency=medium
 
   * Add script to ensure the Documentation directory is added to the destkop.
