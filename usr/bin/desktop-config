@@ -46,7 +46,7 @@ usage() {
     echo
     echo -e "(c) $fecha Some Rights Reserved. Made by $vendor"
     echo
-    echo "Usage: $script_name [--restart-desktop] [--restart-wm] [--show-window-titlebar] [--hide-window-titlebar] [--help]"
+    echo "Usage: $script_name [--restart-desktop] [--restart-wm-x11] [--show-window-titlebar] [--hide-window-titlebar] [--help]"
     echo
     echo "  --restart-desktop          Restart KDE Plasma"
     echo "  --restart-desktop-debug    Restart KDE Plasma and write the console output to a log file"
