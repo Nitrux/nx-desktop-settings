@@ -1,6 +1,12 @@
+nx-desktop-settings-legacy (5.4.6)  nitrux; urgency=medium
+
+  * Update TLP configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 23 Aug 2024 15:52:00 -0500
+
 nx-desktop-settings-legacy (5.4.5)  nitrux; urgency=medium
 
-  * Prevent Wireplumber from keeping /dev/video opened.
+  * Prevent Wireplumber from keeping /dev/video open.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Thu, 08 Aug 2024 03:42:00 -0500
 
