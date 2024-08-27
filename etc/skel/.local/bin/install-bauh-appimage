@@ -25,35 +25,34 @@
 set -x
 
 
-# -- Add flathub.
+# -- Function to download Appimage files.
 
-flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+user_agent="BrightSign/8.2.55.5 (XT1144) Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.12.3 Chrome/69.0.3497.128 Safari/537.36"
 
+download_appimage() {
+    local name="$1"
+    local url="$2"
+    local destination="$HOME/Applications/$name"
 
-# -- Install Steam flatpak.
-
-notify-send "Installing Steam in the background, please wait..." --icon=steam
-
-FPK_APP="com.valvesoftware.Steam"
-
-flatpak install -y --user $FPK_APP
-flatpak install -y --user runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/23.08
-flatpak install -y --user runtime/org.freedesktop.Platform.VulkanLayer.gamescope/x86_64/23.08
-flatpak install -y --user runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt/x86_64/23.08
-
-notify-send "Installation complete." --icon=steam
+    axel -a -q -k -U "$user_agent" -n 8 "$url" -o "$destination"
+    chmod +x "$destination"
+}
 
 
-# -- Check if Steam is installed an delete install script.
+# -- Install Bauh (AppImage).
 
-if flatpak list --app --columns=application | grep -q "$FPK_APP"; then
-    rm "$HOME/.local/bin/install-steam-flatpak"
-    rm "$HOME/.local/share/applications/install.steam-flatpak.desktop"
+notify-send "Installing Bauh (AppImage) in the background, please wait..." --icon=appimage-cli-manager
+
+download_appimage "bauh-0.10.7-x86_64.AppImage" "https://github.com/vinifmor/bauh/releases/download/0.10.7/bauh-0.10.7-x86_64.AppImage"
+
+notify-send "Installation complete." --icon=appimage-cli-manager
+
+
+# -- Check if Bauh is installed an delete install script.
+
+if [ -f "$HOME/Applications/bauh-0.10.7-x86_64.AppImage" ]; then
+    rm "$HOME/.local/bin/install-bauh-appimage"
+    rm "$HOME/.local/share/applications/install.bauh.desktop"
 fi
-
-notify-send "Launching Steam." --icon=steam
-
-flatpak run $FPK_APP &
-
 
 exit

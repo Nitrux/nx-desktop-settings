@@ -47,7 +47,7 @@ notify-send "Installation complete." --icon=com.usebottles.bottles
 # -- Check if Bottles is installed an delete install script.
 
 if flatpak list --app --columns=application | grep -q "$FPK_APP"; then
-    rm "$HOME/.local/bin/install-bottles-flatpak.sh"
+    rm "$HOME/.local/bin/install-bottles-flatpak"
     rm "$HOME/.local/share/applications/install.bottles.desktop"
 fi
 
