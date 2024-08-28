@@ -26,19 +26,13 @@ set -x
 
 
 # -- Function to create directories if they don't exist
-create_directories() {
-    if [ ! -d "/Applications" ]; then
-        echo "Creating directory: /Applications"
-        mkdir /Applications
-    else
-        echo "Directory already exists: /Applications"
-    fi
 
-    if [ ! -d "/etc/skel/.local/bin" ]; then
-        echo "Creating directory: /etc/skel/.local/bin"
-        mkdir -p /etc/skel/.local/bin
+create_directories() {
+    if [ ! -d "$HOME/Applications" ]; then
+        echo "Creating directory: $HOME/Applications"
+        mkdir "$HOME/Applications"
     else
-        echo "Directory already exists: /etc/skel/.local/bin"
+        echo "Directory already exists: $HOME/Applications"
     fi
 }
 
