@@ -42,8 +42,6 @@ create_directories() {
     fi
 }
 
-create_directories
-
 
 # -- Function to download Appimage files.
 
@@ -62,6 +60,8 @@ download_appimage() {
 # -- Install LibreOffice (AppImage).
 
 notify-send "Installing LibreOffice (AppImage) in the background, please wait..." --icon=libreoffice-startcenter
+
+create_directories
 
 download_appimage "LibreOffice-fresh.standard-x86_64.AppImage" "https://appimages.libreitalia.org/LibreOffice-fresh.standard-x86_64.AppImage"
 
