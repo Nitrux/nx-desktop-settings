@@ -25,44 +25,48 @@
 set -x
 
 
-# -- Function to create directories if they don't exist
+# -- Create $HOME/Applications directory if it doesn't exist.
 
-create_directories() {
-    if [ ! -d "$HOME/Applications" ]; then
-        echo "Creating directory: $HOME/Applications"
-        mkdir "$HOME/Applications"
-    else
-        echo "Directory already exists: $HOME/Applications"
-    fi
-}
+mkdir -p "$HOME/Applications"
 
 
-# -- Function to download Appimage files.
+# -- User agent string
 
 user_agent="BrightSign/8.2.55.5 (XT1144) Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.12.3 Chrome/69.0.3497.128 Safari/537.36"
 
+
+# -- Function to download AppImage files to a temporary directory.
+
 download_appimage() {
-    local name="$1"
-    local url="$2"
-    local destination="$HOME/Applications/$name"
+    local name
+    local url
+    local temp_dir
+    local destination
+    
+    name="$1"
+    url="$2"
+    temp_dir=$(mktemp -d)
+    destination="$temp_dir/$name"
 
     axel -a -q -k -U "$user_agent" -n 8 "$url" -o "$destination"
     chmod +x "$destination"
+
+    echo "$destination"
 }
 
 
-# -- Install LibreOffice (AppImage).
+# -- Notify start of installation.
 
 notify-send "Installing LibreOffice (AppImage) in the background, please wait..." --icon=libreoffice-startcenter
 
-create_directories
+appimage_file=$(download_appimage "LibreOffice-fresh.standard-x86_64.AppImage" "https://appimages.libreitalia.org/LibreOffice-fresh.standard-x86_64.AppImage")
 
-download_appimage "LibreOffice-fresh.standard-x86_64.AppImage" "https://appimages.libreitalia.org/LibreOffice-fresh.standard-x86_64.AppImage"
+mv "$appimage_file" "$HOME/Applications/"
 
 notify-send "Installation complete." --icon=libreoffice-startcenter
 
 
-# -- Check if LibreOffice is installed an delete install script.
+# -- Clean up install script if LibreOffice was installed successfully.
 
 if [ -f "$HOME/Applications/LibreOffice-fresh.standard-x86_64.AppImage" ]; then
     rm "$HOME/.local/bin/install-libreoffice-appimage"
