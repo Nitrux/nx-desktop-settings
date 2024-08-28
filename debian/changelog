@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.4.9)  nitrux; urgency=medium
+
+  * Update bauh install script.
+  * Update history page for plasma system monitor.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 27 Aug 2024 21:08:00 -0500
+
 nx-desktop-settings-legacy (5.4.8)  nitrux; urgency=medium
 
   * Update install scripts for libreoffice and bauh.

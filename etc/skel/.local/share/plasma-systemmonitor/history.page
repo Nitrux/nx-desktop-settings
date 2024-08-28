@@ -57,7 +57,7 @@ cpu/cpu8/usage=218,58,38
 cpu/cpu9/usage=218,126,38
 
 [Face-94107109903664][Sensors]
-highPrioritySensorIds=["cpu/all/usage","cpu/all/system","cpu/all/user","cpu/all/wait"]
+highPrioritySensorIds=["cpu/all/usage","cpu/all/system","cpu/all/user"]
 lowPrioritySensorIds=[]
 
 [Face-94107109903664][org.kde.ksysguard.linechart][General]

@@ -65,6 +65,8 @@ create_directories
 
 download_appimage "bauh-0.10.7-x86_64.AppImage" "https://github.com/vinifmor/bauh/releases/download/0.10.7/bauh-0.10.7-x86_64.AppImage"
 
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 notify-send "Installation complete." --icon=appimage-cli-manager
 
 
