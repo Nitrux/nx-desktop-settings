@@ -65,6 +65,8 @@ mv "$appimage_file" "$HOME/Applications/"
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+kioclient5 exec /etc/xdg/autostart/appimagekit-appimaged.desktop &
+
 notify-send "Installation complete." --icon=appimage-cli-manager
 
 

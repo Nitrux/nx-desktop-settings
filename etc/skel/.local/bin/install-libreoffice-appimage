@@ -63,6 +63,8 @@ appimage_file=$(download_appimage "LibreOffice-fresh.standard-x86_64.AppImage" "
 
 mv "$appimage_file" "$HOME/Applications/"
 
+kioclient5 exec /etc/xdg/autostart/appimagekit-appimaged.desktop &
+
 notify-send "Installation complete." --icon=libreoffice-startcenter
 
 
