@@ -25,6 +25,26 @@
 set -x
 
 
+# -- Function to create directories if they don't exist
+create_directories() {
+    if [ ! -d "/Applications" ]; then
+        echo "Creating directory: /Applications"
+        mkdir /Applications
+    else
+        echo "Directory already exists: /Applications"
+    fi
+
+    if [ ! -d "/etc/skel/.local/bin" ]; then
+        echo "Creating directory: /etc/skel/.local/bin"
+        mkdir -p /etc/skel/.local/bin
+    else
+        echo "Directory already exists: /etc/skel/.local/bin"
+    fi
+}
+
+create_directories
+
+
 # -- Function to download Appimage files.
 
 user_agent="BrightSign/8.2.55.5 (XT1144) Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.12.3 Chrome/69.0.3497.128 Safari/537.36"
