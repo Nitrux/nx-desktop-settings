@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.5.2)  nitrux; urgency=medium
+
+  * Update install scripts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 28 Aug 2024 19:40:00 -0500
+
 nx-desktop-settings-legacy (5.5.1)  nitrux; urgency=medium
 
   * Update install scripts.

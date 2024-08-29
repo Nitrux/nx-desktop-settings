@@ -25,17 +25,7 @@
 set -x
 
 
-# -- Create $HOME/Applications directory if it doesn't exist.
-
-mkdir -p "$HOME/Applications"
-
-
-# -- User agent string
-
-user_agent="BrightSign/8.2.55.5 (XT1144) Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.12.3 Chrome/69.0.3497.128 Safari/537.36"
-
-
-# -- Function to download AppImage files to a temporary directory.
+# -- Functions
 
 download_appimage() {
     local name
@@ -48,11 +38,24 @@ download_appimage() {
     temp_dir=$(mktemp -d)
     destination="$temp_dir/$name"
 
+    user_agent="BrightSign/8.2.55.5 (XT1144) Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.12.3 Chrome/69.0.3497.128 Safari/537.36"
+
     axel -a -q -k -U "$user_agent" -n 8 "$url" -o "$destination"
     chmod +x "$destination"
 
     echo "$destination"
 }
+
+kill_appimaged() {
+    if pgrep -x "appimaged" > /dev/null; then
+        pkill -x "appimaged"
+    fi
+}
+
+
+# -- Create $HOME/Applications directory if it doesn't exist.
+
+mkdir -p "$HOME/Applications"
 
 
 # -- Notify start of installation.
@@ -64,6 +67,8 @@ appimage_file=$(download_appimage "bauh-0.10.7-x86_64.AppImage" "https://github.
 mv "$appimage_file" "$HOME/Applications/"
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+kill_appimaged
 
 kioclient5 exec /etc/xdg/autostart/appimagekit-appimaged.desktop &
 
