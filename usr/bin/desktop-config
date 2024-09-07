@@ -176,10 +176,8 @@ main_script() {
         fi
 
         if pgrep -f "fcitx5" >/dev/null; then
-        echo "Fcitx5 process is already running, restarting it now..."
-        killall fcitx5
+        echo "Fcitx5 process is already running..."
         sleep 2
-        fcitx5 > /dev/null 2>&1 &
         else
         echo "Fcitx5 process is not running. Starting it now..."
         fcitx5 > /dev/null 2>&1 &

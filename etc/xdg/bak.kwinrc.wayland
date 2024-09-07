@@ -152,6 +152,9 @@ Left=None
 Right=None
 Top=None
 
+[Wayland]
+InputMethod[$e]=/usr/share/applications/fcitx5-wayland-launcher.desktop
+
 [Windows]
 ActiveMouseScreen=false
 AutoRaise=false

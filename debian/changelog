@@ -1,3 +1,12 @@
+
+nx-desktop-settings-legacy (5.5.3)  nitrux; urgency=medium
+
+  * Remove unused shortcuts from kgblobalshortcuts.
+  * Default to use fcitx5 wayland launcher to start it.
+  * Remove code to force restart fcitx5 from desktop-config
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 06 Sep 2024 19:13:00 -0500
+
 nx-desktop-settings-legacy (5.5.2)  nitrux; urgency=medium
 
   * Update install scripts.
