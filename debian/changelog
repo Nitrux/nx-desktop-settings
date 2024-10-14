@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.5.5)  nitrux; urgency=medium
+
+  * Enable wordwrap by default in micro.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 14 Oct 2024 09:00:00 -0500
+
 nx-desktop-settings-legacy (5.5.4)  nitrux; urgency=medium
 
   * Don't install Gamescope as a Flatpak because it doesn't work to create a standalone session and doesn't work with Steam.
