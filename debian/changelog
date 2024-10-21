@@ -6,8 +6,8 @@ nx-desktop-settings-legacy (5.5.6)  nitrux; urgency=medium
   * Enable Reverse Path Filtering.
   * Disable Source Routing.
   * Restricts access to kernel pointer addresses.
-  * Disables the SysRq key.
-  * Disables timer migration across CPUs.
+  * Disable the SysRq key.
+  * Disable timer migration across CPUs.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Mon, 21 Oct 2024 02:18:00 -0500
 
