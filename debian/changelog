@@ -1,3 +1,16 @@
+nx-desktop-settings-legacy (5.5.6)  nitrux; urgency=medium
+
+  * Increase Linux autotuning TCP buffer limits.
+  * Increases the maximum number of packets queued for processing before they are dropped.
+  * Reuses Time-Wait TCP connections to reduce the number of open TCP connections.
+  * Enable Reverse Path Filtering.
+  * Disable Source Routing.
+  * Restricts access to kernel pointer addresses.
+  * Disables the SysRq key.
+  * Disables timer migration across CPUs.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 21 Oct 2024 02:18:00 -0500
+
 nx-desktop-settings-legacy (5.5.5)  nitrux; urgency=medium
 
   * Enable wordwrap by default in micro.
