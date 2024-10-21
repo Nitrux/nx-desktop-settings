@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.5.7)  nitrux; urgency=medium
+
+  * Add service script to try to guess the Broadcom wireless chip used and load the appropriate driver.
+  * Add module configuration to disable 40mhz bandwidth on the 2.4ghz band for the BCM4360.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 21 Oct 2024 14:10:00 -0500
+
 nx-desktop-settings-legacy (5.5.6)  nitrux; urgency=medium
 
   * Increase Linux autotuning TCP buffer limits.
