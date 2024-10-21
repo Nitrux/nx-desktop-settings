@@ -3,8 +3,8 @@
 description="Manage Broadcom wireless driver loading based on detected PCI IDs."
 
 depend() {
-    need localmount
-    after net
+    need mountall
+    after netnetworking
 }
 
 detect_broadcom_chip() {
