@@ -8,11 +8,11 @@ nx-desktop-settings-legacy (5.5.7)  nitrux; urgency=medium
 nx-desktop-settings-legacy (5.5.6)  nitrux; urgency=medium
 
   * Increase Linux autotuning TCP buffer limits.
-  * Increases the maximum number of packets queued for processing before they are dropped.
-  * Reuses Time-Wait TCP connections to reduce the number of open TCP connections.
+  * Increase the maximum number of packets queued for processing before they are dropped.
+  * Reuse Time-Wait TCP connections to reduce the number of open TCP connections.
   * Enable Reverse Path Filtering.
   * Disable Source Routing.
-  * Restricts access to kernel pointer addresses.
+  * Restrict access to kernel pointer addresses.
   * Disable the SysRq key.
   * Disable timer migration across CPUs.
 
