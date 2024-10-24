@@ -1,3 +1,11 @@
+nx-desktop-settings-legacy (5.5.8)  nitrux; urgency=medium
+
+  * Control the boost applied to the watermark.
+  * Change dirty page settings to reduce I/O disk access.
+  * Add gamemode.ini to set defaults for GameMode.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 21 Oct 2024 14:10:00 -0500
+
 nx-desktop-settings-legacy (5.5.7)  nitrux; urgency=medium
 
   * Add service script to try to guess the Broadcom wireless chip used and load the appropriate driver.
