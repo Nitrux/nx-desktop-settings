@@ -1,3 +1,11 @@
+nx-desktop-settings-legacy (5.6.0)  nitrux; urgency=medium
+
+  * Control the boost applied to the watermark.
+  * Change dirty page settings to reduce I/O disk access.
+  * Add gamemode.ini to set defaults for GameMode.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 25 Oct 2024 15:42:00 -0500
+
 nx-desktop-settings-legacy (5.5.8)  nitrux; urgency=medium
 
   * Control the boost applied to the watermark.

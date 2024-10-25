@@ -1,0 +1,2 @@
+### Improve quiality of SBC codec for BLuetooth devices using PulseAudio.
+load-module module-bluetooth-discover a2dp_config="sbc_cmode=dual sbc_min_bp=53 sbc_max_bp=53 sbc_freq=44k"
