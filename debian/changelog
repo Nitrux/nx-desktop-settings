@@ -1,6 +1,12 @@
+nx-desktop-settings-legacy (5.6.2)  nitrux; urgency=medium
+
+  * Add OpenRC service to change ownership of /sys/class/powercap/intel-rapl:0/energy_uj to allow MangoHud to display power connsuption for Intel processors.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 06 Nov 2024 15:29:00 -0500
+
 nx-desktop-settings-legacy (5.6.1)  nitrux; urgency=medium
 
-  * Add ude rules for NVIDIA devices.
+  * Add udev rules for NVIDIA devices.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Wed, 06 Nov 2024 12:36:00 -0500
 

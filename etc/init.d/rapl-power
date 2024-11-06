@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+
+description="Set permissions for energy_uj file"
+
+start() {
+    ebegin "Setting read permission for others on /sys/class/powercap/intel-rapl:0/energy_uj"
+    chmod o+r /sys/class/powercap/intel-rapl:0/energy_uj
+    eend $?
+}
+
+depend() {
+    need mountall
+    after bootmisc
+}
