@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.6.1)  nitrux; urgency=medium
+
+  * Add ude rules for NVIDIA devices.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 06 Nov 2024 12:36:00 -0500
+
 nx-desktop-settings-legacy (5.6.0)  nitrux; urgency=medium
 
   * Control the boost applied to the watermark.
