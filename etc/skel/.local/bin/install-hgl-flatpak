@@ -32,18 +32,18 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 
 # -- Install HGL flatpak.
 
-notify-send -i "heroic" "Installing Heroic Games Launcher in the background, please wait..."
+notify-send -a "System Message" -i "heroic" "Installing Heroic Games Launcher in the background, please wait..."
 
 FPK_APP="com.heroicgameslauncher.hgl"
 
 flatpak install -y --user $FPK_APP
 
-notify-send -i "heroic" "Installation complete."
+notify-send -a "System Message" -i "heroic" "Installation complete."
 
 
 # -- Install additional runtimes.
 
-notify-send -i "steam" "Installing additional runtimes in the background, please wait..."
+notify-send -a "System Message" -i "steam" "Installing additional runtimes in the background, please wait..."
 
 SDK_VERSION="$(flatpak info com.valvesoftware.Steam | grep "Sdk:" | awk -F'/' '{print $3}')"
 
@@ -58,7 +58,7 @@ if flatpak list --app --columns=application | grep -q "$FPK_APP"; then
     rm "$HOME/.local/share/applications/install.hgl.desktop"
 fi
 
-notify-send -i "heroic" "Launching Heroic Games Launcher."
+notify-send -a "System Message" -i "heroic" "Launching Heroic Games Launcher."
 
 flatpak run $FPK_APP &
 
