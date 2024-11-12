@@ -205,7 +205,7 @@ main_script() {
 
         # -- Display a notification if we're running in a VM because I'm genuinely tired of people equating performance in a VM to bare metal.
 
-        if grep -q "EDK II" /var/log/syslog; then
+        if grep -q "EDK II" /var/log/syslog || grep -q "VMware, Inc" /var/log/syslog; then
             notify-send -a "System Message" -u critical --action=Understood -i "dialog-warning" "VM Detected" "Nitrux is running in a Virtual Machine. Performance will be severely affected."
         fi
 
