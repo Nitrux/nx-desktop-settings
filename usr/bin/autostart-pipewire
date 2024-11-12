@@ -32,7 +32,7 @@ for process in pipewire pipewire-pulse wireplumber; do
 done
 
 
-# --Download sample file to test with aplay.
+# -- Download sample file to test with aplay.
 
 audio_sample="$HOME/.local/share/sounds/tinkerbell.wav"
 url="https://raw.githubusercontent.com/Nitrux/storage/master/Other/370211__jugraf__tinkerbell.wav"

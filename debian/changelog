@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.6.3)  nitrux; urgency=medium
+
+  * Update check-docs-directory to update the Documentation directory in the desktop.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 12 Nov 2024 00:46:00 -0500
+
 nx-desktop-settings-legacy (5.6.2)  nitrux; urgency=medium
 
   * Add OpenRC service to change ownership of /sys/class/powercap/intel-rapl:0/energy_uj to allow MangoHud to display power connsuption for Intel processors.

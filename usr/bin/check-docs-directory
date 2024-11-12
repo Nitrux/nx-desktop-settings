@@ -25,10 +25,30 @@
 set -e
 
 
-# -- Copy documentation directory to Desktop.
+# -- Define DESKTOP_DIR based on XDG_DESKTOP_DIR setting in ~/.config/user-dirs.dirs.
 
-if [ ! -d "$HOME/Desktop/Documentation" ]; then
-    cp -R "/etc/skel/Desktop/Documentation" "$HOME/Desktop"
-elif [ -d "$HOME/Desktop/Documentation" ] && [ ! -f "$HOME/Desktop/.nx-docs-check" ]; then
-    touch "$HOME/Desktop/.nx-docs-check"
+DESKTOP_DIR=$(grep -oP '(?<=XDG_DESKTOP_DIR=).+' ~/.config/user-dirs.dirs | sed "s/^\"\(.*\)\"$/\1/" | sed "s|\$HOME|$HOME|")
+
+
+# -- Ensure Documentation directory exists on Desktop.
+
+if [ ! -d "$DESKTOP_DIR/Documentation" ]; then
+    cp -R "/etc/skel/Desktop/Documentation" "$DESKTOP_DIR"
+elif [ -d "$DESKTOP_DIR/Documentation" ] && [ ! -f "$DESKTOP_DIR/.nx-docs-check" ]; then
+    touch "$DESKTOP_DIR/.nx-docs-check"
+fi
+
+
+# -- Update tutorials if there’s new content.
+
+PERSISTENT_DIR="$HOME/.cache/documentation_repo"
+
+if [ -d "$PERSISTENT_DIR/.git" ]; then
+    git -C "$PERSISTENT_DIR" pull --depth=1
+else
+    git clone --depth=1 https://github.com/Nitrux/storage.git "$PERSISTENT_DIR"
+fi
+
+if ! diff -qr "$PERSISTENT_DIR/Other/Documentation" "$DESKTOP_DIR/Documentation" > /dev/null 2>&1; then
+    cp -R "$PERSISTENT_DIR/Other/Documentation" "$DESKTOP_DIR"
 fi

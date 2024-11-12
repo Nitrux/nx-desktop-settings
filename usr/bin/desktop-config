@@ -3,7 +3,7 @@
 #############################################################################################################################################################################
 #   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
 #                                                                                                                                                                           #
-#   Copyright <2023> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
+#   Copyright <2023-2024> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
 #                                                                                                                                                                           #
 #   Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:                          #
 #                                                                                                                                                                           #
@@ -140,7 +140,6 @@ main_script() {
                     kwin_wayland --replace
                     sleep 1
                     nohup plasmashell --replace >/dev/null 2>&1 &
-
                 fi
             fi
         else
@@ -162,32 +161,32 @@ main_script() {
         # -- Manually start these Plasma services that, for some reason, don't autostart, even though they have files in /etc/xdg/autostart.
 
         if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil" >/dev/null; then
-        echo "Powerdevil process is already running."
+            echo "Powerdevil process is already running."
         else
-        echo "Powerdevil process is not running. Starting it now..."
-        nohup /usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil >/dev/null 2>&1 &
+            echo "Powerdevil process is not running. Starting it now..."
+            nohup /usr/lib/x86_64-linux-gnu/libexec/org_kde_powerdevil >/dev/null 2>&1 &
         fi
 
         if pgrep -f "/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1" >/dev/null; then
-        echo "PolicyKit-Kde process is already running."
+            echo "PolicyKit-Kde process is already running."
         else
-        echo "PolicyKit-Kde process is not running. Starting it now..."
-        nohup /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 >/dev/null 2>&1 &
+            echo "PolicyKit-Kde process is not running. Starting it now..."
+            nohup /usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1 >/dev/null 2>&1 &
         fi
 
         if pgrep -f "fcitx5" >/dev/null; then
-        echo "Fcitx5 process is already running..."
-        sleep 2
+            echo "Fcitx5 process is already running."
+            sleep 2
         else
-        echo "Fcitx5 process is not running. Starting it now..."
-        fcitx5 > /dev/null 2>&1 &
+            echo "Fcitx5 process is not running. Starting it now..."
+            fcitx5 > /dev/null 2>&1 &
         fi 
 
         if pgrep -f "plasma-hud" >/dev/null; then
-        echo "plasma-hud process is already running."
+            echo "plasma-hud process is already running."
         else
-        echo "plasma-hud process is not running. Starting it now..."
-        nohup /usr/lib/plasma-hud/plasma-hud >/dev/null 2>&1 &
+            echo "plasma-hud process is not running. Starting it now..."
+            nohup /usr/lib/plasma-hud/plasma-hud >/dev/null 2>&1 &
         fi
 
 
