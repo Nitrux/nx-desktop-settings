@@ -2,6 +2,7 @@ nx-desktop-settings-legacy (5.6.5)  nitrux; urgency=medium
 
   * Update Flatpaks install scripts.
   * Add notification to desktop-config when running in a VM.
+  * Add notification to desktop-config about not meeting the minimum requirements.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 12 Nov 2024 00:46:00 -0500
 

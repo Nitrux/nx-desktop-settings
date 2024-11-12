@@ -217,8 +217,8 @@ main_script() {
         PHYSICAL_CORES=$(lscpu | grep "^Core(s) per socket:" | awk '{print $4}')
         THREADS=$(lscpu | grep "^CPU(s):" | awk '{print $2}')
 
-        if (( $(echo "$TOTAL_RAM_MB < 4096" | bc -l) )) || (( PHYSICAL_CORES < 4 )) || (( THREADS < 4 )); then
-            notify-send -u critical --action=Understood -i "dialog-warning" "System Specs Warning" "This system has less than 4GB of RAM, fewer than 4 physical cores, or fewer than 4 threads. Performance may be limited."
+        if (( $(echo "$TOTAL_RAM_MB < 4096" | bc -l) )) && (( PHYSICAL_CORES < 4 )) && (( THREADS < 4 )); then
+            notify-send -u critical --action=Understood -i "dialog-warning" "System Specs Warning" "This system has less than 4GB of RAM, fewer than 4 physical cores, and fewer than 4 threads. Performance may be limited."
         fi
     ) 2>&1 | tee -a "$desktop_config_log"
 }
