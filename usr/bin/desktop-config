@@ -206,7 +206,19 @@ main_script() {
         # -- Display a notification if we're running in a VM because I'm genuinely tired of people equating performance in a VM to bare metal.
 
         if grep -q "EDK II" /var/log/syslog; then
-            notify-send -u critical --action=Understood -i "dialog-warning" "VM Detected" "Nitrux is running in a Virtual Machine. Performance will be affected."
+            notify-send -u critical --action=Understood -i "dialog-warning" "VM Detected" "Nitrux is running in a Virtual Machine. Performance will be severely affected."
+        fi
+
+
+        # -- Display a notification if we're running on a device with less than the minimum required hardware.
+        # -- This distribution DOES NOT TARGET LOW-END HARDWARE!.
+
+        TOTAL_RAM_MB=$(grep MemTotal /proc/meminfo | awk '{print $2 / 1024}')
+        PHYSICAL_CORES=$(lscpu | grep "^Core(s) per socket:" | awk '{print $4}')
+        THREADS=$(lscpu | grep "^CPU(s):" | awk '{print $2}')
+
+        if (( $(echo "$TOTAL_RAM_MB < 4096" | bc -l) )) || (( PHYSICAL_CORES < 4 )) || (( THREADS < 4 )); then
+            notify-send -u critical --action=Understood -i "dialog-warning" "System Specs Warning" "This system has less than 4GB of RAM, fewer than 4 physical cores, or fewer than 4 threads. Performance may be limited."
         fi
     ) 2>&1 | tee -a "$desktop_config_log"
 }
