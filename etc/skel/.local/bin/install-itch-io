@@ -32,17 +32,17 @@ wget -q -O ~/.local/bin/itch-setup https://raw.githubusercontent.com/Nitrux/stor
 
 # -- Run setup.
 
-notify-send "Installing itch.io, please wait..." --icon=itch-io
+notify-send -i "itch-io" "Installing itch.io, please wait..." 
 
 chmod +x ~/.local/bin/itch-setup
 ~/.local/bin/./itch-setup
 
-notify-send "Installation complete." --icon=itch-io
+notify-send -i "itch-io" "Installation complete." 
 
 
 # -- Check if itch.io is installed an delete install script.
 
-notify-send "Launching itch.io." --icon=itch-io
+notify-send -i "itch-io" "Launching itch.io." 
 
 if [ -d "$HOME/.itch" ];
     then

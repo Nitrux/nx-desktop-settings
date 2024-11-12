@@ -32,15 +32,23 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 
 # -- Install Steam flatpak.
 
-notify-send "Installing Steam in the background, please wait..." --icon=steam
+notify-send -i "steam" "Installing Steam in the background, please wait..."
 
 FPK_APP="com.valvesoftware.Steam"
 
 flatpak install -y --user $FPK_APP
-flatpak install -y --user runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/23.08
-flatpak install -y --user runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt/x86_64/23.08
 
-notify-send "Installation complete." --icon=steam
+notify-send -i "steam" "Installation complete."
+
+
+# -- Install additional runtimes.
+
+notify-send -i "steam" "Installing additional runtimes in the background, please wait..."
+
+SDK_VERSION="$(flatpak info com.valvesoftware.Steam | grep "Sdk:" | awk -F'/' '{print $3}')"
+
+flatpak install -y --user "runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/$SDK_VERSION"
+flatpak install -y --user "runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt/x86_64/$SDK_VERSION"
 
 
 # -- Check if Steam is installed an delete install script.
@@ -50,9 +58,8 @@ if flatpak list --app --columns=application | grep -q "$FPK_APP"; then
     rm "$HOME/.local/share/applications/install.steam-flatpak.desktop"
 fi
 
-notify-send "Launching Steam." --icon=steam
+notify-send -i "steam" "Launching Steam."
 
 flatpak run $FPK_APP &
-
 
 exit

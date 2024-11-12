@@ -1,3 +1,16 @@
+nx-desktop-settings-legacy (5.6.5)  nitrux; urgency=medium
+
+  * Update Flatpaks install scripts.
+  * Add notification to desktop-config when running in a VM.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 12 Nov 2024 00:46:00 -0500
+
+nx-desktop-settings-legacy (5.6.4)  nitrux; urgency=medium
+
+  * Update check-docs-directory to update the Documentation directory in the desktop.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 12 Nov 2024 00:46:00 -0500
+
 nx-desktop-settings-legacy (5.6.3)  nitrux; urgency=medium
 
   * Update check-docs-directory to update the Documentation directory in the desktop.

@@ -60,7 +60,7 @@ mkdir -p "$HOME/Applications"
 
 # -- Notify start of installation.
 
-notify-send "Installing Bauh (AppImage) in the background, please wait..." --icon=appimage-cli-manager
+notify-send -i "appimage-cli-manager" "Installing Bauh (AppImage) in the background, please wait..."
 
 appimage_file=$(download_appimage "bauh-0.10.7-x86_64.AppImage" "https://github.com/vinifmor/bauh/releases/download/0.10.7/bauh-0.10.7-x86_64.AppImage")
 
@@ -72,7 +72,7 @@ kill_appimaged
 
 kioclient5 exec /etc/xdg/autostart/appimagekit-appimaged.desktop &
 
-notify-send "Installation complete." --icon=appimage-cli-manager
+notify-send -i "appimage-cli-manager" "Installation complete."
 
 
 # -- Clean up install script if Bauh was installed successfully.

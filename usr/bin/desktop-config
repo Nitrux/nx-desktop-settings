@@ -201,6 +201,13 @@ main_script() {
             fi
             nohup plasmashell --replace 2>&1 &
         fi
+
+
+        # -- Display a notification if we're running in a VM because I'm genuinely tired of people equating performance in a VM to bare metal.
+
+        if grep -q "EDK II" /var/log/syslog; then
+            notify-send -u critical --action=Understood -i "dialog-warning" "VM Detected" "Nitrux is running in a Virtual Machine. Performance will be affected."
+        fi
     ) 2>&1 | tee -a "$desktop_config_log"
 }
 
