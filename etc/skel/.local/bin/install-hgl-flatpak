@@ -62,5 +62,4 @@ notify-send -i "heroic" "Launching Heroic Games Launcher."
 
 flatpak run $FPK_APP &
 
-
 exit
