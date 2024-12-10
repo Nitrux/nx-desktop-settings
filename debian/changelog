@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.6.7)  nitrux; urgency=medium
+
+  * Use nicer notifications when executing the instllation scripts for LibreOffice and Bauh.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 10 Dec 2024 17:20:00 -0500
+
 nx-desktop-settings-legacy (5.6.6)  nitrux; urgency=medium
 
   * Update check-docs-directory to ensure the local clone is unaltered and that the intended directory has only the contents we want.

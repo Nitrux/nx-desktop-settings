@@ -60,7 +60,7 @@ mkdir -p "$HOME/Applications"
 
 # -- Notify start of installation.
 
-notify-send -i "libreoffice-startcenter" "Installing LibreOffice (AppImage) in the background, please wait..."
+notify-send -a "System Message" -i "libreoffice-startcenter" "Installing LibreOffice (AppImage) in the background, please wait..."
 
 appimage_file=$(download_appimage "LibreOffice-fresh.standard-x86_64.AppImage" "https://appimages.libreitalia.org/LibreOffice-fresh.standard-x86_64.AppImage")
 
@@ -70,7 +70,7 @@ kill_appimaged
 
 kioclient5 exec /etc/xdg/autostart/appimagekit-appimaged.desktop &
 
-notify-send -i "libreoffice-startcenter" "Installation complete."
+notify-send -a "System Message" -i "libreoffice-startcenter" "Installation complete."
 
 
 # -- Clean up install script if LibreOffice was installed successfully.
