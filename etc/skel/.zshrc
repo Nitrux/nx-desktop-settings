@@ -1,6 +1,19 @@
 # Prevent a problem with p10k redirecting stdin to /dev/null that causes GPG to not ask for the passphrase for a key.
 export GPG_TTY=$TTY
 
+# Function to detect GPU and set GLX vendor library
+set_glx_vendor() {
+    if lspci 2>/dev/null | grep -iq "nvidia"; then
+        export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    elif lspci 2>/dev/null | grep -iq "amd" || lspci 2>/dev/null | grep -iq "radeon"; then
+        export __GLX_VENDOR_LIBRARY_NAME=mesa
+    else
+        export __GLX_VENDOR_LIBRARY_NAME=mesa
+    fi
+}
+
+set_glx_vendor
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -223,7 +236,6 @@ export SUDO_FORCE_REMOVE=yes
 
 # Add environment variables for Plasma Wayland to use Nvidia GBM
 export GBM_BACKEND=nvidia-drm
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __NV_PRIME_RENDER_OFFLOAD=1
 
 # Add Flatpak environment variables to XDG_DATA_DIRS

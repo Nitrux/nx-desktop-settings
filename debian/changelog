@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.6.8)  nitrux; urgency=medium
+
+  * Automatically detect the GPU vendor and use the appropriate GLX vendor library for that GPU.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 19 Dec 2024 15:47:00 -0500
+
 nx-desktop-settings-legacy (5.6.7)  nitrux; urgency=medium
 
   * Use nicer notifications when executing the instllation scripts for LibreOffice and Bauh.
