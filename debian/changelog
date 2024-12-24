@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.6.9)  nitrux; urgency=medium
+
+  * Update sysctl configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 24 Dec 2024 17:20:00 -0500
+
 nx-desktop-settings-legacy (5.6.8)  nitrux; urgency=medium
 
   * Automatically detect the GPU vendor and use the appropriate GLX vendor library for that GPU.
