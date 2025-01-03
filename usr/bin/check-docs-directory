@@ -22,7 +22,7 @@
 #    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.   #
 #############################################################################################################################################################################
 
-set -e
+set -eu
 
 
 # -- Define DESKTOP_DIR based on XDG_DESKTOP_DIR setting in ~/.config/user-dirs.dirs.
@@ -50,7 +50,7 @@ if [ -d "$PERSISTENT_DIR/.git" ]; then
     if ! git -C "$PERSISTENT_DIR" rev-parse --abbrev-ref --symbolic-full-name "@{u}" > /dev/null 2>&1; then
         git -C "$PERSISTENT_DIR" branch --set-upstream-to="origin/$DEFAULT_BRANCH" "$DEFAULT_BRANCH"
     fi
-    git -C "$PERSISTENT_DIR" pull --depth=1
+    git -C "$PERSISTENT_DIR" pull --depth=1 --rebase
 else
     git clone --depth=1 https://github.com/Nitrux/storage.git "$PERSISTENT_DIR"
 fi
