@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.7.1)  nitrux; urgency=medium
+
+  * Rename sysctl configuration file so it's loaded last and all our changes are applied.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 07 Jan 2024 20:24:00 -0500
+
 nx-desktop-settings-legacy (5.7.0)  nitrux; urgency=medium
 
   * Update check-docs-directory to use rebase when updating the Documentation directory.
@@ -30,7 +36,7 @@ nx-desktop-settings-legacy (5.6.6)  nitrux; urgency=medium
 
 nx-desktop-settings-legacy (5.6.5)  nitrux; urgency=medium
 
-  * Update Flatpaks install scripts.
+  * Update Flatpak install scripts.
   * Add notification to desktop-config when running in a VM.
   * Add notification to desktop-config about not meeting the minimum requirements.
 
