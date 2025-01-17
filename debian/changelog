@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.7.2)  nitrux; urgency=medium
+
+  * Update check-docs-directory to handle the case where the local clone may be corrupted.
+  * Update desktop-config to unify the wayland or x11 check since there's no reason to make the differentiation anymore.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 17 Jan 2024 14:32:00 -0500
+
 nx-desktop-settings-legacy (5.7.1)  nitrux; urgency=medium
 
   * Rename sysctl configuration file so it's loaded last and all our changes are applied.

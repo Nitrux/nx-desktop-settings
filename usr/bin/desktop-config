@@ -3,7 +3,7 @@
 #############################################################################################################################################################################
 #   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
 #                                                                                                                                                                           #
-#   Copyright <2023-2024> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
+#   Copyright <2023-2025> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
 #                                                                                                                                                                           #
 #   Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:                          #
 #                                                                                                                                                                           #
@@ -114,33 +114,25 @@ main_script() {
             else
                 echo "Wayland first-run file does not exist"
                 echo "Check if using NVIDIA or Mesa"
+                
                 if [ "$(get_gpu_manufacturer)" == "NVIDIA" ]; then
                     echo "Detected as NVIDIA on Wayland"
-                    echo "NVIDIA on Wayland first-run file does not exist"
                     echo "Creating first run file for NVIDIA on Wayland" >> "$HOME/.nx-nvidia-kwin-wayland-check"
                     ln -sv "$HOME/.nx-nvidia-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
-                    cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-                    cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-                    cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-                    del "$HOME/.nx-kwin-x11-check" || true
-                    sleep 2
-                    kwin_wayland --replace
-                    sleep 1
-                    nohup plasmashell --replace >/dev/null 2>&1 &
-
                 else
                     echo "Detected as MESA on Wayland"
-                    echo "Creating Wayland first-run file for MESA on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
+                    echo "Creating first run file for MESA on Wayland" >> "$HOME/.nx-mesa-kwin-wayland-check"
                     ln -sv "$HOME/.nx-mesa-kwin-wayland-check" "$HOME/.nx-kwin-wayland-check"
-                    cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
-                    cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
-                    cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
-                    del "$HOME/.nx-kwin-x11-check" || true
-                    sleep 2
-                    kwin_wayland --replace
-                    sleep 1
-                    nohup plasmashell --replace >/dev/null 2>&1 &
                 fi
+
+                cp_rc "$xdg_rc_path/bak.breezerc.wayland" "$xdg_user_path/breezerc"
+                cp_rc "$xdg_rc_path/bak.kwinrc.wayland" "$xdg_user_path/kwinrc"
+                cp_rc "$xdg_rc_path/bak.kwinrulesrc.wayland" "$xdg_user_path/kwinrulesrc"
+                del "$HOME/.nx-kwin-x11-check" || true
+                sleep 2
+                kwin_wayland --replace
+                sleep 1
+                nohup plasmashell --replace >/dev/null 2>&1 &
             fi
         else
             echo "This is not Wayland; it is X11"

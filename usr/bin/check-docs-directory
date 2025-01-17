@@ -1,9 +1,9 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 #############################################################################################################################################################################
 #   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
 #                                                                                                                                                                           #
-#   Copyright <2024> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
+#   Copyright <2024-2025> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
 #                                                                                                                                                                           #
 #   Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:                          #
 #                                                                                                                                                                           #
@@ -44,19 +44,20 @@ fi
 PERSISTENT_DIR="$HOME/.cache/documentation_repo"
 
 if [ -d "$PERSISTENT_DIR/.git" ]; then
-    git -C "$PERSISTENT_DIR" reset --hard
-    git -C "$PERSISTENT_DIR" clean -fd
-    DEFAULT_BRANCH=$(git -C "$PERSISTENT_DIR" remote show origin | awk '/HEAD branch:/ {print $NF}')
-    if ! git -C "$PERSISTENT_DIR" rev-parse --abbrev-ref --symbolic-full-name "@{u}" > /dev/null 2>&1; then
-        git -C "$PERSISTENT_DIR" branch --set-upstream-to="origin/$DEFAULT_BRANCH" "$DEFAULT_BRANCH"
+    if ! git -C "$PERSISTENT_DIR" status > /dev/null 2>&1; then
+        rm -rf "$PERSISTENT_DIR"
+        git clone --depth=1 https://github.com/Nitrux/storage.git "$PERSISTENT_DIR"
+    else
+        git -C "$PERSISTENT_DIR" reset --hard
+        git -C "$PERSISTENT_DIR" clean -fd
+        DEFAULT_BRANCH=$(git -C "$PERSISTENT_DIR" remote show origin | awk '/HEAD branch:/ {print $NF}')
+        if ! git -C "$PERSISTENT_DIR" rev-parse --abbrev-ref --symbolic-full-name "@{u}" > /dev/null 2>&1; then
+            git -C "$PERSISTENT_DIR" branch --set-upstream-to="origin/$DEFAULT_BRANCH" "$DEFAULT_BRANCH"
+        fi
+        git -C "$PERSISTENT_DIR" pull --depth=1 --rebase
     fi
-    git -C "$PERSISTENT_DIR" pull --depth=1 --rebase
 else
     git clone --depth=1 https://github.com/Nitrux/storage.git "$PERSISTENT_DIR"
-fi
-
-if [ -d "$DESKTOP_DIR/Documentation" ]; then
-    rm -rf "$DESKTOP_DIR/Documentation"
 fi
 
 cp -R "$PERSISTENT_DIR/Other/Documentation" "$DESKTOP_DIR"
