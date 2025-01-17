@@ -51,10 +51,13 @@ if [ -d "$PERSISTENT_DIR/.git" ]; then
         git -C "$PERSISTENT_DIR" reset --hard
         git -C "$PERSISTENT_DIR" clean -fd
         DEFAULT_BRANCH=$(git -C "$PERSISTENT_DIR" remote show origin | awk '/HEAD branch:/ {print $NF}')
+        if [ -z "$DEFAULT_BRANCH" ]; then
+            DEFAULT_BRANCH="master"
+        fi
         if ! git -C "$PERSISTENT_DIR" rev-parse --abbrev-ref --symbolic-full-name "@{u}" > /dev/null 2>&1; then
             git -C "$PERSISTENT_DIR" branch --set-upstream-to="origin/$DEFAULT_BRANCH" "$DEFAULT_BRANCH"
         fi
-        git -C "$PERSISTENT_DIR" pull --depth=1 --rebase
+        git -C "$PERSISTENT_DIR" pull --depth=1 --rebase --allow-unrelated-histories
     fi
 else
     git clone --depth=1 https://github.com/Nitrux/storage.git "$PERSISTENT_DIR"
