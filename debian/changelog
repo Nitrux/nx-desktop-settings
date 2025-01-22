@@ -1,3 +1,13 @@
+nx-desktop-settings-legacy (5.7.5)  nitrux; urgency=medium
+
+  * Add file to get palm rejection to work in Framework Laptop 13 AMD Ryzen 7040 Series.
+  * Update TLP settings to limit battery charging thresholds and prevent excessive wear.
+  * Update TLP settings to enable WiFi power save.
+  * Update TLP settings to enable power save features for audio devices when using battery power.
+  * Update TLP settings to enable runtime power management for GPU drivers.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 Jan 2024 16:38:00 -0500
+
 nx-desktop-settings-legacy (5.7.4)  nitrux; urgency=medium
 
   * Update check-docs-directory to handle the case when there's no internet connection and the script would fail.

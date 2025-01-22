@@ -1,0 +1,9 @@
+[Serial Keyboards]
+MatchUdevType=keyboard
+MatchName=AT Translated Set 2 keyboard
+AttrKeyboardIntegration=internal
+
+[Touchpad]
+MatchUdevType=touchpad
+MatchName=PIXA3854:00 093A:0274 Touchpad
+AttrKeyboardIntegration=internal
