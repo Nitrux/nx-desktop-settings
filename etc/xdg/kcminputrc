@@ -10,5 +10,10 @@ MiddleButtonEmulation=false
 ScrollFactor=2
 TapToClick=true
 
+[Libinput][1267][12808][ELAN0304:00 04F3:3208 Touchpad]
+MiddleButtonEmulation=false
+ScrollFactor=2
+TapToClick=true
+
 [Tmp]
 update_info=delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize

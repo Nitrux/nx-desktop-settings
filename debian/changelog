@@ -1,6 +1,7 @@
 nx-desktop-settings-legacy (5.7.3)  nitrux; urgency=medium
 
-  * Update check-docs-directory to handle the case where the local clone has a history that doesn't align with the remote repository's history.
+  * Update check-docs-directory to handle the case when there's no internet connection and the script would fail.
+  * Updated kcminputrc to apply the touchpad settings to another ELAN device.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 17 Jan 2024 16:13:00 -0500
 
