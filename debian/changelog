@@ -3,7 +3,7 @@ nx-desktop-settings-legacy (5.7.3)  nitrux; urgency=medium
   * Update check-docs-directory to handle the case when there's no internet connection and the script would fail.
   * Updated kcminputrc to apply the touchpad settings to another ELAN device.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Fri, 17 Jan 2024 16:13:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 Jan 2024 13:28:00 -0500
 
 nx-desktop-settings-legacy (5.7.2)  nitrux; urgency=medium
 
