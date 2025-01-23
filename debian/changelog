@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.7.6)  nitrux; urgency=medium
+
+  * Add startup delays delays to check-docs-directory and monitor-plasmashell so they don't conflict with toher startup scripts or the Plasma startup sequence.
+  * Rename our sysctl configuration file so it loads last.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2024 10:07:00 -0500
+
 nx-desktop-settings-legacy (5.7.5)  nitrux; urgency=medium
 
   * Add file to get palm rejection to work in Framework Laptop 13 AMD Ryzen 7040 Series.

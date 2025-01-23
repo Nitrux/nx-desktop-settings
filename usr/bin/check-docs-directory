@@ -29,6 +29,8 @@ set -eu
 
 DESKTOP_DIR=$(grep -oP '(?<=XDG_DESKTOP_DIR=).+' ~/.config/user-dirs.dirs | sed "s/^\"\(.*\)\"$/\1/" | sed "s|\$HOME|$HOME|")
 
+sleep 3
+
 
 # -- Ensure Documentation directory exists on Desktop.
 
