@@ -29,8 +29,6 @@ set -eu
 
 DESKTOP_DIR=$(grep -oP '(?<=XDG_DESKTOP_DIR=).+' ~/.config/user-dirs.dirs | sed "s/^\"\(.*\)\"$/\1/" | sed "s|\$HOME|$HOME|")
 
-sleep 3
-
 
 # -- Ensure Documentation directory exists on Desktop.
 
@@ -39,6 +37,8 @@ if [ ! -d "$DESKTOP_DIR/Documentation" ]; then
 elif [ -d "$DESKTOP_DIR/Documentation" ] && [ ! -f "$DESKTOP_DIR/.nx-docs-check" ]; then
     touch "$DESKTOP_DIR/.nx-docs-check"
 fi
+
+sleep 3
 
 
 # -- Update tutorials if there’s new content.
@@ -69,6 +69,8 @@ else
         echo "Failed to clone repository. Falling back to local copy."
     fi
 fi
+
+sleep 3
 
 
 # -- Fallback: Copy local Documentation only if it doesn't already exist.

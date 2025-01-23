@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.7.7)  nitrux; urgency=medium
+
+  * Update check-docs-directory, again, to handle try to handle the case of no internet connection available in the Live session.
+  * Update monitor-plasmashell, again, to wait a little more to start.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2024 12:59:00 -0500
+
 nx-desktop-settings-legacy (5.7.6)  nitrux; urgency=medium
 
   * Add startup delays delays to check-docs-directory and monitor-plasmashell so they don't conflict with toher startup scripts or the Plasma startup sequence.
