@@ -49,9 +49,26 @@ exec >>"$LOG_FILE" 2>&1
 log_message "Script started."
 
 
+# -- Check if ~/.config/user-dirs.dirs exists and wait if necessary.
+
+log_message "Checking for ~/.config/user-dirs.dirs file."
+while [ ! -f "$HOME/.config/user-dirs.dirs" ]; do
+    log_message "File ~/.config/user-dirs.dirs not found. Waiting..."
+    sleep 5
+done
+
+log_message "Found ~/.config/user-dirs.dirs file."
+
+
 # -- Define DESKTOP_DIR based on XDG_DESKTOP_DIR setting in ~/.config/user-dirs.dirs.
 
 DESKTOP_DIR=$(grep -oP '(?<=XDG_DESKTOP_DIR=).+' ~/.config/user-dirs.dirs | sed "s/^\"\(.*\)\"$/\1/" | sed "s|\$HOME|$HOME|")
+
+if [ -z "$DESKTOP_DIR" ] || [ ! -d "$DESKTOP_DIR" ]; then
+    log_message "XDG_DESKTOP_DIR not set or invalid. Defaulting to $HOME/Desktop."
+    DESKTOP_DIR="$HOME/Desktop"
+    mkdir -p "$DESKTOP_DIR"
+fi
 
 
 # -- Ensure Documentation directory exists on Desktop.
