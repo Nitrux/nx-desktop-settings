@@ -25,6 +25,30 @@
 set -eu
 
 
+# -- Define log file
+
+LOG_FILE="$HOME/.nx-documentation.log"
+MAX_LOG_SIZE=$((1024 * 1024))
+
+
+# -- Functions.
+
+log_message() {
+    if [ -f "$LOG_FILE" ] && [ "$(stat --format=%s "$LOG_FILE")" -ge "$MAX_LOG_SIZE" ]; then
+        mv "$LOG_FILE" "$LOG_FILE.bak"
+        echo "$(date +'%Y-%m-%d %H:%M:%S') - Log rotated. Previous log saved as .nx-documentation.log.bak" > "$LOG_FILE"
+    fi
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+
+# -- Redirect stdout and stderr to log file.
+
+exec >>"$LOG_FILE" 2>&1
+
+log_message "Script started."
+
+
 # -- Define DESKTOP_DIR based on XDG_DESKTOP_DIR setting in ~/.config/user-dirs.dirs.
 
 DESKTOP_DIR=$(grep -oP '(?<=XDG_DESKTOP_DIR=).+' ~/.config/user-dirs.dirs | sed "s/^\"\(.*\)\"$/\1/" | sed "s|\$HOME|$HOME|")
@@ -32,10 +56,13 @@ DESKTOP_DIR=$(grep -oP '(?<=XDG_DESKTOP_DIR=).+' ~/.config/user-dirs.dirs | sed 
 
 # -- Ensure Documentation directory exists on Desktop.
 
+log_message "Ensuring Documentation directory exists on Desktop."
 if [ ! -d "$DESKTOP_DIR/Documentation" ]; then
     cp -R "/etc/skel/Desktop/Documentation" "$DESKTOP_DIR"
+    log_message "Copied Documentation to $DESKTOP_DIR."
 elif [ -d "$DESKTOP_DIR/Documentation" ] && [ ! -f "$DESKTOP_DIR/.nx-docs-check" ]; then
     touch "$DESKTOP_DIR/.nx-docs-check"
+    log_message "Documentation check file created."
 fi
 
 sleep 3
@@ -46,27 +73,37 @@ sleep 3
 PERSISTENT_DIR="$HOME/.cache/documentation_repo"
 REPO_URL="https://github.com/Nitrux/storage.git"
 
+log_message "Checking for updates in the repository."
 if [ -d "$PERSISTENT_DIR/.git" ]; then
     if git -C "$PERSISTENT_DIR" status > /dev/null 2>&1; then
         git -C "$PERSISTENT_DIR" reset --hard
         git -C "$PERSISTENT_DIR" clean -fd
+        log_message "Reset and cleaned local repository at $PERSISTENT_DIR."
         DEFAULT_BRANCH=$(git -C "$PERSISTENT_DIR" remote show origin | awk '/HEAD branch:/ {print $NF}')
         DEFAULT_BRANCH=${DEFAULT_BRANCH:-master}
         if ! git -C "$PERSISTENT_DIR" rev-parse --abbrev-ref --symbolic-full-name "@{u}" > /dev/null 2>&1; then
             git -C "$PERSISTENT_DIR" branch --set-upstream-to="origin/$DEFAULT_BRANCH" "$DEFAULT_BRANCH"
+            log_message "Set upstream branch to origin/$DEFAULT_BRANCH."
         fi
         if ! git -C "$PERSISTENT_DIR" pull --depth=1 --rebase --allow-unrelated-histories; then
-            echo "Failed to pull updates. Falling back to local copy."
+            log_message "Failed to pull updates. Falling back to local copy."
+        else
+            log_message "Pulled updates successfully."
         fi
     else
         rm -rf "$PERSISTENT_DIR"
-        if ! git clone --depth=1 "$REPO_URL" "$PERSISTENT_DIR"; then
-            echo "Failed to clone repository. Falling back to local copy."
+        log_message "Local repository was not functional. Deleted and re-cloning."
+        if git clone --depth=1 "$REPO_URL" "$PERSISTENT_DIR"; then
+            log_message "Cloned repository from $REPO_URL to $PERSISTENT_DIR."
+        else
+            log_message "Failed to clone repository. Falling back to local copy."
         fi
     fi
 else
-    if ! git clone --depth=1 "$REPO_URL" "$PERSISTENT_DIR"; then
-        echo "Failed to clone repository. Falling back to local copy."
+    if git clone --depth=1 "$REPO_URL" "$PERSISTENT_DIR"; then
+        log_message "Cloned repository from $REPO_URL to $PERSISTENT_DIR."
+    else
+        log_message "Failed to clone repository. Falling back to local copy."
     fi
 fi
 
@@ -77,6 +114,9 @@ sleep 3
 
 if [ ! -d "$DESKTOP_DIR/Documentation" ]; then
     cp -R "/etc/skel/Desktop/Documentation" "$DESKTOP_DIR"
+    log_message "Fallback: Copied local Documentation to $DESKTOP_DIR."
 else
-    echo "Documentation directory already exists. Skipping fallback copy."
+    log_message "Fallback: Documentation directory already exists. Skipping copy."
 fi
+
+log_message "Script completed."
