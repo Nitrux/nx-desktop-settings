@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.8.0)  nitrux; urgency=medium
+
+  * Add file to enable fingerprint unlocking in plasma.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2024 19:28:00 -0500
+
 nx-desktop-settings-legacy (5.7.9)  nitrux; urgency=medium
 
   * Update check-docs-directory, again, to check if ~/.config/user-dirs.dirs exists before proceeding.
