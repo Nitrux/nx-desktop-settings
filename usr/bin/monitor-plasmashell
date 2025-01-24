@@ -31,7 +31,7 @@ while true; do
     sleep 5
     if ! pgrep -x "plasmashell" > /dev/null; then
         echo "$(date): Plasma Desktop not running, restarting the process..." >> "$HOME"/.monitor-plasmashell.log
-        /usr/bin/plasmashell --replace &
+        desktop-config
     fi
     sleep 2
 done
