@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.8.4)  nitrux; urgency=medium
+
+  * Adjust scaling governor for Intel processors to userspace, again.
+  * Adjust the min Intel P-state performance to 10 percent.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 Jan 2025 11:10:00 -0500
+
 nx-desktop-settings-legacy (5.8.3)  nitrux; urgency=medium
 
   * Adjust scaling governor for Intel processors to userspace.
