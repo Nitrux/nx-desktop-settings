@@ -1,47 +1,54 @@
+nx-desktop-settings-legacy (5.8.3)  nitrux; urgency=medium
+
+  * Adjust scaling governor for Intel processors to userspace.
+  * Adjust the min Intel P-state performance to 25 percent.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 Jan 2025 00:50:00 -0500
+
 nx-desktop-settings-legacy (5.8.2)  nitrux; urgency=medium
 
   * Update tlp settings with less agressive power saving for Intel processors.
   * Split tlp configuration for easier management.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 Jan 2024 00:08:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 Jan 2025 00:08:00 -0500
 
 nx-desktop-settings-legacy (5.8.1)  nitrux; urgency=medium
 
   * Update monitor-plasmashell to use desktop-config when plasmashell crashes because it would restart plasma but it could be without powerdevil or other services.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Fri, 24 Jan 2024 09:41:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 24 Jan 2025 09:41:00 -0500
 
 nx-desktop-settings-legacy (5.8.0)  nitrux; urgency=medium
 
   * Add file to enable fingerprint unlocking in plasma.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2024 19:28:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2025 19:28:00 -0500
 
 nx-desktop-settings-legacy (5.7.9)  nitrux; urgency=medium
 
   * Update check-docs-directory, again, to check if ~/.config/user-dirs.dirs exists before proceeding.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2024 14:15:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2025 14:15:00 -0500
 
 nx-desktop-settings-legacy (5.7.8)  nitrux; urgency=medium
 
   * Log the actions of check-docs-directory to debug why it insist on non-fucntioning when there's no internet connection.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2024 13:16:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2025 13:16:00 -0500
 
 nx-desktop-settings-legacy (5.7.7)  nitrux; urgency=medium
 
   * Update check-docs-directory, again, to handle try to handle the case of no internet connection available in the Live session.
   * Update monitor-plasmashell, again, to wait a little more to start.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2024 12:59:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2025 12:59:00 -0500
 
 nx-desktop-settings-legacy (5.7.6)  nitrux; urgency=medium
 
   * Add startup delays delays to check-docs-directory and monitor-plasmashell so they don't conflict with toher startup scripts or the Plasma startup sequence.
   * Rename our sysctl configuration file so it loads last.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2024 10:07:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 23 Jan 2025 10:07:00 -0500
 
 nx-desktop-settings-legacy (5.7.5)  nitrux; urgency=medium
 
@@ -51,33 +58,33 @@ nx-desktop-settings-legacy (5.7.5)  nitrux; urgency=medium
   * Update TLP settings to enable power save features for audio devices when using battery power.
   * Update TLP settings to enable runtime power management for GPU drivers.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 Jan 2024 16:38:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 Jan 2025 16:38:00 -0500
 
 nx-desktop-settings-legacy (5.7.4)  nitrux; urgency=medium
 
   * Update check-docs-directory to handle the case when there's no internet connection and the script would fail.
   * Updated kcminputrc to apply the touchpad settings to another ELAN device.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 Jan 2024 13:28:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 22 Jan 2025 13:28:00 -0500
 
 nx-desktop-settings-legacy (5.7.3)  nitrux; urgency=medium
 
   * Update check-docs-directory to handle the case where the local clone has a history that doesn't align with the remote repository's history.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Fri, 17 Jan 2024 16:13:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 17 Jan 2025 16:13:00 -0500
 
 nx-desktop-settings-legacy (5.7.2)  nitrux; urgency=medium
 
   * Update check-docs-directory to handle the case where the local clone may be corrupted.
   * Update desktop-config to unify the wayland or x11 check since there's no reason to make the differentiation anymore.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Fri, 17 Jan 2024 14:32:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 17 Jan 2025 14:32:00 -0500
 
 nx-desktop-settings-legacy (5.7.1)  nitrux; urgency=medium
 
   * Rename sysctl configuration file so it's loaded last and all our changes are applied.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Tue, 07 Jan 2024 20:24:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 07 Jan 2025 20:24:00 -0500
 
 nx-desktop-settings-legacy (5.7.0)  nitrux; urgency=medium
 
