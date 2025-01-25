@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (5.8.5)  nitrux; urgency=medium
+
+  * Adjust scaling governor for Intel processors to userspace to target Intel 11th gen. and newer.
+  * Adjust pcie aspm mode to be less aggressive.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 Jan 2025 12:08:00 -0500
+
 nx-desktop-settings-legacy (5.8.4)  nitrux; urgency=medium
 
   * Adjust scaling governor for Intel processors to userspace, again.
