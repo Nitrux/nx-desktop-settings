@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.8.6)  nitrux; urgency=medium
+
+  * Update TLP settings with battery charge thresholds for both bat0 and bat1.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 Jan 2025 22:32:00 -0500
+
 nx-desktop-settings-legacy (5.8.5)  nitrux; urgency=medium
 
   * Adjust scaling governor for Intel processors to userspace to target Intel 11th gen. and newer.
