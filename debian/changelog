@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.8.7)  nitrux; urgency=medium
+
+  * Ensure check-docs-directory actually updates the documentation.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sun, 26 Jan 2025 15:44:00 -0500
+
 nx-desktop-settings-legacy (5.8.6)  nitrux; urgency=medium
 
   * Update TLP settings with battery charge thresholds for both bat0 and bat1.

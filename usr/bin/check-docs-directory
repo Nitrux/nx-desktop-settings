@@ -107,6 +107,14 @@ if [ -d "$PERSISTENT_DIR/.git" ]; then
         else
             log_message "Pulled updates successfully."
         fi
+        if [ -d "$PERSISTENT_DIR/Other/Documentation" ]; then
+            log_message "Replacing $DESKTOP_DIR/Documentation with contents from $PERSISTENT_DIR/Other/Documentation."
+            rm -rf "$DESKTOP_DIR/Documentation"
+            cp -R "$PERSISTENT_DIR/Other/Documentation" "$DESKTOP_DIR/Documentation"
+            log_message "Successfully replaced $DESKTOP_DIR/Documentation."
+        else
+            log_message "No updated Documentation found in $PERSISTENT_DIR/Other/Documentation. Skipping replacement."
+        fi
     else
         rm -rf "$PERSISTENT_DIR"
         log_message "Local repository was not functional. Deleted and re-cloning."
