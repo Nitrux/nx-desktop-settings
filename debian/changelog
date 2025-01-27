@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.8.8)  nitrux; urgency=medium
+
+  * Include the pipewire test sound in this package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 27 Jan 2025 11:54:00 -0500
+
 nx-desktop-settings-legacy (5.8.7)  nitrux; urgency=medium
 
   * Ensure check-docs-directory actually updates the documentation.

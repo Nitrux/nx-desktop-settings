@@ -32,18 +32,9 @@ for process in pipewire pipewire-pulse wireplumber; do
 done
 
 
-# -- Download sample file to test with aplay.
+# -- Use file to test with aplay.
 
-audio_sample="$HOME/.local/share/sounds/tinkerbell.wav"
-url="https://raw.githubusercontent.com/Nitrux/storage/master/Other/370211__jugraf__tinkerbell.wav"
-
-if [[ ! -f "$audio_sample" ]]; then
-    echo "File not found! Downloading..." 2>&1
-    mkdir -p "$HOME/.local/share/sounds"
-    axel -a -q -o "$audio_sample" -n 10 "$url"
-else
-    echo "File found! Do nothing..."
-fi
+audio_sample="/usr/share/sounds/pipewire_test_sound_tinkerbell.wav"
 
 
 # -- Reproduce sound to make PipeWire work.
