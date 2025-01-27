@@ -103,17 +103,15 @@ if [ -d "$PERSISTENT_DIR/.git" ]; then
             log_message "Set upstream branch to origin/$DEFAULT_BRANCH."
         fi
         if ! git -C "$PERSISTENT_DIR" pull --depth=1 --rebase --allow-unrelated-histories; then
-            log_message "Failed to pull updates. Falling back to local copy."
+            log_message "Failed to pull updates with unrelated histories. Attempting a hard reset and re-clone."
+            rm -rf "$PERSISTENT_DIR"
+            if git clone --depth=1 "$REPO_URL" "$PERSISTENT_DIR"; then
+                log_message "Cloned repository from $REPO_URL to $PERSISTENT_DIR."
+            else
+                log_message "Failed to clone repository. Falling back to local copy."
+            fi
         else
             log_message "Pulled updates successfully."
-        fi
-        if [ -d "$PERSISTENT_DIR/Other/Documentation" ]; then
-            log_message "Replacing $DESKTOP_DIR/Documentation with contents from $PERSISTENT_DIR/Other/Documentation."
-            rm -rf "$DESKTOP_DIR/Documentation"
-            cp -R "$PERSISTENT_DIR/Other/Documentation" "$DESKTOP_DIR/Documentation"
-            log_message "Successfully replaced $DESKTOP_DIR/Documentation."
-        else
-            log_message "No updated Documentation found in $PERSISTENT_DIR/Other/Documentation. Skipping replacement."
         fi
     else
         rm -rf "$PERSISTENT_DIR"
@@ -130,6 +128,18 @@ else
     else
         log_message "Failed to clone repository. Falling back to local copy."
     fi
+fi
+
+
+# -- Replace the Documentation directory if updates were pulled successfully or the repository was re-cloned.
+
+if [ -d "$PERSISTENT_DIR/Other/Documentation" ]; then
+    log_message "Replacing $DESKTOP_DIR/Documentation with contents from $PERSISTENT_DIR/Other/Documentation."
+    rm -rf "$DESKTOP_DIR/Documentation"
+    cp -R "$PERSISTENT_DIR/Other/Documentation" "$DESKTOP_DIR/Documentation"
+    log_message "Successfully replaced $DESKTOP_DIR/Documentation."
+else
+    log_message "No updated Documentation found in $PERSISTENT_DIR/Other/Documentation. Skipping replacement."
 fi
 
 sleep 3
