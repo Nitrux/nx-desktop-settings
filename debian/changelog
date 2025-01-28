@@ -1,4 +1,4 @@
-nx-desktop-settings-legacy (5.8.9)  nitrux; urgency=medium
+nx-desktop-settings-legacy (5.9.0)  nitrux; urgency=medium
 
   * Add environment varaible to make Plasma load faster.
 
