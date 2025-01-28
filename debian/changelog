@@ -1,8 +1,10 @@
 nx-desktop-settings-legacy (5.9.0)  nitrux; urgency=medium
 
-  * Add environment varaible to make Plasma load faster.
+  * Fix icon used in notification when installing HGl.
+  * Update cleanup-appimagekit-launchers script to also remove bauh unwanted launcher.
+  * Update script to install bauh appimage to also create a desktop launcher.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Tue, 28 Jan 2025 09:18:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 28 Jan 2025 17:11:00 -0500
 
 nx-desktop-settings-legacy (5.8.9)  nitrux; urgency=medium
 
