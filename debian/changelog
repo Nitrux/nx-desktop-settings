@@ -4,6 +4,12 @@ nx-desktop-settings-legacy (5.8.9)  nitrux; urgency=medium
 
  -- Uri Herrera <uri_herrera@nxos.org>  Tue, 28 Jan 2025 09:18:00 -0500
 
+nx-desktop-settings-legacy (5.8.9)  nitrux; urgency=medium
+
+  * Add environment varaible to make Plasma load faster.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 28 Jan 2025 09:18:00 -0500
+
 nx-desktop-settings-legacy (5.8.8)  nitrux; urgency=medium
 
   * Include the pipewire test sound in this package.

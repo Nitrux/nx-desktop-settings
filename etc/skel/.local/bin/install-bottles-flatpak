@@ -43,7 +43,7 @@ notify-send -a "System Message" -i "com.usebottles.bottles" "Installation comple
 
 # -- Install additional runtimes.
 
-notify-send -a "System Message" -i "steam" "Installing additional runtimes in the background, please wait..."
+notify-send -a "System Message" -i "com.usebottles.bottles" "Installing additional runtimes in the background, please wait..."
 
 SDK_VERSION="$(flatpak info com.valvesoftware.Steam | grep "Sdk:" | awk -F'/' '{print $3}')"
 
