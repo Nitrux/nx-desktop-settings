@@ -1,5 +1,11 @@
 nx-desktop-settings-legacy (5.9.0)  nitrux; urgency=medium
 
+  * Fix typos in bottles and hgl install scripts that would prevent the matching mangohud and vkbasalt runtimes from being installed.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 29 Jan 2025 10:38:00 -0500
+
+nx-desktop-settings-legacy (5.9.0)  nitrux; urgency=medium
+
   * Fix icon used in notification when installing HGl.
   * Update cleanup-appimagekit-launchers script to also remove bauh unwanted launcher.
   * Update script to install bauh appimage to also create a desktop launcher.

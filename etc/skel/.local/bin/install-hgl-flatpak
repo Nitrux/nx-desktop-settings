@@ -43,9 +43,9 @@ notify-send -a "System Message" -i "heroic" "Installation complete."
 
 # -- Install additional runtimes.
 
-notify-send -a "System Message" -i "steam" "Installing additional runtimes in the background, please wait..."
+notify-send -a "System Message" -i "heroic" "Installing additional runtimes in the background, please wait..."
 
-SDK_VERSION="$(flatpak info com.valvesoftware.Steam | grep "Sdk:" | awk -F'/' '{print $3}')"
+SDK_VERSION="$(flatpak info $FPK_APP | grep "Sdk:" | awk -F'/' '{print $3}')"
 
 flatpak install -y --user "runtime/org.freedesktop.Platform.VulkanLayer.MangoHud/x86_64/$SDK_VERSION"
 flatpak install -y --user "runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt/x86_64/$SDK_VERSION"
