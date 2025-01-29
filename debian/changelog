@@ -1,4 +1,4 @@
-nx-desktop-settings-legacy (5.9.0)  nitrux; urgency=medium
+nx-desktop-settings-legacy (5.9.1)  nitrux; urgency=medium
 
   * Fix typos in bottles and hgl install scripts that would prevent the matching mangohud and vkbasalt runtimes from being installed.
 
