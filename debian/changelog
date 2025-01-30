@@ -1,3 +1,11 @@
+nx-desktop-settings-legacy (5.9.2)  nitrux; urgency=medium
+
+  * Adjust the max Intel P-state performance on battery to 70 percent.
+  * Update TLP settings to enable display panel Adaptive Backlight Modulation (ABM).
+  * Update TLP settings to define disk devices to which to apply power management.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 30 Jan 2025 16:41:00 -0500
+
 nx-desktop-settings-legacy (5.9.1)  nitrux; urgency=medium
 
   * Fix typos in bottles and hgl install scripts that would prevent the matching mangohud and vkbasalt runtimes from being installed.
@@ -46,7 +54,7 @@ nx-desktop-settings-legacy (5.8.5)  nitrux; urgency=medium
 nx-desktop-settings-legacy (5.8.4)  nitrux; urgency=medium
 
   * Adjust scaling governor for Intel processors to userspace, again.
-  * Adjust the min Intel P-state performance to 10 percent.
+  * Adjust the min Intel P-state performance on battery to 10 percent.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 25 Jan 2025 11:10:00 -0500
 
