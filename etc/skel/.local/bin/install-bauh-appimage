@@ -66,31 +66,27 @@ appimage_file=$(download_appimage "bauh-0.10.7-x86_64.AppImage" "https://github.
 
 mv "$appimage_file" "$HOME/Applications/"
 
+# -- Get absolute path for the AppImage.
+
+APPIMAGE_PATH="$HOME/Applications/bauh-0.10.7-x86_64.AppImage"
+
 
 # -- Create a desktop launcher for Bauh.
 
-cat > "$HOME/.local/share/applications/Bauh.desktop" << 'EOF'
+cat > "$HOME/.local/share/applications/Bauh.desktop" << EOF
 [Desktop Entry]
-Categories=System;
-Comment[es_MX]=Instalar y eliminar aplicaciones (AppImage, Arch, Flatpak, Snap, Web)
-Comment=Instalar y eliminar aplicaciones (AppImage, Arch, Flatpak, Snap, Web)
-Comment[ca]=Instal·lar i eliminar aplicacions (AppImage, Arch, Flatpak, Snap, Web)
-Comment[de]=Anwendungen installieren und entfernen (AppImage, Arch, Flatpak, Snap, Web)
-Comment[it]=Installa e rimuovi applicazioni (AppImage, Arch, Flatpak, Snap, Web)
-Comment[pt]=Instale e remova aplicativos (AppImage, Arch, Flatpak, Snap, Web)
-Comment[ru]=Установка и удаление приложений (AppImage, Arch, Flatpak, Snap, Web)
-Comment[tr]=Uygulama yükle/kaldır (AppImage, Arch, Flatpak, Snap, Web)
-Exec=$HOME/Applications/bauh-0.10.7-x86_64.AppImage
-GenericName[es_MX]=Gestor de Software
-GenericName=Software Manager
-Icon=appimagekit_5f798979e7e257d0d7f447ef370fa46f_bauh
-Name[es_MX]=Bauh
 Name=Bauh
-StartupNotify=true
+Comment=Install and remove applications (AppImage, Arch, Flatpak, Snap, Web)
+Exec=$APPIMAGE_PATH %U
+TryExec=$APPIMAGE_PATH
+Keywords=bauh;software;repository;package;install;remove;update;apps;applications;appimage;
 Terminal=false
-TryExec=$HOME/Applications/bauh-0.10.7-x86_64.AppImage
 Type=Application
-X-KDE-SubstituteUID=false
+GenericName=Software Manager
+Categories=Qt;KDE;System;
+StartupNotify=true
+Icon=appimagekit_5f798979e7e257d0d7f447ef370fa46f_bauh
+MimeType=application/vnd.appimage;application/x-executable;
 EOF
 
 notify-send -a "System Message" -i "appimage-cli-manager" "Desktop launcher for Bauh has been created successfully."
@@ -102,9 +98,9 @@ kioclient5 exec /etc/xdg/autostart/appimagekit-appimaged.desktop &
 notify-send -a "System Message" -i "appimage-cli-manager" "Installation complete."
 
 
-# -- Clean up install script if Bauh was installed successfully.
+# -- Clean up the install script if Bauh was installed successfully.
 
-if [ -f "$HOME/Applications/bauh-0.10.7-x86_64.AppImage" ]; then
+if [ -f "$APPIMAGE_PATH" ]; then
     rm "$HOME/.local/bin/install-bauh-appimage"
     rm "$HOME/.local/share/applications/install.bauh.desktop"
 fi

@@ -1,9 +1,15 @@
+nx-desktop-settings-legacy (5.9.5)  nitrux; urgency=medium
+
+  * Fix the Bauh install script, again.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 01 Feb 2025 09:58:00 -0500
+
 nx-desktop-settings-legacy (5.9.4)  nitrux; urgency=medium
 
   * Fix unknown function in overlay-envycontrol.
   * Fix unused variable in overlay-envycontrol.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Sat, 01 Deb 2025 00:12:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 01 Feb 2025 00:12:00 -0500
 
 nx-desktop-settings-legacy (5.9.4)  nitrux; urgency=medium
 
