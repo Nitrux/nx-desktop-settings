@@ -85,7 +85,7 @@ Type=Application
 GenericName=Software Manager
 Categories=Qt;KDE;System;
 StartupNotify=true
-Icon=appimagekit_5f798979e7e257d0d7f447ef370fa46f_bauh
+Icon=appimage-cli-manager
 MimeType=application/vnd.appimage;application/x-executable;
 EOF
 

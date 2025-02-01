@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.9.6)  nitrux; urgency=medium
+
+  * Fix the Bauh install script, again.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 01 Feb 2025 10:24:00 -0500
+
 nx-desktop-settings-legacy (5.9.5)  nitrux; urgency=medium
 
   * Fix the Bauh install script, again.
