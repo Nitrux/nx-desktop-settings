@@ -58,7 +58,7 @@ TARGET_DIST="nitrux"
 # -- Exit if the value is not 'nitrux'.
 
 if [[ "$CURRENT_DIST" == "$TARGET_DIST" ]]; then
-	puts_success "This utility is running in $(echo "$TARGET_DIST" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}'), continuing..."
+	echo "This utility is running in $(echo "$TARGET_DIST" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}'), continuing..."
 else
 	notify-send -a "$TOOL_NAME" -u critical --action=Understood -i "preferences-system-login" "$TOOL_NAME is intended to work exclusively in $(echo "$TARGET_DIST" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')." "Using this utility in $(echo "$CURRENT_DIST" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}') will break it and not work at all, quitting."
 	exit 1

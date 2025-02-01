@@ -1,5 +1,11 @@
 nx-desktop-settings-legacy (5.9.4)  nitrux; urgency=medium
 
+  * Fix unknown function in overlay-envycontrol.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 01 Deb 2025 00:12:00 -0500
+
+nx-desktop-settings-legacy (5.9.4)  nitrux; urgency=medium
+
   * Add overlay-envycontrol to handle Opetimus GPU switching using Optimus GPU Switcher.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Fri, 31 Jan 2025 21:40:00 -0500
