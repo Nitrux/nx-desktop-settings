@@ -72,6 +72,6 @@ overlay_ch mount -t devtmpfs dev /dev
 overlay_ch mount -t auto "$(findfs LABEL=NX_VAR_LIB)" /var/lib
 overlay_ch envycontrol "$@"
 overlay_ch sync
-overlay_ch umount /var/lib /dev
+overlay_ch umount /dev /var/lib
 
 #   ====== END ======
