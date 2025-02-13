@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.9.7)  nitrux; urgency=medium
+
+  * Update sysctl configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 12 Feb 2025 18:41:00 -0500
+
 nx-desktop-settings-legacy (5.9.6)  nitrux; urgency=medium
 
   * Fix the Bauh install script, again.
