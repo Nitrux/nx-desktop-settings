@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (5.9.8)  nitrux; urgency=medium
+
+  * Add bauh configuration.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 15 Feb 2025 12:04:00 -0500
+
 nx-desktop-settings-legacy (5.9.7)  nitrux; urgency=medium
 
   * Update sysctl configuration.
