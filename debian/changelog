@@ -1,3 +1,12 @@
+nx-desktop-settings-legacy (6.0.0)  nitrux; urgency=medium
+
+  * Update sysctl configuration.
+  * Add udev rule fro ntsync.
+  * Add module configuration for v4l2loopback.
+  * Add PipeWire configuration file for wine64-preloader.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 24 Feb 2025 11:31:00 -0500
+
 nx-desktop-settings-legacy (5.9.9)  nitrux; urgency=medium
 
   * Update gameomode configuration to renice processes to the max and park and pin CPU cores.
