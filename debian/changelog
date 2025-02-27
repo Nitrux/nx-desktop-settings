@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (6.0.3)  nitrux; urgency=medium
+
+  * Rename config file for nvidia module.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 27 Feb 2025 13:41:00 -0500
+
 nx-desktop-settings-legacy (6.0.2)  nitrux; urgency=medium
 
   * Add config file for nvidia and nvidia-drm modules.
