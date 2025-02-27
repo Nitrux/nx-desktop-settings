@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (6.0.3)  nitrux; urgency=medium
+
+  * Remove config file for nvidia and nvidia-drm modules.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 26 Feb 2025 21:25:00 -0500
+
 nx-desktop-settings-legacy (6.0.2)  nitrux; urgency=medium
 
   * Add config file for nvidia and nvidia-drm modules.
