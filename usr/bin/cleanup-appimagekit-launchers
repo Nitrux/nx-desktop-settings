@@ -34,7 +34,7 @@ clean_launchers_log="$HOME/.clean-launchers.log"
 
 # -- Remove these launchers from the home.
 
-( 
+(
   sleep 3
 
   while true; do
@@ -44,20 +44,18 @@ clean_launchers_log="$HOME/.clean-launchers.log"
       files=$(find "$directory" -type f -name "appimagekit_*${keyword}*.desktop")
       if [ -n "$files" ]; then
         no_files_found=false
-        echo "Files found for keyword '$keyword':"
-        echo "$files"
-        echo "Deleting..."
+        echo "Files found for keyword '$keyword':" | tee -a "$clean_launchers_log"
+        echo "$files" | tee -a "$clean_launchers_log"
+        echo "Deleting..." | tee -a "$clean_launchers_log"
         echo "$files" | xargs rm -f
       fi
     done
 
     if "$no_files_found"; then
-      break
+      echo "No matching launchers found. Sleeping..." | tee -a "$clean_launchers_log"
     fi
 
-    sleep 2
+    sleep 60 
   done
-
-  echo "Cleanup completed. Specified .desktop files have been removed if they existed."
 
 ) 2>&1 | tee -a "$clean_launchers_log"
