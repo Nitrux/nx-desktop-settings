@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (6.0.4)  nitrux; urgency=medium
+
+  * Remove option from extra-nvidia-options that causes suspension not to work in NVIDIA Optimus laptops.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 19 Mar 2025 01:50:00 -0500
+
 nx-desktop-settings-legacy (6.0.3)  nitrux; urgency=medium
 
   * Update cleanup-appimagekit-launchers to run constantly and cleaunp the launchers.
