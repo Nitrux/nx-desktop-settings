@@ -1,8 +1,14 @@
+nx-desktop-settings-legacy (6.0.9)  nitrux; urgency=medium
+
+  * Properly configure nvreg options in /etc/modprobe.d/nvidia-nvreg-options.conf.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 21 Mar 2025 16:54:00 -0500
+
 nx-desktop-settings-legacy (6.0.8)  nitrux; urgency=medium
 
   * Remove unused Firefox launcher.
   * Update cleanup-appimagekit-launchers to not remove the Firefox launchers since we're not including it by default anymore.
-  * Add /etc/modprobe.d/nvidia-nvreg-options whie does the following:
+  * Add /etc/modprobe.d/nvidia-nvreg-options.conf whie does the following:
       - Prevents the NVIDIA driver from deallocating video memory when switching virtual terminals or going into suspend.
       - Enables usage of the CPU's Page Attribute Table (PAT) instead of MTRR for managing memory caching.
 
