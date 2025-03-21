@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (6.0.6)  nitrux; urgency=medium
+
+  * Update plasma-org.kde.plasma.desktop-appletsrc to match look-and-feel layouts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Wed, 19 Mar 2025 13:28:00 -0500
+
 nx-desktop-settings-legacy (6.0.5)  nitrux; urgency=medium
 
   * Remove config file for nvidia and nvidia-drm modules.
@@ -39,7 +45,7 @@ nx-desktop-settings-legacy (6.0.0)  nitrux; urgency=medium
 
 nx-desktop-settings-legacy (5.9.9)  nitrux; urgency=medium
 
-  * Update gameomode configuration to renice processes to the max and park and pin CPU cores.
+  * Update gamemode configuration to renice processes to the max and park and pin CPU cores.
 
  -- Uri Herrera <uri_herrera@nxos.org>  Sat, 15 Feb 2025 23:26:00 -0500
 
