@@ -28,7 +28,7 @@ set -eu
 # -- Variables.
 
 directory="$HOME/.local/share/applications"
-keywords=("clip" "buho" "NX_Software_Center" "Firefox" "pix" "vvave" "Hardware_Probe" "strike" "VMetal" "bonsai" "shelf" "nota" "bauh")
+keywords=("clip" "buho" "NX_Software_Center" "pix" "vvave" "Hardware_Probe" "strike" "VMetal" "bonsai" "shelf" "nota" "bauh")
 clean_launchers_log="$HOME/.clean-launchers.log"
 
 
