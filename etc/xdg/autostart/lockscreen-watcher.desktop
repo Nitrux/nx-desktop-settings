@@ -1,10 +1,10 @@
 [Desktop Entry]
 Comment=
-Exec=cleanup-appimagekit-launchers
+Exec=lockscreen-watcher
 GenericName=
 Icon=preferences-desktop
 MimeType=
-Name=cleanup-appimagekit-launchers
+Name=lockscreen-watcher
 Path=
 StartupNotify=true
 Terminal=false

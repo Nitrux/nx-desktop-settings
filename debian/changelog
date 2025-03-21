@@ -1,3 +1,10 @@
+nx-desktop-settings-legacy (6.0.7)  nitrux; urgency=medium
+
+  * Add script that monitors when the computer enters suspension and locks the screen.
+  * Add default configuration for Plasma power management.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Fri, 21 Mar 2025 03:35:00 -0500
+
 nx-desktop-settings-legacy (6.0.6)  nitrux; urgency=medium
 
   * Update plasma-org.kde.plasma.desktop-appletsrc to match look-and-feel layouts.
