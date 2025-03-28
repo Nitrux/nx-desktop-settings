@@ -5,7 +5,7 @@ icon=battery-charging
 value=65
 
 [AC][DPMSControl]
-idleTime=1200
+idleTime=1500
 lockBeforeTurnOff=0
 
 [AC][DimDisplay]
@@ -15,15 +15,15 @@ idleTime=900000
 lidAction=1
 powerButtonAction=8
 powerDownAction=16
-triggerLidActionWhenExternalMonitorPresent=false
+triggerLidActionWhenExternalMonitorPresent=true
 
 [AC][PowerProfile]
 profile=performance
 
-[AC][SuspendSession]
-idleTime=1800000
-suspendThenHibernate=false
-suspendType=1
+[AC][RunScript]
+idleTime=600000
+scriptCommand=/usr/bin/refresh-rate-ac
+scriptPhase=0
 
 [Battery]
 icon=battery-060
@@ -40,15 +40,20 @@ idleTime=300000
 
 [Battery][HandleButtonEvents]
 lidAction=1
-powerButtonAction=8
+powerButtonAction=1
 powerDownAction=16
-triggerLidActionWhenExternalMonitorPresent=false
+triggerLidActionWhenExternalMonitorPresent=true
 
 [Battery][PowerProfile]
 profile=balanced
 
+[Battery][RunScript]
+idleTime=600000
+scriptCommand=/usr/bin/refresh-rate-battery
+scriptPhase=0
+
 [Battery][SuspendSession]
-idleTime=900000
+idleTime=1200000
 suspendThenHibernate=false
 suspendType=1
 
@@ -56,7 +61,7 @@ suspendType=1
 icon=battery-low
 
 [LowBattery][BrightnessControl]
-value=20
+value=30
 
 [LowBattery][DPMSControl]
 idleTime=120
@@ -67,14 +72,24 @@ idleTime=60000
 
 [LowBattery][HandleButtonEvents]
 lidAction=1
-powerButtonAction=8
+powerButtonAction=1
 powerDownAction=16
-triggerLidActionWhenExternalMonitorPresent=false
+triggerLidActionWhenExternalMonitorPresent=true
 
 [LowBattery][PowerProfile]
 profile=power-saver
+
+[LowBattery][RunScript]
+idleTime=600000
+scriptCommand=/usr/bin/refresh-rate-battery
+scriptPhase=0
 
 [LowBattery][SuspendSession]
 idleTime=300000
 suspendThenHibernate=false
 suspendType=1
+
+[LowBattery][WirelessPowerSaving]
+btOption=1
+wifiOption=0
+wwanOption=0

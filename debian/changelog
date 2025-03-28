@@ -1,3 +1,11 @@
+nx-desktop-settings-legacy (6.1.1)  nitrux; urgency=medium
+
+  * Add scripts to automatically change the refresh rate of the internal display in laptops whenever the power source changes.
+  * Update powerdevil configuration to load the scripts to change the refresh rate.
+  * Update powerdevil configuration to increase the timoue to dim the screen when using ac, and low battery profiles, and disable the bluetooth when using low battery.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 27 Mar 2025 18:06:00 -0500
+
 nx-desktop-settings-legacy (6.1.0)  nitrux; urgency=medium
 
   * Update fiery configuration to open links in a new tab by default.
