@@ -35,13 +35,10 @@ log() {
 }
 
 get_modes_for_edp() {
-    kscreen-doctor -o | awk '
-        BEGIN { in_output=0; }
-        /Output eDP-1/ { in_output=1; next; }
-        /^Output/ { in_output=0; }
-        in_output && /Mode:/ { print $2 }
-    ' | sort -u
+    kscreen-doctor -o | grep "Output: .*eDP-1" | sed -n 's/.*Modes: //p' | \
+    tr ' ' '\n' | cut -d: -f2 | tr -d '!*\r' | sort -u
 }
+
 
 select_high_refresh_mode() {
     highest_res=$(printf "%s\n" "$1" | cut -d@ -f1 | sort -nr | head -n1)
@@ -51,14 +48,14 @@ select_high_refresh_mode() {
 
 # -- Change internal display refresh rate automatically.
 
-MODES=$(get_modes_for_edp)
-MODE=$(select_high_refresh_MODE "$MODES")
+modes=$(get_modes_for_edp)
+mode=$(select_high_refresh_mode "$modes")
 
-if [ -n "$MODE" ]; then
-    if kscreen-doctor output.eDP-1.mode."$MODE" 2>/dev/null; then
-        log "Applied mode $MODE"
+if [ -n "$mode" ]; then
+    if kscreen-doctor output.eDP-1.mode."$mode" 2>/dev/null; then
+        log "Applied mode $mode"
     else
-        log "Failed to apply mode $MODE"
+        log "Failed to apply mode $mode"
     fi
 else
     log "No valid mode found"

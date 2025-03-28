@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (6.1.2)  nitrux; urgency=medium
+
+  * Fix typos in scripts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Thu, 27 Mar 2025 23:02:00 -0500
+
 nx-desktop-settings-legacy (6.1.1)  nitrux; urgency=medium
 
   * Add scripts to automatically change the refresh rate of the internal display in laptops whenever the power source changes.
