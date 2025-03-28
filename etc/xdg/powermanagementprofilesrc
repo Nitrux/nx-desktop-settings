@@ -5,15 +5,15 @@ icon=battery-charging
 value=65
 
 [AC][DPMSControl]
-idleTime=1500
+idleTime=1200
 lockBeforeTurnOff=0
 
 [AC][DimDisplay]
-idleTime=900000
+idleTime=600000
 
 [AC][HandleButtonEvents]
 lidAction=1
-powerButtonAction=8
+powerButtonAction=1
 powerDownAction=16
 triggerLidActionWhenExternalMonitorPresent=true
 
@@ -24,6 +24,11 @@ profile=performance
 idleTime=600000
 scriptCommand=/usr/bin/refresh-rate-ac
 scriptPhase=0
+
+[AC][SuspendSession]
+idleTime=900000
+suspendThenHibernate=false
+suspendType=1
 
 [Battery]
 icon=battery-060
@@ -53,7 +58,7 @@ scriptCommand=/usr/bin/refresh-rate-battery
 scriptPhase=0
 
 [Battery][SuspendSession]
-idleTime=1200000
+idleTime=600000
 suspendThenHibernate=false
 suspendType=1
 
@@ -61,14 +66,14 @@ suspendType=1
 icon=battery-low
 
 [LowBattery][BrightnessControl]
-value=30
+value=15
 
 [LowBattery][DPMSControl]
-idleTime=120
+idleTime=300
 lockBeforeTurnOff=0
 
 [LowBattery][DimDisplay]
-idleTime=60000
+idleTime=120000
 
 [LowBattery][HandleButtonEvents]
 lidAction=1
