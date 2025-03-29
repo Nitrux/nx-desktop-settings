@@ -39,6 +39,19 @@ get_modes_for_edp() {
     tr ' ' '\n' | cut -d: -f2 | tr -d '!*\r' | sort -u
 }
 
+get_current_mode_for_edp() {
+    kscreen-doctor -o | awk '
+        /Output: [0-9]+ eDP-1 / {
+            for (i = 1; i <= NF; i++) {
+                if ($i ~ /@[0-9]+$/) {
+                    print $i
+                    exit
+                }
+            }
+        }
+    '
+}
+
 
 select_high_refresh_mode() {
     highest_res=$(printf "%s\n" "$1" | cut -d@ -f1 | sort -nr | head -n1)
@@ -50,8 +63,13 @@ select_high_refresh_mode() {
 
 modes=$(get_modes_for_edp)
 mode=$(select_high_refresh_mode "$modes")
+current_mode=$(get_current_mode_for_edp)
 
 if [ -n "$mode" ]; then
+    if [ "$mode" = "$current_mode" ]; then
+        log "Mode $mode already active, skipping"
+        exit 0
+    fi
     if kscreen-doctor output.eDP-1.mode."$mode" 2>/dev/null; then
         log "Applied mode $mode"
     else
