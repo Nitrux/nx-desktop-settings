@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (6.1.6)  nitrux; urgency=medium
+
+  * Update ac refresh rate script.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 29 Mar 2025 03:52:00 -0500
+
 nx-desktop-settings-legacy (6.1.5)  nitrux; urgency=medium
 
   * Update ac refresh rate script.
