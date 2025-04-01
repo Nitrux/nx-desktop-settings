@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (6.1.7)  nitrux; urgency=medium
+
+  * Fix overlay-envycontrol not working due to pkexec not locating overlayroot-chroot.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 31 Mar 2025 20:53:00 -0500
+
 nx-desktop-settings-legacy (6.1.6)  nitrux; urgency=medium
 
   * Update ac refresh rate script.
