@@ -31,19 +31,32 @@ set -eu
 # -- Set program name.
 
 TOOL_NAME="overlay-envycontrol"
+LOG_FILE="/tmp/${TOOL_NAME}.log"
+
+log() {
+	echo "[$(date '+%F %T')] $*" >> "$LOG_FILE"
+}
 
 
 # -- Functions.
 
 overlay_ch() {
-	local ROOT=("pkexec" "overlayroot-chroot" "$@")
+	local ROOT=("pkexec" "/usr/sbin/overlayroot-chroot" "$@")
 
 	if ! command -v "${ROOT[0]}" >/dev/null 2>&1; then
-		puts_error "Error: '${ROOT[0]}' command not found. Please make sure it's installed and try again, quitting."
+		echo "[$(date '+%F %T')] Error: '${ROOT[0]}' command not found." >> "$LOG_FILE"
+		echo "Error: '${ROOT[0]}' command not found. Please make sure it's installed and try again." >> "$LOG_FILE"
 		return 1
 	fi
 
-	"${ROOT[@]}"
+	{
+		echo "[$(date '+%F %T')] Running command: ${ROOT[*]}"
+		"${ROOT[@]}"
+		echo "[$(date '+%F %T')] Command succeeded: ${ROOT[*]}"
+	} >> "$LOG_FILE" 2>&1 || {
+		echo "[$(date '+%F %T')] Command failed: ${ROOT[*]}" >> "$LOG_FILE"
+		return 1
+	}
 }
 
 
@@ -69,9 +82,18 @@ fi
 # -- Pass the arguments to the EnvyControl executable.
 
 overlay_ch mount -t devtmpfs dev /dev
-overlay_ch mount -t auto "$(findfs LABEL=NX_VAR_LIB)" /var/lib
+
+NX_VAR_LIB_DEVICE="$(/usr/sbin/findfs LABEL=NX_VAR_LIB 2>/dev/null || true)"
+
+if [[ -z "$NX_VAR_LIB_DEVICE" ]]; then
+	log "Error: LABEL=NX_VAR_LIB not found by findfs"
+	echo "Error: LABEL=NX_VAR_LIB not found, quitting." >> "$LOG_FILE"
+	exit 1
+fi
+
+overlay_ch mount -t auto "$NX_VAR_LIB_DEVICE" /var/lib
+
 overlay_ch envycontrol "$@"
 overlay_ch sync
-overlay_ch umount /dev /var/lib
 
 #   ====== END ======
