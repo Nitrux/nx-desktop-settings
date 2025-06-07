@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (6.1.8)  nitrux; urgency=medium
+
+  * Move system configuration to another package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 07 Jun 2025 15:54:00 -0500
+
 nx-desktop-settings-legacy (6.1.7)  nitrux; urgency=medium
 
   * Fix overlay-envycontrol not working due to pkexec not locating overlayroot-chroot.
