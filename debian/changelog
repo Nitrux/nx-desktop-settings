@@ -1,3 +1,9 @@
+nx-desktop-settings-legacy (6.1.9)  nitrux; urgency=medium
+
+  * Remove outdated configuration files.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Mon, 09 Jun 2025 12:04:00 -0500
+
 nx-desktop-settings-legacy (6.1.8)  nitrux; urgency=medium
 
   * Move system configuration to another package.

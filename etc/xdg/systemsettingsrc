@@ -1,6 +1,0 @@
-[Main]
-ActiveView=icon_mode
-
-[MainWindow]
-MenuBar=Disabled
-ToolBarsMovable=Disabled
