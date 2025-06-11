@@ -10,7 +10,6 @@ Homepage: http://nx-desktop.org
 Package: nx-desktop-settings
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: nx-desktop-settings
 Description: Defaults settings for NX Desktop
  Default settings for:
   - Hyprland
