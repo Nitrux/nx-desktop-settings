@@ -1,3 +1,9 @@
+nx-desktop-settings (6.2.0)  nitrux; urgency=medium
+
+  * Rename package.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Tue, 10 Jun 2025 18:57:00 -0500
+
 nx-desktop-settings-legacy (6.1.9)  nitrux; urgency=medium
 
   * Remove outdated configuration files.
