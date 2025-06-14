@@ -10,7 +10,4 @@ Homepage: http://nx-desktop.org
 Package: nx-desktop-settings
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Defaults settings for NX Desktop
- Default settings for:
-  - Hyprland
-
+Description: Defaults settings for Nitrux.
