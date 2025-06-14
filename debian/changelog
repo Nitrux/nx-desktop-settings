@@ -1,8 +1,8 @@
-nx-desktop-settings (6.2.0)  nitrux; urgency=medium
+nitrux-desktop-settings (6.2.0)  nitrux; urgency=medium
 
   * Rename package.
 
- -- Uri Herrera <uri_herrera@nxos.org>  Tue, 10 Jun 2025 18:57:00 -0500
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 14 Jun 2025 01:26:00 -0500
 
 nx-desktop-settings-legacy (6.1.9)  nitrux; urgency=medium
 
