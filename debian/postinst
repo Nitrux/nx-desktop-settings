@@ -1,37 +1,40 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
-set -x
+#############################################################################################################################################################################
+#   The license used for this file and its contents is: BSD-3-Clause                                                                                                        #
+#                                                                                                                                                                           #
+#   Copyright <2025> <Uri Herrera <uri_herrera@nxos.org>>                                                                                                                   #
+#                                                                                                                                                                           #
+#   Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:                          #
+#                                                                                                                                                                           #
+#    1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.                                        #
+#                                                                                                                                                                           #
+#    2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer                                      #
+#       in the documentation and/or other materials provided with the distribution.                                                                                         #
+#                                                                                                                                                                           #
+#    3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software                    #
+#       without specific prior written permission.                                                                                                                          #
+#                                                                                                                                                                           #
+#    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,                      #
+#    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS                  #
+#    BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE                 #
+#    GOODS OR SERVICES; LOSS OF USE, DATA,   OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,                      #
+#    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.   #
+#############################################################################################################################################################################
 
 
-#	remove stupid things from Plasma, generic KDE launchers, breeze cursors, etc.
-
-rm -rf \
-	/usr/share/applications/{htop.desktop,ibus-setup*,info.desktop,links2.desktop,mc.desktop,mcedit.desktop,micro.desktop,nsnake.desktop,org.freedesktop.IBus*,org.kde.kdeconnect.app.desktop,org.kde.kdeconnect.sms.desktop,org.kde.kdeconnect_open.desktop,org.kde.kinfocenter.desktop,org.kde.plasma.emojier.desktop,rofi.desktop,rofi-theme-selector.desktop}
-
-
-
-#	let nsnake be reachable through $PATH.
-
-ln -svf /usr/games/nsnake /usr/bin/nsnake
-
-
-#	add oh-my-zsh.
+# -- Add oh-my-zsh.
 
 git clone -- https://github.com/ohmyzsh/ohmyzsh.git /etc/skel/.oh-my-zsh
 
 
-#	add powerline10k to zsh.
+# -- Add p10k for OhMyZSH.
 
 mkdir -p /etc/skel/.oh-my-zsh/custom/themes/powerlevel10k
 git clone --depth=1 -- https://github.com/romkatv/powerlevel10k.git /etc/skel/.oh-my-zsh/custom/themes/powerlevel10k
 
 
-#	add our Konsole colorscheme to qmltermwidget path.
-
-wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.colorscheme https://raw.githubusercontent.com/nx-desktop/nx-plasma-look-and-feel/master/konsole/Nitrux.colorscheme
-
-
-#	add xdg_dir environment variables.
+# -- Add xdg_dir environment variables.
 
 { 
   echo 'XDG_CONFIG_DIRS=/etc/xdg'
@@ -41,38 +44,25 @@ wget -qO /usr/lib/x86_64-linux-gnu/qt5/qml/QMLTermWidget/color-schemes/Nitrux.co
 } >> /etc/environment
 
 
-#	add /Applications to sudoers.
+# -- Add /Applications to sudoers.
 
 sed -i "s|secure_path\=.*$|secure_path=\"$PATH:/Applications\"|g" /etc/sudoers
 sed -i "/env_reset/d" /etc/sudoers
 
 
-#	use zsh in userland.
+# -- Use zsh in userland.
 
 sed -i 's+SHELL=/bin/sh+SHELL=/bin/zsh+g' /etc/default/useradd
 sed -i 's+DSHELL=/bin/bash+DSHELL=/bin/zsh+g' /etc/adduser.conf
 
 
-#	force set nitrux_cursors as the default x-cursor-theme.
+#	-- Force set nitrux_cursors as the default x-cursor-theme.
 
 cp /usr/share/icons/nitrux_snow_cursors/index.theme /etc/X11/cursors/nitrux_cursors.theme
 ln -svf /etc/X11/cursors/nitrux_cursors.theme /etc/alternatives/x-cursor-theme
 sed -i '$ a Inherits=nitrux_snow_cursors' /etc/X11/cursors/nitrux_cursors.theme
 
 
-#	overwrite file from bash.
+#	-- Overwrite file from bash.
 
 $(which cp) -rf /etc/skel/.bak.bashrc /etc/skel/.bashrc
-
-
-#	set user password expiration /etc/login.defs. See https://cisofy.com/lynis/controls/AUTH-9282/
-
-sed -E -i 's+PASS_MAX_DAYS[[:blank:]]99999+PASS_MAX_DAYS	90+g' /etc/login.defs
-sed -E -i 's+PASS_MIN_DAYS[[:blank:]]0+PASS_MIN_DAYS	7+g' /etc/login.defs
-sed -E -i 's+PASS_WARN_AGE[[:blank:]]7+PASS_WARN_AGE	5+g' /etc/login.defs
-
-
-#	increase size of hashing rounds in /etc/login.defs. See https://cisofy.com/lynis/controls/AUTH-9230/
-
-sed -i 's+#SHA_CRYPT_MIN_ROUNDS 5000+SHA_CRYPT_MIN_ROUNDS 640000+g' /etc/login.defs
-sed -i 's+#SHA_CRYPT_MAX_ROUNDS 5000+SHA_CRYPT_MAX_ROUNDS 640000+g' /etc/login.defs

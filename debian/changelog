@@ -1,3 +1,9 @@
+nitrux-desktop-settings (6.2.1)  nitrux; urgency=medium
+
+  * Clean maintainer scripts.
+
+ -- Uri Herrera <uri_herrera@nxos.org>  Sat, 14 Jun 2025 02:06:00 -0500
+
 nitrux-desktop-settings (6.2.0)  nitrux; urgency=medium
 
   * Rename package.

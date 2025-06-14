@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: nx-desktop-settings
-Source: https://github.com/Nitrux/nx-desktop-settings.git
+Upstream-Name: nitrux-desktop-settings
+Source: https://github.com/Nitrux/nitrux-desktop-settings.git
 
 Files: *
 Copyright: 2017 Alexis López Zubieta <azubieta90@gmail.com>
